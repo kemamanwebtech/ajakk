@@ -26,6 +26,8 @@ public class LoginDAO {
 				+ " WHERE A.USER_NAME = ? "
 				+ " AND B.ACCESS_PASS = ? ";
 		
+		result = new LoginDTO();
+		
 		try {
 			PreparedStatement pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, userName);
@@ -34,7 +36,6 @@ public class LoginDAO {
 			ResultSet rs = pstmt.executeQuery();
 			
 			if (rs.next()) {
-				result = new LoginDTO();
 				result.setUserID(rs.getInt("AJAKK_USER_ID"));
 				result.setUserStatus(rs.getString("STATUS"));
 				return result;

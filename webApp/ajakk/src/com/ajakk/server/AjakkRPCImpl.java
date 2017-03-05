@@ -18,10 +18,10 @@ public class AjakkRPCImpl extends RemoteServiceServlet implements AjakkRPC {
 	
 	public LoginDTO doLogin(String userName, String passwd) throws IllegalArgumentException {
 		
-		// Verify that the input is valid. 
-		if (!FieldVerifier.isValidUserName(userName) || !FieldVerifier.isValidPasswd(passwd)) {
-			throw new IllegalArgumentException("Fields must not be empty");
-		}
+//		// Verify that the input is valid. 
+//		if (!FieldVerifier.isValidUserName(userName) || !FieldVerifier.isValidPasswd(passwd)) {
+//			throw new IllegalArgumentException("Fields must not be empty");
+//		}
 		
 		LoginDAO loginDAO = daoFactory.getLoginDAO();
 		return loginDAO.checkLogin(daoFactory.getConnection(),userName, passwd);
