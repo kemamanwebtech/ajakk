@@ -47,7 +47,7 @@ public class LoginDAO {
 		
 		// for invalid login,
 		result.setUserID(0);
-		result.setUserStatus("Invalid Login");
+		result.setUserStatus("Invalid");
 		return result;
 	}
 }

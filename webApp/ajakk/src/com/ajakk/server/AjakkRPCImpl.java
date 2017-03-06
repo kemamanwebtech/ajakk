@@ -5,7 +5,7 @@ import java.sql.Connection;
 import com.ajakk.portal.AjakkRPC;
 import com.ajakk.server.dao.FactoryDAO;
 import com.ajakk.server.dao.LoginDAO;
-import com.ajakk.shared.FieldVerifier;
+import com.ajakk.shared.FieldValidator;
 import com.ajakk.shared.dto.LoginDTO;
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;
 
