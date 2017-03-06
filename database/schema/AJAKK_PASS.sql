@@ -24,3 +24,13 @@ create table AJAKK_PASS (
   constraint   PK_AJAKK_PASS primary key (AJAKK_USER_ID)
 )
 comment = 'Credentials of Ajakk users.';
+
+-- insert dummy data
+INSERT INTO AJAKK_PASS 
+(AJAKK_USER_ID, ACCESS_PASS)
+VALUES 
+(1, "password"),
+(2, "password"),
+(3, "password"),
+(4, "password"),
+(5, "password");

@@ -21,7 +21,8 @@ create table AJAKK_USER (
   	'NotActive',  
   	'Active',
     'Blocked',
-    'Locked'
+    'Locked',
+    'Deleted'
   )                             not null                comment 'Status of the user: Active, Blocked by admin or Locked due to login failures',
   -- LANGUAGE_ID       int         not null                comment 'Preferred language of the user',
   ROLE_ID           int         not null                comment 'Role assigned to the user',
@@ -33,3 +34,13 @@ create table AJAKK_USER (
   constraint PK_AJAKK_USER primary key (AJAKK_USER_ID)
 )
 comment = 'Basic data of a AJAKK user';
+
+-- insert dummy users
+INSERT INTO AJAKK_USER 
+(USER_NAME, STATUS, UPDATED, ROLE_ID)
+VALUES 
+("acive", "Active", NOW(), 0),
+("blocked", "Blocked", NOW(), 0),
+("locked", "Locked", NOW(), 0),
+("deleted", "Delected", NOW(), 0),
+("nonactive", "NonActive", NOW(), 0);
