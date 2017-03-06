@@ -1,13 +1,37 @@
+/*
+ * To keep configuration, properties, common messages etc
+ */
 package com.ajakk.portal.util;
 
 public class AjakkConfig {
 	/**
 	 * List of static Strings
 	 */
-	public static final String SERVER_ERROR = "An error occurred while "
-			+ "attempting to contact the server. Please check your network " 
-			+ "connection and try again.";
+	public static final String SERVER_ERROR = 
+		"<p>An error occurred while attempting to contact the</p>"
+	+   "<p>server. Please check your network connection and try again.</p>";
 	
+	public static final String AUTH_ERROR = 
+			"<p>The username and password combination that</p>"
+		  + "<p>you've entered doesn't match any account.</p>";
+	
+	public static final String ACC_BLOCKED = 
+			"<p>Your account has been blocked. Please contact</p>"
+		  + "<p>Ajakk support team for more information.</p>";
+	
+	public static final String ACC_LOCKED = 
+			"<p>Your account has been locked for an hour due to </p>"
+		  + "<p>multiple invalid login attempts.</p>";
+	
+	public static final String ACC_DELETED = 
+			"<p>Your account apparently has been deleted. If you think</p>"
+		  + "<p>this is wrong, please contact Ajakk support team immediately.</p>";
+
+	public static final String ACC_NOTACTIVE = 
+			"<p>Your account has been set to inactive. Please contact</p>"
+		  + "<p>Ajakk support team for more information.</p>";
+					
+	// database connection properties
 	String dbHost;
 	String dbName;
 	String dbUserName;
@@ -16,7 +40,7 @@ public class AjakkConfig {
 	public AjakkConfig(){
 		
 		// TODO : load the configs from file system instead of hardcode here
-		
+		// initiate properties here
 		dbHost="localhost";
 		dbName="ajakk";
 		dbUserName="root";
