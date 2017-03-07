@@ -2,6 +2,7 @@ package com.ajakk.shared.dto;
 
 import java.io.Serializable;
 
+@SuppressWarnings("serial")
 public class LoginDTO implements Serializable {
 	int userID;
 	String userStatus;

@@ -1,11 +1,8 @@
 package com.ajakk.server;
 
-import java.sql.Connection;
-
 import com.ajakk.portal.AjakkRPC;
 import com.ajakk.server.dao.FactoryDAO;
 import com.ajakk.server.dao.LoginDAO;
-import com.ajakk.shared.FieldValidator;
 import com.ajakk.shared.dto.LoginDTO;
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;
 
@@ -31,6 +28,7 @@ public class AjakkRPCImpl extends RemoteServiceServlet implements AjakkRPC {
 	 * Escape an html string. Escaping data received from the client helps to prevent cross-site script vulnerabilities.
 	 * @return the escaped string
 	 */
+	@SuppressWarnings("unused")
 	private String escapeHtml(String html) {
 		if (html == null) {
 			return null;
