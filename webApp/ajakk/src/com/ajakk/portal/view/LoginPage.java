@@ -14,15 +14,15 @@ import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.uibinder.client.UiTemplate;
 import com.google.gwt.user.client.rpc.AsyncCallback;
-import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.DialogBox;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.RootPanel;
-import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.VerticalPanel;
 import com.google.gwt.user.client.ui.Widget;
+import org.gwtbootstrap3.client.ui.Button;
+import org.gwtbootstrap3.client.ui.TextBox;
 
 public class LoginPage extends Composite {
 	
@@ -34,10 +34,14 @@ public class LoginPage extends Composite {
 	interface LoginPageUiBinder extends UiBinder<Widget, LoginPage> {
 	}
 	
-	@UiField Button loginButton;
 	@UiField TextBox userName;
 	@UiField TextBox passwd;
+	@UiField Button loginButton;
+	@UiField Button regButton;
 	@UiField Label errorLabel;
+	
+	@UiField Button ajakkButton;
+	@UiField Button joinButton;
 	
 	DialogBox dialogBox = null;
 	Button closeButton = null;
@@ -47,6 +51,8 @@ public class LoginPage extends Composite {
 
 	public LoginPage() {
 		initWidget(uiBinder.createAndBindUi(this));
+		
+		setStyleName("body");
 		
 		// set focus to username textbox upon load
 		userName.setFocus(true);
@@ -144,7 +150,7 @@ public class LoginPage extends Composite {
 						
 					case "Active":
 						dialogBox.hide();
-						RootPanel.get().remove(App.getHomePage());
+						RootPanel.get().remove(App.getLoginPage());
 						RootPanel.get().add(App.getHomePage());
 						break;					
 				}			
