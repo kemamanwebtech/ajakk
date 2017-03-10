@@ -13,7 +13,23 @@
 
   <!-- Other module inherits                                      -->
   <inherits name="org.gwtbootstrap3.GwtBootstrap3"/>
-  <!--   <inherits name="org.gwtbootstrap3.extras"/> -->
+  <!-- inherits gwtbootstrap3.extras  -->
+  <inherits name="org.gwtbootstrap3.extras.datetimepicker.DateTimePicker"/>
+    <inherits name="org.gwtbootstrap3.extras.datepicker.DatePicker"/>
+    <inherits name="org.gwtbootstrap3.extras.bootbox.Bootbox"/>
+    <inherits name="org.gwtbootstrap3.extras.card.Card"/>
+    <inherits name="org.gwtbootstrap3.extras.slider.Slider"/>
+    <inherits name="org.gwtbootstrap3.extras.toggleswitch.ToggleSwitch"/>
+    <inherits name="org.gwtbootstrap3.extras.summernote.Summernote"/>
+    <inherits name="org.gwtbootstrap3.extras.select.Select"/>
+    <inherits name="org.gwtbootstrap3.extras.typeahead.Typeahead"/>
+    <inherits name="org.gwtbootstrap3.extras.positionedtabs.PositionedTabs"/>
+    <inherits name="org.gwtbootstrap3.extras.respond.Respond"/>
+    <inherits name="org.gwtbootstrap3.extras.notify.Notify"/>
+    <inherits name="org.gwtbootstrap3.extras.animate.Animate"/>
+    <inherits name="org.gwtbootstrap3.extras.fullcalendar.FullCalendar"/>
+    <inherits name="org.gwtbootstrap3.extras.gallery.Gallery"/>
+    <inherits name="org.gwtbootstrap3.extras.tagsinput.TagsInput"/>  
   
   
   <!-- Specify the app entry point class.                         -->

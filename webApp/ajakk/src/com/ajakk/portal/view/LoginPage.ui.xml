@@ -12,10 +12,6 @@
 		font-weight: normal;
 	}
 	
-	.bgd { 
-  		background: radial-gradient(circle, darken(dodgerblue, 10%), #1f4f96, #1b2949, #000);
-	}
-	
 	.body {
 		background: #1b2949;
         /* background: #292929; */
@@ -69,7 +65,7 @@
 	
 	</ui:style>
 	
-	<g:HTMLPanel styleName="{style.bgd}">
+	<g:HTMLPanel>
 
 	<table class="{style.table}">
 		<tr>    

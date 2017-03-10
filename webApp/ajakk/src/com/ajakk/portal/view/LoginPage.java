@@ -150,7 +150,8 @@ public class LoginPage extends Composite {
 						
 					case "Active":
 						dialogBox.hide();
-						RootPanel.get().remove(App.getLoginPage());
+						RootPanel.get().clear();
+						RootPanel.get().setStyleName("fullWidth");
 						RootPanel.get().add(App.getHomePage());
 						break;					
 				}			
