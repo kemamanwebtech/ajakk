@@ -1,102 +1,116 @@
 <!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
-<ui:UiBinder 
-	xmlns:ui="urn:ui:com.google.gwt.uibinder"
-	xmlns:g="urn:import:com.google.gwt.user.client.ui"
-	xmlns:b="urn:import:org.gwtbootstrap3.client.ui"
-	xmlns:card="urn:import:org.gwtbootstrap3.extras.card.client.ui" >
-
-
-	<ui:style>
-	
-	@font-face {
-    	font-family: KaushanScript-Regular;
-    	src: url('KaushanScript-Regular.ttf') format('ttf'), url('KaushanScript-Regular.ttf')  format('truetype');
-	}
-	
-	.brand {
-		font-family: 'KaushanScript-Regular', serif;
-  		font-size: 60px;
-  		left: 400px;
-	}
-	
-	.navItem {
-		margin: 10px 10px 10px 10px;	
-	}
-	
-	.eventListContainer {
-		position: relative;
-    	left: 20%;
- 		border-collapse: collapse;
-			
-		padding: 5px 10px;
-  		vertical-align: center;
-  		horizontal-align: center;
-  		bottom: 0px;
-	}
-	
-	.page {
- 		margin-right: auto;
-  		margin-left: auto;
-    	background-color: #1f4f96;
-    	margin: 0px;
-    	top: 0px;
-    	left: 0px;
-	}	
-
-	.nav {
-    	width: 100%;
-  		margin-right: auto;
-  		margin-left: auto;
-  		padding-left: 0px;
-  		padding-right: 0px;
-	}
-	</ui:style>
-	
-	<g:HTMLPanel addStyleNames="{style.page}" >
-		<b:Container addStyleNames="{style.nav}">
-			<b:Navbar >
-				<b:NavbarHeader addStyleNames="{style.brand}">
-			 		<b:NavbarBrand ui:field="brand" addStyleNames="{style.navItem} {style.brand}" >Ajakk</b:NavbarBrand> 
-			 		
-			 	</b:NavbarHeader> 
-			 	<b:NavbarForm pull="LEFT" addStyleNames="{style.navItem}"> 
-			   		<b:Input ui:field="searchBox" type="TEXT" size="LARGE" addStyleNames="{style.navItem} form-control input-sm" />
-			  	</b:NavbarForm> 
-			 	<b:NavbarForm pull="RIGHT" addStyleNames="{style.navItem}"> 
-			   		<b:Button type="DANGER" size="LARGE" addStyleNames="{style.navItem}">Sign Up</b:Button> 
-			   		<b:Button type="DANGER" size="LARGE" addStyleNames="{style.navItem}" >Sign In</b:Button> 
-			  	</b:NavbarForm> 			  
-			</b:Navbar>	
-		</b:Container>
-		
-		<g:HTMLPanel addStyleNames="{style.page}">
-			<b:Modal title="Important information" b:id="modal1">
-           		<b:ModalHeader>
-             		<g:HTML>
-                 		<h4>Custom header</h4>
-             		</g:HTML>
-         		</b:ModalHeader>
-         		<b:ModalBody>
-             		<g:HTML>Lorem ipsum...</g:HTML>
-        		</b:ModalBody>
-         		<b:ModalFooter>
-             		<b:Button type="PRIMARY">Do something</b:Button>
-             		<b:Button type="DANGER" dataDismiss="MODAL">Close</b:Button>
-         		</b:ModalFooter>
-     		</b:Modal>
-     
-			<g:HTMLPanel ui:field="eventContainer"  addStyleNames="{style.eventListContainer}" >
-           		<card:Card width="200px"  >
-  					<card:Front>
-  						<g:Label>FRONT</g:Label>
-  					</card:Front>
-  					<card:Back>
-  						<g:Label>BACK</g:Label>
-  						<b:Button dataTarget="#modal1" dataToggle="MODAL">Show modal</b:Button>
-  					</card:Back>
-				</card:Card>
-			</g:HTMLPanel >
-        </g:HTMLPanel > 
-        
-    </g:HTMLPanel>    
-</ui:UiBinder> 
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder" xmlns:g="urn:import:com.google.gwt.user.client.ui" xmlns:b="urn:import:org.gwtbootstrap3.client.ui" xmlns:card="urn:import:org.gwtbootstrap3.extras.card.client.ui">
+  <ui:style>
+  @font-face {
+  	font-family: KaushanScript-Regular;
+  	src: url('KaushanScript-Regular.ttf') format('ttf'),
+  		url('KaushanScript-Regular.ttf') format('truetype');
+  }
+  
+  .title {
+  	font-family: 'KaushanScript-Regular', serif;
+  	font-size: 55px;
+  	color: #FFFFFF;
+  	background-color: #334b72 !important;
+  }
+  
+  .navItem {
+  	margin: 10px 10px 10px 10px;
+  }
+  
+  .eventContainerPanel {
+  	position: relative;
+  	width: 100%;
+  	height: 100%;
+  }
+  
+  .center {
+  	margin: auto;
+  	width: 50%;
+  	padding: 10px;
+  }
+  
+  .card {
+  	display: inline-block;
+  	width: 150px;
+  	height: 100px;
+  	margin: 10px;
+  	border: 3px solid #73AD21;
+  }
+  
+  .page {
+  	width: 100%;
+  	margin-right: auto;
+  	margin-left: auto;
+  	padding-left: 0px;
+  	padding-right: 0px;
+  }
+  
+  .nav {
+  	width: 100%;
+  	margin-right: auto;
+  	margin-left: auto;
+  	padding-left: 0px;
+  	padding-right: 0px;
+  }
+  
+  .navbar {
+  	background-color: #334b72 !important;
+  	border: 0;
+  	-webkit-box-shadow: none;
+  	box-shadow: none;
+  }
+  
+  .background-image {
+  	background-image: url('http://wallpaperus.org/wallpapers/03/103/engl-spts-2560x1920-wallpaper-1669831.jpg');
+  	background-size: contain;
+  	filter: blur(5px);
+  	-webkit-filter: blur(5px);
+  	left: 0;
+  	position: fixed;
+  	right: 0;
+  	z-index: 1;
+  }
+  
+  .content {
+  	z-index: 2;
+  	filter: none;
+  	-webkit-filter: none;
+  }
+  </ui:style>
+  <g:HTMLPanel addStyleNames="{style.page} ">
+    <g:HTMLPanel addStyleNames="{style.background-image}">
+      <b:Container addStyleNames="{style.nav} ">
+        <b:Navbar addStyleNames="{style.navbar}">
+          <b:Container addStyleNames="{style.center}">
+            <b:NavbarHeader addStyleNames="{style.title}">
+              <b:Label ui:field="brand" addStyleNames="{style.navItem} {style.title}">Ajakk</b:Label>
+            </b:NavbarHeader>
+            <b:NavbarForm pull="RIGHT" addStyleNames="{style.navItem}">
+              <b:Button type="DANGER" size="LARGE" addStyleNames="{style.navItem}">Sign Up</b:Button>
+              <b:Button type="DANGER" size="LARGE" addStyleNames="{style.navItem}">Sign In</b:Button>
+            </b:NavbarForm>
+          </b:Container>
+        </b:Navbar>
+      </b:Container>
+      <g:HTMLPanel addStyleNames="{style.page}">
+        <b:Modal title="Important information" b:id="modal1" ui:field="modal">
+          <b:ModalHeader>
+            <g:HTML>
+              <h4>Custom header</h4>
+            </g:HTML>
+          </b:ModalHeader>
+          <b:ModalBody>
+            <g:HTML>Lorem ipsum...</g:HTML>
+          </b:ModalBody>
+          <b:ModalFooter>
+            <b:Button type="PRIMARY">Do something</b:Button>
+            <b:Button type="DANGER" dataDismiss="MODAL">Close</b:Button>
+          </b:ModalFooter>
+        </b:Modal>
+        <g:HTMLPanel ui:field="eventContainerPanel" addStyleNames="{style.eventContainerPanel} {style.center} ">
+        </g:HTMLPanel>
+      </g:HTMLPanel>
+    </g:HTMLPanel>
+  </g:HTMLPanel>
+</ui:UiBinder>

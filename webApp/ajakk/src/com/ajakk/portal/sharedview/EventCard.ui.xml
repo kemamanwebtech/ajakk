@@ -1,0 +1,20 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder" xmlns:g="urn:import:com.google.gwt.user.client.ui" xmlns:b="urn:import:org.gwtbootstrap3.client.ui">
+  <ui:style>
+  .card {
+  	margin: 20px;
+  }
+  
+  .btn {
+  	display: inline-block;
+  	margin: auto;
+  	width: 80%;
+  	padding: 10px;
+  }
+  </ui:style>
+  <g:VerticalPanel>
+    <b:Image styleName="{style.card}" ui:field="imgEvent" />
+    <b:Label styleName="{style.card}" ui:field="lblEvent" />
+    <b:Button type="PRIMARY" styleName="{style.card} {style.btn}" ui:field="btnEventInfo" />
+  </g:VerticalPanel>
+</ui:UiBinder>
