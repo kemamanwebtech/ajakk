@@ -61,15 +61,14 @@
   	box-shadow: none;
   }
   
+  
   .background-image {
-  	background-image: url('http://wallpaperus.org/wallpapers/03/103/engl-spts-2560x1920-wallpaper-1669831.jpg');
-  	background-size: contain;
-  	filter: blur(5px);
-  	-webkit-filter: blur(5px);
-  	left: 0;
-  	position: fixed;
-  	right: 0;
-  	z-index: 1;
+  	background: url('http://wallpaperus.org/wallpapers/03/103/engl-spts-2560x1920-wallpaper-1669831.jpg') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  
   }
   
   .content {

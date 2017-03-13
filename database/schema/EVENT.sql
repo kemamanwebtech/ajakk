@@ -31,3 +31,17 @@ create table EVENT (
   constraint PK_EVENT primary key (EVENT_ID)
 )
 comment = 'Basic data of a AJAKK event';
+
+--Insert into EVENT
+--(NAME, DES, STATUS, OWNER_ID)
+--VALUES
+--('Futsal at Cyberjaya', 'Play futsal at Cyberjaya la', 'Active', 1 ),
+--('Futsal at Cyberjaya 1', 'Play futsal at Cyberjaya la 1', 'Active', 1 ),
+--('Futsal at Cyberjaya 2', 'Play futsal at Cyberjaya la 2', 'Active', 1 ),
+--('Futsal at Cyberjaya 3', 'Play futsal at Cyberjaya la 3', 'Active', 1 ),
+--('Futsal at Cyberjaya 4', 'Play futsal at Cyberjaya la 4', 'Active', 1 ),
+--('Futsal at Cyberjaya 5', 'Play futsal at Cyberjaya la 5', 'Active', 1 ),
+--('Futsal at Cyberjaya 6', 'Play futsal at Cyberjaya la 6', 'Active', 1 ),
+--('Futsal at Cyberjaya 7', 'Play futsal at Cyberjaya la 7', 'Active', 1 ),
+--('Futsal at Cyberjaya 8', 'Play futsal at Cyberjaya la 8', 'Active', 1 ),
+--('Futsal at Cyberjaya 9', 'Play futsal at Cyberjaya la 9', 'Active', 1 )

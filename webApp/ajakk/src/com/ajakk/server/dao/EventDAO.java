@@ -1,7 +1,9 @@
 package com.ajakk.server.dao;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
@@ -9,9 +11,9 @@ import java.util.List;
 import com.ajakk.shared.dto.EventDTO;
 
 @SuppressWarnings("serial")
-public class EventDAO extends EventDTO {
+public class EventDAO {
 
-    List<EventDAO> eventList = new ArrayList<EventDAO>();
+    List<EventDTO> eventList = new ArrayList<EventDTO>();
 
     Connection con  = null;
     Statement  stmt = null;
@@ -22,40 +24,40 @@ public class EventDAO extends EventDTO {
      * No filter, hence no params needed. Connection will be provided by
      * FactoryDAO
      */
-    public List<EventDAO> getEvents(Connection con) {
-
+    public List<EventDTO> getAllEvents(Connection con) {
+        
+        // be specific of what fields we want, avoid using *
+        String sql = " SELECT EVENT_ID, NAME, DES FROM EVENT ";
+        
         try {
-
-            stmt = con.createStatement();
-            String sql = "SELECT * FROM event";
-            ResultSet rs = stmt.executeQuery(sql);
+            PreparedStatement stmt = con.prepareStatement(sql);
+            ResultSet rs = stmt.executeQuery();
+            
+            System.out.println(stmt.toString());
 
             while (rs.next()) {
-                EventDAO uf = new EventDAO();
-                uf.setEventID(rs.getInt(1));
-                uf.setOwnerID(rs.getInt(2));
-                uf.setSecondOwnerID(rs.getInt(3));
-                uf.setEventName(rs.getString(4));
-                uf.setEventDes(rs.getString(5));
-                uf.setImage(rs.getString(6));
-                uf.setEventLoc(rs.getString(7));
-                uf.setEventType(rs.getString(8));
-                uf.setStatus(rs.getString(9));
-                uf.setInviteOnly(rs.getBoolean(10));
-                uf.setCreatedDate(getCreatedDate());
-                uf.setFromDate(getFromDate());
-                uf.setToDate(getToDate());
-                eventList.add(uf);
+                EventDTO event  = new EventDTO();
+                
+                event.setEventID(rs.getInt(1));
+                event.setEventName(rs.getString(2));
+                event.setEventDes(rs.getString(3));
+                
+                eventList.add(event);
             }
 
             System.out.println("Events selected : " + eventList.size());
 
-        } catch (Exception e) {
+        } catch (SQLException e) {
             e.printStackTrace();
         } // no need to close connection from here. That will be taken care by
           // FactoryDAO
-
+        
+        System.out.println("retuning eventList..");
         return eventList;
+        
     }
+    
+    
+    
 
 }
