@@ -3,6 +3,9 @@
  */
 package com.ajakk.portal.util;
 
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
 public class AjakkConfig {
 	/**
 	 * List of static Strings
@@ -41,10 +44,20 @@ public class AjakkConfig {
 		
 		// TODO : load the configs from file system instead of hardcode here
 		// initiate properties here
+	    
+	    // local db
 		dbHost="localhost";
 		dbName="ajakk";
 		dbUserName="root";
 		dbPasswd="Enter_123";
+		
+		// kwt
+//		dbHost="localhost";
+//        dbName="ajakk";
+//        dbUserName="root";
+//        dbPasswd="Enter_123";
+		
+	        
 	}
 
 	public String getDbHost() {
