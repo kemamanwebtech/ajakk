@@ -38,9 +38,10 @@ comment = 'Basic data of a AJAKK user';
 -- insert dummy users
 INSERT INTO AJAKK_USER 
 (USER_NAME, STATUS, UPDATED, ROLE_ID)
-VALUES 
+VALUES
 ("acive", "Active", NOW(), 0),
 ("blocked", "Blocked", NOW(), 0),
 ("locked", "Locked", NOW(), 0),
-("deleted", "Delected", NOW(), 0),
-("nonactive", "NonActive", NOW(), 0);
+("deleted", "Deleted", NOW(), 0),
+("nonactive", "NotActive", NOW(), 0);
+
