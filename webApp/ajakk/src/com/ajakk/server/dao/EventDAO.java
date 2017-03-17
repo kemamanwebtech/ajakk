@@ -10,7 +10,6 @@ import java.util.List;
 
 import com.ajakk.shared.dto.EventDTO;
 
-@SuppressWarnings("serial")
 public class EventDAO {
 
     List<EventDTO> eventList = new ArrayList<EventDTO>();
@@ -57,6 +56,62 @@ public class EventDAO {
         
     }
     
+    public void createEvent (EventDTO event) {
+    	
+    	try {            
+		
+            PreparedStatement stmt = con
+                    .prepareStatement("INSERT INTO EVENT(NAME, DES) VALUES (? , ?)");
+            
+            
+            
+            stmt.setString(1, event.getEventName());
+            stmt.setString(2, event.getEventDes());
+            stmt.setInt(3, event.getEventID());
+            stmt.executeUpdate();
+            
+    		
+    	}catch (SQLException e) {
+            e.printStackTrace();
+        }
+    	
+    }
+    
+    public void updateEvent(EventDTO event) {
+    	
+    	try {            
+		
+            PreparedStatement stmt = con
+                   .prepareStatement("UPDATE EVENT SET NAME=?, DES=?" + "WHERE EVENT_ID=?");
+            stmt.setString(1, event.getEventName());
+            stmt.setString(2, event.getEventDes());
+            stmt.setInt(3, event.getEventID());
+            	
+            stmt.executeUpdate();
+            
+    		
+    	}catch (SQLException e) {
+            e.printStackTrace();
+        }
+    	
+    }
+    
+    public void deleteEvent (EventDTO event) {
+    	
+    	try {            
+		
+            PreparedStatement stmt = con
+                    .prepareStatement("DELETE FROM EVENT WHERE EVENT_ID=?");
+                        
+            stmt.setInt(1, event.getEventID());
+            stmt.executeUpdate();
+            
+    		
+    	}catch (SQLException e) {
+            e.printStackTrace();
+        }
+    	
+    }
     
     
 
