@@ -12,7 +12,7 @@ import com.ajakk.shared.dto.EventDTO;
 
 public class EventDAO {
 
-    List<EventDTO> eventList = new ArrayList<EventDTO>();
+    List<EventDTO> eventList = null;
 
     Connection con  = null;
     Statement  stmt = null;
@@ -24,6 +24,8 @@ public class EventDAO {
      * FactoryDAO
      */
     public List<EventDTO> getAllEvents(Connection con) {
+        
+        eventList = new ArrayList<EventDTO>();
         
         // be specific of what fields we want, avoid using *
         String sql = " SELECT EVENT_ID, NAME, DES FROM EVENT ";
@@ -45,13 +47,12 @@ public class EventDAO {
             }
 
             System.out.println("Events selected : " + eventList.size());
-
+            return eventList;
+            
         } catch (SQLException e) {
             e.printStackTrace();
         } // no need to close connection from here. That will be taken care by
           // FactoryDAO
-        
-        System.out.println("retuning eventList..");
         return eventList;
         
     }
@@ -62,6 +63,8 @@ public class EventDAO {
 		
             PreparedStatement stmt = con
                     .prepareStatement("INSERT INTO EVENT(NAME, DES) VALUES (? , ?)");
+            
+            
             
             
             

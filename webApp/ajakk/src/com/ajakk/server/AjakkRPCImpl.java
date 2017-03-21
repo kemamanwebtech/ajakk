@@ -56,7 +56,8 @@ public class AjakkRPCImpl extends RemoteServiceServlet implements AjakkRPC {
                 
         EventDAO eventDAO = daoFactory.getEventDAO();
         
-        return eventDAO.getAllEvents(con);
+        eventList = eventDAO.getAllEvents(con);
+        return eventList;
 
     }
 }

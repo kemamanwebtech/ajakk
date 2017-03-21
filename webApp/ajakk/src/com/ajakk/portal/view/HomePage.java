@@ -15,8 +15,10 @@ import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.AsyncCallback;
+import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.FlexTable;
+import com.google.gwt.user.client.ui.Grid;
 import com.google.gwt.user.client.ui.HTMLPanel;
 import com.google.gwt.user.client.ui.Widget;
 
@@ -44,63 +46,49 @@ public class HomePage extends Composite {
         initWidget(uiBinder.createAndBindUi(this));
         eventList = new ArrayList<EventDTO>();
 
-        getAllEvents();
-
-        FlexTable hp = new FlexTable();
-
-        int column = 0;
-        int row = 0;
-
-        for (int i=0; i<eventList.size(); i++) {
-            //Window.alert("Event " + eventList.get(i).getEventName());
-        //for (int i=0; i<20; i++) {
-            // EventCard eventCard = new EventCard("Event " + i);
-
-            EventCard event = new EventCard("Event " +  eventList.get(i).getEventName());
-            //EventCard event = new EventCard("Event " + i);
-
-            // hp.add(eventCard);
-            hp.setStyleName("page");
-            hp.setCellSpacing(20);
-
-            hp.setWidget(row, column, event);
-
-            column++;
-            if (column > 4) {
-                column = 0;
-                row++;
-            }
-
-        }
-
-        eventContainerPanel.add(hp);
-
-    }
-
-    public void getAllEvents() {
-        
-        
-        System.out.println("Calling rpc.getAllEvents()...");
-
-        // call RPC to get data from db
         rpc.getAllEvents(new AsyncCallback<List<EventDTO>>() {
             
             public void onFailure(Throwable caught) {
-                System.out.println("Errors in rpc.getAllEvents()...");
-                System.out.println(caught.toString());
-                
+                System.out.println("Errors in rpc.getAllEvents()..." + caught.toString());
             }
 
             public void onSuccess(List<EventDTO> result) {
+                
                 eventList = result;
-                System.out.println(result.size() + " events returned to Homepage");
-                Window.alert(eventList.size() + " events returned to Homepage");
-
+                Window.alert("size inside onSuccess " + Integer.toString(eventList.size()));
+                EventGridPanel eventGrid = new EventGridPanel();
+                eventContainerPanel.add(eventGrid);
+                
             }
         });
+
         
-    }
-
     
+    }
+    
+    public class EventGridPanel extends Grid {
+        
+        public EventGridPanel() {
+            super(5,4);
+            getCellFormatter().setWidth(0, 2, "256px");
+            
+            
+            Window.alert("size otuside onSuccess " + Integer.toString(eventList.size()));
+            int column = 0;
+            int row = 0;
+            for (EventDTO event : eventList) {
+       
+                EventCard eventCard = new EventCard("Event " +  event.getEventName());
+                setWidget(row, column, new Button("test"));
 
+                column++;
+                if (column > 4) {
+                    column = 0;
+                    row++;
+                }
+
+            }
+        }
+    }
+    
 }

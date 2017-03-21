@@ -19,9 +19,9 @@
   }
   
   .eventContainerPanel {
-  	position: relative;
-  	width: 100%;
-  	height: 100%;
+  	margin: auto;
+    padding: 10px;
+    height: 100%;
   }
   
   .center {
@@ -107,7 +107,7 @@
             <b:Button type="DANGER" dataDismiss="MODAL">Close</b:Button>
           </b:ModalFooter>
         </b:Modal>
-        <g:HTMLPanel ui:field="eventContainerPanel" addStyleNames="{style.eventContainerPanel} {style.center} ">
+        <g:HTMLPanel ui:field="eventContainerPanel" addStyleNames="{style.eventContainerPanel} ">
         </g:HTMLPanel>
       </g:HTMLPanel>
     </g:HTMLPanel>
