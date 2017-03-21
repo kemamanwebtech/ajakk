@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>ajakk</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="LandingPage.css">
+  <script src="https://use.fontawesome.com/fdcb63c809.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+	<div id="top-header">
+	  <div class="container-fluid">
+	    <div class="row">
+	        <div class="col-sm-6">
+	        </div>
+
+	        <div class="col-sm-6">
+	        	
+	        	<button type="button" class="btn btn-info" data-toggle="modal" data-target="#signInModal">Sign In</button>
+	        	<div class="modal fade" id="signInModal" role="dialog">
+	        		<div class="modal-dialog">
+	        			<!-- modal Content -->
+	        			<div class="modal-content">
+	        				<div class="modal-header">
+	        					<button type="button" class="close" data-dismiss="modal">&times;</button>
+        						<h4 class="modal-title">Sign In</h4>
+	        				</div>
+	        				<div class="modal-body">
+					     
+					         	<form class="inForm" action="/action.php">
+					        	 	<div class="container">
+					         			<label><b>Username</b></label>
+					         			<input type="text"  name="username" required>
+					         			<br>
+					         			<label><b>Password</b></label>
+					         			<input type="password" name="password" required>
+					         			<br>
+					         			<button type="submit">Sign In</button>
+
+
+					         		</div>
+					         	</form>
+					        </div>
+					        <div class="modal-footer">
+					         	<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					        </div>
+	        			</div>
+	        		</div>
+	        	</div>
+	        	
+	        	<button type="button" class="btn btn-info" data-toggle="modal" data-target="#signUpModal">Sign Up</button>
+	        	<div class="modal fade" id="signUpModal" role="dialog">
+	        		<div class="modal-dialog">
+	        			<!-- modal Content -->
+	        			<div class="modal-content">
+	        				<div class="modal-header">
+	        					<button type="button" class="close" data-dismiss="modal">&times;</button>
+        						<h4 class="modal-title">Modal Header</h4>
+	        				</div>
+	        				<div class="modal-body">
+					         	<p>Some text in the modal.</p>
+					         	<form class="inForm" action="/action.php">
+					        	 	<div class="container">
+					         			<label><b>Username</b></label>
+					         			<input type="text" placeholder="Enter Username" name="username" required>
+
+					         			<label><b>Password</b></label>
+					         			<input type="password" placeholder="Enter Password" name="password" required>
+
+					         		</div>
+					         	</form>
+					        </div>
+					        <div class="modal-footer">
+					         	<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					        </div>
+	        			</div>
+	        		</div>
+	        	</div>
+	        	
+	        </div>
+	    </div>
+	</div>
+
+	<div id="center-body">
+		<div class="container-fluid">
+			<h1>You want to</h1>
+			<button type="button" class="btn btn-success btn-lg">ajakk</button>
+			<h1>Or</h1>
+			<button type="button" class="btn btn-success btn-lg">Join</button>
+			<div id="below-body"></div>
+				<div class="row">
+	  				<div class="col-sm-4">
+	  					<button class="fa fa-cogs fa-4x" aria-hidden="true" data-toggle="collapse" data-target="#toggle-1"></button>
+	  					<h3>How it works</h3>
+	  					<div id="toggle-1" class="collapse">
+	  						<p>something</p>
+	  					</div>
+	  				</div>
+	  				<div class="col-sm-4">
+						<button class="fa fa-info-circle fa-4x" aria-hidden="true" data-toggle="collapse" data-target="#toggle-2"></button>
+						<h3>About us</h3>
+						<div id="toggle-2" class="collapse">
+							<p> something</p>
+						</div>
+	  				</div>
+
+	  				<div class="col-sm-4">
+						<button class="fa fa-paper-plane-o fa-4x" aria-hidden="true" data-toggle="collapse" data-target="#toggle-3"></button>
+						<h3>Contact Us</h3>
+						<div id="toggle-3" class="collapse">
+							<p> somethin<g/p>
+						</div>
+	  				</div>	
+				</div>
+			
+
+			</div> <!-- End below-body-->
+
+
+
+		</div>
+	</div>
+
+</body>
+</html>
