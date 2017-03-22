@@ -3,16 +3,15 @@
   <ui:style>
   .card {
   	margin: 20px;
+  	display: inline-block;
   }
   
   .btn {
-  	display: inline-block;
   	margin: auto;
-  	width: 80%;
   	padding: 10px;
   }
   </ui:style>
-  <g:VerticalPanel>
+  <g:VerticalPanel styleName="{style.card}" >
     <b:Image styleName="{style.card}" ui:field="imgEvent" />
     <b:Label styleName="{style.card}" ui:field="lblEvent" />
     <b:Button type="PRIMARY" styleName="{style.card} {style.btn}" ui:field="btnEventInfo" />

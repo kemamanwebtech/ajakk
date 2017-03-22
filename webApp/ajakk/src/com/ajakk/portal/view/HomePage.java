@@ -3,9 +3,7 @@ package com.ajakk.portal.view;
 import org.gwtbootstrap3.client.ui.constants.Toggle;
 import java.util.ArrayList;
 import java.util.List;
-
 import org.gwtbootstrap3.client.ui.Modal;
-
 import com.ajakk.portal.AjakkRPC;
 import com.ajakk.portal.AjakkRPCAsync;
 import com.ajakk.portal.sharedview.EventCard;
@@ -15,10 +13,8 @@ import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.AsyncCallback;
-import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
-import com.google.gwt.user.client.ui.FlexTable;
-import com.google.gwt.user.client.ui.Grid;
+import com.google.gwt.user.client.ui.DecoratorPanel;
 import com.google.gwt.user.client.ui.HTMLPanel;
 import com.google.gwt.user.client.ui.Widget;
 
@@ -32,20 +28,17 @@ public class HomePage extends Composite {
     
     
 
-    @UiField
-    HTMLPanel      eventContainerPanel;
-    @UiField
-    Modal          modal;
+    @UiField    HTMLPanel      eventContainerPanel;
+    @UiField    Modal          modal;
     
     Toggle         toggle;
     List<EventDTO> eventList = null;
 
     public HomePage() {
-        System.out.println("creating UI for homepage...");
-
         initWidget(uiBinder.createAndBindUi(this));
         eventList = new ArrayList<EventDTO>();
-
+        
+        // get all events immediately
         rpc.getAllEvents(new AsyncCallback<List<EventDTO>>() {
             
             public void onFailure(Throwable caught) {
@@ -53,11 +46,9 @@ public class HomePage extends Composite {
             }
 
             public void onSuccess(List<EventDTO> result) {
-                
                 eventList = result;
-                Window.alert("size inside onSuccess " + Integer.toString(eventList.size()));
-                EventGridPanel eventGrid = new EventGridPanel();
-                eventContainerPanel.add(eventGrid);
+                EventPanel eventPanel = new EventPanel();
+                eventContainerPanel.add(eventPanel);
                 
             }
         });
@@ -66,29 +57,24 @@ public class HomePage extends Composite {
     
     }
     
-    public class EventGridPanel extends Grid {
+    /**
+     * Panels which contains all retrieved events
+     * @author raf
+     *
+     */
+    public class EventPanel extends DecoratorPanel {
         
-        public EventGridPanel() {
-            super(5,4);
-            getCellFormatter().setWidth(0, 2, "256px");
-            
-            
-            Window.alert("size otuside onSuccess " + Integer.toString(eventList.size()));
-            int column = 0;
-            int row = 0;
+        public EventPanel() {
             for (EventDTO event : eventList) {
-       
                 EventCard eventCard = new EventCard("Event " +  event.getEventName());
-                setWidget(row, column, new Button("test"));
-
-                column++;
-                if (column > 4) {
-                    column = 0;
-                    row++;
-                }
-
+                eventContainerPanel.add(eventCard);
             }
         }
+    }
+    
+    public void showModal() {
+        modal.show();
+        
     }
     
 }
