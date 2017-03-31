@@ -1,0 +1,20 @@
+
+body {
+	text-align: center;
+
+}
+
+#hiw {
+	background-color: green;
+	margin: 20px;
+}
+
+#aboutus {
+	background-color: yellow;
+	margin: 20px;
+}
+
+#contactus {
+	background-color: pink;
+	margin: 20px;
+}
