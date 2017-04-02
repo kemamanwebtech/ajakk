@@ -1,0 +1,15 @@
+
+body {
+	text-align: center;
+	background-color: yellow;
+
+}
+
+.input-group {
+	margin-bottom: 25px;
+}
+
+#bIcon {
+	vertical-align: middle;
+}
+
