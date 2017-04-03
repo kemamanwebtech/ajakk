@@ -78,6 +78,7 @@
   	filter: none;
   	-webkit-filter: none;
   }
+  
   </ui:style>
   <g:HTMLPanel addStyleNames="{style.page} ">
     <g:HTMLPanel addStyleNames="{style.background-image}">
@@ -114,4 +115,6 @@
       </g:HTMLPanel>
     </g:HTMLPanel>
   </g:HTMLPanel>
+  
+  
 </ui:UiBinder>

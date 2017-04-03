@@ -63,6 +63,11 @@
  		letter-spacing: -2px;
 	}
 	
+	.footer {
+		text-align: center;
+		background-color; pink;
+	}
+	
 	</ui:style>
 	
 	<g:HTMLPanel>
@@ -93,8 +98,27 @@
 		<b:Button type="SUCCESS"  ui:field="joinButton" addStyleNames="{style.btnCenter}" size="LARGE" >Join</b:Button>
 		</b:Popover></tr>
 	</div>
-
-
+	
+	<div class="{style.footer}">
+		<b:Jumbotron>
+		<b:Container>
+     		<b:Row>
+         		<b:Column size="MD_4">
+         			<b:Row><b:Icon type="COGS" size="TIMES5"></b:Icon></b:Row>
+         			<b:Label text="How it works"></b:Label>
+         		</b:Column>
+         		<b:Column size="MD_4">
+         			<b:Row><b:Icon type="HOME" size="TIMES5"></b:Icon></b:Row>
+         			<b:Label text="About Us"></b:Label>
+         		</b:Column>
+         		<b:Column size="MD_4">
+         			<b:Row><b:Icon type="PLANE" size="TIMES5"></b:Icon></b:Row>
+         			<b:Label text="Contact Us"></b:Label>
+         		</b:Column>
+     		</b:Row>
+ 		</b:Container>
+ 		</b:Jumbotron>
+	</div>
 		
 		
 		
