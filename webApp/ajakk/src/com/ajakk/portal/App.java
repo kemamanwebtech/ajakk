@@ -4,6 +4,7 @@
 package com.ajakk.portal;
 
 import com.ajakk.portal.view.LoginPage;
+import com.ajakk.portal.view.RegisterPage;
 import com.ajakk.portal.view.HomePage;
 
 /**
@@ -14,10 +15,12 @@ public class App {
 
     static LoginPage loginPage = null;
     static HomePage  homePage  = null;
+    static RegisterPage regPage = null;
 
     public App() {
         loginPage = new LoginPage();
         homePage = new HomePage();
+        regPage = new RegisterPage();
     }
 
     public static LoginPage getLoginPage() {
@@ -33,5 +36,9 @@ public class App {
         homePage = new HomePage();
         return homePage;
     }
-
+    
+    public static RegisterPage getRegPage(){
+    	regPage = new RegisterPage();
+    	return regPage;
+    }
 }

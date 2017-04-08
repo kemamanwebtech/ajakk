@@ -92,7 +92,14 @@ public class LoginPage extends Composite {
             }
         });
     }
-
+    
+    @UiHandler("regButton")
+    void onRegClick(ClickEvent e) {
+    	RootPanel.get().clear();
+        RootPanel.get().setStyleName("fullWidth");
+        RootPanel.get().add(App.getRegPage());
+    	
+    }
     @UiHandler("loginButton")
     void onClick(ClickEvent e) {
         if (!FieldValidator.isValidUserName(userName.getText())) {
