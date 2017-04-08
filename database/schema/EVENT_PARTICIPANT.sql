@@ -23,7 +23,7 @@ create table EVENT_PARTICIPANT (
     'NotAttending',
     'Attending'
   )                             not null                comment 'Status of the event: Maybe, NotAttending, Attending',
-  CREATED           datetime    not null default now()  comment 'Creation date of the event',
+  CREATED           timestamp    not null default now()  comment 'Creation date of the event',
   UPDATED           datetime                            comment 'Last update to the event',
   
   constraint PK_EVENT_PARTICIPANT primary key (EVENT_ID, AJAKK_USER_ID)

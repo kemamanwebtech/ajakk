@@ -18,7 +18,7 @@ create table AJAKK_PASS (
   ACCESS_PASS       varchar(41) not null                comment 'Encrypted password',
   LAST_ACCESS       datetime                            comment 'Data and the time the access path was last used sucessfully',
   LOGIN_FAILS       int         not null default 0      comment 'Number of failed login tries',
-  CREATED           datetime    not null default now()  comment 'Creation date of the credentials',
+  CREATED           TIMESTAMP    not null default CURRENT_TIMESTAMP  comment 'Creation date of the credentials',
   PASS_CHANGED      datetime                            comment 'Last change to the password',
   LOCKED            tinyint(1)  not null default 0      comment 'Flag if the credentials are locked',
   constraint   PK_AJAKK_PASS primary key (AJAKK_USER_ID)
