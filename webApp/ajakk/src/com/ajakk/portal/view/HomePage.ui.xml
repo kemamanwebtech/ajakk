@@ -4,6 +4,15 @@
 			xmlns:b="urn:import:org.gwtbootstrap3.client.ui" 
 			xmlns:card="urn:import:org.gwtbootstrap3.extras.card.client.ui">
   <ui:style>
+  
+  .none {
+	background: none;
+	border: 0px;
+	margin: 5px;
+
+	}
+	
+  
   @font-face {
   	font-family: KaushanScript-Regular;
   	src: url('KaushanScript-Regular.ttf') format('ttf'),
@@ -16,6 +25,7 @@
   	color: #FFFFFF;
   	background-color: #334b72 !important;
   }
+  
   
   .navItem {
   	margin: 10px 10px 10px 10px;
@@ -82,6 +92,7 @@
   	-webkit-filter: none;
   }
   
+  
   </ui:style>
   <g:HTMLPanel addStyleNames="{style.page} ">
     <g:HTMLPanel addStyleNames="{style.background-image}">
@@ -104,7 +115,7 @@
             <g:HTML>
               <h4>Event header</h4>
             </g:HTML>
-          </b:ModalHeader>
+          </b:ModalHeader>	
           <b:ModalBody>
             <g:HTML>Activity :</g:HTML>
           </b:ModalBody>
@@ -113,7 +124,11 @@
             <b:Button type="DANGER" dataDismiss="MODAL">Close</b:Button>
           </b:ModalFooter>
         </b:Modal>
-        <g:HTMLPanel ui:field="eventContainerPanel" addStyleNames="{style.eventContainerPanel} ">
+        <g:HTMLPanel>
+        	<b:ListGroup addStyleNames="{style.none}">
+        		<b:ListGroupItem addStyleNames="{style.none}" ui:field="eventContainerPanel">
+        		</b:ListGroupItem>
+        	</b:ListGroup>
         </g:HTMLPanel>
       </g:HTMLPanel>
     </g:HTMLPanel>

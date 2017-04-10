@@ -3,6 +3,8 @@ package com.ajakk.portal.view;
 import org.gwtbootstrap3.client.ui.constants.Toggle;
 import java.util.ArrayList;
 import java.util.List;
+
+import org.gwtbootstrap3.client.ui.ListGroupItem;
 import org.gwtbootstrap3.client.ui.Modal;
 import com.ajakk.portal.AjakkRPC;
 import com.ajakk.portal.AjakkRPCAsync;
@@ -28,9 +30,9 @@ public class HomePage extends Composite {
     
     
 
-    @UiField    HTMLPanel      eventContainerPanel;
+//    @UiField    HTMLPanel      eventContainerPanel;
     @UiField    Modal          modal;
-    
+    @UiField	ListGroupItem eventContainerPanel;
     Toggle         toggle;
     List<EventDTO> eventList = null;
 
