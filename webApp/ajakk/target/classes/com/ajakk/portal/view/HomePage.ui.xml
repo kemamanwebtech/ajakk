@@ -5,111 +5,60 @@
 			xmlns:card="urn:import:org.gwtbootstrap3.extras.card.client.ui">
   <ui:style>
   
-  .none {
+    .none {
 	background: none;
 	border: 0px;
-	margin: 5px;
+	margin: 0 auto;
+	}
+  
+  	
+  }
+  
+  .NavBtn {
+
+	padding-left: 25px;
 
 	}
+  	
+  .NavBar {
 	
-  
-  @font-face {
-  	font-family: KaushanScript-Regular;
-  	src: url('KaushanScript-Regular.ttf') format('ttf'),
-  		url('KaushanScript-Regular.ttf') format('truetype');
-  }
-  
-  .title {
-  	font-family: 'KaushanScript-Regular', serif;
-  	font-size: 55px;
-  	color: #FFFFFF;
-  	background-color: #334b72 !important;
-  }
-  
-  
-  .navItem {
-  	margin: 10px 10px 10px 10px;
-  }
-  
-  .eventContainerPanel {
-  	margin: auto;
-  	width: 50%;
-    padding: 10px;
-    height: 100% !important;
-  }
-  
-  .center {
-  	margin: auto;
-  	width: 50%;
-  	padding: 10px;
-  }
-  
-  .card {
-  	display: inline-block;
-  	width: 150px;
-  	height: 100px;
-  	margin: 10px;
-  	border: 3px solid #73AD21;
-  }
-  
-  .page {
-  	width: 100%;
-  	margin-right: auto;
-  	margin-left: auto;
-  	padding-left: 0px;
-  	padding-right: 0px;
-  	height: 100% !important;
-  }
-  
-  .nav {
-  	width: 100%;
-  	margin-right: auto;
-  	margin-left: auto;
-  	padding-left: 0px;
-  	padding-right: 0px;
-  }
-  
-  .navbar {
-  	background-color: #334b72 !important;
-  	border: 0;
-  	-webkit-box-shadow: none;
-  	box-shadow: none;
-  }
-  
-  
-  .background-image {
-  	background: url('http://wallpaperus.org/wallpapers/03/103/engl-spts-2560x1920-wallpaper-1669831.jpg') no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  
-  }
-  
-  .content {
-  	z-index: 2;
-  	filter: none;
-  	-webkit-filter: none;
-  }
-  
-  
+	}
+	
+	.footer {
+		text-align: center;
+	}
+	
+	.page {
+		text-align: center;
+	}
+
   </ui:style>
-  <g:HTMLPanel addStyleNames="{style.page} ">
-    <g:HTMLPanel addStyleNames="{style.background-image}">
-      <b:Container addStyleNames="{style.nav} ">
-        <b:Navbar addStyleNames="{style.navbar}">
-          <b:Container addStyleNames="{style.center}">
-            <b:NavbarHeader addStyleNames="{style.title}">
-              <b:Label ui:field="brand" addStyleNames="{style.navItem} {style.title}">Ajakk</b:Label>
-            </b:NavbarHeader>
-            <b:NavbarForm pull="RIGHT" addStyleNames="{style.navItem}">
-              <b:Button type="DANGER" size="LARGE" addStyleNames="{style.navItem}">Sign Up</b:Button>
-              <b:Button type="DANGER" size="LARGE" addStyleNames="{style.navItem}">Sign In</b:Button>
-            </b:NavbarForm>
-          </b:Container>
-        </b:Navbar>
-      </b:Container>
-      <g:HTMLPanel addStyleNames="{style.page}">
+  
+  <g:HTMLPanel>
+  	<b:Navbar addStyleNames="{style.NavBar}" b:id="NavBar" ui:field="NavBar">
+  		<b:NavbarHeader>
+  			<b:NavbarBrand text="Ajakk"></b:NavbarBrand>
+  		</b:NavbarHeader>
+  		<b:ButtonGroup pull="RIGHT" addStyleNames="{style.NavBtn}">
+  		  <b:NavbarForm pull="LEFT">
+  		  	 <b:Button icon="SEARCH" size="LARGE"></b:Button>
+     		 <b:TextBox size="LARGE" placeholder="Search" addStyleNames="col-lg-8"/>
+    	  </b:NavbarForm>
+    	  <b:NavbarForm pull="LEFT">
+  		  <b:Button type="PRIMARY" icon="BELL" size="LARGE" ></b:Button>
+		  <b:Button dataToggle="DROPDOWN" type="PRIMARY" size="LARGE" icon="ADDRESS_CARD"/>
+		  <b:DropDownMenu pull="RIGHT">
+		    <b:AnchorListItem>Profile</b:AnchorListItem>
+		    <b:AnchorListItem>Settings</b:AnchorListItem>
+		    <b:AnchorListItem>Messages</b:AnchorListItem>
+		    <b:AnchorListItem>Log Out</b:AnchorListItem>
+		  </b:DropDownMenu>
+		  </b:NavbarForm>
+		</b:ButtonGroup>
+  	</b:Navbar>
+  	 
+ 	
+  	 <b:Container fluid="true">
         <b:Modal title="Event Info" b:id="modal1" ui:field="modal">
           <b:ModalHeader>
             <g:HTML>
@@ -130,9 +79,26 @@
         		</b:ListGroupItem>
         	</b:ListGroup>
         </g:HTMLPanel>
-      </g:HTMLPanel>
-    </g:HTMLPanel>
+      </b:Container>
+      
+     <div class="{style.footer}">
+		<b:Container fluid="true">
+     		<b:Row>
+         		<b:Column size="MD_4">
+         			<b:Row><b:Icon type="COGS" size="TIMES5"></b:Icon></b:Row>
+         			<b:Label text="How it works"></b:Label>
+         		</b:Column>
+         		<b:Column size="MD_4">
+         			<b:Row><b:Icon type="HOME" size="TIMES5"></b:Icon></b:Row>
+         			<b:Label text="About Us"></b:Label>
+         		</b:Column>
+         		<b:Column size="MD_4">
+         			<b:Row><b:Icon type="PLANE" size="TIMES5"></b:Icon></b:Row>
+         			<b:Label text="Contact Us"></b:Label>
+         		</b:Column>
+     		</b:Row>
+ 		</b:Container>
+	</div>
+  	
   </g:HTMLPanel>
-  
-  
 </ui:UiBinder>

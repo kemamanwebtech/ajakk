@@ -65,7 +65,7 @@ public class LoginPage extends Composite {
         // set focus to username textbox upon load
         userName.setFocus(true);
         userName.selectAll();
-//        userName.setText("active");
+        userName.setText("acive");
         passwd.setText("password");
 
         // Create the popup dialog box

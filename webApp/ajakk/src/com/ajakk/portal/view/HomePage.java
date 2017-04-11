@@ -2,6 +2,7 @@ package com.ajakk.portal.view;
 
 import org.gwtbootstrap3.client.ui.constants.Toggle;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import org.gwtbootstrap3.client.ui.ListGroupItem;
@@ -13,11 +14,14 @@ import com.ajakk.shared.dto.EventDTO;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
+import com.google.gwt.uibinder.client.UiTemplate;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.DecoratorPanel;
 import com.google.gwt.user.client.ui.HTMLPanel;
+import com.google.gwt.user.client.ui.MultiWordSuggestOracle;
+import com.google.gwt.user.client.ui.SuggestBox;
 import com.google.gwt.user.client.ui.Widget;
 
 public class HomePage extends Composite {
@@ -30,9 +34,11 @@ public class HomePage extends Composite {
     
     
 
-//    @UiField    HTMLPanel      eventContainerPanel;
     @UiField    Modal          modal;
     @UiField	ListGroupItem eventContainerPanel;
+    
+    
+    
     Toggle         toggle;
     List<EventDTO> eventList = null;
 
@@ -78,5 +84,7 @@ public class HomePage extends Composite {
         modal.show();
         
     }
+    
+    
     
 }

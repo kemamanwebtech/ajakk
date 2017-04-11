@@ -63,10 +63,7 @@
  		letter-spacing: -2px;
 	}
 	
-	.footer {
-		text-align: center;
-		background-color; pink;
-	}
+	
 	
 	</ui:style>
 	
@@ -99,24 +96,7 @@
 		</b:Popover></tr>
 	</div>
 	
-	<div class="{style.footer}">
-		<b:Container>
-     		<b:Row>
-         		<b:Column size="MD_4">
-         			<b:Row><b:Icon type="COGS" size="TIMES5" color="WHITE"></b:Icon></b:Row>
-         			<b:Label text="How it works"></b:Label>
-         		</b:Column>
-         		<b:Column size="MD_4">
-         			<b:Row><b:Icon type="HOME" size="TIMES5" color="WHITE"></b:Icon></b:Row>
-         			<b:Label text="About Us"></b:Label>
-         		</b:Column>
-         		<b:Column size="MD_4">
-         			<b:Row><b:Icon type="PLANE" size="TIMES5" color="WHITE"></b:Icon></b:Row>
-         			<b:Label text="Contact Us"></b:Label>
-         		</b:Column>
-     		</b:Row>
- 		</b:Container>
-	</div>
+	
 		
 		
 		
