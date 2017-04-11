@@ -1,6 +1,8 @@
 package com.ajakk.portal.view;
 
 import org.gwtbootstrap3.client.ui.constants.Toggle;
+import org.gwtbootstrap3.extras.notify.client.ui.Notify;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -30,20 +32,20 @@ import com.google.gwt.user.client.ui.SuggestBox;
 import com.google.gwt.user.client.ui.Widget;
 
 public class HomePage extends Composite {
-    
+
     interface HomePageUiBinder extends UiBinder<Widget, HomePage> {
     }
-    
+
     private static HomePageUiBinder uiBinder = GWT.create(HomePageUiBinder.class);
     private final AjakkRPCAsync     rpc      = GWT.create(AjakkRPC.class);
-    
-    
 
-    @UiField    Modal          modal;
+
+
+
     @UiField	ListGroupItem eventContainerPanel;
-    @UiField	AnchorListItem uProfile;
-    
-    
+   // @UiField	AnchorListItem uProfile;
+
+
     Toggle         toggle;
     List<EventDTO> eventList = null;
 
@@ -51,9 +53,11 @@ public class HomePage extends Composite {
         initWidget(uiBinder.createAndBindUi(this));
         eventList = new ArrayList<EventDTO>();
         
+        
+
         // get all events immediately
         rpc.getAllEvents(new AsyncCallback<List<EventDTO>>() {
-            
+
             public void onFailure(Throwable caught) {
                 System.out.println("Errors in rpc.getAllEvents()..." + caught.toString());
             }
@@ -62,21 +66,22 @@ public class HomePage extends Composite {
                 eventList = result;
                 EventPanel eventPanel = new EventPanel();
                 eventContainerPanel.add(eventPanel);
-                
+                Notify.notify("Welcome back!");
+
             }
         });
 
-        
-    
+
+
     }
-    
+
     /**
      * Panels which contains all retrieved events
      * @author raf
      *
      */
     public class EventPanel extends DecoratorPanel {
-        
+
         public EventPanel() {
             for (EventDTO event : eventList) {
                 EventCard eventCard = new EventCard("Event " +  event.getEventName());
@@ -84,25 +89,22 @@ public class HomePage extends Composite {
             }
         }
     }
+
+
+
     
-    public void showModal() {
-        modal.show();
-        
-    }
-    
-    
-//    	// set register page as a modal instead of a new page itself
-//    	Modal modal = new Modal();
-//    	modal.add(App.getRegPage());
-//    	RootPanel.get().add(modal);
-//    	modal.show();	
-//    }
-    @UiHandler("uProfile")
+    //      // set register page as a modal instead of a new page itself
+    //    	Modal modal = new Modal();
+    //    	modal.add(App.getRegPage());
+    //    	RootPanel.get().add(modal);
+    //    	modal.show();	
+    //    }
+   // @UiHandler("uProfile")
     void onRegClick(ClickEvent e) {
-    	RootPanel.get().clear();
-    	RootPanel.get().add(App.getUserProfilePage());
-    	
+        RootPanel.get().clear();
+        RootPanel.get().add(App.getUserProfilePage());
+
     }
-    
+
 }
 

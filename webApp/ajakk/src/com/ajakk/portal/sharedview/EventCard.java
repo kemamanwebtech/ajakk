@@ -31,25 +31,25 @@ public class EventCard extends Composite {
         initWidget(uiBinder.createAndBindUi(this));
     }
 
-    @UiField    Button btnEventInfo;
-    @UiField    Label lblEvent;
-    @UiField    Image imgEvent;
+    @UiField    Button btnEventInfoFront;
+    @UiField    Label lblEventFront;
+    @UiField    Image imgEventFront;
     
     public EventCard(String firstName) {
         initWidget(uiBinder.createAndBindUi(this));
-        btnEventInfo.setText(firstName);
-        btnEventInfo.setStylePrimaryName("btn-primary");
+        btnEventInfoFront.setText(firstName);
+        btnEventInfoFront.getElement().setClassName("btn btn-success btn-sm");
         
         //set image source
-        imgEvent.setUrl("http://harbourfutsal.org/wp-content/uploads/2014/08/upcoming-league-icon1.png");
-        imgEvent.setPixelSize(150, 100);
+        imgEventFront.setUrl("http://www.iconshock.com/img_jpg/REALVISTA/sports/jpg/256/soccer_icon.jpg");
+        imgEventFront.setPixelSize(150, 100);
        
     }
 
-    @UiHandler("btnEventInfo")
+    @UiHandler("btnEventInfoFront")
     void onClick(ClickEvent e) {
         ModalDialog modal = new ModalDialog();
         modal.setVisible(true);
-        App.getHomePage().showModal();
+        //App.getHomePage().showModal();
     }
 }

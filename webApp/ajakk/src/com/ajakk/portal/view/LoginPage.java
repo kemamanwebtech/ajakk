@@ -65,7 +65,7 @@ public class LoginPage extends Composite {
         // set focus to username textbox upon load
         userName.setFocus(true);
         userName.selectAll();
-        userName.setText("acive");
+        userName.setText("active");
         passwd.setText("password");
 
         // Create the popup dialog box
@@ -93,14 +93,14 @@ public class LoginPage extends Composite {
             }
         });
     }
-    
+
     @UiHandler("regButton")
     void onRegClick(ClickEvent e) {
-    	// set register page as a modal instead of a new page itself
-    	Modal modal = new Modal();
-    	modal.add(App.getRegPage());
-    	RootPanel.get().add(modal);
-    	modal.show();	
+        // set register page as a modal instead of a new page itself
+        Modal modal = new Modal();
+        modal.add(App.getRegPage());
+        RootPanel.get().add(modal);
+        modal.show();	
     }
     @UiHandler("loginButton")
     void onClick(ClickEvent e) {

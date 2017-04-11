@@ -1,107 +1,107 @@
 <!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder" 
-			xmlns:g="urn:import:com.google.gwt.user.client.ui" 
-			xmlns:b="urn:import:org.gwtbootstrap3.client.ui" 
-			xmlns:card="urn:import:org.gwtbootstrap3.extras.card.client.ui">
-  <ui:style>
-  
+xmlns:g="urn:import:com.google.gwt.user.client.ui" 
+xmlns:b="urn:import:org.gwtbootstrap3.client.ui">
+
+    <ui:style>
     .none {
-	border: 0px;
-	margin: 0 auto;
+    	border: 0px;
+    	margin: 0 auto;
+    }
+    
+    .NavBtn {
+    	padding-left: 25px;
+    }
+    
+    .footer {
+    	text-align: center;
+    }
+    
+    .page {
+    	text-align: center;
+    }
+    
+    .All {
+    	background: #bdc3c7;
+    }
+    
+    .container-bg {
+        background: #0A3873;
+    }
+    
+    .navbar-center {
+    	padding-left: 30% !important;
+    }
+    .no-border {
+	   border: 0px !important;
 	}
-  
-  	
-  }
-  
-  .NavBtn {
+	
+   .html .body {
+   height: 100% !important;
+   width: 100% !important;
+   margin: 0 !important;
+   padding: 0 !important;
+   
+   }
 
-	padding-left: 25px;
+    </ui:style>
 
-	}
-  	
-  .NavBar {
-	
-	}
-	
-	.footer {
-		text-align: center;
-	}
-	
-	.page {
-		text-align: center;
-	}
-	
-	.All {
-	background: #bdc3c7;
-	}
+<!--  addStyleNames="{style.All}"-->
+    <g:HTMLPanel addStyleNames=" {style.html}  {style.body} {style.container-bg}"> 
+    <!--  {style.container-bg}"> -->
 
-  </ui:style>
-  
-  <g:HTMLPanel addStyleNames="{style.All}">
-  	<b:Navbar addStyleNames="{style.NavBar}" b:id="NavBar" ui:field="NavBar">
-  		<b:NavbarHeader>
-  			<b:NavbarBrand text="Ajakk"></b:NavbarBrand>
-  		</b:NavbarHeader>
-  		<b:ButtonGroup pull="RIGHT" addStyleNames="{style.NavBtn}">
-  		  <b:NavbarForm pull="LEFT">
-  		  	 <b:Button icon="SEARCH" size="LARGE"></b:Button>
-     		 <b:TextBox size="LARGE" placeholder="Search" addStyleNames="col-lg-8"/>
-    	  </b:NavbarForm>
-    	  <b:NavbarForm pull="LEFT">
-  		  <b:Button type="PRIMARY" icon="BELL" size="LARGE" ></b:Button>
-		  <b:Button dataToggle="DROPDOWN" type="PRIMARY" size="LARGE" icon="ADDRESS_CARD"/>
-		  <b:DropDownMenu pull="RIGHT">
-		    <b:AnchorListItem ui:field="uProfile" >Profile</b:AnchorListItem>
-		    <b:AnchorListItem>Settings</b:AnchorListItem>
-		    <b:AnchorListItem>Messages</b:AnchorListItem>
-		    <b:AnchorListItem>Log Out</b:AnchorListItem>
-		  </b:DropDownMenu>
-		  </b:NavbarForm>
-		</b:ButtonGroup>
-  	</b:Navbar>
-  	 
- 	
-  	 <b:Container fluid="true">
-        <b:Modal title="Event Info" b:id="modal1" ui:field="modal">
-          <b:ModalHeader>
-            <g:HTML>
-              <h4>Event header</h4>
-            </g:HTML>
-          </b:ModalHeader>	
-          <b:ModalBody>
-            <g:HTML>Activity :</g:HTML>
-          </b:ModalBody>
-          <b:ModalFooter>
-            <b:Button type="PRIMARY">Join Event</b:Button>
-            <b:Button type="DANGER" dataDismiss="MODAL">Close</b:Button>
-          </b:ModalFooter>
-        </b:Modal>
-        <g:HTMLPanel>
-        	<b:ListGroup addStyleNames="{style.none}">
-        		<b:ListGroupItem addStyleNames="{style.none}" ui:field="eventContainerPanel">
-        		</b:ListGroupItem>
-        	</b:ListGroup>
-        </g:HTMLPanel>
-      </b:Container>
-      
-     <div class="{style.footer}">
-		<b:Container fluid="true">
-     		<b:Row>
-         		<b:Column size="MD_4">
-         			<b:Row><b:Icon type="COGS" size="TIMES5"></b:Icon></b:Row>
-         			<b:Label text="How it works"></b:Label>
-         		</b:Column>
-         		<b:Column size="MD_4">
-         			<b:Row><b:Icon type="HOME" size="TIMES5"></b:Icon></b:Row>
-         			<b:Label text="About Us"></b:Label>
-         		</b:Column>
-         		<b:Column size="MD_4">
-         			<b:Row><b:Icon type="PLANE" size="TIMES5"></b:Icon></b:Row>
-         			<b:Label text="Contact Us"></b:Label>
-         		</b:Column>
-     		</b:Row>
- 		</b:Container>
-	</div>
-  	
-  </g:HTMLPanel>
+        <nav class="navbar navbar-default"  b:id="NavBar" ui:field="NavBar">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">Ajakk</a>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <form class="navbar-form">
+                            <input type="text" class="form-control" placeholder="Search" ui:field="txtBoxSearchEvent"></input>
+                            <button type="submit" class="btn btn-default" ui:field="btnSearchEvent">Search</button>
+                        </form>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <form class="navbar-form navbar-left">
+                        
+                            <a class="navbar-text" ui:field="txtSignInAs"> </a>
+                            <!--  <button class="btn btn-primary" type="button">Messages <span class="badge">4</span></button> -->
+                            <i class="fa fa-bell fa-2x" style="color:#00CED1" aria-hidden="true" ui:field="noti" role="button"> <span class="badge">4</span></i>
+                        </form>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle fa fa-bars fa-2x" style="color:#00CED1" aria-hidden="true" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a ui:field="linkProfile"><i class="fa fa-user fa-fw" aria-hidden="true"></i>&nbsp;Profile</a>
+                                </li>
+                                <li>
+                                    <a ui:field="linkSetting"><i class="fa fa-cog fa-fw" aria-hidden="true"></i>&nbsp;Setting</a>
+                                </li>
+                                <li role="separator" class="divider"></li>
+                                <li>
+                                    <a ui:field="linkLogOut"><i class="fa fa-sign-out fa-fw" aria-hidden="true"></i>&nbsp;Log out</a>
+                                </li>
+                                <li>
+                                    <a ui:field="linkSupport"><i class="fa fa-phone fa-fw" aria-hidden="true"></i>&nbsp;Support</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div> <!-- navbar-collapse -->
+            </div> <!-- container fluid -->
+        </nav>
+
+
+        <b:Container addStyleNames="container-fluid">
+            <g:HTMLPanel addStyleNames="{style.container-bg}" >
+                <b:ListGroup addStyleNames="{style.no-border}">
+                    <b:ListGroupItem addStyleNames="container {style.container-bg} {style.no-border}" ui:field="eventContainerPanel">
+                    </b:ListGroupItem>
+                </b:ListGroup>
+            </g:HTMLPanel>
+        </b:Container>
+        
+    </g:HTMLPanel>
 </ui:UiBinder>
