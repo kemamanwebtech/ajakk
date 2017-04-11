@@ -6,7 +6,6 @@
   <ui:style>
   
     .none {
-	background: none;
 	border: 0px;
 	margin: 0 auto;
 	}
@@ -31,10 +30,14 @@
 	.page {
 		text-align: center;
 	}
+	
+	.All {
+	background: #bdc3c7;
+	}
 
   </ui:style>
   
-  <g:HTMLPanel>
+  <g:HTMLPanel addStyleNames="{style.All}">
   	<b:Navbar addStyleNames="{style.NavBar}" b:id="NavBar" ui:field="NavBar">
   		<b:NavbarHeader>
   			<b:NavbarBrand text="Ajakk"></b:NavbarBrand>
@@ -48,7 +51,7 @@
   		  <b:Button type="PRIMARY" icon="BELL" size="LARGE" ></b:Button>
 		  <b:Button dataToggle="DROPDOWN" type="PRIMARY" size="LARGE" icon="ADDRESS_CARD"/>
 		  <b:DropDownMenu pull="RIGHT">
-		    <b:AnchorListItem>Profile</b:AnchorListItem>
+		    <b:AnchorListItem ui:field="uProfile" >Profile</b:AnchorListItem>
 		    <b:AnchorListItem>Settings</b:AnchorListItem>
 		    <b:AnchorListItem>Messages</b:AnchorListItem>
 		    <b:AnchorListItem>Log Out</b:AnchorListItem>
