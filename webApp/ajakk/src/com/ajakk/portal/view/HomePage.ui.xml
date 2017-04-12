@@ -120,5 +120,8 @@ background: linear-gradient(to right, #4e4376, #2b5876); /* W3C, IE 10+/ Edge, F
             </g:HTMLPanel>
         </b:Container>
         
+         <b:Button ui:field="createEventBtn">Create Event</b:Button>
     </g:HTMLPanel>
+    
+   
 </ui:UiBinder>

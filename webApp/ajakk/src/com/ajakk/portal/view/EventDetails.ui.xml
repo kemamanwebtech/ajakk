@@ -1,31 +1,49 @@
 <!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
- xmlns:g="urn:import:com.google.gwt.user.client.ui"
- xmlns:b="urn:import:org.gwtbootstrap3.client.ui">
-    <ui:style>
-    /* Add CSS here. See the GWT docs on UI Binder for more details */
-    
-    .main-container {
-	   width: 50% !important;
-	   background: black !important;
-
+	xmlns:g="urn:import:com.google.gwt.user.client.ui" xmlns:b="urn:import:org.gwtbootstrap3.client.ui">
+	<ui:style>
+	/* Add CSS here. See the GWT docs on UI Binder for more details */
+	.main-container {
+		text-align: left !important;
 	}
-    </ui:style>
-    <g:HTMLPanel >
-        <!-- Add GWT widgets here. Enter < and hit Ctrl-Space to auto-complete widget names. The ui:field attribute binds an element to a field in the owner class. See the GWT docs on UI Binder for more 
-            details. -->
-        <b:ModalHeader>
-        <g:Label>Event Details Label</g:Label>
-        </b:ModalHeader>
-        <b:ModalBody >
-        <g:HTMLPanel addStyleNames="container-fluid {style.main-container}">
-        <b:Button addStyleNames="btn btn-primary">What</b:Button> 
-        </g:HTMLPanel>
-        </b:ModalBody>
-        <b:ModalFooter>
-        
-        </b:ModalFooter>
-        
-        
-    </g:HTMLPanel>
+	</ui:style>
+	
+	<g:HTMLPanel>
+		<div class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2"
+			style="width:50%; padding-top:30px;">
+			<b:Panel>
+				<b:PanelHeader>
+					<b:PanelBody>
+						<b:Form type="HORIZONTAL" addStyleNames="{style.main-container}">
+							<b:FieldSet>
+								<b:Legend>Create Event</b:Legend>
+								<b:FormGroup>
+									<b:FormLabel addStyleNames="col-lg-2">Event Name:</b:FormLabel>
+									<g:FlowPanel addStyleNames="col-lg-10">
+										<b:TextBox ui:field="eventName"></b:TextBox>
+									</g:FlowPanel>
+								</b:FormGroup>
+								<b:FormGroup>
+									<b:FormLabel addStyleNames="col-lg-2">Event
+										Description:</b:FormLabel>
+									<g:FlowPanel addStyleNames="col-lg-10">
+										<b:TextArea ui:field="eventDesc"></b:TextArea>
+									</g:FlowPanel>
+								</b:FormGroup>
+								<b:FormGroup>
+									<b:FormLabel addStyleNames="col-lg-2">Location:</b:FormLabel>
+									<g:FlowPanel addStyleNames="col-lg-10">
+										<b:TextBox ui:field="eventLocation"></b:TextBox>
+									</g:FlowPanel>
+								</b:FormGroup>
+							</b:FieldSet>
+							<b:Button ui:field="submitEvent" type="SUCCESS">Submit</b:Button>
+						</b:Form>
+					</b:PanelBody>
+				</b:PanelHeader>
+			</b:Panel>
+		</div>
+	</g:HTMLPanel>
+	
+
 </ui:UiBinder>

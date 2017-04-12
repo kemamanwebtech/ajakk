@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.gwtbootstrap3.client.ui.Anchor;
+import org.gwtbootstrap3.client.ui.Button;
 import org.gwtbootstrap3.client.ui.ListGroupItem;
 import org.gwtbootstrap3.client.ui.Modal;
 import org.gwtbootstrap3.client.ui.constants.Toggle;
@@ -18,6 +19,7 @@ import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
+import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.DecoratorPanel;
@@ -39,7 +41,9 @@ public class HomePage extends Composite {
     @UiField
     ListGroupItem eventContainerPanel;
     // @UiField AnchorListItem uProfile;
-
+//    @UiField
+//    Button createEventBtn;
+    
     Toggle         toggle;
     List<EventDTO> eventList = null;
 
@@ -72,6 +76,8 @@ public class HomePage extends Composite {
             }
 
         });
+        
+
 
     }
 
@@ -106,10 +112,19 @@ public class HomePage extends Composite {
 
     public static void popOutEventDetails() {
         Modal modal = new Modal();
-        modal.setTitle("Event Details");
         modal.add(App.createEventDetails());
         RootPanel.get().add(modal);
         modal.show();
     }
+    
 
+    @UiHandler("createEventBtn")
+    void onCreateEventClick(ClickEvent e){
+    	Modal modal = new Modal();
+    	modal.add(App.getCreateEventPage());
+    	RootPanel.get().add(modal);
+    	modal.show();
+    }
+    
+    
 }

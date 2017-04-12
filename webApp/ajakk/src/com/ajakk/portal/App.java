@@ -8,6 +8,7 @@ import com.ajakk.portal.view.HomePage;
 import com.ajakk.portal.view.LoginPage;
 import com.ajakk.portal.view.RegisterPage;
 import com.ajakk.portal.view.EditUserProfile;
+import com.ajakk.portal.view.createEvent;
 
 /**
  * @author raf
@@ -19,11 +20,13 @@ public class App {
     static RegisterPage regPage      = null;
     static EditUserProfile  userPage     = null;
     static EventDetails eventDetails = null;
+    static createEvent createEventPage = null;
 
     public App() {
         loginPage = new LoginPage();
         homePage = new HomePage();
         regPage = new RegisterPage();
+        createEventPage = new createEvent();
     }
 
     public static LoginPage getLoginPage() {
@@ -58,5 +61,11 @@ public class App {
     public static EditUserProfile getUserProfilePage() {
         userPage = new EditUserProfile();
         return userPage;
+    }
+    
+    public static createEvent getCreateEventPage() {
+		createEventPage = new createEvent();
+		return createEventPage;
+    	
     }
 }
