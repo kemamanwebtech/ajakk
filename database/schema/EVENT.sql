@@ -4,7 +4,7 @@
 -- Copyright:    KWT
 --
 -- Description:
---  o ...
+-- Table EVENT - list all of events
 --
 -- Restrictions: n/a
 --
@@ -25,10 +25,10 @@ create table EVENT (
   )                             not null                comment 'Status of the event: InActive, Active, Completed or Cancelled',
   OWNER_ID          int         not null                comment 'Owner of the event',
   SECOND_OWNER_ID   int                                 comment 'Second owner of the event',
-  CREATED           TIMESTAMP    not null default CURRENT_TIMESTAMP  comment 'Creation date of the event',
+  CREATED           TIMESTAMP   not null default CURRENT_TIMESTAMP  comment 'Creation date of the event',
   UPDATED           datetime                            comment 'Last update to the event',
   CONFIRMED_DATE    datetime                            comment 'Date and time of the event',
-  VENUE_ID	    int		not null,
+  VENUE_ID	    int		                                  comment 'location of the event',
   constraint PK_EVENT primary key (EVENT_ID)
 )
 comment = 'Basic data of a AJAKK event';
