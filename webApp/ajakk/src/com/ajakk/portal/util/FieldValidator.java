@@ -1,4 +1,4 @@
-package com.ajakk.shared;
+package com.ajakk.portal.util;
 
 /**
  * Validate user input against common pattern and requirement

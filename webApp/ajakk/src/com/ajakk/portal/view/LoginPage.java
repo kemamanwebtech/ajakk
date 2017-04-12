@@ -1,10 +1,14 @@
 package com.ajakk.portal.view;
 
+import org.gwtbootstrap3.client.ui.Button;
+import org.gwtbootstrap3.client.ui.Modal;
+import org.gwtbootstrap3.client.ui.TextBox;
+
 import com.ajakk.portal.AjakkRPC;
 import com.ajakk.portal.AjakkRPCAsync;
 import com.ajakk.portal.App;
 import com.ajakk.portal.util.AjakkConfig;
-import com.ajakk.shared.FieldValidator;
+import com.ajakk.portal.util.FieldValidator;
 import com.ajakk.shared.dto.LoginDTO;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
@@ -21,9 +25,6 @@ import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.VerticalPanel;
 import com.google.gwt.user.client.ui.Widget;
-import org.gwtbootstrap3.client.ui.Button;
-import org.gwtbootstrap3.client.ui.Modal;
-import org.gwtbootstrap3.client.ui.TextBox;
 
 public class LoginPage extends Composite {
 
@@ -100,8 +101,9 @@ public class LoginPage extends Composite {
         Modal modal = new Modal();
         modal.add(App.getRegPage());
         RootPanel.get().add(modal);
-        modal.show();	
+        modal.show();
     }
+
     @UiHandler("loginButton")
     void onClick(ClickEvent e) {
         if (!FieldValidator.isValidUserName(userName.getText())) {

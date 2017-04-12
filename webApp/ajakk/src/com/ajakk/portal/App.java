@@ -3,21 +3,22 @@
  */
 package com.ajakk.portal;
 
+import com.ajakk.portal.view.EventDetails;
+import com.ajakk.portal.view.HomePage;
 import com.ajakk.portal.view.LoginPage;
 import com.ajakk.portal.view.RegisterPage;
-import com.ajakk.portal.view.UserProfile;
-import com.ajakk.portal.view.HomePage;
+import com.ajakk.portal.view.EditUserProfile;
 
 /**
  * @author raf
- *
  */
 public class App {
 
-    static LoginPage loginPage = null;
-    static HomePage  homePage  = null;
-    static RegisterPage regPage = null;
-    static UserProfile userPage = null;
+    static LoginPage    loginPage    = null;
+    static HomePage     homePage     = null;
+    static RegisterPage regPage      = null;
+    static EditUserProfile  userPage     = null;
+    static EventDetails eventDetails = null;
 
     public App() {
         loginPage = new LoginPage();
@@ -35,17 +36,27 @@ public class App {
     }
 
     public static HomePage getHomePage() {
-        homePage = new HomePage();
-        return homePage;
+        if (homePage == null) {
+            homePage = new HomePage();
+            return homePage;
+        } else {
+            return homePage;
+        }
+
     }
-    
-    public static RegisterPage getRegPage(){
-    	regPage = new RegisterPage();
-    	return regPage;
+
+    public static EventDetails createEventDetails() {
+        eventDetails = new EventDetails();
+        return eventDetails;
     }
-    
-    public static UserProfile getUserProfilePage(){
-    	userPage = new UserProfile();
-    	return userPage;
+
+    public static RegisterPage getRegPage() {
+        regPage = new RegisterPage();
+        return regPage;
+    }
+
+    public static EditUserProfile getUserProfilePage() {
+        userPage = new EditUserProfile();
+        return userPage;
     }
 }
