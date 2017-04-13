@@ -29,7 +29,9 @@
     <inherits name="org.gwtbootstrap3.extras.animate.Animate"/>
     <inherits name="org.gwtbootstrap3.extras.fullcalendar.FullCalendar"/>
     <inherits name="org.gwtbootstrap3.extras.gallery.Gallery"/>
-    <inherits name="org.gwtbootstrap3.extras.tagsinput.TagsInput"/>  
+    <inherits name="org.gwtbootstrap3.extras.tagsinput.TagsInput"/> 
+    <inherits name="gwt.material.design.GwtMaterialDesign" /> 
+    <inherits name="gwt.material.design.addins.GwtMaterialAddins"/> 
   
   
   <!-- Specify the app entry point class.                         -->
