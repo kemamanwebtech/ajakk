@@ -6,15 +6,24 @@
 		text-align:left !important;
 		width: 80%	!important;
 		}
+		
+			.body {
+		background: #2b5876; /* fallback for old browsers */
+		background: -webkit-linear-gradient(to right, #4e4376, #2b5876); /* Chrome 10-25,
+		Safari 5.1-6 */
+		background: linear-gradient(to right, #4e4376, #2b5876); /* W3C, IE 10+/ Edge,
+		Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+		color: white;
+		}
+		
 	</ui:style>
 
-	<g:HTMLPanel>
+	<g:HTMLPanel addStyleNames="{style.body}">
 		<div class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
-			<b:Panel>
-				<b:PanelBody>
-					<b:Form type="HORIZONTAL">
+			<b:Panel addStyleNames="{style.body}">
+				<b:PanelBody addStyleNames="{style.body}">
+					<b:Form type="HORIZONTAL" addStyleNames="{style.body}">
 						<b:FieldSet>
-							<b:Legend>Create Event</b:Legend>
 							<b:FormGroup>
 								<b:FormLabel addStyleNames="col-lg-2">Event Name:</b:FormLabel>
 								<g:FlowPanel addStyleNames="col-lg-10">
@@ -28,7 +37,6 @@
 									<b:TextArea ui:field="eventDesc" />
 								</g:FlowPanel>
 							</b:FormGroup>
-
 							<b:FormGroup>
 								<b:FormLabel addStyleNames="col-lg-2">Location:</b:FormLabel>
 								<g:FlowPanel addStyleNames="col-lg-10">
@@ -42,5 +50,4 @@
 			</b:Panel>
 		</div>
 	</g:HTMLPanel>
-
 </ui:UiBinder>
