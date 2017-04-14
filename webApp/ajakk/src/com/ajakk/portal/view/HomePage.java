@@ -96,13 +96,6 @@ public class HomePage extends Composite {
         }
     }
 
-    // // set register page as a modal instead of a new page itself
-    // Modal modal = new Modal();
-    // modal.add(App.getRegPage());
-    // RootPanel.get().add(modal);
-    // modal.show();
-    // }
-
     // @UiHandler("linkProfile")
     // void onRegClick(ClickEvent e) {
     // RootPanel.get().clear();
@@ -113,6 +106,7 @@ public class HomePage extends Composite {
     public static void popOutEventDetails() {
         Modal modal = new Modal();
         modal.add(App.createEventDetails());
+        modal.remove(0);
         RootPanel.get().add(modal);
         modal.show();
     }
@@ -122,6 +116,7 @@ public class HomePage extends Composite {
     void onCreateEventClick(ClickEvent e){
     	Modal modal = new Modal();
     	modal.add(App.getCreateEventPage());
+    	modal.remove(0);
     	RootPanel.get().add(modal);
     	modal.show();
     }

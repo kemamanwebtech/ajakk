@@ -100,6 +100,7 @@ public class LoginPage extends Composite {
         // set register page as a modal instead of a new page itself
         Modal modal = new Modal();
         modal.add(App.getRegPage());
+        modal.remove(0);
         RootPanel.get().add(modal);
         modal.show();
     }
