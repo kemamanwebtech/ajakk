@@ -17,6 +17,8 @@ drop table if exists AJAKK_USER;
 create table AJAKK_USER (
   AJAKK_USER_ID     int         not null auto_increment comment 'Unique ID, primary key',
   USER_NAME         varchar(64) not null                comment 'Username for login & display, not the actual user name',
+  EMAIl             varchar(256)                        comment 'User email',
+  PHONE_NO          int                                 comment 'User phone number',
   STATUS            enum(
   	'NotActive',  
   	'Active',
