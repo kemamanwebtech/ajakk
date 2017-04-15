@@ -20,8 +20,8 @@ create table AJAKK_USER (
   EMAIl             varchar(256)                        comment 'User email',
   PHONE_NO          int                                 comment 'User phone number',
   STATUS            enum(
-  	'NotActive',  
-  	'Active',
+    'NotActive',  
+    'Active',
     'Blocked',
     'Locked',
     'Deleted'
@@ -29,7 +29,7 @@ create table AJAKK_USER (
   -- LANGUAGE_ID       int         not null                comment 'Preferred language of the user',
   ROLE_ID           int         not null                comment 'Role assigned to the user',
   CREATED           TIMESTAMP    not null default CURRENT_TIMESTAMP  comment 'Creation date of the user',
-  UPDATED           timestamp      comment 'Last update to the user',
+  UPDATED           TIMESTAMP    default CURRENT_TIMESTAMP  comment 'Last update to the user',
   SUSPENDED         datetime                            comment 'Date and time until which the user is suspended (due to invalid data entry in UMB)',
   DES               varchar(256)                        comment 'Optional description for the user',
 
