@@ -11,7 +11,10 @@ import com.google.gwt.user.client.rpc.AsyncCallback;
  */
 public interface AjakkRPCAsync {
 
-    void doLogin(String userName, String passwd, AsyncCallback<LoginDTO> callback) throws IllegalArgumentException;
+    void doLogin(
+    		String userName, 
+    		String passwd, 
+    		AsyncCallback<LoginDTO> callback) throws IllegalArgumentException;
 
     /**
      * Get all events from database (no filter)
@@ -20,5 +23,21 @@ public interface AjakkRPCAsync {
      */
     @SuppressWarnings("rawtypes")
     void getAllEvents(AsyncCallback asyncCallback);
+    
+	/**
+	 * Register a user
+	 * 
+	 * @param text
+	 * @param text2
+	 * @param text3
+	 * @param text4
+	 * @param asyncCallback
+	 */
+	void doSignup(
+			String username, 
+			String password, 
+			String email, 
+			String phoneNumber,
+			AsyncCallback<String> asyncCallback);
 
 }

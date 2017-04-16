@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui" xmlns:b="urn:import:org.gwtbootstrap3.client.ui"
+	xmlns:card="urn:import:org.gwtbootstrap3.extras.card.client.ui">
+	<ui:style>
+
+		@external .input-group-addon;
+		.input-group-addon {
+		width:40px !important;
+		}
+		@external .input-group;
+		.input-group {
+		width:100% !important;
+		margin-top: 15px !important;
+
+		}
+
+		.body {
+		background: #2b5876; /* fallback for old browsers */
+		background: -webkit-linear-gradient(to right, #4e4376, #2b5876); /* Chrome 10-25,
+		Safari 5.1-6 */
+		background: linear-gradient(to right, #4e4376, #2b5876); /* W3C, IE 10+/ Edge,
+		Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+		}
+
+		.nobg {
+		background: none;
+		}
+	</ui:style>
+
+	<g:HTMLPanel>
+
+		<div class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2"
+			style="width:50%; padding-top:30px; ">
+			<b:Panel>
+				<b:PanelHeader addStyleNames="{style.body}">
+					<b:PanelBody addStyleNames="{style.body}">
+						<b:Form addStyleNames="{style.body}">
+							<b:FormGroup>
+								<b:InputGroup>
+									<b:InputGroupAddon icon="USER" />
+									<b:TextBox ui:field="userName" placeholder="Username"
+										autoComplete="false" />
+								</b:InputGroup>
+								<b:InputGroup>
+									<b:InputGroupAddon icon="BRIEFCASE" />
+									<b:TextBox ui:field="passwd" placeholder="Password"
+										autoComplete="false" />
+								</b:InputGroup>
+								<b:InputGroup>
+									<b:InputGroupAddon icon="ENVELOPE" />
+									<b:TextBox ui:field="email" placeholder="Email"
+										autoComplete="false" />
+								</b:InputGroup>
+								<b:InputGroup>
+									<b:InputGroupAddon icon="MOBILE" />
+									<b:TextBox ui:field="phoneNumber" placeholder="Phone Number"
+										autoComplete="false" />
+								</b:InputGroup>
+								<b:InputGroup>
+									<b:Row>
+										<b:Column size="MD_6">
+											<b:Button ui:field="bSignUp" type="INFO" text="Sing Up" />
+										</b:Column>
+										<b:Column size="MD_6">
+											<b:Column size="MD_6">
+												<b:Button ui:field="bSgGP" type="DANGER" icon="GOOGLE_PLUS"
+													text="Sign Up with" iconBordered="true" iconPosition="RIGHT" />
+											</b:Column>
+											<b:Column size="MD_6">
+												<b:Button ui:field="bSgFB" type="PRIMARY" icon="FACEBOOK"
+													text="Sign Up with" iconBordered="true" iconPosition="RIGHT" />
+											</b:Column>
+										</b:Column>
+									</b:Row>
+								</b:InputGroup>
+
+							</b:FormGroup>
+						</b:Form>
+
+					</b:PanelBody>
+
+				</b:PanelHeader>
+			</b:Panel>
+		</div>
+
+	</g:HTMLPanel>
+
+</ui:UiBinder> 

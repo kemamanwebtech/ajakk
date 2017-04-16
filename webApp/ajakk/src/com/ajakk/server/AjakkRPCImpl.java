@@ -8,8 +8,10 @@ import com.ajakk.portal.AjakkRPC;
 import com.ajakk.server.dao.EventDAO;
 import com.ajakk.server.dao.FactoryDAO;
 import com.ajakk.server.dao.LoginDAO;
+import com.ajakk.server.dao.UserDAO;
 import com.ajakk.shared.dto.EventDTO;
 import com.ajakk.shared.dto.LoginDTO;
+import com.ajakk.shared.dto.UserDTO;
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;
 
 /**
@@ -60,4 +62,27 @@ public class AjakkRPCImpl extends RemoteServiceServlet implements AjakkRPC {
         return eventList;
 
     }
+
+	@Override
+	public String doSignup(
+			String username, 
+			String password, 
+			String email,
+			String phoneNumber) {
+		
+		UserDTO user = new UserDTO(username, email, phoneNumber);
+		Connection con = daoFactory.getConnection();
+		UserDAO userDAO = daoFactory.getUserDAO();
+		
+		if (con == null) {
+			System.out.println("con is null");
+		}
+		try {
+			userDAO.registerUser(user, password, con);
+			return "success";
+		} catch (Exception e) {
+			e.printStackTrace();
+		}	
+		return "failed";
+	}
 }

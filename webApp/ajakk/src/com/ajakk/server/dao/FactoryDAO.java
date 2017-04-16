@@ -77,4 +77,9 @@ public class FactoryDAO {
         return eventDAO;
     }
 
+	public UserDAO getUserDAO() {
+		UserDAO userDAO = new UserDAO();
+		return userDAO;
+	}
+
 }

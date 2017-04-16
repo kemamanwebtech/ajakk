@@ -48,39 +48,54 @@ public class UserDAO extends UserDTO {
 		
 	}
 	
-	public void registerUser(UserDTO user){ 
-		
+	public void registerUser(UserDTO user, String password, Connection con){ 
+		String id = "";
 		try {
-		
+			String sql = " INSERT INTO AJAKK_USER (USER_NAME, EMAIL, PHONE_NO, STATUS, UPDATED, ROLE_ID) "
+						+ " VALUES (		       ? ,        ? ,    ? ,       'Active',      ?,       ?)";
             
-            PreparedStatement stmt = con
-                    .prepareStatement("INSERT INTO AJAKK_USER (USER_NAME, STATUS, UPDATED, ROLE_ID)" 
-            + "VALUES (? , ? , ? , ?)");
-            
+            PreparedStatement stmt = con.prepareStatement(sql);            
             stmt.setString(1, user.getName());
-            stmt.setString(2, user.getStatus());
-            stmt.setDate(3, user.getUpdated());
-            stmt.setInt(4, user.getRoleID());
-            stmt.executeUpdate();
-     
+            stmt.setString(2, user.getEmail());
+            stmt.setString(3, user.getPhoneNumber());
+            stmt.setDate(4, user.getUpdated());
+            stmt.setInt(5, user.getRoleID());
             
+            System.out.println(stmt.toString());
+            stmt.executeUpdate();  
 		} catch (SQLException e) {
             e.printStackTrace();
         }
+		
+		try {
+			String sql = " SELECT LAST_INSERT_ID() as AJAKK_USER_ID";
+			PreparedStatement stmt = con.prepareStatement(sql); 
+			ResultSet rs = stmt.executeQuery();
+			System.out.println(stmt.toString());
+			while (rs.next()) {
+				id = rs.getString("AJAKK_USER_ID");
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}		
+		
+		insertPassword(id, password, con);
+	}
 	
-		
-//		try {
-//			PreparedStatement stmt = con
-//                    .prepareStatement("INSERT INTO AJAKK_PASS (AJAKK_USER_ID, ACCESS_PASS)" 
-//            + "VALUES (? , ?)");
-//            
-//            stmt.setInt(1, user.getUserID());
-//            stmt.setInt(2, user.get);
-//            
-//		} catch (SQLException e) {
-//            e.printStackTrace();
-//		}
-		
+	public void insertPassword(String id, String password, Connection con) {
+		try {
+			String sql = " INSERT INTO AJAKK_PASS (AJAKK_USER_ID, ACCESS_PASS) "
+						+ " VALUES (				  ? ,        	 ? )";
+            
+            PreparedStatement stmt = con.prepareStatement(sql);            
+            stmt.setString(1, id);
+            stmt.setString(2, password);
+            stmt.execute(); 
+            System.out.println(stmt.toString());
+		} catch (SQLException e) {
+            e.printStackTrace();
+        }
 	}
 	
     public void updateUser(UserDTO user) {

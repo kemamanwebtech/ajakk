@@ -36,21 +36,13 @@ public class LoginPage extends Composite {
     interface LoginPageUiBinder extends UiBinder<Widget, LoginPage> {
     }
 
-    @UiField
-    TextBox userName;
-    @UiField
-    TextBox passwd;
-    @UiField
-    Button  loginButton;
-    @UiField
-    Button  regButton;
-    @UiField
-    Label   errorLabel;
-
-    @UiField
-    Button ajakkButton;
-    @UiField
-    Button joinButton;
+	@UiField TextBox userName;
+	@UiField TextBox passwd;
+	@UiField Button loginButton;
+	@UiField Button regButton;
+	@UiField Label errorLabel;
+	@UiField Button ajakkButton;
+	@UiField Button joinButton;
 
     DialogBox     dialogBox           = null;
     Button        closeButton         = null;
@@ -175,5 +167,10 @@ public class LoginPage extends Composite {
             }
         });
 
+    }
+    
+    @UiHandler("ajakkButton")
+    public void onAjakkButtonClicked(ClickEvent e) {
+    	RootPanel.get().add(App.getDialogBox("Successfully created new user"));
     }
 }

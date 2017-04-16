@@ -7,13 +7,26 @@ import java.sql.Date;
 public class UserDTO implements Serializable {
 	int userID;
 	String name;
+	String email;
+	String phoneNumber;
 	String status; 		// Status of the user : NotActive, Active, Blocked, Locked, Deleted
 	int roleID; 		// Role assigned to the user
 	Date created;
 	Date updated;
 	Date suspended; 	// Date and time until which the user is suspended
-	String des; 		//Optional description for the user
+	String des; 		// Optional description for the user
 	String photo; 		// Profile picture of this user
+	
+	public UserDTO() {
+		
+	}
+	
+	// parameterized constructor used for user registration
+	public UserDTO(String name, String email, String phoneNumber) {
+		this.name = name;
+		this.email = email;
+		this.phoneNumber = phoneNumber;
+	}
 	
 	public int getUserID() {
 		return userID;
@@ -21,6 +34,14 @@ public class UserDTO implements Serializable {
 	
 	public String getName() {
 		return name;
+	}
+	
+	public String getEmail() {
+		return email;
+	}
+	
+	public String getPhoneNumber() {
+		return phoneNumber;
 	}
 	
 	public String getStatus() {
@@ -57,8 +78,17 @@ public class UserDTO implements Serializable {
 	public void setName(String name) {
 		this.name = name;
 	}
+	
 	public void setStatus(String status) {
 		this.status = status;
+	}
+	
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
 	}
 	
 	public void setRoleID(int roleID) {
