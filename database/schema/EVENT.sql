@@ -17,6 +17,7 @@ create table EVENT (
   EVENT_ID          int         not null auto_increment comment 'Unique ID, primary key',
   NAME              varchar(64) not null                comment 'Event name',
   DES               varchar(256)                        comment 'Optional description for the event',
+  TYPE               varchar(100)                        comment 'Event type',
   STATUS            enum(
     'InActive',
     'Active',
