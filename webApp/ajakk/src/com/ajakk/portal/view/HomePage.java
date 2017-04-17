@@ -53,7 +53,7 @@ public class HomePage extends Composite {
 			}
 		});
 		
-		getAllEvents();
+		 getAllEvents();
 	}
 
 	/**
