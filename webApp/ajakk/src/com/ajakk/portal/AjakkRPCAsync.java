@@ -47,5 +47,7 @@ public interface AjakkRPCAsync {
 			String eventLocation, 
 			String userName,
 			AsyncCallback<String> asyncCallback);
+	
+	void getUserIDFromUsername(String userName, AsyncCallback<Integer> asyncCallback);
 
 }

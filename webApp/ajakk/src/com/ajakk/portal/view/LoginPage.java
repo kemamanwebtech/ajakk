@@ -121,6 +121,25 @@ public class LoginPage extends Composite {
 
                     case "Active":
                     	App.username = userName.getText();
+                    	
+                    	rpc.getUserIDFromUsername(App.username, new AsyncCallback<Integer>() {
+
+							@Override
+							public void onFailure(Throwable caught) {
+								RootPanel.get().add(App.getDialogBox(caught.getMessage().toString()));	
+							}
+
+							@Override
+							public void onSuccess(Integer result) {
+								if (result > 0)
+									App.userID = result;
+								else 
+									RootPanel.get().add(App.getDialogBox("Error : Failed to get userID"));	
+							}
+                    		
+                    	});
+                    	
+                    	
                         RootPanel.get().clear();
                         RootPanel.get().setStyleName("fullWidth");
                         RootPanel.get().add(App.getHomePage());

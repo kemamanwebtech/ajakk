@@ -52,6 +52,8 @@ public class HomePage extends Composite {
 				RootPanel.get().add(App.getUserProfilePage());
 			}
 		});
+		
+		getAllEvents();
 	}
 
 	/**

@@ -32,4 +32,6 @@ public interface AjakkRPC extends RemoteService {
 			String eventType, 
 			String eventLocation, 
 			String userName);
+
+	int getUserIDFromUsername(String userName);
 }

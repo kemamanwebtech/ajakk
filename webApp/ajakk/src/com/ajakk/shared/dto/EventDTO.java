@@ -28,6 +28,25 @@ public class EventDTO implements Serializable {
 	List<ParticipantDTO> listParticipant;
 	List<commentDTO> comments;
 	
+	public EventDTO() {
+		
+	}
+	
+	public EventDTO(
+			String eventName, 
+			String eventDesc,
+			String eventType, 
+			String eventLocation, 
+			int userID) {
+		
+		this.eventName = eventName;
+		this.eventDes = eventDesc;
+		this.eventType = eventType;
+		this.eventLoc = eventLocation;
+		this.ownerID = userID;	
+	}
+	
+	
 	public int getEventID() {
 		return eventID;
 	}

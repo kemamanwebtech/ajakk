@@ -24,6 +24,7 @@ public class App {
     static createEvent createEventPage = null;
     static DialogBox dialogBox = null;
 	public static String username;
+	public static int userID;
 
     public App() {
         loginPage = new LoginPage();

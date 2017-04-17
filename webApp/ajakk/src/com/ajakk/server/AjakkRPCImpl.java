@@ -74,9 +74,6 @@ public class AjakkRPCImpl extends RemoteServiceServlet implements AjakkRPC {
 		Connection con = daoFactory.getConnection();
 		UserDAO userDAO = daoFactory.getUserDAO();
 		
-		if (con == null) {
-			System.out.println("con is null");
-		}
 		try {
 			userDAO.registerUser(user, password, con);
 			return "success";
@@ -95,12 +92,27 @@ public class AjakkRPCImpl extends RemoteServiceServlet implements AjakkRPC {
 			String userName) {
 		
 		Connection con = daoFactory.getConnection();
-		EventDTO event = new EventDTO();
+		
 		UserDAO userDAO = daoFactory.getUserDAO();
 		
-		int userId = Integer.parseInt(userDAO.getUserIdByUsername(userName));
+		int userID = Integer.parseInt(userDAO.getUserIdByUsername(userName, con));
+		EventDTO event = new EventDTO(eventName, eventDesc, eventType, eventLocation, userID);
+		EventDAO eventDAO = daoFactory.getEventDAO();
 		
-		// TODO Auto-generated method stub
-		return null;
+		if (eventDAO.createEvent(event, con)) {
+			return "success";
+		} else {
+			return "Error : failed to create event.";
+		}
+	}
+	
+	@Override
+	public int getUserIDFromUsername(String userName) {
+		int userID = 0;
+		Connection con = daoFactory.getConnection();
+		UserDAO userDAO = daoFactory.getUserDAO();
+		userID = Integer.parseInt(userDAO.getUserIdByUsername(userName, con));
+		
+		return userID;
 	}
 }

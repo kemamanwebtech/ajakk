@@ -133,7 +133,7 @@ public class UserDAO extends UserDTO {
     	
     }
     
-    public String getUserIdByUsername(String username) {
+    public String getUserIdByUsername(String username, Connection con) {
     	
     	String result = "";
     	String sql = " SELECT AJAKK_USER_ID FROM AJAKK_USER WHERE USER_NAME = ? ";

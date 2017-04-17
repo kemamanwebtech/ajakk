@@ -57,25 +57,18 @@ public class EventDAO {
         
     }
     
-    public void createEvent (EventDTO event) {
+    public boolean createEvent (EventDTO event, Connection con) {
     	
     	try {            
-		
-            PreparedStatement stmt = con
-                    .prepareStatement("INSERT INTO EVENT(NAME, DES) VALUES (? , ?)");
-            
-            
-            
-            
-            
+    		PreparedStatement stmt = con.prepareStatement("INSERT INTO EVENT (NAME, DES) VALUES (? , ?)");
             stmt.setString(1, event.getEventName());
             stmt.setString(2, event.getEventDes());
             stmt.setInt(3, event.getEventID());
-            stmt.executeUpdate();
-            
-    		
-    	}catch (SQLException e) {
+            stmt.executeUpdate();	
+            return true;
+    	} catch (SQLException e) {
             e.printStackTrace();
+            return false;
         }
     	
     }
