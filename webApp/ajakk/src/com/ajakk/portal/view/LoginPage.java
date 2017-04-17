@@ -49,6 +49,7 @@ public class LoginPage extends Composite {
     Label         textToServerLabel   = null;
     HTML          serverResponseLabel = null;
     VerticalPanel dialogVPanel        = null;
+    static Modal regpage = null;
 
     public LoginPage() {
         initWidget(uiBinder.createAndBindUi(this));
@@ -60,45 +61,25 @@ public class LoginPage extends Composite {
         userName.selectAll();
         userName.setText("active");
         passwd.setText("password");
-
-        // Create the popup dialog box
-        dialogBox = new DialogBox();
-        dialogBox.hide();
-        dialogBox.setText("Login failed.");
-        dialogBox.setAnimationEnabled(true);
-        closeButton = new Button("Close");
-        closeButton.getElement().setId("closeButton");
-        textToServerLabel = new Label();
-        serverResponseLabel = new HTML();
-        VerticalPanel dialogVPanel = new VerticalPanel();
-        dialogVPanel.addStyleName("dialogVPanel");
-        dialogVPanel.add(serverResponseLabel);
-        dialogVPanel.setHorizontalAlignment(VerticalPanel.ALIGN_RIGHT);
-        dialogVPanel.add(closeButton);
-        dialogBox.setWidget(dialogVPanel);
-
-        // Add a handler to close the DialogBox
-        closeButton.addClickHandler(new ClickHandler() {
-            public void onClick(ClickEvent event) {
-                dialogBox.hide();
-                loginButton.setEnabled(true);
-                loginButton.setFocus(true);
-            }
-        });
     }
 
     @UiHandler("regButton")
-    void onRegClick(ClickEvent e) {
+    void onregButtonClicked(ClickEvent e) {
         // set register page as a modal instead of a new page itself
-        Modal modal = new Modal();
-        modal.add(App.getRegPage());
-        modal.remove(0);
-        RootPanel.get().add(modal);
-        modal.show();
+    	regpage = new Modal();
+    	regpage.add(App.getRegPage());
+    	regpage.remove(0);
+        RootPanel.get().add(regpage);
+        regpage.show();
+    }
+    
+    public static void removeRegPage() {
+    	regpage.hide();
+    	RootPanel.get().remove(regpage);
     }
 
     @UiHandler("loginButton")
-    void onClick(ClickEvent e) {
+    void onloginButtonClicked(ClickEvent e) {
         if (!FieldValidator.isValidUserName(userName.getText())) {
             errorLabel.setText("Username is required.");
             return;
@@ -111,11 +92,7 @@ public class LoginPage extends Composite {
 
         rpc.doLogin(userName.getText(), passwd.getText(), new AsyncCallback<LoginDTO>() {
             public void onFailure(Throwable caught) {
-                // Show the RPC error message to the user
-                dialogBox.setText("Authenticating user...");
-                serverResponseLabel.setHTML(AjakkConfig.SERVER_ERROR);
-                dialogBox.center();
-                closeButton.setFocus(true);
+                RootPanel.get().add(App.getDialogBox(AjakkConfig.SERVER_ERROR));
             }
 
             public void onSuccess(LoginDTO result) {
@@ -123,42 +100,26 @@ public class LoginPage extends Composite {
                 switch (result.getUserStatus()) {
 
                     case "NotActive":
-                        dialogBox.center();
-                        closeButton.setFocus(true);
-                        dialogBox.setText(result.getUserStatus());
-                        serverResponseLabel.setHTML(AjakkConfig.ACC_NOTACTIVE);
+                        RootPanel.get().add(App.getDialogBox(AjakkConfig.ACC_NOTACTIVE));
                         break;
 
                     case "Blocked":
-                        dialogBox.center();
-                        closeButton.setFocus(true);
-                        dialogBox.setText("Your account has been " + result.getUserStatus());
-                        serverResponseLabel.setHTML(AjakkConfig.ACC_BLOCKED);
+                        RootPanel.get().add(App.getDialogBox(AjakkConfig.ACC_BLOCKED));
                         break;
 
                     case "Locked":
-                        dialogBox.center();
-                        closeButton.setFocus(true);
-                        dialogBox.setText("Your account is currently " + result.getUserStatus());
-                        serverResponseLabel.setHTML(AjakkConfig.ACC_LOCKED);
+                        RootPanel.get().add(App.getDialogBox(AjakkConfig.ACC_LOCKED));
                         break;
 
                     case "Deleted":
-                        dialogBox.center();
-                        closeButton.setFocus(true);
-                        dialogBox.setText("Your account has been " + result.getUserStatus());
-                        serverResponseLabel.setHTML(AjakkConfig.ACC_DELETED);
+                        RootPanel.get().add(App.getDialogBox(AjakkConfig.ACC_DELETED));
                         break;
 
                     case "Invalid":
-                        dialogBox.center();
-                        closeButton.setFocus(true);
-                        dialogBox.setText(result.getUserStatus());
-                        serverResponseLabel.setHTML(AjakkConfig.AUTH_ERROR);
+                        RootPanel.get().add(App.getDialogBox(AjakkConfig.AUTH_ERROR));
                         break;
 
                     case "Active":
-                        dialogBox.hide();
                         RootPanel.get().clear();
                         RootPanel.get().setStyleName("fullWidth");
                         RootPanel.get().add(App.getHomePage());
@@ -166,11 +127,15 @@ public class LoginPage extends Composite {
                 }
             }
         });
-
     }
     
     @UiHandler("ajakkButton")
     public void onAjakkButtonClicked(ClickEvent e) {
-    	RootPanel.get().add(App.getDialogBox("Successfully created new user"));
+    	RootPanel.get().add(App.getDialogBox("Ajak your friends!"));
+    }
+    
+    @UiHandler("joinButton")
+    public void onjoinButtonClicked(ClickEvent e) {
+    	RootPanel.get().add(App.getDialogBox("Join your friends!"));
     }
 }

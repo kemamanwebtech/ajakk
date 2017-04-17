@@ -27,10 +27,8 @@ import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.Widget;
 
 public class HomePage extends Composite {
-    @UiField
-    Modal  modal;
-    @UiField
-    Anchor linkProfile;
+    @UiField	Modal  modal;
+    @UiField	Anchor linkProfile;
 
     interface HomePageUiBinder extends UiBinder<Widget, HomePage> {
     }
@@ -38,12 +36,8 @@ public class HomePage extends Composite {
     private static HomePageUiBinder uiBinder = GWT.create(HomePageUiBinder.class);
     private final AjakkRPCAsync     rpc      = GWT.create(AjakkRPC.class);
 
-    @UiField
-    ListGroupItem eventContainerPanel;
-    // @UiField AnchorListItem uProfile;
-//    @UiField
-//    Button createEventBtn;
-    
+    @UiField	ListGroupItem eventContainerPanel;
+
     Toggle         toggle;
     List<EventDTO> eventList = null;
 

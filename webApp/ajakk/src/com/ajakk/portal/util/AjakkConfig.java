@@ -11,28 +11,27 @@ public class AjakkConfig {
 	 * List of static Strings
 	 */
 	public static final String SERVER_ERROR = 
-		"<p>An error occurred while attempting to contact the</p>"
-	+   "<p>server. Please check your network connection and try again.</p>";
+		"An error occurred while attempting to contact the server. Please check your network connection and try again.";
 	
 	public static final String AUTH_ERROR = 
-			"<p>The username and password combination that</p>"
-		  + "<p>you've entered doesn't match any account.</p>";
+			"The username and password combination that"
+		  + "you've entered doesn't match any account.";
 	
 	public static final String ACC_BLOCKED = 
-			"<p>Your account has been blocked. Please contact</p>"
-		  + "<p>Ajakk support team for more information.</p>";
+			"Your account has been blocked. Please contact"
+		  + "Ajakk support team for more information.";
 	
 	public static final String ACC_LOCKED = 
-			"<p>Your account has been locked for an hour due to </p>"
-		  + "<p>multiple invalid login attempts.</p>";
+			"Your account has been locked for an hour due to "
+		  + "multiple invalid login attempts.";
 	
 	public static final String ACC_DELETED = 
-			"<p>Your account apparently has been deleted. If you think</p>"
-		  + "<p>this is wrong, please contact Ajakk support team immediately.</p>";
+			"Your account apparently has been deleted. If you think"
+		  + "this is wrong, please contact Ajakk support team immediately.";
 
 	public static final String ACC_NOTACTIVE = 
-			"<p>Your account has been set to inactive. Please contact</p>"
-		  + "<p>Ajakk support team for more information.</p>";
+			"Your account has been set to inactive. Please contact"
+		  + "Ajakk support team for more information.";
 					
 	// database connection properties
 	String dbHost;

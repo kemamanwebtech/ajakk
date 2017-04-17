@@ -1,11 +1,13 @@
 package com.ajakk.portal.view;
 
 import org.gwtbootstrap3.client.ui.*;
+import org.gwtbootstrap3.extras.notify.client.ui.Notify;
 
 import com.ajakk.portal.AjakkRPC;
 import com.ajakk.portal.AjakkRPCAsync;
 import com.ajakk.portal.App;
 import com.ajakk.portal.util.AjakkConfig;
+import com.ajakk.portal.view.HomePage.EventPanel;
 import com.ajakk.shared.dto.LoginDTO;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
@@ -85,26 +87,17 @@ public class RegisterPage extends Composite {
     		new AsyncCallback<String>() {
 
 			@Override
-			public void onFailure(Throwable caught) {
-				// TODO : Raf - add dialog box for error
-				dialogBox.setText("Creating a new user...");
-                serverResponseLabel.setHTML(caught.getMessage().toString());
-                dialogBox.center();
-                closeButton.setFocus(true);			
+			public void onFailure(Throwable caught) {	
+                RootPanel.get().add(App.getDialogBox(caught.getMessage().toString()));
 			}
 
 			@Override
 			public void onSuccess(String result) {
-				
 				if (result.equals("success")) {
-					// TODO Auto-generated method stub
-					RootPanel.get().add(App.getDialogBox("Successfully created new user"));
+					RootPanel.get().add(App.getDialogBox("Successfully registered your ajakk acount!"));
+					LoginPage.removeRegPage();
 				} else {
-					// TODO Auto-generated method stub
-					dialogBox.center();
-	                closeButton.setFocus(true);
-	                dialogBox.setText(result);
-	                serverResponseLabel.setHTML("Failed to create new user");
+					RootPanel.get().add(App.getDialogBox("Failed to create a new user"));
 				}
 				
 			}
