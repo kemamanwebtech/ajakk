@@ -40,4 +40,12 @@ public interface AjakkRPCAsync {
 			String phoneNumber,
 			AsyncCallback<String> asyncCallback);
 
+	void createEvent(
+			String eventName, 
+			String eventDesc, 
+			String eventType, 
+			String eventLocation, 
+			String userName,
+			AsyncCallback<String> asyncCallback);
+
 }

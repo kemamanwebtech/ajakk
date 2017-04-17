@@ -25,4 +25,11 @@ public interface AjakkRPC extends RemoteService {
 			String password, 
 			String email, 
 			String phoneNumber);
+    
+    String createEvent(
+			String eventName, 
+			String eventDesc, 
+			String eventType, 
+			String eventLocation, 
+			String userName);
 }

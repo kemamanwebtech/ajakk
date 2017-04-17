@@ -85,4 +85,22 @@ public class AjakkRPCImpl extends RemoteServiceServlet implements AjakkRPC {
 		}	
 		return "failed";
 	}
+
+	@Override
+	public String createEvent(
+			String eventName, 
+			String eventDesc,
+			String eventType, 
+			String eventLocation, 
+			String userName) {
+		
+		Connection con = daoFactory.getConnection();
+		EventDTO event = new EventDTO();
+		UserDAO userDAO = daoFactory.getUserDAO();
+		
+		int userId = Integer.parseInt(userDAO.getUserIdByUsername(userName));
+		
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

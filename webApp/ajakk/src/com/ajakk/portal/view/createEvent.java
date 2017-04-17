@@ -3,9 +3,28 @@
  */
 package com.ajakk.portal.view;
 
+import java.util.List;
+
+import org.gwtbootstrap3.client.ui.Button;
+import org.gwtbootstrap3.client.ui.ListBox;
+import org.gwtbootstrap3.client.ui.Modal;
+import org.gwtbootstrap3.client.ui.TextArea;
+import org.gwtbootstrap3.client.ui.TextBox;
+import org.gwtbootstrap3.extras.notify.client.ui.Notify;
+
+import com.ajakk.portal.AjakkRPC;
+import com.ajakk.portal.AjakkRPCAsync;
+import com.ajakk.portal.App;
+import com.ajakk.portal.view.HomePage.EventPanel;
+import com.ajakk.shared.dto.EventDTO;
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.uibinder.client.UiBinder;
+import com.google.gwt.uibinder.client.UiField;
+import com.google.gwt.uibinder.client.UiHandler;
+import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Composite;
+import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.Widget;
 
 /**
@@ -13,25 +32,49 @@ import com.google.gwt.user.client.ui.Widget;
  *
  */
 public class createEvent extends Composite {
-
-    private static createEventUiBinder uiBinder = GWT.create(createEventUiBinder.class);
+	
+	@UiField TextBox	txtEventName;
+	@UiField TextArea	txtEventDesc;
+	@UiField ListBox	listEventType;
+	@UiField TextBox	txtEventLocation;
+	@UiField Button 	btnCreateEvent;
+	
+    private static createEventUiBinder uiBinder		= GWT.create(createEventUiBinder.class);
+    private final AjakkRPCAsync     	rpc			= GWT.create(AjakkRPC.class);
+    
 
     interface createEventUiBinder extends UiBinder<Widget, createEvent> {
     }
-
-    /**
-     * Because this class has a default constructor, it can
-     * be used as a binder template. In other words, it can be used in other
-     * *.ui.xml files as follows:
-     * <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
-      *   xmlns:g="urn:import:**user's package**">
-     *  <g:**UserClassName**>Hello!</g:**UserClassName>
-     * </ui:UiBinder>
-     * Note that depending on the widget that is used, it may be necessary to
-     * implement HasHTML instead of HasText.
-     */
+    
     public createEvent() {
         initWidget(uiBinder.createAndBindUi(this));
     }
+    
+    @UiHandler("btnCreateEvent")
+	 void onCreateEventClick(ClickEvent e){
+    	
+    	rpc.createEvent(
+    			txtEventName.getText(),
+    			txtEventDesc.getText(),
+    			listEventType.getSelectedItemText(),
+    			txtEventLocation.getText(),
+    			App.username,
+    			new AsyncCallback<String>() {
+			public void onFailure(Throwable caught) {
+				RootPanel.get().add(App.getDialogBox(caught.toString()));
+			}
+
+			public void onSuccess(String result) {
+				if (result.equals("success")) {
+					Notify.notify("Successfully create events!");
+				}		
+			}
+		});
+    	
+	 }
+    
+    
+    
+    
 
 }

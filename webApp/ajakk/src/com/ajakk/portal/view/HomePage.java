@@ -27,93 +27,86 @@ import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.Widget;
 
 public class HomePage extends Composite {
-    @UiField	Modal  modal;
-    @UiField	Anchor linkProfile;
+	@UiField	Modal  modal;
+	@UiField	Anchor linkProfile;
+	@UiField	ListGroupItem eventContainerPanel;
+	@UiField 	Button btnAddEvent;
 
-    interface HomePageUiBinder extends UiBinder<Widget, HomePage> {
-    }
+	interface HomePageUiBinder extends UiBinder<Widget, HomePage> {
+	}
 
-    private static HomePageUiBinder uiBinder = GWT.create(HomePageUiBinder.class);
-    private final AjakkRPCAsync     rpc      = GWT.create(AjakkRPC.class);
+	private static HomePageUiBinder uiBinder = GWT.create(HomePageUiBinder.class);
+	private final AjakkRPCAsync     rpc      = GWT.create(AjakkRPC.class);
+	Toggle         toggle;
+	List<EventDTO> eventList = null;
+	static EventDTO selectedEvent = null;
 
-    @UiField	ListGroupItem eventContainerPanel;
+	public HomePage() {
+		initWidget(uiBinder.createAndBindUi(this));
+		eventList = new ArrayList<EventDTO>();
+		
+		linkProfile.addClickHandler(new ClickHandler() {
+			@Override
+			public void onClick(ClickEvent event) {
+				RootPanel.get().clear();
+				RootPanel.get().add(App.getUserProfilePage());
+			}
+		});
+	}
 
-    Toggle         toggle;
-    List<EventDTO> eventList = null;
+	/**
+	 * get all events without filters
+	 */
+	 public void getAllEvents() {
+		rpc.getAllEvents(new AsyncCallback<List<EventDTO>>() {
+			public void onFailure(Throwable caught) {
+				RootPanel.get().add(App.getDialogBox(caught.toString()));
+			}
 
-    public HomePage() {
-        initWidget(uiBinder.createAndBindUi(this));
-        eventList = new ArrayList<EventDTO>();
+			public void onSuccess(List<EventDTO> result) {
+				eventList = result;
+				EventPanel eventPanel = new EventPanel();
+				eventContainerPanel.add(eventPanel);
+				Notify.notify("Successfully loaded all available events!");
+			}
+		});
+	 }
 
-        // get all events immediately
-        rpc.getAllEvents(new AsyncCallback<List<EventDTO>>() {
+	 /**
+	  * Panels which contains all retrieved events
+	  * 
+	  */
+	 public class EventPanel extends DecoratorPanel {
 
-            public void onFailure(Throwable caught) {
-                System.out.println("Errors in rpc.getAllEvents()..." + caught.toString());
-            }
+		 public EventPanel() {
+			 for (EventDTO event : eventList) {
+				 EventCard eventCard = new EventCard("Event " + event.getEventName());
+				 eventContainerPanel.add(eventCard);
+			 }
+		 }
+	 }
 
-            public void onSuccess(List<EventDTO> result) {
-                eventList = result;
-                EventPanel eventPanel = new EventPanel();
-                eventContainerPanel.add(eventPanel);
-                Notify.notify("Welcome back!");
+	 public static void popOutEventDetails() {
+		 Modal modal = new Modal();
+		 modal.add(App.createEventDetails());
+		 modal.remove(0);
+		 RootPanel.get().add(modal);
+		 modal.show();
+	 }
 
-            }
-        });
+	 @UiHandler("btnAddEvent")
+	 void onCreateEventClick(ClickEvent e){
+		 Modal modal = new Modal();
+		 modal.add(App.getCreateEventPage());
+		 modal.remove(0);
+		 modal.setMarginTop(200);
+		 RootPanel.get().add(modal);
+		 modal.show();
+	 }
 
-        linkProfile.addClickHandler(new ClickHandler() {
-
-            @Override
-            public void onClick(ClickEvent event) {
-                RootPanel.get().clear();
-                RootPanel.get().add(App.getUserProfilePage());
-            }
-
-        });
-        
+	 public static EventDTO getSelectedEvent() {
+		 return selectedEvent;
+	 }
 
 
-    }
-
-    /**
-     * Panels which contains all retrieved events
-     * 
-     * @author raf
-     */
-    public class EventPanel extends DecoratorPanel {
-
-        public EventPanel() {
-            for (EventDTO event : eventList) {
-                EventCard eventCard = new EventCard("Event " + event.getEventName());
-                eventContainerPanel.add(eventCard);
-            }
-        }
-    }
-
-    // @UiHandler("linkProfile")
-    // void onRegClick(ClickEvent e) {
-    // RootPanel.get().clear();
-    // RootPanel.get().add(App.getUserProfilePage());
-    //
-    // }
-
-    public static void popOutEventDetails() {
-        Modal modal = new Modal();
-        modal.add(App.createEventDetails());
-        modal.remove(0);
-        RootPanel.get().add(modal);
-        modal.show();
-    }
-    
-
-    @UiHandler("createEventBtn")
-    void onCreateEventClick(ClickEvent e){
-    	Modal modal = new Modal();
-    	modal.add(App.getCreateEventPage());
-    	modal.remove(0);
-    	RootPanel.get().add(modal);
-    	modal.show();
-    }
-    
-    
 }

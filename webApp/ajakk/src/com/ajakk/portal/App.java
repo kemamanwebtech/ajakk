@@ -23,6 +23,7 @@ public class App {
     static EventDetails eventDetails = null;
     static createEvent createEventPage = null;
     static DialogBox dialogBox = null;
+	public static String username;
 
     public App() {
         loginPage = new LoginPage();

@@ -27,8 +27,8 @@ xmlns:b="urn:import:org.gwtbootstrap3.client.ui">
     
     .container-bg {
         background: #2b5876;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #4e4376, #2b5876);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #4e4376, #2b5876); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+		background: -webkit-linear-gradient(to right, #4e4376, #2b5876);  /* Chrome 10-25, Safari 5.1-6 */
+		background: linear-gradient(to right, #4e4376, #2b5876); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
     }
     
@@ -46,6 +46,15 @@ background: linear-gradient(to right, #4e4376, #2b5876); /* W3C, IE 10+/ Edge, F
    padding: 0 !important;
    
    }
+   
+   	.center {
+			position: absolute !important;
+    		top:0 !important;
+    		bottom: 0 !important;
+    		left: 0 !important;
+    		right: 0 !important;
+    		margin: auto !important;
+		}
 
     </ui:style>
 
@@ -67,10 +76,9 @@ background: linear-gradient(to right, #4e4376, #2b5876); /* W3C, IE 10+/ Edge, F
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <form class="navbar-form navbar-left">
-                        
-                            <a class="navbar-text" ui:field="txtSignInAs"> </a>
                             <!--  <button class="btn btn-primary" type="button">Messages <span class="badge">4</span></button> -->
-                            <i class="fa fa-bell fa-2x" style="color:#00CED1" aria-hidden="true" ui:field="noti" role="button"> <span class="badge">4</span></i>
+                            <b:Button addStyleNames="fa fa-plus fa-2x" ui:field="btnAddEvent"></b:Button> 
+                        	<i class="fa fa-bell fa-2x" style="color:#00CED1" aria-hidden="true" ui:field="noti" role="button"> <span class="badge">4</span></i>
                         </form>
                         <li class="dropdown">
                             <a class="dropdown-toggle fa fa-bars fa-2x" style="color:#00CED1" aria-hidden="true" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
@@ -120,7 +128,6 @@ background: linear-gradient(to right, #4e4376, #2b5876); /* W3C, IE 10+/ Edge, F
             </g:HTMLPanel>
         </b:Container>
         
-         <b:Button ui:field="createEventBtn">Create Event</b:Button>
     </g:HTMLPanel>
     
    

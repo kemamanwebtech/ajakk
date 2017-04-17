@@ -133,5 +133,24 @@ public class UserDAO extends UserDTO {
     	
     }
     
-    
+    public String getUserIdByUsername(String username) {
+    	
+    	String result = "";
+    	String sql = " SELECT AJAKK_USER_ID FROM AJAKK_USER WHERE USER_NAME = ? ";
+		
+		try {
+            PreparedStatement stmt = con.prepareStatement(sql);
+            stmt.setString(1, username);
+            ResultSet rs = stmt.executeQuery();
+            
+            System.out.println(stmt.toString());
+
+            while (rs.next()) {
+            	result = rs.getString("AJAKK_USER_ID");
+            }  
+		} catch (SQLException e) {
+            e.printStackTrace();
+        }
+		return result;
+    }
 }

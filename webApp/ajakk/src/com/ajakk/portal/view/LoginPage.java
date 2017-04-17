@@ -120,6 +120,7 @@ public class LoginPage extends Composite {
                         break;
 
                     case "Active":
+                    	App.username = userName.getText();
                         RootPanel.get().clear();
                         RootPanel.get().setStyleName("fullWidth");
                         RootPanel.get().add(App.getHomePage());
