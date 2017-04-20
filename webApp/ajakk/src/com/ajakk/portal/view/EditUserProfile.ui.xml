@@ -1,83 +1,68 @@
 <!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
-<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder" xmlns:g="urn:import:com.google.gwt.user.client.ui" xmlns:b="urn:import:org.gwtbootstrap3.client.ui" xmlns:u="urn:import:com.google.gwt.uibinder.client">
-    <ui:style>
-    @external col-lg-2;
-    .col-lg-2 {
-    	margin-right: 0 auto;
-    	margin-left: 0 auto;
-    }
-    
-    .mainContainer {
-    	margin: 0 auto;
-    	padding: 20px;
-    }
-    </ui:style>
-    <g:HTMLPanel addStyleNames="{style.mainContainer}">
-        <b:Container fluid="true">
-            <b:Row>
-                <b:Column size="MD_3">
-                    <b:ThumbnailPanel>
-                        <g:HTML>
-                            <br></br>
-                        </g:HTML>
-                        <b:Image type="CIRCLE" url="https://static.tildacdn.com/tild3234-3039-4431-a161-653532616263/111.jpg"></b:Image>
-                        <g:HTML>
-                            <br></br>
-                        </g:HTML>
-                    </b:ThumbnailPanel>
-                </b:Column>
-                <b:Column size="MD_9">
-                    <b:Panel>
-                        <b:FieldSet>
-                            <g:HTML>
-                                <br></br>
-                            </g:HTML>
-                            <b:FormGroup>
-                                <b:FormLabel for="formName" addStyleNames="col-lg-2">Name:</b:FormLabel>
-                                <g:FlowPanel addStyleNames="col-lg-10">
-                                    <b:TextBox placeholder="blabla" b:id="formName" />
-                                </g:FlowPanel>
-                            </b:FormGroup>
-                            <g:HTML>
-                                <br></br>
-                                <br></br>
-                            </g:HTML>
-                            <b:FormGroup>
-                                <b:FormLabel for="formLocation" addStyleNames="col-lg-2">Location:</b:FormLabel>
-                                <g:FlowPanel addStyleNames="col-lg-10">
-                                    <b:TextBox placeholder="blabla" b:id="formLocation" />
-                                </g:FlowPanel>
-                            </b:FormGroup>
-                            <g:HTML>
-                                <br></br>
-                                <br></br>
-                            </g:HTML>
-                            <b:FormGroup>
-                                <b:FormLabel for="formPhone" addStyleNames="col-lg-2">Phone Number:</b:FormLabel>
-                                <g:FlowPanel addStyleNames="col-lg-10">
-                                    <b:TextBox placeholder="blabla" b:id="formPhone" />
-                                </g:FlowPanel>
-                            </b:FormGroup>
-                            <g:HTML>
-                                <br></br>
-                                <br></br>
-                            </g:HTML>
-                            <b:FormGroup>
-                                <b:FormLabel for="formInt" addStyleNames="col-lg-2">Interest:</b:FormLabel>
-                                <g:FlowPanel addStyleNames="col-lg-10">
-                                    <b:TextBox placeholder="blabla" b:id="formInt" />
-                                    <g:Button ui:field="buttonTest">
-                                    </g:Button>
-                                </g:FlowPanel>
-                            </b:FormGroup>
-                            <g:HTML>
-                                <br></br>
-                                <br></br>
-                            </g:HTML>
-                        </b:FieldSet>
-                    </b:Panel>
-                </b:Column>
-            </b:Row>
-        </b:Container>
-    </g:HTMLPanel>
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui" xmlns:b="urn:import:org.gwtbootstrap3.client.ui"
+	xmlns:u="urn:import:com.google.gwt.uibinder.client">
+	<ui:style>
+		
+		.margin {
+			margin: 0 auto !important;
+		}
+
+	</ui:style>
+	<g:HTMLPanel>
+		<div class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2" style="width:50%; padding-top:30px; ">			<b:Panel ui:field="panel">
+				<b:PanelHeader addStyleNames="{style.margin}">
+					<b:MediaList>
+						<b:ListItem>
+							<b:ImageAnchor ui:field="profileImage" asMediaObject="true" pull="LEFT" url="http://quotesabout.us/img/authors/s/author_20626.png"></b:ImageAnchor>
+							<b:MediaBody>
+								<b:Heading size="H4" text="Najib Razak" ui:field="name"></b:Heading>
+							</b:MediaBody>
+						</b:ListItem>
+					</b:MediaList>
+				</b:PanelHeader>
+				<b:PanelBody>
+					<b:Form type="HORIZONTAL">
+						<b:FieldSet>
+							<b:FormGroup>
+								<b:FormLabel addStyleNames="col-lg-2" ui:field="userName" >Username:</b:FormLabel>
+								<g:FlowPanel addStyleNames="col-lg-10">
+									<b:FormLabel>njbrzk65</b:FormLabel>
+								</g:FlowPanel>
+							</b:FormGroup>
+							<b:FormGroup>
+								<b:FormLabel addStyleNames="col-lg-2" ui:field="email" >Email:</b:FormLabel>
+								<g:FlowPanel addStyleNames="col-lg-10">
+									<b:TextBox>njbrzk65@gmail.com</b:TextBox>
+								</g:FlowPanel>
+							</b:FormGroup>
+							<b:FormGroup>
+								<b:FormLabel addStyleNames="col-lg-2" ui:field="phoneNumber" >Phone No.:</b:FormLabel>
+								<g:FlowPanel addStyleNames="col-lg-10">
+									<b:TextBox>1300-88-2525</b:TextBox>
+								</g:FlowPanel>
+							</b:FormGroup>
+							<b:FormGroup>
+								<b:FormLabel addStyleNames="col-lg-2" ui:field="location" >Location:</b:FormLabel>
+								<g:FlowPanel addStyleNames="col-lg-10">
+									<b:TextBox>Kuala Lumpur</b:TextBox>
+								</g:FlowPanel>
+							</b:FormGroup>
+							<b:FormGroup>
+								<b:FormLabel addStyleNames="col-lg-2" ui:field="sport" >Sport:</b:FormLabel>
+								<g:FlowPanel addStyleNames="col-lg-10">
+									<b:TextBox>Basketball </b:TextBox>
+								</g:FlowPanel>
+							</b:FormGroup>
+							<b:InputGroup>
+								<b:Row>
+									<b:Button type="SUCCESS" ui:field="btnConfirm" text="Confirm" pull="RIGHT"></b:Button>
+								</b:Row>
+							</b:InputGroup>
+						</b:FieldSet>
+					</b:Form>
+				</b:PanelBody>
+			</b:Panel>
+		</div>
+	</g:HTMLPanel>
 </ui:UiBinder>

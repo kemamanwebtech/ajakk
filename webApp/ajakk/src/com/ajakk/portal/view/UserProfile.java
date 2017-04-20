@@ -26,5 +26,8 @@ public class UserProfile extends Composite {
 		//buttonTest.setStyleName("btn-danger");
 //		buttonTest.getElement().addClassName("btn-danger");
 	}
+	
+	
+	
 
 }

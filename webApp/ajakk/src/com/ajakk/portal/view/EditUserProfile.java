@@ -1,5 +1,9 @@
 package com.ajakk.portal.view;
 
+import org.gwtbootstrap3.client.ui.Heading;
+import org.gwtbootstrap3.client.ui.ImageAnchor;
+import org.gwtbootstrap3.client.ui.Panel;
+
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
@@ -9,8 +13,9 @@ import com.google.gwt.user.client.ui.Widget;
 
 public class EditUserProfile extends Composite {
 
-    @UiField
-    Button buttonTest;
+	@UiField Heading name;
+	@UiField Panel panel;
+	@UiField ImageAnchor profileImage;
 
     private static UserProfileUiBinder uiBinder = GWT.create(UserProfileUiBinder.class);
 
@@ -19,10 +24,9 @@ public class EditUserProfile extends Composite {
 
     public EditUserProfile() {
         initWidget(uiBinder.createAndBindUi(this));
+        
+        name.setMarginTop(20);
 
-        // buttonTest.setStyleName("btn-danger");
-        buttonTest.setText("Testing Button");
-        buttonTest.getElement().addClassName("btn-danger");
     }
 
 }

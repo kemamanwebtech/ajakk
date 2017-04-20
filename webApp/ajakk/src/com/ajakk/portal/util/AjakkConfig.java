@@ -48,12 +48,12 @@ public class AjakkConfig {
 		dbHost="localhost";
 		dbName="ajakk";
 		dbUserName="root";
-		dbPasswd="Enter_123";
+		dbPasswd="Enter123";
 		
 		// kwt
 //		dbHost="localhost";
 //        dbName="ajakk";
-//        dbUserName="root";
+//        dbUserName="kwt";
 //        dbPasswd="Enter_123";
 		
 	        

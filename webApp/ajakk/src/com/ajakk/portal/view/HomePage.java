@@ -30,7 +30,7 @@ public class HomePage extends Composite {
 	@UiField	Modal  modal;
 	@UiField	Anchor linkProfile;
 	@UiField	ListGroupItem eventContainerPanel;
-	@UiField 	Button btnAddEvent;
+	@UiField 	Anchor btnAddEvent;
 
 	interface HomePageUiBinder extends UiBinder<Widget, HomePage> {
 	}
@@ -48,8 +48,12 @@ public class HomePage extends Composite {
 		linkProfile.addClickHandler(new ClickHandler() {
 			@Override
 			public void onClick(ClickEvent event) {
-				RootPanel.get().clear();
-				RootPanel.get().add(App.getUserProfilePage());
+				Modal modal = new Modal();
+				modal.add(App.getUserProfilePage());
+				modal.remove(0);
+				RootPanel.get().add(modal);
+				modal.show();
+				
 			}
 		});
 		
@@ -92,6 +96,7 @@ public class HomePage extends Composite {
 		 Modal modal = new Modal();
 		 modal.add(App.createEventDetails());
 		 modal.remove(0);
+		 modal.setMarginTop(100);
 		 RootPanel.get().add(modal);
 		 modal.show();
 	 }
@@ -101,7 +106,7 @@ public class HomePage extends Composite {
 		 Modal modal = new Modal();
 		 modal.add(App.getCreateEventPage());
 		 modal.remove(0);
-		 modal.setMarginTop(200);
+		 modal.setMarginTop(100);
 		 RootPanel.get().add(modal);
 		 modal.show();
 	 }

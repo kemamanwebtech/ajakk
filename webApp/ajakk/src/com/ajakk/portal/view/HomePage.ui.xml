@@ -9,6 +9,10 @@ xmlns:b="urn:import:org.gwtbootstrap3.client.ui">
     	margin: 0 auto;
     }
     
+    .mgn {
+		margin: 0 auto !important;
+	}
+    
     .NavBtn {
     	padding-left: 25px;
     }
@@ -76,8 +80,8 @@ xmlns:b="urn:import:org.gwtbootstrap3.client.ui">
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <form class="navbar-form navbar-left">
-                            <!--  <button class="btn btn-primary" type="button">Messages <span class="badge">4</span></button> -->
-                            <b:Button addStyleNames="fa fa-plus fa-2x" ui:field="btnAddEvent"></b:Button> 
+     						<b:Anchor addStyleNames="fa fa-plus fa-2x" ui:field="btnAddEvent"></b:Anchor>
+							
                         	<i class="fa fa-bell fa-2x" style="color:#00CED1" aria-hidden="true" ui:field="noti" role="button"> <span class="badge">4</span></i>
                         </form>
                         <li class="dropdown">
