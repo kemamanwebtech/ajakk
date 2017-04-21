@@ -16,7 +16,16 @@ public class UserDTO implements Serializable {
 	Date suspended; 	// Date and time until which the user is suspended
 	String des; 		// Optional description for the user
 	String photo; 		// Profile picture of this user
+	String sport;
 	
+	public String getSport() {
+		return sport;
+	}
+
+	public void setSport(String sport) {
+		this.sport = sport;
+	}
+
 	public UserDTO() {
 		
 	}

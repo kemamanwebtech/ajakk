@@ -115,4 +115,21 @@ public class AjakkRPCImpl extends RemoteServiceServlet implements AjakkRPC {
 		
 		return userID;
 	}
+
+	@Override
+	public List<UserDTO> getUserIDFromUsername() {
+		return null;
+	}
+
+	@Override
+	public List<UserDTO> getUserInfoFromUserID() {
+		List<UserDTO> userInfo = new ArrayList<UserDTO>();
+        Connection con = daoFactory.getConnection();
+                
+        EventDAO eventDAO = daoFactory.getEventDAO();
+        
+//        userInfo = eventDAO.getAllEvents(con);
+        userInfo = UserDAO.getAllInfo(con);
+        return userInfo;
+	}
 }

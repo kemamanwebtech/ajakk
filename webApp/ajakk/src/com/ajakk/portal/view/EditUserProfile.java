@@ -13,9 +13,6 @@ import com.google.gwt.user.client.ui.Widget;
 
 public class EditUserProfile extends Composite {
 
-	@UiField Heading name;
-	@UiField Panel panel;
-	@UiField ImageAnchor profileImage;
 
     private static UserProfileUiBinder uiBinder = GWT.create(UserProfileUiBinder.class);
 
@@ -25,7 +22,6 @@ public class EditUserProfile extends Composite {
     public EditUserProfile() {
         initWidget(uiBinder.createAndBindUi(this));
         
-        name.setMarginTop(20);
 
     }
 

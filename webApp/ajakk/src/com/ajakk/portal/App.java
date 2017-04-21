@@ -7,6 +7,7 @@ import com.ajakk.portal.view.EventDetails;
 import com.ajakk.portal.view.HomePage;
 import com.ajakk.portal.view.LoginPage;
 import com.ajakk.portal.view.RegisterPage;
+import com.ajakk.portal.view.UserProfile;
 import com.ajakk.portal.view.DialogBox;
 import com.ajakk.portal.view.EditUserProfile;
 import com.ajakk.portal.view.createEvent;
@@ -19,7 +20,8 @@ public class App {
     static LoginPage    loginPage    = null;
     static HomePage     homePage     = null;
     static RegisterPage regPage      = null;
-    static EditUserProfile  userPage     = null;
+    static UserProfile  userPage     = null;
+    static EditUserProfile editUserPage = null;
     static EventDetails eventDetails = null;
     static createEvent createEventPage = null;
     static DialogBox dialogBox = null;
@@ -61,9 +63,14 @@ public class App {
         return regPage;
     }
 
-    public static EditUserProfile getUserProfilePage() {
-        userPage = new EditUserProfile();
+    public static UserProfile getUserProfilePage() {
+        userPage = new UserProfile();
         return userPage;
+    }
+    
+    public static EditUserProfile getEditUserProfilePage() {
+    	editUserPage = new EditUserProfile();
+    	return editUserPage;
     }
     
     public static createEvent getCreateEventPage() {

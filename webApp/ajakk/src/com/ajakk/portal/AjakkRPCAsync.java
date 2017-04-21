@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.ajakk.shared.dto.EventDTO;
 import com.ajakk.shared.dto.LoginDTO;
+import com.ajakk.shared.dto.UserDTO;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 
 /**
@@ -48,6 +49,10 @@ public interface AjakkRPCAsync {
 			String userName,
 			AsyncCallback<String> asyncCallback);
 	
-	void getUserIDFromUsername(String userName, AsyncCallback<Integer> asyncCallback);
+	void getUserIDFromUsername(AsyncCallback<List<UserDTO>> asyncCallback);
+
+	void getUserIDFromUsername(String username, AsyncCallback<Integer> callback);
+
+	void getUserInfoFromUserID(AsyncCallback<List<UserDTO>> asyncCallback);
 
 }

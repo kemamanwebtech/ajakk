@@ -31,7 +31,7 @@ public class HomePage extends Composite {
 	@UiField	Anchor linkProfile;
 	@UiField	ListGroupItem eventContainerPanel;
 	@UiField 	Anchor btnAddEvent;
-
+	
 	interface HomePageUiBinder extends UiBinder<Widget, HomePage> {
 	}
 

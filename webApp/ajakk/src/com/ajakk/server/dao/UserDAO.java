@@ -14,13 +14,13 @@ import com.ajakk.shared.dto.UserDTO;
 @SuppressWarnings("serial")
 public class UserDAO extends UserDTO {
 	
-	Connection con  = null;
+	static Connection con  = null;
 	Statement  stmt = null;
-	List<UserDTO> userList = new ArrayList<UserDTO>();
+	static List<UserDTO> userList = new ArrayList<UserDTO>();
 	
 	public List<UserDTO> getAllUsers(Connection con){
 		
-		String sql = " SELECT AJAKK_USER_ID, USER_NAME, DES FROM AJAKK_USER ";
+		String sql = " SELECT AJAKK_USER_ID, USER_NAME, DES, EMAIL, PHONE_NO, SPORT FROM AJAKK_USER ";
 		
 		try {
             PreparedStatement stmt = con.prepareStatement(sql);
@@ -35,6 +35,9 @@ public class UserDAO extends UserDTO {
             	user.setUserID(rs.getInt(1));
             	user.setName(rs.getString(2));
             	user.setDes(rs.getString(3));
+            	user.setEmail(rs.getString(4));
+            	user.setPhoneNumber(rs.getString(5));
+            	user.setSport(rs.getString(6));
             	
                 userList.add(user);
             }
@@ -153,4 +156,35 @@ public class UserDAO extends UserDTO {
         }
 		return result;
     }
+
+	public static List<UserDTO> getAllInfo(Connection con2) {
+		String sql = " SELECT AJAKK_USER_ID, USER_NAME, DES, EMAIL, PHONE_NO, SPORT FROM AJAKK_USER ";
+		
+		try {
+            PreparedStatement stmt = con.prepareStatement(sql);
+            ResultSet rs = stmt.executeQuery();
+            
+            System.out.println(stmt.toString());
+
+            while (rs.next()) {
+                
+            	UserDTO user =  new UserDTO();
+            	
+            	user.setUserID(rs.getInt(1));
+            	user.setName(rs.getString(2));
+            	user.setDes(rs.getString(3));
+            	user.setEmail(rs.getString(4));
+            	user.setPhoneNumber(rs.getString(5));
+            	user.setSport(rs.getString(6));
+            	
+                userList.add(user);
+            }
+            
+		} catch (SQLException e) {
+            e.printStackTrace();
+        }
+		
+		System.out.println("retuning userList..");
+        return userList;
+	}
 }
