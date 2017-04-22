@@ -3,6 +3,7 @@ package com.ajakk.portal.view;
 import org.gwtbootstrap3.client.ui.Button;
 import org.gwtbootstrap3.client.ui.Image;
 import org.gwtbootstrap3.client.ui.Label;
+import org.gwtbootstrap3.extras.card.client.ui.Card;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
@@ -21,16 +22,14 @@ public class EventCard extends Composite {
 
     public EventCard() {
         initWidget(uiBinder.createAndBindUi(this));
-    }
+	}
 
-    @UiField
-    Button btnEventInfoFront;
-    @UiField
-    Label  lblEventFront;
-    @UiField
-    Image  imgEventFront;
+	@UiField Button btnEventInfoFront;
+	@UiField Label lblEventFront;
+	@UiField Image imgEventFront;
+	@UiField Card card;
 
-    public EventCard(String firstName) {
+	public EventCard(String firstName) {
         initWidget(uiBinder.createAndBindUi(this));
         btnEventInfoFront.setText(firstName);
         btnEventInfoFront.getElement().setClassName("btn btn-success btn-sm");
@@ -38,6 +37,10 @@ public class EventCard extends Composite {
         // set image source
         imgEventFront.setUrl("http://www.iconshock.com/img_jpg/REALVISTA/sports/jpg/256/soccer_icon.jpg");
         imgEventFront.setPixelSize(150, 100);
+        
+        card.removeStyleName("fa");
+        card.removeStyleName("fa-exchange");
+        card.removeStyleName("trigger");
 
     }
 

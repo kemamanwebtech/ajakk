@@ -60,17 +60,21 @@ public class EventDAO {
     public boolean createEvent (EventDTO event, Connection con) {
     	
     	try {            
-    		PreparedStatement stmt = con.prepareStatement("INSERT INTO EVENT (NAME, DES) VALUES (? , ?)");
+    		PreparedStatement stmt = con.prepareStatement(
+    				"INSERT INTO EVENT "
+    				+ "(NAME, DES, TYPE, OWNER_ID, LOC) VALUES "
+    				+ "(? 	, ?   ,?     ,?		  ,?  )");
             stmt.setString(1, event.getEventName());
             stmt.setString(2, event.getEventDes());
-            stmt.setInt(3, event.getEventID());
+            stmt.setString(3, event.getEventType());
+            stmt.setInt(4, event.getOwnerID());
+            stmt.setString(5, event.getEventLoc());
             stmt.executeUpdate();	
             return true;
     	} catch (SQLException e) {
             e.printStackTrace();
             return false;
         }
-    	
     }
     
     public void updateEvent(EventDTO event) {

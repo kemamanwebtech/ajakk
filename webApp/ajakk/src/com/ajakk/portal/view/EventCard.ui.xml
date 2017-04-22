@@ -22,13 +22,22 @@
     	background: none !important;
     }
     
-    .color-card {
-	   background: #AAB9D8 !important;
-	   background-color: #AAB9D8 !important;
-	}
+	.shadow{
+      -webkit-box-shadow: 5px 5px 15px -0px rgba(0,0,0,0.3);
+         -moz-box-shadow: 5px 5px 15px -0px rgba(0,0,0,0.3);
+              box-shadow: 5px 5px 15px -0px rgba(0,0,0,0.3);
+              background-color: white;
+}
+.transition{
+   transition: all .5s cubic-bezier(.3, 0, 0, 1.3)
+}
+
+
+
+
     </ui:style>
-    <g:VerticalPanel styleName="container-fluid {style.inline-block} ">
-        <e:Card width="200px" height="180px" >
+<!--     <g:VerticalPanel styleName="container-fluid {style.inline-block} {style.shadow} {style.transition}  {style.card}"> -->
+        <e:Card ui:field="card" width="280px" height="280px" styleName="{style.inline-block} {style.shadow} {style.transition} " >
             <e:Front>
                 <g:VerticalPanel >
                     <b:Image ui:field="imgEventFront" />
@@ -36,10 +45,6 @@
                     <b:Button ui:field="btnEventInfoFront" />
                 </g:VerticalPanel>
             </e:Front>
-            <e:Back>
-                <b:Label ui:field="lblEventBack" />
-                <b:Button styleName="btn-primary" ui:field="btnEventInfoBack" />
-            </e:Back>
         </e:Card>
-    </g:VerticalPanel>
+   <!--  </g:VerticalPanel> -->
 </ui:UiBinder>
