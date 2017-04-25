@@ -11,6 +11,7 @@ import com.ajakk.portal.view.UserProfile;
 import com.ajakk.portal.view.DialogBox;
 import com.ajakk.portal.view.EditUserProfile;
 import com.ajakk.portal.view.createEvent;
+import com.ajakk.shared.dto.EventDTO;
 
 /**
  * @author raf
@@ -53,8 +54,8 @@ public class App {
         }
     }
 
-    public static EventDetails createEventDetails() {
-        eventDetails = new EventDetails();
+    public static EventDetails createEventDetails(EventDTO selectedEvent) {
+        eventDetails = new EventDetails(selectedEvent);
         return eventDetails;
     }
 

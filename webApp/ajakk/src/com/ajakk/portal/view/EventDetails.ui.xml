@@ -48,7 +48,6 @@
 	<g:HTMLPanel addStyleNames=" {style.center}">
 		<div class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
 			<b:Panel addStyleNames="{style.body}">
-				
 				<b:PanelBody addStyleNames="{style.body}">
 					<b:Form type="HORIZONTAL" addStyleNames="{style.body}">
 						<b:Legend text="Event Details" addStyleNames="{style.legend}"></b:Legend>
@@ -56,44 +55,34 @@
 							<b:FormGroup>
 								<b:FormLabel addStyleNames="col-lg-2">Event Name:</b:FormLabel>
 								<g:FlowPanel addStyleNames="col-lg-10">
-									<b:FormControlStatic ui:field="txtEventName" />
+									<g:Label ui:field="lblEventName" />
 								</g:FlowPanel>
 							</b:FormGroup>
 							<b:FormGroup>
 								<b:FormLabel addStyleNames="col-lg-2">Event
 									Description:</b:FormLabel>
 								<g:FlowPanel addStyleNames="col-lg-10">
-									<b:FormControlStatic addStyleNames="{style.textarea}" ui:field="txtEventDesc" />
+									<g:Label ui:field="lblEventDesc" />
 								</g:FlowPanel>
 							</b:FormGroup>
 							<b:FormGroup>
 								<b:FormLabel addStyleNames="col-lg-2">Event
 									Sports:</b:FormLabel>
 								<g:FlowPanel addStyleNames="col-lg-4">
-									<b:ListBox ui:field="listEventType">
-										<b:item>Futsal</b:item>
-										<b:item>Basketball</b:item>
-										<b:item>Badminton</b:item>
-									</b:ListBox>
+									<g:Label ui:field="lblEventType" />
 								</g:FlowPanel>
 							</b:FormGroup>
 							<b:FormGroup>
 								<b:FormLabel addStyleNames="col-lg-2">Location:</b:FormLabel>
-								<g:FlowPanel addStyleNames="col-lg-10">
-									<b:FormControlStatic ui:field="txtEventLocation" />
-								</g:FlowPanel>
+								<g:Label ui:field="lblEventLoc" />
 							</b:FormGroup>
 							<b:FormGroup>
 								<b:FormLabel addStyleNames="col-lg-2">Organizer:</b:FormLabel>
-								<g:FlowPanel addStyleNames="col-lg-10">
-									<b:FormControlStatic ui:field="txtEventOrganizer" />
-								</g:FlowPanel>
+								<g:Label ui:field="lblEventOrganizer" />
 							</b:FormGroup>
 							<b:FormGroup>
 								<b:FormLabel addStyleNames="col-lg-2">Date/Time</b:FormLabel>
-								<g:FlowPanel addStyleNames="col-lg-10">
-									<b2:DateTimePicker/>
-								</g:FlowPanel>
+								<g:Label ui:field="lblEventDateTime" />
 							</b:FormGroup>
 						</b:FieldSet>
 						<b:Button ui:field="btnEditEvent" pull="RIGHT" type="INFO">Edit Event</b:Button>

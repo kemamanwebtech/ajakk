@@ -52,8 +52,7 @@ public class HomePage extends Composite {
 				modal.add(App.getUserProfilePage());
 				modal.remove(0);
 				RootPanel.get().add(modal);
-				modal.show();
-				
+				modal.show();	
 			}
 		});
 		
@@ -65,6 +64,7 @@ public class HomePage extends Composite {
 	 */
 	 public void getAllEvents() {
 		rpc.getAllEvents(new AsyncCallback<List<EventDTO>>() {
+			
 			public void onFailure(Throwable caught) {
 				RootPanel.get().add(App.getDialogBox(caught.toString()));
 			}
@@ -83,18 +83,20 @@ public class HomePage extends Composite {
 	  * 
 	  */
 	 public class EventPanel extends DecoratorPanel {
-
 		 public EventPanel() {
 			 for (EventDTO event : eventList) {
-				 EventCard eventCard = new EventCard("Event " + event.getEventName());
+				 EventCard eventCard = new EventCard(event);
 				 eventContainerPanel.add(eventCard);
 			 }
 		 }
 	 }
-
-	 public static void popOutEventDetails() {
+	 
+	 /**
+	  * Display event details 
+	  */
+	 public static void popOutEventDetails(EventDTO selectedEvent) {
 		 Modal modal = new Modal();
-		 modal.add(App.createEventDetails());
+		 modal.add(App.createEventDetails(selectedEvent));
 		 modal.remove(0);
 		 modal.setMarginTop(100);
 		 RootPanel.get().add(modal);
