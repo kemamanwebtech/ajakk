@@ -32,11 +32,63 @@
    transition: all .5s cubic-bezier(.3, 0, 0, 1.3)
 }
 
-
+	.imgLabel {
+		position: absolute;
+    top: 8px;
+    left: 16px;
+    font-size: 18px;
+	}
+	
+	.wrapper {
+	padding: 0;
+	margin: 0px 10px 10px 20px;
+	}
+	
+	.org {
+		position: absolute;
+	top: 50%;
+    left: 16px;
+    font-size: 18px;
+	}
+	
+	.fieldSet {
+		text-align: center;
+	}
 
 
     </ui:style>
-<!--     <g:VerticalPanel styleName="container-fluid {style.inline-block} {style.shadow} {style.transition}  {style.card}"> -->
+    <b:Container styleName="{style.inline-block} {style.shadow} {style.transition}">
+	 	<e:Card ui:field="card" width="280px" height="280px">
+	 		<e:Front width="100%" height="100%" >
+	 			<b:Image ui:field="imgEventFront" type="THUMBNAIL" height="70%"></b:Image>
+	 			<b:Row styleName="{style.wrapper}">
+	 				<b:Label styleName="{style.imgLabel}" ui:field="lblEventFront">Basketball</b:Label>
+	 				<b:Label styleName="{style.org}" >Rafsyam</b:Label>
+	 			</b:Row>
+	 			<b:Form>	
+	 				<b:FieldSet styleName="{style.fieldSet}">   			
+				 			<b:Column size="MD_2">
+				 				<b:Icon type="CALENDAR_CHECK_O" size="TIMES3"></b:Icon>
+				 				<b:Label>May 20</b:Label>
+				 			</b:Column>
+				 			<b:Column size="MD_2">
+				 				<b:Icon type="MAP_MARKER" size="TIMES3"></b:Icon>
+				 				<b:Label>Cyberjaya</b:Label>
+				 			</b:Column>
+				 			<b:Column size="MD_2">
+				 				<b:Icon type="CHECK" size="TIMES3"></b:Icon>
+				 				<b:Label>CONFIRM</b:Label>
+				 			</b:Column>
+			 			
+			 		</b:FieldSet>				 		
+		 		</b:Form>
+	 		</e:Front>
+	 <!--  				 			<	<b:Icon type="CALENDAR_CHECK_O" size="TIMES3"></b:Icon> -->
+	 	
+	 	</e:Card>  
+    </b:Container>
+    
+<!--     <g:VerticalPanel styleName="container-fluid {style.inline-block} {style.shadow} {style.transition}  {style.card}"> 
         <e:Card ui:field="card" width="280px" height="280px" styleName="{style.inline-block} {style.shadow} {style.transition} " >
             <e:Front>
                 <g:VerticalPanel >
@@ -46,5 +98,5 @@
                 </g:VerticalPanel>
             </e:Front>
         </e:Card>
-   <!--  </g:VerticalPanel> -->
+  </g:VerticalPanel> -->
 </ui:UiBinder>
