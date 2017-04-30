@@ -30,6 +30,7 @@ public class EventDAO {
         // be specific of what fields we want, avoid using *
         String sql = " SELECT EVENT_ID, NAME, DES, TYPE, OWNER_ID, CONFIRMED_DATE, LOC FROM EVENT ";
         
+        
         try {
             PreparedStatement stmt = con.prepareStatement(sql);
             ResultSet rs = stmt.executeQuery();

@@ -32,7 +32,7 @@ public class EventCard extends Composite {
         initWidget(uiBinder.createAndBindUi(this));
 	}
 
-//	@UiField Button btnEventInfoFront;
+	@UiField Button btnEventInfoFront;
 	@UiField Label lblEventFront;
 	@UiField Image imgEventFront;
 	@UiField Card card;
@@ -77,18 +77,18 @@ public class EventCard extends Composite {
 //    void onClick(ClickEvent e) {
 //        HomePage.popOutEventDetails(event);
 //    }
-//    
-//    @UiHandler("btnEventInfoFront")
-//    void onClick(ClickEvent e) {
-//        //HomePage.displayEventDetails(event);
-//    	 popupPage = new Modal();
-//		 popupPage.add(App.displayEventDetails(event));
-//		 popupPage.remove(0);
-//		 popupPage.setMarginTop(100);
-//		 popupPage.add(btnClose);
-//		 RootPanel.get().add(popupPage);
-//		 popupPage.show();
-//    }
+    
+    @UiHandler("btnEventInfoFront")
+    void onClick(ClickEvent e) {
+        //HomePage.displayEventDetails(event);
+    	 popupPage = new Modal();
+		 popupPage.add(App.displayEventDetails(event));
+		 popupPage.remove(0);
+		 popupPage.setMarginTop(100);
+		 popupPage.add(btnClose);
+		 RootPanel.get().add(popupPage);
+		 popupPage.show();
+    }
     
     public void setEvent(EventDTO event) {
     	this.event = event;

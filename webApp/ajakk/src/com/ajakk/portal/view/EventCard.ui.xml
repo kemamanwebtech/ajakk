@@ -79,6 +79,7 @@
 				 				<b:Icon type="CHECK" size="TIMES3"></b:Icon>
 				 				<b:Label>CONFIRM</b:Label>
 				 			</b:Column>
+			 			                    <b:Button ui:field="btnEventInfoFront" styleName="btn btn-success btn-sm">Join!</b:Button>
 			 			
 			 		</b:FieldSet>				 		
 		 		</b:Form>
