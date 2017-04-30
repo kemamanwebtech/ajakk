@@ -35,16 +35,13 @@ public class EventDetails extends Composite {
     }
 
     public EventDetails(EventDTO selectedEvent) {
-    	
-    	
         initWidget(uiBinder.createAndBindUi(this));
         this.event = selectedEvent;
-        
         lblEventName.setText(event.getEventName());
         lblEventDesc.setText(event.getEventDes());
         lblEventType.setText(event.getEventType());
         lblEventLoc.setText(event.getEventLoc());
-        lblEventOrganizer.setText(Integer.toString(event.getOwnerID()));   
-        lblEventDateTime.setText(event.getFromDate().toString());   
+        lblEventOrganizer.setText(Integer.toString(event.getEventID())); 
+        //lblEventDateTime.setText(event.getFromDate().toString());   
     }
 }

@@ -54,7 +54,7 @@ public class App {
         }
     }
 
-    public static EventDetails createEventDetails(EventDTO selectedEvent) {
+    public static EventDetails displayEventDetails(EventDTO selectedEvent) {
         eventDetails = new EventDetails(selectedEvent);
         return eventDetails;
     }

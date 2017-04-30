@@ -1,110 +1,118 @@
 <!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
- xmlns:g="urn:import:com.google.gwt.user.client.ui" xmlns:b="urn:import:org.gwtbootstrap3.client.ui">
-    <ui:style>
-    @external normal body;
-    .normal {
-    	font-weight: normal;
-    }
-    
-    .body {
-    	background: #2b5876;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #4e4376, #2b5876);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #4e4376, #2b5876); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-    }
-    
-    .fullWidth {
-    	width: 100%;
-    }
-    
-    .table {
-    	position: relative;
-    	left: 81%;
-    	top: 10%;
-    	border-collapse: collapse;
-    	width: 20%;
-    }
-    
-    .table td, .table th {
-    	padding: 4px 4px;
-    }
-    
-    .table th {
-    	width: 50%;
-    	text-align: right;
-    }
-    
-    .centerContent {
-    	position: relative;
-    	margin: auto;
-    	padding: 10px;
-    	text-align: center;
-    	display: block;
-    }
-    
-    .centerContent tr {
-    	display: block;
-    	text-align: center;
-    }
-    
-    .btnCenter {
-    	width: 15%;
-    }
-    
-    .words {
-    	font: bold 450% "Century Schoolbook", Georgia, Times, serif;
-    	color: #FFF;
-    	line-height: 200%;
-    	margin: .2em 0 .4em 0;
-    	letter-spacing: -2px;
-    }
-    
-    .gd {
-    	background: #2b5876;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #4e4376, #2b5876);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #4e4376, #2b5876); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-
-    }
-    </ui:style>
-    <g:HTMLPanel addStyleNames="{style.gd}">
-        <table class="{style.table}">
-            <tr>
-                <th>
-                    <b:TextBox ui:field="userName" addStyleNames="{style.normal}" />
-                </th>
-                <td>
-                    <b:TextBox ui:field="passwd" />
-                </td>
-            </tr>
-            <tr>
-                <th>
-                    <b:Button type="DANGER" ui:field="loginButton" addStyleNames="{style.fullWidth}">Login</b:Button>
-                </th>
-                <td>
-                    <b:Button type="DANGER" ui:field="regButton" addStyleNames="{style.fullWidth}" icon="STAR" iconSpin="true">Register</b:Button>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <g:Label ui:field="errorLabel" />
-                </td>
-            </tr>
-        </table>
-        <div class="{style.centerContent}">
-            <g:Label addStyleNames="{style.words}">You want to</g:Label>
-            <tr>
-                <b:Popover title="Ajak!" content="Create an event and ask your friends to join." placement="RIGHT">
-                    <b:Button type="SUCCESS" ui:field="ajakkButton" addStyleNames="{style.btnCenter}" size="LARGE">Ajakk</b:Button>
-                </b:Popover>
-            </tr>
-            <g:Label addStyleNames="{style.words}">or</g:Label>
-            <tr>
-                <b:Popover title="Join!" content="Find out and join some sporting events nearby you." placement="RIGHT">
-                    <b:Button type="SUCCESS" ui:field="joinButton" addStyleNames="{style.btnCenter}" size="LARGE">Join</b:Button>
-                </b:Popover>
-            </tr>
-        </div>
-    </g:HTMLPanel>
+	xmlns:g="urn:import:com.google.gwt.user.client.ui" xmlns:b="urn:import:org.gwtbootstrap3.client.ui">
+	<ui:style>
+	@external normal body;
+	.normal {
+		font-weight: normal;
+	}
+	
+	.body {
+		background: #2b5876; /* fallback for old browsers */
+		background: -webkit-linear-gradient(to right, #4e4376, #2b5876);
+		/* Chrome 10-25, Safari 5.1-6 */
+		background: linear-gradient(to right, #4e4376, #2b5876);
+		/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	}
+	
+	.fullWidth {
+		width: 100%;
+	}
+	
+	.table {
+		position: relative;
+		left: 81%;
+		top: 10%;
+		border-collapse: collapse;
+		width: 20%;
+	}
+	
+	.table td, .table th {
+		padding: 4px 4px;
+	}
+	
+	.table th {
+		width: 50%;
+		text-align: right;
+	}
+	
+	.centerContent {
+		position: relative;
+		margin: auto;
+		padding: 10px;
+		text-align: center;
+		display: block;
+	}
+	
+	.centerContent tr {
+		display: block;
+		text-align: center;
+	}
+	
+	.btnCenter {
+		width: 15%;
+	}
+	
+	.words {
+		font: bold 450% "Century Schoolbook", Georgia, Times, serif;
+		color: #FFF;
+		line-height: 200%;
+		margin: .2em 0 .4em 0;
+		letter-spacing: -2px;
+	}
+	
+	.gd {
+		background: #2b5876; /* fallback for old browsers */
+		background: -webkit-linear-gradient(to right, #4e4376, #2b5876);
+		/* Chrome 10-25, Safari 5.1-6 */
+		background: linear-gradient(to right, #4e4376, #2b5876);
+		/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	}
+	</ui:style>
+	<g:HTMLPanel addStyleNames="{style.gd}">
+		<table class="{style.table}">
+			<tr>
+				<th>
+					<b:TextBox ui:field="userName" addStyleNames="{style.normal}" />
+				</th>
+				<td>
+					<b:TextBox ui:field="passwd" />
+				</td>
+			</tr>
+			<tr>
+				<th>
+					<b:Button type="DANGER" ui:field="loginButton"
+						addStyleNames="{style.fullWidth} col-xs-4 ">Login</b:Button>
+				</th>
+				<td>
+					<b:Button type="DANGER" ui:field="regButton"
+						addStyleNames="{style.fullWidth} col-xs-8" icon="STAR" iconSpin="true">Register</b:Button>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<g:Label ui:field="errorLabel" />
+				</td>
+			</tr>
+		</table>
+		<div class="{style.centerContent}">
+			<g:Label addStyleNames="{style.words}">You want to</g:Label>
+			<tr>
+				<b:Popover title="Ajak!"
+					content="Create an event and ask your friends to join." placement="RIGHT">
+					<b:Button type="SUCCESS" ui:field="ajakkButton"
+						addStyleNames="{style.btnCenter}" size="LARGE">Ajakk</b:Button>
+				</b:Popover>
+			</tr>
+			<g:Label addStyleNames="{style.words}">or</g:Label>
+			<tr>
+				<b:Popover title="Join!"
+					content="Find out and join some sporting events nearby you."
+					placement="RIGHT">
+					<b:Button type="SUCCESS" ui:field="joinButton"
+						addStyleNames="{style.btnCenter}" size="LARGE">Join</b:Button>
+				</b:Popover>
+			</tr>
+		</div>
+	</g:HTMLPanel>
 </ui:UiBinder>

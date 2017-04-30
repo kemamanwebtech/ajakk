@@ -40,6 +40,8 @@ public class HomePage extends Composite {
 	Toggle         toggle;
 	List<EventDTO> eventList = null;
 	static EventDTO selectedEvent = null;
+	Modal	popupPage = null;
+	Button btnClose = null;
 
 	public HomePage() {
 		initWidget(uiBinder.createAndBindUi(this));
@@ -48,11 +50,23 @@ public class HomePage extends Composite {
 		linkProfile.addClickHandler(new ClickHandler() {
 			@Override
 			public void onClick(ClickEvent event) {
-				Modal modal = new Modal();
-				modal.add(App.getUserProfilePage());
-				modal.remove(0);
-				RootPanel.get().add(modal);
-				modal.show();	
+				popupPage = new Modal();
+				popupPage.add(App.getUserProfilePage());
+				popupPage.remove(0);
+				RootPanel.get().add(popupPage);
+				popupPage.show();	
+			}
+		});
+		
+		btnClose = new Button();
+		  btnClose.addStyleName("btn pull-right btn-danger");
+	        btnClose.setText("Close");
+		btnClose.addClickHandler(new ClickHandler() {
+			@Override
+			public void onClick(ClickEvent event) {
+				// TODO Auto-generated method stub
+				popupPage = null;
+				popupPage.removeFromParent();
 			}
 		});
 		
@@ -73,7 +87,7 @@ public class HomePage extends Composite {
 				eventList = result;
 				EventPanel eventPanel = new EventPanel();
 				eventContainerPanel.add(eventPanel);
-				Notify.notify("Successfully loaded all available events!");
+				//Notify.notify("Successfully loaded all available events!");
 			}
 		});
 	 }
@@ -94,23 +108,25 @@ public class HomePage extends Composite {
 	 /**
 	  * Display event details 
 	  */
-	 public static void popOutEventDetails(EventDTO selectedEvent) {
-		 Modal modal = new Modal();
-		 modal.add(App.createEventDetails(selectedEvent));
-		 modal.remove(0);
-		 modal.setMarginTop(100);
-		 RootPanel.get().add(modal);
-		 modal.show();
+	 public static void displayEventDetails(EventDTO selectedEvent) {
+//		 popupPage = new Modal();
+//		 popupPage.add(App.displayEventDetails(selectedEvent));
+//		 popupPage.remove(0);
+//		 popupPage.setMarginTop(100);
+//		 RootPanel.get().add(popupPage);
+//		 popupPage.show();
 	 }
 
 	 @UiHandler("btnAddEvent")
 	 void onCreateEventClick(ClickEvent e){
-		 Modal modal = new Modal();
-		 modal.add(App.getCreateEventPage());
-		 modal.remove(0);
-		 modal.setMarginTop(100);
-		 RootPanel.get().add(modal);
-		 modal.show();
+		 popupPage = new Modal();
+		 popupPage.add(App.getCreateEventPage());
+		 popupPage.remove(0);
+		 popupPage.setMarginTop(100);
+		 popupPage.add(btnClose);
+		 RootPanel.get().add(popupPage);
+		 popupPage.show();
+		 
 	 }
 
 	 public static EventDTO getSelectedEvent() {

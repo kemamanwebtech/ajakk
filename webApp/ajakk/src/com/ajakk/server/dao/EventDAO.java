@@ -28,7 +28,7 @@ public class EventDAO {
         eventList = new ArrayList<EventDTO>();
         
         // be specific of what fields we want, avoid using *
-        String sql = " SELECT EVENT_ID, NAME, DES FROM EVENT ";
+        String sql = " SELECT EVENT_ID, NAME, DES, TYPE, OWNER_ID, CONFIRMED_DATE, LOC FROM EVENT ";
         
         try {
             PreparedStatement stmt = con.prepareStatement(sql);
@@ -38,11 +38,13 @@ public class EventDAO {
 
             while (rs.next()) {
                 EventDTO event  = new EventDTO();
-                
                 event.setEventID(rs.getInt(1));
                 event.setEventName(rs.getString(2));
                 event.setEventDes(rs.getString(3));
-                
+                event.setEventType(rs.getString(4));
+                event.setOwnerID(rs.getInt(5));
+                event.setFromDate(rs.getDate(6));
+                event.setEventLoc(rs.getString(7));
                 eventList.add(event);
             }
 

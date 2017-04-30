@@ -25,6 +25,8 @@ import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.VerticalPanel;
 import com.google.gwt.user.client.ui.Widget;
+import com.allen_sauer.gwt.log.client.Log;
+
 
 public class LoginPage extends Composite {
 
@@ -52,6 +54,7 @@ public class LoginPage extends Composite {
     static Modal regpage = null;
 
     public LoginPage() {
+    	Log.debug("Launching LoginPage.java...");
         initWidget(uiBinder.createAndBindUi(this));
 
         setStyleName("body");
