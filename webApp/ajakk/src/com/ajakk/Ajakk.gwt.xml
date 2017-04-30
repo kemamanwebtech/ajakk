@@ -29,13 +29,14 @@
     <inherits name="org.gwtbootstrap3.extras.animate.Animate"/>
     <inherits name="org.gwtbootstrap3.extras.gallery.Gallery"/>
     <inherits name="org.gwtbootstrap3.extras.tagsinput.TagsInput"/> 
-<!--     <inherits name="gwt.material.design.GwtMaterialDesign" /> 
+   <!--  <inherits name="gwt.material.design.GwtMaterialDesign" /> 
     <inherits name="gwt.material.design.addins.GwtMaterialAddins"/>  -->
-    <!-- For development, a default of `DEBUG` is recommended -->
-<inherits name="com.allen_sauer.gwt.log.gwt-log-DEBUG" />
+    <!-- For development, a default of `DEBUG` is recommended 
+ <inherits name="com.allen_sauer.gwt.log.gwt-log-DEBUG" /> 
 
 <set-property name="log_DivLogger" value="DISABLED" />
   <set-property name="log_GWTLogger" value="ENABLED" />
+  -->
   
   <!-- Specify the app entry point class.                         -->
   <entry-point class='com.ajakk.portal.AjakkEntryPoint'/>

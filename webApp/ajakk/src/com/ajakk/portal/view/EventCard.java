@@ -58,7 +58,7 @@ public class EventCard extends Composite {
         card.setMarginRight(0);
         
         lblEventFront.setColor("white");
-	}
+
         
         btnClose = new Button();
         btnClose.addStyleName("btn pull-right btn-danger");
@@ -78,17 +78,17 @@ public class EventCard extends Composite {
 //        HomePage.popOutEventDetails(event);
 //    }
 //    
-    @UiHandler("btnEventInfoFront")
-    void onClick(ClickEvent e) {
-        //HomePage.displayEventDetails(event);
-    	 popupPage = new Modal();
-		 popupPage.add(App.displayEventDetails(event));
-		 popupPage.remove(0);
-		 popupPage.setMarginTop(100);
-		 popupPage.add(btnClose);
-		 RootPanel.get().add(popupPage);
-		 popupPage.show();
-    }
+//    @UiHandler("btnEventInfoFront")
+//    void onClick(ClickEvent e) {
+//        //HomePage.displayEventDetails(event);
+//    	 popupPage = new Modal();
+//		 popupPage.add(App.displayEventDetails(event));
+//		 popupPage.remove(0);
+//		 popupPage.setMarginTop(100);
+//		 popupPage.add(btnClose);
+//		 RootPanel.get().add(popupPage);
+//		 popupPage.show();
+//    }
     
     public void setEvent(EventDTO event) {
     	this.event = event;
