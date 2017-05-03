@@ -44,56 +44,62 @@
 		resize: none;
 	}
 	</ui:style>
-
-	<g:HTMLPanel addStyleNames=" {style.center}">
-		<div class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
-			<b:Panel addStyleNames="{style.body}">
-				
-				<b:PanelBody addStyleNames="{style.body}">
-					<b:Form type="HORIZONTAL" addStyleNames="{style.body}">
-						<b:Legend text="Create New Event" addStyleNames="{style.legend}"></b:Legend>
-						<b:FieldSet>
-							<b:FormGroup>
-								<b:FormLabel addStyleNames="col-lg-2">Event Name:</b:FormLabel>
-								<g:FlowPanel addStyleNames="col-lg-10">
-									<b:TextBox ui:field="txtEventName" />
-								</g:FlowPanel>
-							</b:FormGroup>
-							<b:FormGroup>
-								<b:FormLabel addStyleNames="col-lg-2">Event
-									Description:</b:FormLabel>
-								<g:FlowPanel addStyleNames="col-lg-10">
-									<b:TextArea addStyleNames="{style.textarea}" ui:field="txtEventDesc" />
-								</g:FlowPanel>
-							</b:FormGroup>
-							<b:FormGroup>
-								<b:FormLabel addStyleNames="col-lg-2">Event
-									Sports:</b:FormLabel>
-								<g:FlowPanel addStyleNames="col-lg-4">
-									<b:ListBox ui:field="listEventType">
-										<b:item>Futsal</b:item>
-										<b:item>Basketball</b:item>
-										<b:item>Badminton</b:item>
-									</b:ListBox>
-								</g:FlowPanel>
-							</b:FormGroup>
-							<b:FormGroup>
-								<b:FormLabel addStyleNames="col-lg-2">Location:</b:FormLabel>
-								<g:FlowPanel addStyleNames="col-lg-10">
-									<b:TextBox ui:field="txtEventLocation" />
-								</g:FlowPanel>
-							</b:FormGroup>
-							<b:FormGroup>
-								<b:FormLabel addStyleNames="col-lg-2">Date/Time</b:FormLabel>
-								<g:FlowPanel addStyleNames="col-lg-10">
-									<b2:DateTimePicker/>
-								</g:FlowPanel>
-							</b:FormGroup>
-						</b:FieldSet>
-						<b:Button ui:field="btnCreateEvent" pull="RIGHT" type="SUCCESS">Submit</b:Button>
-					</b:Form>
+	
+	<b:Container styleName="{style.center} {style.main-container}">
+			<b:Panel>
+				<b:PanelHeader>
+					<b:Row>
+						<b:Column size="MD_6">
+							<g:Label ui:field="lblEventOrganizer"></g:Label>
+							<b:Image type="THUMBNAIL" url="/google.com"></b:Image>
+							<b:FormLabel>Organizer:</b:FormLabel>
+						</b:Column>
+						<b:Column size="MD_6">
+							<g:Label>Description</g:Label>
+							<b:TextArea addStyleNames="{style.textarea}" ui:field="txtEventDesc" />
+						</b:Column>
+					</b:Row>
+				</b:PanelHeader>
+				<b:PanelBody>
+					<b:Row>
+						<b:Column size="MD_3">
+							<b:Icon type="SOCCER_BALL_O" size="TIMES3"/>
+							<b:TextBox ui:field="txtEventName" />
+						</b:Column>
+						<b:Column size="MD_3">
+							<b:Icon type="SOCCER_BALL_O" size="TIMES3"/>
+							<b:ListBox ui:field="listEventType">
+								<b:item>Futsal</b:item>
+								<b:item>Basketball</b:item>
+								<b:item>Badminton</b:item>
+							</b:ListBox>
+						</b:Column>
+						<b:Column size="MD_3">
+							<b:Icon type="SOCCER_BALL_O" size="TIMES3"/>
+							<b:TextBox ui:field="txtEventLocation" />
+						</b:Column>
+						<b:Column size="MD_3">
+							<b:Icon type="SOCCER_BALL_O" size="TIMES3"/>
+							<b2:DateTimePicker/>
+						</b:Column>
+					</b:Row>
 				</b:PanelBody>
+				<b:PanelBody>
+					<b:Row>
+						<b:Column size="MD_6">
+							<b:Icon type="SOCCER_BALL_O" size="TIMES3"/>
+							<b:FormLabel>Organizer:</b:FormLabel>
+						</b:Column>
+						<b:Column size="MD_6">
+							<b:Icon type="SOCCER_BALL_O" size="TIMES3"/>
+							<b:FormLabel>Organizer:</b:FormLabel>
+						</b:Column>
+					</b:Row>
+				</b:PanelBody>
+				<b:PanelFooter>
+					<b:Button ui:field="btnCreateEvent" pull="RIGHT" type="INFO">Create Eventt</b:Button>
+					<b:Button ui:field="btnDeleteEvent" pull="RIGHT" type="DANGER">Delete Event</b:Button>
+				</b:PanelFooter>
 			</b:Panel>
-		</div>
-	</g:HTMLPanel>
+		</b:Container>
 </ui:UiBinder>

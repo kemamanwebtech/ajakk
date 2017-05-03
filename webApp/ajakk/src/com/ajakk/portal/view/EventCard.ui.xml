@@ -89,15 +89,5 @@
 	 	</e:Card>  
     </b:Container>
     
-<!--     <g:VerticalPanel styleName="container-fluid {style.inline-block} {style.shadow} {style.transition}  {style.card}"> 
-        <e:Card ui:field="card" width="280px" height="280px" styleName="{style.inline-block} {style.shadow} {style.transition} " >
-            <e:Front>
-                <g:VerticalPanel >
-                    <b:Image ui:field="imgEventFront" />
-                    <g:Label ui:field="lblEventFront">Desc</g:Label>
-                    <b:Button ui:field="btnEventInfoFront" styleName="btn btn-success btn-sm">Join!</b:Button>
-                </g:VerticalPanel>
-            </e:Front>
-        </e:Card>
-  </g:VerticalPanel> -->
+
 </ui:UiBinder>
