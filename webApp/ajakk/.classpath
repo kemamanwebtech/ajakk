@@ -1,19 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry including="**/*.java" kind="src" output="target/classes" path="src">
+	<classpathentry including="**/*.java" kind="src" path="src">
 		<attributes>
 			<attribute name="optional" value="true"/>
-			<attribute name="maven.pomderived" value="true"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry including="**/*.java" kind="src" output="target/test-classes" path="test">
-		<attributes>
-			<attribute name="optional" value="true"/>
-			<attribute name="maven.pomderived" value="true"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7">
-		<attributes>
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
@@ -21,12 +10,37 @@
 	<classpathentry exported="true" kind="lib" path="war/WEB-INF/lib/gwtbootstrap3-0.9.4.jar"/>
 	<classpathentry exported="true" kind="lib" path="war/WEB-INF/lib/gwtbootstrap3-extras-0.9.4.jar"/>
 	<classpathentry exported="true" kind="lib" path="war/WEB-INF/lib/fontawesome-lib-4.6.3.jar"/>
-	<classpathentry exported="true" kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER">
+	<classpathentry exported="true" kind="con" path="com.gwtplugins.gwt.eclipse.core.GWT_CONTAINER"/>
+	<classpathentry exported="true" kind="lib" path="/home/raf/Workspace-ajakk/ajakk.git/trunk/lib/gwt-log-3.3.2.jar"/>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7">
 		<attributes>
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry exported="true" kind="con" path="com.gwtplugins.gwt.eclipse.core.GWT_CONTAINER"/>
+	<classpathentry exported="true" kind="lib" path="/opt/apache-tomcat-8.0.39/bin/bootstrap.jar"/>
+	<classpathentry exported="true" kind="lib" path="/opt/apache-tomcat-8.0.39/lib/httpclient-4.5.2.jar"/>
+	<classpathentry exported="true" kind="lib" path="/opt/apache-tomcat-8.0.39/lib/httpcore-4.4.4.jar"/>
+	<classpathentry exported="true" kind="lib" path="/opt/apache-tomcat-8.0.39/lib/servlet-api.jar"/>
+	<classpathentry exported="true" kind="lib" path="/opt/gwt-2.7.0/gwt-servlet.jar"/>
+	<classpathentry exported="true" kind="lib" path="/opt/gwt-2.7.0/gwt-servlet-deps.jar"/>
+	<classpathentry exported="true" kind="lib" path="/opt/gwt-2.7.0/gwt-user.jar"/>
+	<classpathentry kind="lib" path="/opt/eclipse-ajakk/plugins/com.google.gwt.eclipse.sdkbundle_2.7.0/gwt-2.7.0/gwt-user.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="file:/opt/eclipse-ajakk/plugins/com.google.gwt.eclipse.sdkbundle_2.7.0/gwt-2.7.0/doc/javadoc/"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/opt/eclipse-ajakk/plugins/com.google.gwt.eclipse.sdkbundle_2.7.0/gwt-2.7.0/gwt-codeserver.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="file:/opt/eclipse-ajakk/plugins/com.google.gwt.eclipse.sdkbundle_2.7.0/gwt-2.7.0/doc/javadoc/"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/opt/eclipse-ajakk/plugins/com.google.gwt.eclipse.sdkbundle_2.7.0/gwt-2.7.0/gwt-dev.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="file:/opt/eclipse-ajakk/plugins/com.google.gwt.eclipse.sdkbundle_2.7.0/gwt-2.7.0/doc/javadoc/"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/opt/eclipse-ajakk/plugins/com.google.gwt.eclipse.sdkbundle_2.7.0/gwt-2.7.0/validation-api-1.0.0.GA-sources.jar"/>
+	<classpathentry kind="lib" path="/opt/eclipse-ajakk/plugins/com.google.gwt.eclipse.sdkbundle_2.7.0/gwt-2.7.0/validation-api-1.0.0.GA.jar" sourcepath="/opt/eclipse-ajakk/plugins/com.google.gwt.eclipse.sdkbundle_2.7.0/gwt-2.7.0/validation-api-1.0.0.GA-sources.jar"/>
 	<classpathentry kind="con" path="com.google.gwt.eclipse.core.GWT_CONTAINER"/>
 	<classpathentry kind="output" path="war/WEB-INF/classes"/>
 </classpath>

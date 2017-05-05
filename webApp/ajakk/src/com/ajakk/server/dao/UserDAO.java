@@ -8,7 +8,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.ajakk.shared.dto.EventDTO;
 import com.ajakk.shared.dto.UserDTO;
 
 @SuppressWarnings("serial")

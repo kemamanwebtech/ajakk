@@ -1,14 +1,9 @@
 package com.ajakk.portal.view;
 
 import org.gwtbootstrap3.client.ui.*;
-import org.gwtbootstrap3.extras.notify.client.ui.Notify;
-
 import com.ajakk.portal.AjakkRPC;
 import com.ajakk.portal.AjakkRPCAsync;
 import com.ajakk.portal.App;
-import com.ajakk.portal.util.AjakkConfig;
-import com.ajakk.portal.view.HomePage.EventPanel;
-import com.ajakk.shared.dto.LoginDTO;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
@@ -20,6 +15,7 @@ import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.DialogBox;
 import com.google.gwt.user.client.ui.HTML;
+import com.google.gwt.user.client.ui.HasHorizontalAlignment;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.VerticalPanel;
@@ -51,13 +47,14 @@ public class RegisterPage extends Composite {
         VerticalPanel dialogVPanel = new VerticalPanel();
         dialogVPanel.addStyleName("dialogVPanel");
         dialogVPanel.add(serverResponseLabel);
-        dialogVPanel.setHorizontalAlignment(VerticalPanel.ALIGN_RIGHT);
+        dialogVPanel.setHorizontalAlignment(HasHorizontalAlignment.ALIGN_RIGHT);
         dialogVPanel.add(closeButton);
         dialogBox.setWidget(dialogVPanel);
 
         // Add a handler to close the DialogBox
         closeButton.addClickHandler(new ClickHandler() {
-            public void onClick(ClickEvent event) {
+            @Override
+			public void onClick(ClickEvent event) {
                 dialogBox.hide();
             }
         });

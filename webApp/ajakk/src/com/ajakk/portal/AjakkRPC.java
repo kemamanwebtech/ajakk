@@ -5,7 +5,6 @@ import java.util.List;
 import com.ajakk.shared.dto.EventDTO;
 import com.ajakk.shared.dto.LoginDTO;
 import com.ajakk.shared.dto.UserDTO;
-import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.rpc.RemoteService;
 import com.google.gwt.user.client.rpc.RemoteServiceRelativePath;
 

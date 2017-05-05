@@ -4,7 +4,6 @@ import org.gwtbootstrap3.client.ui.Button;
 import org.gwtbootstrap3.client.ui.FormLabel;
 import org.gwtbootstrap3.client.ui.Modal;
 
-import com.ajakk.shared.dto.EventDTO;
 import com.ajakk.shared.dto.UserDTO;
 import java.util.ArrayList;
 import java.util.List;

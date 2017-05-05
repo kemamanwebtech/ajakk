@@ -8,8 +8,6 @@ import org.gwtbootstrap3.client.ui.Button;
 import org.gwtbootstrap3.client.ui.ListGroupItem;
 import org.gwtbootstrap3.client.ui.Modal;
 import org.gwtbootstrap3.client.ui.constants.Toggle;
-import org.gwtbootstrap3.extras.notify.client.ui.Notify;
-
 import com.ajakk.portal.AjakkRPC;
 import com.ajakk.portal.AjakkRPCAsync;
 import com.ajakk.portal.App;
@@ -79,10 +77,12 @@ public class HomePage extends Composite {
 	 public void getAllEvents() {
 		rpc.getAllEvents(new AsyncCallback<List<EventDTO>>() {
 			
+			@Override
 			public void onFailure(Throwable caught) {
 				RootPanel.get().add(App.getDialogBox(caught.toString()));
 			}
 
+			@Override
 			public void onSuccess(List<EventDTO> result) {
 				eventList = result;
 				EventPanel eventPanel = new EventPanel();

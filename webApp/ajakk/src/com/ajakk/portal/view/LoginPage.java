@@ -12,7 +12,6 @@ import com.ajakk.portal.util.FieldValidator;
 import com.ajakk.shared.dto.LoginDTO;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
-import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiHandler;
@@ -94,11 +93,14 @@ public class LoginPage extends Composite {
         }
 
         rpc.doLogin(userName.getText(), passwd.getText(), new AsyncCallback<LoginDTO>() {
-            public void onFailure(Throwable caught) {
+            @Override
+			public void onFailure(Throwable caught) {
                 RootPanel.get().add(App.getDialogBox(AjakkConfig.SERVER_ERROR));
+                System.out.println(caught.toString());
             }
 
-            public void onSuccess(LoginDTO result) {
+            @Override
+			public void onSuccess(LoginDTO result) {
 
                 switch (result.getUserStatus()) {
 

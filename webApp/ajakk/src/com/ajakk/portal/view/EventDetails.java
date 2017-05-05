@@ -3,10 +3,6 @@
  */
 package com.ajakk.portal.view;
 
-import org.gwtbootstrap3.client.ui.FormControlStatic;
-import org.gwtbootstrap3.client.ui.ListBox;
-import org.gwtbootstrap3.extras.datetimepicker.client.ui.DateTimePicker;
-
 import com.ajakk.shared.dto.EventDTO;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.uibinder.client.UiBinder;

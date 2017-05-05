@@ -21,7 +21,8 @@ import com.google.gwt.user.server.rpc.RemoteServiceServlet;
 public class AjakkRPCImpl extends RemoteServiceServlet implements AjakkRPC {
     FactoryDAO daoFactory = new FactoryDAO();
 
-    public LoginDTO doLogin(String userName, String passwd) throws IllegalArgumentException {
+    @Override
+	public LoginDTO doLogin(String userName, String passwd) throws IllegalArgumentException {
 
         // // Verify that the input is valid.
         // if (!FieldVerifier.isValidUserName(userName) ||

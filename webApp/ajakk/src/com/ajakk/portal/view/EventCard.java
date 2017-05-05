@@ -3,7 +3,6 @@ package com.ajakk.portal.view;
 import org.gwtbootstrap3.client.ui.Button;
 import org.gwtbootstrap3.client.ui.Image;
 import org.gwtbootstrap3.client.ui.Label;
-import org.gwtbootstrap3.client.ui.Row;
 import org.gwtbootstrap3.client.ui.Modal;
 import org.gwtbootstrap3.extras.card.client.ui.Card;
 

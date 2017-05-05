@@ -3,9 +3,6 @@
  */
 package com.ajakk.portal.util;
 
-import java.sql.DriverManager;
-import java.sql.SQLException;
-
 public class AjakkConfig {
 	/**
 	 * List of static Strings

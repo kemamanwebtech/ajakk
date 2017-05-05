@@ -3,11 +3,8 @@
  */
 package com.ajakk.portal.view;
 
-import java.util.List;
-
 import org.gwtbootstrap3.client.ui.Button;
 import org.gwtbootstrap3.client.ui.ListBox;
-import org.gwtbootstrap3.client.ui.Modal;
 import org.gwtbootstrap3.client.ui.TextArea;
 import org.gwtbootstrap3.client.ui.TextBox;
 import org.gwtbootstrap3.extras.notify.client.ui.Notify;
@@ -15,8 +12,6 @@ import org.gwtbootstrap3.extras.notify.client.ui.Notify;
 import com.ajakk.portal.AjakkRPC;
 import com.ajakk.portal.AjakkRPCAsync;
 import com.ajakk.portal.App;
-import com.ajakk.portal.view.HomePage.EventPanel;
-import com.ajakk.shared.dto.EventDTO;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.uibinder.client.UiBinder;
@@ -60,10 +55,12 @@ public class createEvent extends Composite {
     			txtEventLocation.getText(),
     			App.username,
     			new AsyncCallback<String>() {
+			@Override
 			public void onFailure(Throwable caught) {
 				RootPanel.get().add(App.getDialogBox(caught.toString()));
 			}
 
+			@Override
 			public void onSuccess(String result) {
 				if (result.equals("success")) {
 					Notify.notify("Successfully create events!");

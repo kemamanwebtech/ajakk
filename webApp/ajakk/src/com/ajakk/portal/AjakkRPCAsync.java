@@ -2,7 +2,6 @@ package com.ajakk.portal;
 
 import java.util.List;
 
-import com.ajakk.shared.dto.EventDTO;
 import com.ajakk.shared.dto.LoginDTO;
 import com.ajakk.shared.dto.UserDTO;
 import com.google.gwt.user.client.rpc.AsyncCallback;

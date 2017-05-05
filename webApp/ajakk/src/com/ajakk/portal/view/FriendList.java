@@ -55,7 +55,8 @@ public class FriendList extends Composite implements HasText {
         Window.alert("Hello!");
     }
 
-    public void setText(String text) {
+    @Override
+	public void setText(String text) {
         button.setText(text);
     }
 
@@ -63,7 +64,8 @@ public class FriendList extends Composite implements HasText {
      * Gets invoked when the default constructor is called
      * and a string is provided in the ui.xml file.
      */
-    public String getText() {
+    @Override
+	public String getText() {
         return button.getText();
     }
 
