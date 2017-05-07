@@ -3,7 +3,7 @@
  xmlns:ma="urn:import:gwt.material.design.addins.client">
   <ui:style>
  </ui:style>
- <m:MaterialModal ui:field="modal" type="DEFAULT" dismissable="false" inDuration="500" outDuration="500">
+ <m:MaterialModal ui:field="modal" type="DEFAULT" inDuration="500" outDuration="500">
  <m:MaterialModalContent>
  <m:MaterialTitle ui:field="message" title="Hi there!" description="says something?!" />
  </m:MaterialModalContent>
