@@ -13,8 +13,8 @@
  <m:MaterialModal ui:field="modal" type="DEFAULT" inDuration="200" outDuration="200">
   <m:MaterialModalContent>
   <m:MaterialLabel textAlign="CENTER" >LOGIN</m:MaterialLabel>
-   <m:MaterialTextBox label="Email" iconType="ACCOUNT_CIRCLE"  />
-   <m:MaterialTextBox label="Password" iconType="WORK" />
+   <m:MaterialTextBox ui:field="txtEmail" label="Email" iconType="ACCOUNT_CIRCLE"  />
+   <m:MaterialTextBox ui:field="txtPassword" label="Password" iconType="WORK" />
    <m:MaterialButton ui:field="btnLogin" text="LOGIN" waves="RED" backgroundColor="BLUE" textColor="WHITE" iconType="CREATE"
     iconPosition="LEFT" display="BLOCK" addStyleNames="{style.btn}">
    </m:MaterialButton>
