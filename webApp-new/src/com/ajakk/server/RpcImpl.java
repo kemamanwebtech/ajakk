@@ -18,98 +18,77 @@ import com.google.gwt.user.server.rpc.RemoteServiceServlet;
  * The server-side implementation of the RPC service.
  */
 @SuppressWarnings("serial")
-public class RpcImpl extends RemoteServiceServlet
-        implements
-            Rpc {
+public class RpcImpl extends RemoteServiceServlet implements Rpc {
 
     FactoryDAO daoFactory = new FactoryDAO();
 
     @Override
-    public LoginDTO doLogin(String userName, String passwd) throws IllegalArgumentException {
-
-        // // Verify that the input is valid.
-        // if (!FieldVerifier.isValidUserName(userName) ||
-        // !FieldVerifier.isValidPasswd(passwd)) {
-        // throw new IllegalArgumentException("Fields must not be empty");
-        // }
+    public LoginDTO doLogin(String userName, String passwd)
+            throws IllegalArgumentException {
 
         LoginDAO loginDAO = daoFactory.getLoginDAO();
-        return loginDAO.checkLogin(daoFactory.getConnection(), userName, passwd);
+        return loginDAO.checkLogin(daoFactory.getConnection(), userName,
+                passwd);
     }
 
-    /**
-     * Escape an html string. Escaping data received from the client helps to
-     * prevent cross-site script vulnerabilities.
-     * 
-     * @return the escaped string
-     */
     @SuppressWarnings("unused")
     private String escapeHtml(String html) {
         if (html == null) {
             return null;
         }
-        return html.replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;");
+        return html.replaceAll("&", "&amp;").replaceAll("<", "&lt;")
+                .replaceAll(">", "&gt;");
     }
-    
-    /**
-     * Get all events (no filter)
-     * 
-     */
+
     @Override
     public List<EventDTO> getAllEvents() {
         List<EventDTO> eventList = new ArrayList<EventDTO>();
         Connection con = daoFactory.getConnection();
-                
+
         EventDAO eventDAO = daoFactory.getEventDAO();
-        
+
         eventList = eventDAO.getAllEvents(con);
         return eventList;
-
     }
 
     @Override
-    public String doSignup(
-            String username, 
-            String password, 
-            String email,
+    public String doSignup(String username, String password, String email,
             String phoneNumber) {
-        
+
         UserDTO user = new UserDTO(username, email, phoneNumber);
         Connection con = daoFactory.getConnection();
         UserDAO userDAO = daoFactory.getUserDAO();
-        
+
         try {
             userDAO.registerUser(user, password, con);
             return "success";
         } catch (Exception e) {
             e.printStackTrace();
-        }   
+        }
         return "failed";
     }
 
     @Override
-    public String createEvent(
-            String eventName, 
-            String eventDesc,
-            String eventType, 
-            String eventLocation, 
-            String userName) {
-        
+    public String createEvent(String eventName, String eventDesc,
+            String eventType, String eventLocation, String userName) {
+
         Connection con = daoFactory.getConnection();
-        
+
         UserDAO userDAO = daoFactory.getUserDAO();
-        
-        int userID = Integer.parseInt(userDAO.getUserIdByUsername(userName, con));
-        EventDTO event = new EventDTO(eventName, eventDesc, eventType, eventLocation, userID);
+
+        int userID = Integer
+                .parseInt(userDAO.getUserIdByUsername(userName, con));
+        EventDTO event = new EventDTO(eventName, eventDesc, eventType,
+                eventLocation, userID);
         EventDAO eventDAO = daoFactory.getEventDAO();
-        
+
         if (eventDAO.createEvent(event, con)) {
             return "success";
         } else {
             return "Error : failed to create event.";
         }
     }
-    
+
     @Override
     public UserDTO getUser(String email) {
         int userID = 0;
@@ -117,7 +96,7 @@ public class RpcImpl extends RemoteServiceServlet
         UserDAO userDAO = daoFactory.getUserDAO();
         UserDTO user = new UserDTO();
         user = userDAO.getUserByEmail(email, con);
-        
+
         return user;
     }
 }

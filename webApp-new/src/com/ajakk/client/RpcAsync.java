@@ -15,11 +15,6 @@ public interface RpcAsync {
             String passwd, 
             AsyncCallback<LoginDTO> callback) throws IllegalArgumentException;
 
-    /**
-     * Get all events from database (no filter)
-     * 
-     * @param asyncCallback
-     */
     @SuppressWarnings("rawtypes")
     void getAllEvents(AsyncCallback asyncCallback);
     
