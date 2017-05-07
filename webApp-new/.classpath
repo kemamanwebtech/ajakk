@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" output="test-classes" path="test"/>
+	<classpathentry exported="true" kind="con" path="com.google.gwt.eclipse.core.GWT_CONTAINER"/>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry exported="true" kind="lib" path="/home/raf/Workspace-ajakk/ajakk-new/lib/gwt-material-2.0-rc4.jar"/>
+	<classpathentry exported="true" kind="lib" path="/home/raf/Workspace-ajakk/ajakk-new/lib/gwt-material-addins-2.0-rc4.jar"/>
+	<classpathentry exported="true" kind="lib" path="/home/raf/Workspace-ajakk/ajakk-new/lib/gwt-material-jquery-1.0-rc4.jar"/>
+	<classpathentry kind="output" path="war/WEB-INF/classes"/>
+</classpath>

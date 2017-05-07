@@ -1,0 +1,2 @@
+# Module ajakk_new
+# RPC service class, partial path of RPC policy file

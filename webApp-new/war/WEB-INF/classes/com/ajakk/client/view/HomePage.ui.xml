@@ -1,0 +1,96 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder" xmlns:g="urn:import:com.google.gwt.user.client.ui" xmlns:m="urn:import:gwt.material.design.client.ui"
+ xmlns:ma="urn:import:gwt.material.design.addins.client">
+ <ui:style>
+ .set-margin {
+ 	margin-left: 5px;
+ 	margin-right: 5px;
+ }
+ 
+ .welcome-title {
+ 	text-align: -webkit-center !important;
+ 	margin-bottom: 2em;
+ 	justify-content: center !important;
+ 	margin: auto !important;
+ }
+ 
+ 
+ .row {
+    margin: auto;
+    width: 100%;
+}
+
+ 
+ </ui:style>
+ <m:MaterialPanel>
+
+  <!-- Header -->
+  <m:MaterialHeader layoutPosition="FIXED" width="100%" shadow="1" depth="996">
+   <!-- NavBar -->
+   <m:MaterialNavBar backgroundColor="RED_DARKEN_1" activates="sidenav">
+    <m:MaterialNavBrand text="Ajakk" addStyleNames="{style.setMargin}" />
+    <m:MaterialNavSection float="RIGHT" addStyleNames="{style.setMargin}">
+     <m:MaterialButton ui:field="btnLogin" text="LOGIN" addStyleNames="{style.set-margin}" waves="RED" backgroundColor="RED"
+      textColor="WHITE" iconType="MOOD" iconPosition="LEFT">
+     </m:MaterialButton>
+     <m:MaterialButton ui:field="btnRegister" text="REGISTER" addStyleNames="{style.set-margin}" waves="RED"
+      backgroundColor="RED" textColor="WHITE" iconType="CREATE" iconPosition="LEFT">
+     </m:MaterialButton>
+
+    </m:MaterialNavSection>
+   </m:MaterialNavBar>
+   <!-- Tab -->
+  </m:MaterialHeader>
+
+  <!-- Container -->
+  <m:MaterialContainer ui:field="cardContainer" paddingTop="140">
+
+
+   <m:MaterialLabel text="Join those who ajakk you for" fontSize="2em" textColor="GREY" addStyleNames="{style.welcome-title}" />
+   <m:MaterialRow paddingTop="40" textAlign="CENTER" addStyleNames="{style.row}">
+
+    <m:MaterialColumn ui:field="hiking">
+     <m:MaterialImage url="images/hiking.png" type="CIRCLE" height="20em" width="20em" />
+     <m:MaterialCardContent textColor="INDIGO_LIGHTEN_4" height="80px">
+      <m:MaterialLabel fontSize="2em" text="Hiking" />
+     </m:MaterialCardContent>
+    </m:MaterialColumn>
+
+    <m:MaterialColumn  ui:field="volunteer">
+
+     <m:MaterialImage url="images/volunteer.png" type="CIRCLE" height="20em" width="20em" />
+
+     <m:MaterialCardContent textColor="INDIGO_LIGHTEN_4" height="80px">
+      <m:MaterialLabel fontSize="2em" text="Volunteer" />
+     </m:MaterialCardContent>
+
+    </m:MaterialColumn>
+
+    <m:MaterialColumn ui:field="futsal">
+
+     <m:MaterialImage url="images/futsal.png" type="CIRCLE" height="20em" width="20em" />
+     <m:MaterialCardContent textColor="INDIGO_LIGHTEN_4" height="80px">
+      <m:MaterialLabel fontSize="2em" text="Futsal" />
+     </m:MaterialCardContent>
+    </m:MaterialColumn>
+
+    <m:MaterialColumn  ui:field="basketball">
+     <m:MaterialImage url="images/basketball.png" type="CIRCLE" height="20em" width="20em" />
+     <m:MaterialCardContent textColor="INDIGO_LIGHTEN_4" height="80px">
+      <m:MaterialLabel fontSize="2em" text="Basketball" />
+     </m:MaterialCardContent>
+    </m:MaterialColumn>
+
+   </m:MaterialRow>
+
+  </m:MaterialContainer>
+
+  <!-- FAB -->
+  <m:MaterialFAB>
+   <m:MaterialAnchorButton target="_blank" href="/Ajakk_new.html" waves="DEFAULT" type="FLOATING" tooltip="Get Code"
+    tooltipPosition="LEFT" iconType="MESSAGE" backgroundColor="BLUE" size="LARGE" />
+  </m:MaterialFAB>
+
+
+ </m:MaterialPanel>
+</ui:UiBinder> 
