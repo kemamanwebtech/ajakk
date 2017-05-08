@@ -53,16 +53,18 @@
   <m:MaterialCardImage addStyleNames=" {style.center-horizontal}">
    <m:MaterialImage url="images/map-location.png" height="150px" width="150px" />
   </m:MaterialCardImage>
-<m:MaterialRow height="auto" addStyleNames="{style.center-horizontal}" backgroundColor="TEAL_LIGHTEN_1">
-<m:MaterialColumn grid="l3 m3 s12">
 
-  <m:MaterialCardContent textColor="WHITE" addStyleNames="{style.padding-filter}">
+<m:MaterialRow height="auto" addStyleNames="{style.center-horizontal}" backgroundColor="TEAL_LIGHTEN_1">
+
+
+  <m:MaterialCardContent textColor="WHITE" >
    <m:MaterialLabel fontSize="1.15em" text="Filter by location" />
    <g:TextBox text="KL">
    </g:TextBox>
+      <m:MaterialButton ui:field="btnActivityInfo" type="FLOATING" backgroundColor="BLUE" iconType="POLYMER" size="LARGE"/>
+   
+
   </m:MaterialCardContent>
-</m:MaterialColumn>
 </m:MaterialRow>
-<m:MaterialFAB ui:field="btnActivityInfo" ></m:MaterialFAB>
  </m:MaterialCard>
 </ui:UiBinder> 

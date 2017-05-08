@@ -2,8 +2,10 @@ package com.ajakk.client.view;
 
 import com.ajakk.shared.EventDTO;
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
+import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.Widget;
 import gwt.material.design.client.ui.MaterialButton;
@@ -15,7 +17,7 @@ public class EventCard extends Composite {
     interface EventCardUiBinder extends UiBinder<Widget, EventCard> {}
     
     public EventDTO event;
-    @UiField MaterialFAB btnActivityInfo;
+    @UiField MaterialButton btnActivityInfo;
 
     public EventCard(EventDTO event) {
         initWidget(uiBinder.createAndBindUi(this));
@@ -26,6 +28,11 @@ public class EventCard extends Composite {
         this.event = event;
     }
     
+    @UiHandler("btnActivityInfo")
+    void onBtnActivityInfoClicked(ClickEvent e) {
+        // call here
+        // EventInfo eventInfo = new EventInfo(this.event);
+    }
     
     
 }
