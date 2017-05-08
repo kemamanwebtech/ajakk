@@ -1,12 +1,14 @@
 package com.ajakk.client.view;
 
 import com.ajakk.shared.EventDTO;
+import com.ajakk.client.view.EventInfo;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.user.client.ui.Composite;
+import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.Widget;
 import gwt.material.design.client.ui.MaterialButton;
 import gwt.material.design.client.ui.MaterialFAB;
@@ -31,7 +33,9 @@ public class EventCard extends Composite {
     @UiHandler("btnActivityInfo")
     void onBtnActivityInfoClicked(ClickEvent e) {
         // call here
-        // EventInfo eventInfo = new EventInfo(this.event);
+         EventInfo eventInfo = new EventInfo();
+    	RootPanel.get().add(eventInfo);
+        eventInfo.show();
     }
     
     
