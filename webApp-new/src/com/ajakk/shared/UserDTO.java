@@ -8,7 +8,7 @@ public class UserDTO implements Serializable {
 	int userID;
 	String name;
 	String email;
-	String phoneNumber;
+	String phone;
 	String status; 		// Status of the user : NotActive, Active, Blocked, Locked, Deleted
 	int roleID; 		// Role assigned to the user
 	Date created;
@@ -33,10 +33,10 @@ public class UserDTO implements Serializable {
 	}
 	
 	// parameterized constructor used for user registration
-	public UserDTO(String name, String email, String phoneNumber) {
+	public UserDTO(String name, String email, String phone) {
 		this.name = name;
 		this.email = email;
-		this.phoneNumber = phoneNumber;
+		this.phone = phone;
 	}
 	
 	public int getUserID() {
@@ -52,7 +52,7 @@ public class UserDTO implements Serializable {
 	}
 	
 	public String getPhoneNumber() {
-		return phoneNumber;
+		return phone;
 	}
 	
 	public String getStatus() {
@@ -99,7 +99,7 @@ public class UserDTO implements Serializable {
 	}
 	
 	public void setPhoneNumber(String phoneNumber) {
-		this.phoneNumber = phoneNumber;
+		this.phone = phoneNumber;
 	}
 	
 	public void setRoleID(int roleID) {

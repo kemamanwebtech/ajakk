@@ -77,7 +77,7 @@
   </m:MaterialSideNav>
 
   <!-- Container -->
-  <m:MaterialContainer ui:field="cardContainer" paddingLeft="180" paddingRight="180" paddingTop="100">
+  <m:MaterialContainer paddingLeft="180" paddingRight="180" paddingTop="100">
 
    <m:MaterialContainer width="100%" >
 
@@ -125,10 +125,12 @@
     </m:MaterialRow> 
    </m:MaterialContainer>
 
-   <!-- Cards -->
+   <!-- Activities Card -->
    <m:MaterialLabel addStyleNames=" {style.center-horizontal}" text="Upcoming activities" fontSize="1.5em" textColor="GREY" />
    <ma:masonry.MaterialMasonry>
-
+   <m:MaterialContainer ui:field="cardContainer">
+   
+   </m:MaterialContainer>
    </ma:masonry.MaterialMasonry>
   </m:MaterialContainer>
 

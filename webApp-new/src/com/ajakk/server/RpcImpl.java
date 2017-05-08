@@ -23,11 +23,11 @@ public class RpcImpl extends RemoteServiceServlet implements Rpc {
     FactoryDAO daoFactory = new FactoryDAO();
 
     @Override
-    public LoginDTO doLogin(String userName, String passwd)
+    public LoginDTO doLogin(String email, String passwd)
             throws IllegalArgumentException {
 
         LoginDAO loginDAO = daoFactory.getLoginDAO();
-        return loginDAO.checkLogin(daoFactory.getConnection(), userName,
+        return loginDAO.checkLogin(daoFactory.getConnection(), email,
                 passwd);
     }
 
@@ -52,10 +52,10 @@ public class RpcImpl extends RemoteServiceServlet implements Rpc {
     }
 
     @Override
-    public String doSignup(String username, String password, String email,
-            String phoneNumber) {
+    public String doSignup(String name, String email, String password,
+            String phone) {
 
-        UserDTO user = new UserDTO(username, email, phoneNumber);
+        UserDTO user = new UserDTO(name, email, phone);
         Connection con = daoFactory.getConnection();
         UserDAO userDAO = daoFactory.getUserDAO();
 
@@ -91,7 +91,6 @@ public class RpcImpl extends RemoteServiceServlet implements Rpc {
 
     @Override
     public UserDTO getUser(String email) {
-        int userID = 0;
         Connection con = daoFactory.getConnection();
         UserDAO userDAO = daoFactory.getUserDAO();
         UserDTO user = new UserDTO();

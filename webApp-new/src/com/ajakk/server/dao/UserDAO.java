@@ -156,9 +156,8 @@ public class UserDAO extends UserDTO {
     }
 
     public UserDTO getUserByEmail(String email, Connection con) {
-
         UserDTO user = null;
-        String sql = " SELECT AJAKK_USER_ID, USER_NAME, DES, EMAIL, PHONE_NO, SPORT FROM AJAKK_USER WHERE EMAIL = ? ";
+        String sql = " SELECT AJAKK_USER_ID, USER_NAME, DES, EMAIL, PHONE_NO FROM AJAKK_USER WHERE EMAIL = ? ";
 
         try {
             PreparedStatement stmt = con.prepareStatement(sql);
@@ -168,15 +167,12 @@ public class UserDAO extends UserDTO {
             System.out.println(stmt.toString());
 
             while (rs.next()) {
-
                 user = new UserDTO();
-
                 user.setUserID(rs.getInt(1));
                 user.setName(rs.getString(2));
                 user.setDes(rs.getString(3));
                 user.setEmail(rs.getString(4));
                 user.setPhoneNumber(rs.getString(5));
-                user.setSport(rs.getString(6));
             }
         } catch (SQLException e) {
             e.printStackTrace();
