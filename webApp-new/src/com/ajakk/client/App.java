@@ -37,8 +37,8 @@ public class App {
         return user;
     }
 
-    public void setUser(UserDTO user) {
-        this.user = user;
+    public static void setUser(UserDTO user) {
+        user = user;
     }
 
     public String getCurrentLoc() {

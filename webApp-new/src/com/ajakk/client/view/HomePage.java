@@ -23,31 +23,31 @@ public class HomePage extends Composite {
 
     interface LoginPageUiBinder extends UiBinder<Widget, HomePage> {
     }
-    
+
     @UiField MaterialColumn hiking;
     @UiField MaterialColumn volunteer;
     @UiField MaterialColumn futsal;
     @UiField MaterialColumn basketball;
-    
     @UiField MaterialButton btnLogin;
     @UiField MaterialButton btnRegister;
 
     public HomePage() {
         initWidget(uiBinder.createAndBindUi(this));
-        
+
         MouseOverHandler hoverHandler = new MouseOverHandler() {
             @Override
             public void onMouseOver(MouseOverEvent event) {
-                MaterialAnimator.animate(Transition.PULSE, (Widget) event.getSource(), 300);
+                MaterialAnimator.animate(Transition.PULSE,
+                        (Widget) event.getSource(), 300);
             }
-            
+
         };
 
         hiking.addMouseOverHandler(hoverHandler);
         volunteer.addMouseOverHandler(hoverHandler);
         futsal.addMouseOverHandler(hoverHandler);
         basketball.addMouseOverHandler(hoverHandler);
-        
+
         btnLogin.addClickHandler(new ClickHandler() {
             @Override
             public void onClick(ClickEvent event) {
@@ -55,9 +55,9 @@ public class HomePage extends Composite {
                 RootPanel.get().add(login);
                 login.show();
             }
-            
+
         });
-        
+
         btnRegister.addClickHandler(new ClickHandler() {
             @Override
             public void onClick(ClickEvent event) {
@@ -65,7 +65,7 @@ public class HomePage extends Composite {
                 RootPanel.get().add(register);
                 register.show();
             }
-            
+
         });
     }
 

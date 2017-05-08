@@ -1,5 +1,4 @@
 package com.ajakk.client.view;
-
 import com.ajakk.client.App;
 import com.ajakk.client.Config;
 import com.ajakk.client.Rpc;
@@ -21,18 +20,15 @@ import gwt.material.design.client.ui.MaterialModal;
 import gwt.material.design.client.ui.MaterialTextBox;
 
 public class Login extends Composite {
-
     private static LoginUiBinder uiBinder = GWT.create(LoginUiBinder.class);
 
-    interface LoginUiBinder extends UiBinder<Widget, Login> {
-    }
-    
-    private final RpcAsync rpc = GWT.create(Rpc.class);
-    
-    @UiField MaterialModal modal;
-    @UiField MaterialButton btnLogin;
-    @UiField MaterialButton btnLoginGmail;
-    @UiField MaterialButton btnLoginFb;
+    interface LoginUiBinder extends UiBinder<Widget, Login> {}
+
+    private final RpcAsync   rpc = GWT.create(Rpc.class);
+    @UiField MaterialModal   modal;
+    @UiField MaterialButton  btnLogin;
+    @UiField MaterialButton  btnLoginGmail;
+    @UiField MaterialButton  btnLoginFb;
     @UiField MaterialTextBox txtEmail;
     @UiField MaterialTextBox txtPassword;
 
@@ -42,20 +38,19 @@ public class Login extends Composite {
         modal.setPixelSize(500, 400);
         modal.getWidget(0).setHeight("100%");
         
+        txtEmail.setText("mrafsyam@gmail.com");
+        txtPassword.setText("password");
         btnLogin.addClickHandler(new ClickHandler() {
             @Override
             public void onClick(ClickEvent event) {
-                
                 if (!FieldValidator.isValidUserName(txtEmail.getText())) {
                     txtEmail.setError("Please provide your email");
                     return;
                 }
-
                 if (!FieldValidator.isValidPasswd(txtPassword.getText())) {
                     txtPassword.setError("Please provide your password");
                     return;
                 }
-                
                 rpc.doLogin(txtEmail.getText(), txtPassword.getText(), new AsyncCallback<LoginDTO>() {
                     @Override
                     public void onFailure(Throwable caught) {
@@ -65,65 +60,49 @@ public class Login extends Composite {
 
                     @Override
                     public void onSuccess(LoginDTO result) {
-
                         switch (result.getUserStatus()) {
+                        case "NotActive" :
+                            App.showMessage(Config.ACC_NOTACTIVE);
+                            break;
+                        case "Blocked" :
+                            App.showMessage(Config.ACC_BLOCKED);
+                            break;
+                        case "Locked" :
+                            App.showMessage(Config.ACC_LOCKED);
+                            break;
+                        case "Deleted" :
+                            App.showMessage(Config.ACC_DELETED);
+                            break;
+                        case "Invalid" :
+                            App.showMessage(Config.AUTH_ERROR);
+                            break;
+                        case "Active" :
+                            
+                            
+                            rpc.getUser(txtEmail.getText(), new AsyncCallback<UserDTO>() {
+                                @Override
+                                public void onFailure(Throwable caught) {
+                                    App.showMessage(caught.getMessage().toString());
+                                }
 
-                            case "NotActive":
-                                App.showMessage(Config.ACC_NOTACTIVE);
-                                break;
-
-                            case "Blocked":
-                                App.showMessage(Config.ACC_BLOCKED);
-                                break;
-
-                            case "Locked":
-                                App.showMessage(Config.ACC_LOCKED);
-                                break;
-
-                            case "Deleted":
-                                App.showMessage(Config.ACC_DELETED);
-                                break;
-
-                            case "Invalid":
-                                App.showMessage(Config.AUTH_ERROR);
-                                break;
-
-                            case "Active":
-                                App.getApp().getUser().setEmail(txtEmail.getText()); 
-                                
-                                rpc.getUser(App.getApp().getUser().getEmail(), new AsyncCallback<UserDTO>() {
-
-                                    @Override
-                                    public void onFailure(Throwable caught) {
-                                        App.showMessage(caught.getMessage().toString());
-                                    }
-
-                                    @Override
-                                    public void onSuccess(UserDTO result) {
-                                        if (result != null)
-                                            App.getApp().setUser(result);
-                                        else 
-                                            App.showMessage("Error : Failed to get user.");
-                                    }
-                                    
-                                });
-                                
-                                Dashboard dashboard = new Dashboard();
-                                RootPanel.get().clear();
-                                RootPanel.get().add(dashboard);
-                                break;
+                                @Override
+                                public void onSuccess(UserDTO result) {
+                                    if (result != null) {
+                                        App.setUser(result);
+                                        Dashboard dashboard = new Dashboard();
+                                        RootPanel.get().clear();
+                                        RootPanel.get().add(dashboard);
+                                    } else App.showMessage("Error : Failed to get user.");
+                                }
+                            });
+                            break;
                         }
                     }
                 });
-                
-                
-                
-                
             }
-            
         });
     }
-    
+
     public void show() {
         modal.open();
     }

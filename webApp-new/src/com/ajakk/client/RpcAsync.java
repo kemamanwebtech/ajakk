@@ -10,8 +10,9 @@ import com.google.gwt.user.client.rpc.AsyncCallback;
  * The async counterpart of <code>GreetingService</code>.
  */
 public interface RpcAsync {
+    
     void doLogin(
-            String userName, 
+            String email, 
             String passwd, 
             AsyncCallback<LoginDTO> callback) throws IllegalArgumentException;
 
@@ -28,10 +29,10 @@ public interface RpcAsync {
      * @param asyncCallback
      */
     void doSignup(
-            String username, 
-            String password, 
+            String name, 
             String email, 
-            String phoneNumber,
+            String password, 
+            String phone,
             AsyncCallback<String> asyncCallback);
 
     void createEvent(

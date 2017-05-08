@@ -14,16 +14,16 @@ import com.google.gwt.user.client.rpc.RemoteServiceRelativePath;
 @RemoteServiceRelativePath("servlet")
 public interface Rpc extends RemoteService {
     LoginDTO doLogin(
-            String userName, 
+            String email, 
             String passwd) throws IllegalArgumentException;
 
     List<EventDTO> getAllEvents();
     
     String doSignup(
-            String username, 
-            String password, 
+            String name, 
             String email, 
-            String phoneNumber);
+            String password, 
+            String phone);
     
     String createEvent(
             String eventName, 

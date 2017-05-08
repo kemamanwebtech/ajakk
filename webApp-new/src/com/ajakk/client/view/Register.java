@@ -25,9 +25,9 @@ public class Register extends Composite {
 
     interface RegisterUiBinder extends UiBinder<Widget, Register> {
     }
-    
+
     private final RpcAsync rpc = GWT.create(Rpc.class);
-    
+
     @UiField MaterialModal modal;
     @UiField MaterialButton btnReg;
     @UiField MaterialButton btnRegGmail;
@@ -39,53 +39,48 @@ public class Register extends Composite {
 
     public Register() {
         initWidget(uiBinder.createAndBindUi(this));
-        
+
         modal.setDismissible(true);
         modal.setPixelSize(500, 600);
         modal.getWidget(0).setHeight("100%");
     }
-        @UiHandler("btnReg")
-        void onSignUpClicked(ClickEvent e) {
-            
-            rpc.doSignup(
-                    txtName.getText(), 
-                    txtEmail.getText(), 
-                    txtPassword.getText(), 
-                    txtPhone.getText(), 
+    @UiHandler("btnReg")
+    void onSignUpClicked(ClickEvent e) {
+
+        rpc.doSignup(txtName.getText(), txtEmail.getText(),
+                txtPassword.getText(), txtPhone.getText(),
                 new AsyncCallback<String>() {
 
-                @Override
-                public void onFailure(Throwable caught) {   
-                    App.showMessage(caught.getMessage().toString());
-                }
-
-                @Override
-                public void onSuccess(String result) {
-                    if (result.equals("success")) {
-                        App.showMessage("Successfully registered your ajakk acount.");
-                        showDashboard();
-                    } else {
-                        App.showMessage("Failed to contact server. Check your connectivity.");
+                    @Override
+                    public void onFailure(Throwable caught) {
+                        App.showMessage(caught.getMessage().toString());
                     }
-                    
-                }
-                
-            });
-            
-            
+
+                    @Override
+                    public void onSuccess(String result) {
+                        if (result.equals("success")) {
+                            App.showMessage(
+                                    "Successfully registered your ajakk acount.");
+                            showDashboard();
+                        } else {
+                            App.showMessage(
+                                    "Failed to contact server. Check your connectivity.");
+                        }
+
+                    }
+
+                });
+
     }
-    
+
     public void show() {
         modal.open();
     }
-    
-    
+
     public void showDashboard() {
-        Dashboard dashboard = new Dashboard();
+        Login login = new Login();
         RootPanel.get().clear();
-        RootPanel.get().add(dashboard);
+        RootPanel.get().add(login);
     }
-    
-    
 
 }
