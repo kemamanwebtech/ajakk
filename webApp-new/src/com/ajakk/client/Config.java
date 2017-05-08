@@ -74,6 +74,6 @@ public class Config {
         dbHost="localhost";
         dbName="ajakk";
         dbUserName="root";
-        dbPasswd="Enter_123";
+        dbPasswd="Enter123";
     }
 }

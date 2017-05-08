@@ -12,7 +12,8 @@
  }
  
  body {
- 	overflow: auto !important;
+ 		
+ 	
  }
  
  .center-horizontal {
@@ -41,12 +42,18 @@
  	margin-left: 15px !important;
  	margin-right: 15px !important;
  }
+ 
+ .card-padding {
+	magin-left: 10px;
+	margin-right: 10px;
+	}
+ 
  </ui:style>
-<m:MaterialCard width="300px" height="300px">
+<m:MaterialCard addStyleNames="{style.card-padding}" grid="s4" width="23%" height="300px">
   <m:MaterialCardImage addStyleNames=" {style.center-horizontal}">
    <m:MaterialImage url="images/map-location.png" height="150px" width="150px" />
   </m:MaterialCardImage>
-<m:MaterialRow width="70%" addStyleNames="{style.center-horizontal}" backgroundColor="TEAL_LIGHTEN_1">
+<m:MaterialRow height="auto" addStyleNames="{style.center-horizontal}" backgroundColor="TEAL_LIGHTEN_1">
 <m:MaterialColumn grid="l3 m3 s12">
 
   <m:MaterialCardContent textColor="WHITE" addStyleNames="{style.padding-filter}">
