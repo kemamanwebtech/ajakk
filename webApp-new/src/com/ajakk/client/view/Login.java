@@ -38,8 +38,8 @@ public class Login extends Composite {
         modal.setPixelSize(500, 400);
         modal.getWidget(0).setHeight("100%");
         
-        txtEmail.setText("mrafsyam@gmail.com");
-        txtPassword.setText("password");
+        txtEmail.setText("seri");
+        txtPassword.setText("seri");
         btnLogin.addClickHandler(new ClickHandler() {
             @Override
             public void onClick(ClickEvent event) {
