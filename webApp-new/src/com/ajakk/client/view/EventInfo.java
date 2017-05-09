@@ -1,5 +1,6 @@
 package com.ajakk.client.view;
 
+import com.ajakk.shared.EventDTO;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.uibinder.client.UiBinder;
@@ -16,6 +17,8 @@ import gwt.material.design.client.ui.MaterialModal;
 public class EventInfo extends Composite {
 	
     @UiField MaterialModal modal;
+    
+    public EventDTO event;
 
 
 	private static EventInfoUiBinder uiBinder = GWT.create(EventInfoUiBinder.class);
@@ -23,8 +26,9 @@ public class EventInfo extends Composite {
 	interface EventInfoUiBinder extends UiBinder<Widget, EventInfo> {
 	}
 
-	public EventInfo() {
+	public EventInfo(EventDTO event) {
 		initWidget(uiBinder.createAndBindUi(this));
+		modal.setDismissible(true);
 	}
 	
 	

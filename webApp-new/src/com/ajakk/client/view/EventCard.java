@@ -1,7 +1,6 @@
 package com.ajakk.client.view;
 
 import com.ajakk.shared.EventDTO;
-import com.ajakk.client.view.EventInfo;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.uibinder.client.UiBinder;
@@ -32,9 +31,8 @@ public class EventCard extends Composite {
     
     @UiHandler("btnActivityInfo")
     void onBtnActivityInfoClicked(ClickEvent e) {
-        // call here
-         EventInfo eventInfo = new EventInfo();
-    	RootPanel.get().add(eventInfo);
+        EventInfo eventInfo = new EventInfo(this.event);
+        RootPanel.get().add(eventInfo);
         eventInfo.show();
     }
     

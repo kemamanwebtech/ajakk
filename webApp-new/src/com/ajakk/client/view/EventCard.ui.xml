@@ -12,7 +12,6 @@
  }
  
  body {
- 		
  	
  }
  
@@ -44,27 +43,30 @@
  }
  
  .card-padding {
-	magin-left: 10px;
-	margin-right: 10px;
-	}
+ 	magin-left: 10px;
+ 	margin-right: 10px;
+ }
+ 
+ .card-content {
+    display: inline block !important;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5px;
+ }
  
  </ui:style>
-<m:MaterialCard addStyleNames="{style.card-padding}" grid="s4" width="23%" height="300px">
+ <m:MaterialCard addStyleNames="{style.card-padding}" grid="s4" width="23%" height="300px">
   <m:MaterialCardImage addStyleNames=" {style.center-horizontal}">
-   <m:MaterialImage url="images/map-location.png" height="150px" width="150px" />
+   <m:MaterialImage ui:field="image" url="images/futsal.png" height="150px" width="150px" />
   </m:MaterialCardImage>
-
-<m:MaterialRow height="auto" addStyleNames="{style.center-horizontal}" backgroundColor="TEAL_LIGHTEN_1">
-
-
-  <m:MaterialCardContent textColor="WHITE" >
-   <m:MaterialLabel fontSize="1.15em" text="Filter by location" />
-   <g:TextBox text="KL">
-   </g:TextBox>
-      <m:MaterialButton ui:field="btnActivityInfo" type="FLOATING" backgroundColor="BLUE" iconType="POLYMER" size="LARGE"/>
-   
-
-  </m:MaterialCardContent>
-</m:MaterialRow>
+  <m:MaterialRow height="auto" backgroundColor="TEAL_LIGHTEN_1">
+   <m:MaterialCardContent textColor="WHITE" addStyleNames="{style.card-content}">
+    <m:MaterialLabel ui:field="lblDate" fontSize="1.15em" text="May 27" />
+    <m:MaterialLabel ui:field="lblDay" fontSize="1.7em" text="9 PM" />
+    <m:MaterialLabel ui:field="lblLocation" fontSize="2.15em" text="Setapak" />
+    <m:MaterialButton ui:field="btnActivityInfo" type="FLOATING" backgroundColor="BLUE" iconType="POLYMER" size="LARGE"
+     waves="RED" />
+   </m:MaterialCardContent>
+  </m:MaterialRow>
  </m:MaterialCard>
 </ui:UiBinder> 

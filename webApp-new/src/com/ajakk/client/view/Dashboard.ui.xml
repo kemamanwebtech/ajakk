@@ -135,9 +135,8 @@
   </m:MaterialContainer>
 
   <!-- FAB -->
-  <m:MaterialFAB>
-   <m:MaterialAnchorButton target="_blank"
-    href="https://github.com/GwtMaterialDesign/gwt-material-patterns/tree/master/src/main/java/com/github/gwtmaterialdesign/client/application/googleplus"
+  <m:MaterialFAB ui:field="btnCreateActivity">
+   <m:MaterialAnchorButton
     waves="DEFAULT" type="FLOATING" tooltip="Create activity" tooltipPosition="LEFT" iconType="ADD" backgroundColor="BLUE" size="LARGE" />
   </m:MaterialFAB>
  </m:MaterialPanel>

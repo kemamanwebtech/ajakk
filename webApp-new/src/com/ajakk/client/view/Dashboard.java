@@ -6,13 +6,16 @@ import com.ajakk.client.Rpc;
 import com.ajakk.client.RpcAsync;
 import com.ajakk.shared.EventDTO;
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
+import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.Widget;
 import gwt.material.design.client.ui.MaterialContainer;
+import gwt.material.design.client.ui.MaterialFAB;
 import gwt.material.design.client.ui.MaterialRow;
 
 public class Dashboard extends Composite {
@@ -24,6 +27,7 @@ public class Dashboard extends Composite {
     List<EventDTO>             eventList     = null;
     static EventDTO            selectedEvent = null;
     @UiField MaterialContainer cardContainer;
+    @UiField MaterialFAB btnCreateActivity;
 
     public Dashboard() {
         initWidget(uiBinder.createAndBindUi(this));
@@ -59,5 +63,12 @@ public class Dashboard extends Composite {
                 }
             }
         });
+    }
+    
+    @UiHandler("btnCreateActivity")
+    public void onBtnCreate(ClickEvent e) {
+        CreateEvent newActivity = new CreateEvent();
+        RootPanel.get().add(newActivity);
+        newActivity.show();
     }
 }

@@ -2,27 +2,27 @@
  xmlns:ma="urn:import:gwt.material.design.addins.client">
  <ui:style>
  .important {
- 	font-weight: bold;
+    font-weight: bold;
  }
  
  .MTA {
- 	margin-left: 13px;
- 	dispaly: inline-block;
- 	text-align: center;
- 	width: 100%;
+    margin-left: 13px;
+    dispaly: inline-block;
+    text-align: center;
+    width: 100%;
  }
  
  .center-horizontal {
- 	margin: auto;
- 	width: 100%;
- 	display: flex;
- 	align-items: center;
- 	justify-content: center;
- 	margin-top: 10px;
+    margin: auto;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
  }
  
  .remove-shadow {
- 	box-shadow: none !important;
+    box-shadow: none !important;
  }
  </ui:style>
 
@@ -51,6 +51,8 @@
      <m:MaterialTextArea textColor="WHITE" ui:field="location" addStyleNames="{style.MTA}" readOnly="true" label="Location"
       text="Sports Planet"></m:MaterialTextArea>
     </m:MaterialColumn>
+    </m:MaterialRow>
+    <m:MaterialRow addStyleNames=" {style.center-horizontal}" textColor="WHITE">
     <m:MaterialColumn grid="s2">
      <m:MaterialCardImage addStyleNames=" {style.center-horizontal}">
       <m:MaterialImage ui:field="imageExtra" url="images/wallet.png" height="120px" width="120px" />
@@ -69,9 +71,8 @@
    </m:MaterialRow>
    
    <m:MaterialRow width="100%" addStyleNames=" {style.center-horizontal}">
-     <m:MaterialButton  margin="5" backgroundColor="RED"  text="JOIN!" waves="DEFAULT" tooltip="Refresh activities list" tooltipPosition="LEFT" iconType="AUTORENEW"> </m:MaterialButton>
-     <m:MaterialButton  margin="5" iconPosition="RIGHT" backgroundColor="RED"  text="SEE WHO ELSE JOINED" waves="DEFAULT" tooltip="Clear filters" tooltipPosition="RIGHT" iconType="AUTORENEW"> </m:MaterialButton>
-     <m:MaterialButton  margin="5" iconPosition="RIGHT" backgroundColor="RED"  text="DELETE" waves="DEFAULT" tooltip="Clear filters" tooltipPosition="RIGHT" iconType="AUTORENEW"> </m:MaterialButton>
+     <m:MaterialButton  margin="5" backgroundColor="RED"  text="CANCEL" waves="DEFAULT" tooltip="Refresh activities list" tooltipPosition="LEFT" iconType="AUTORENEW"> </m:MaterialButton>
+     <m:MaterialButton  margin="5" iconPosition="RIGHT" backgroundColor="RED"  text="SAVE" waves="DEFAULT" tooltip="Clear filters" tooltipPosition="RIGHT" iconType="AUTORENEW"> </m:MaterialButton>
     
     </m:MaterialRow> 
   
