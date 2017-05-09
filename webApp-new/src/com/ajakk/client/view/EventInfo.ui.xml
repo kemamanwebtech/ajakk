@@ -1,0 +1,83 @@
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder" xmlns:g="urn:import:com.google.gwt.user.client.ui" xmlns:m="urn:import:gwt.material.design.client.ui"
+ xmlns:ma="urn:import:gwt.material.design.addins.client">
+ <ui:style>
+	.important {
+		font-weight: bold;
+	}
+	
+	.MTA {
+		margin-left: 13px;
+		dispaly: inline-block;
+		text-align: center;
+		width: 100%;
+	}
+	
+	
+	
+	</ui:style>
+	
+<m:MaterialModal ui:field="modal" grid="s12">
+	<m:MaterialModalContent>
+ 		<m:MaterialTextArea readOnly="true" grid="s12" text="Najib" label="Posted By:" iconType="FACE" iconSize="MEDIUM"/>
+ 		<m:MaterialRow>
+ 			
+ 			<m:MaterialColumn grid="s3">
+ 				 <m:MaterialIcon iconType="SCHEDULE" iconSize="MEDIUM" />
+ 				 <m:MaterialTextArea addStyleNames="{style.MTA}" readOnly="true" label="Time" text="9 P.M"></m:MaterialTextArea> 				
+ 			</m:MaterialColumn>
+ 			<m:MaterialColumn grid="s3">
+ 				 <m:MaterialIcon iconType="LOCATION_ON" iconSize="MEDIUM" />
+ 				 <m:MaterialTextArea addStyleNames="{style.MTA}" readOnly="true" label="Location" text="Sports Planet"></m:MaterialTextArea> 				
+ 			</m:MaterialColumn>
+ 			<m:MaterialColumn grid="s3">
+ 				 <m:MaterialIcon iconType="PEOPLE" iconSize="MEDIUM" />
+ 				 <m:MaterialTextArea addStyleNames="{style.MTA}" readOnly="true" label="Looking For" text="3 Peoples"></m:MaterialTextArea> 				
+ 			</m:MaterialColumn>
+ 			<m:MaterialColumn grid="s3">
+ 				 <m:MaterialIcon iconType="ASSIGNMENT" iconSize="MEDIUM" />
+ 				 <m:MaterialTextArea addStyleNames="{style.MTA}" readOnly="true" label="Description" text="Main jeje"></m:MaterialTextArea> 				
+ 			</m:MaterialColumn>
+ 		</m:MaterialRow>
+ 		<m:MaterialCollapsible active="1">
+ 			<m:MaterialCollapsibleItem>
+ 				<m:MaterialCollapsibleHeader>
+ 					<m:MaterialLink text="Comments" iconType="COMMENT" iconPosition="LEFT" textColor="BLACK"></m:MaterialLink>
+ 				</m:MaterialCollapsibleHeader>
+ 				<m:MaterialCollapsibleBody>
+					<m:MaterialCollapsible>
+ 						<m:MaterialCollapsibleItem>
+ 							<m:MaterialCollapsibleHeader>
+ 								<m:MaterialLink text="Rosmah" textColor="BLACK"/>
+ 							</m:MaterialCollapsibleHeader>
+ 							<m:MaterialCollapsibleBody>
+ 								<m:MaterialLabel text="Jib, we ols start jam 10 la ok?"></m:MaterialLabel>
+ 							</m:MaterialCollapsibleBody>
+ 						</m:MaterialCollapsibleItem>
+ 					</m:MaterialCollapsible>
+ 					<m:MaterialCollapsible>
+ 						<m:MaterialCollapsibleItem>
+ 							<m:MaterialCollapsibleHeader>
+ 								<m:MaterialLink text="Najib" textColor="BLACK"/>
+ 							</m:MaterialCollapsibleHeader>
+ 							<m:MaterialCollapsibleBody>
+ 								<m:MaterialLabel text="Orite"></m:MaterialLabel>
+ 							</m:MaterialCollapsibleBody>
+ 						</m:MaterialCollapsibleItem>
+ 					</m:MaterialCollapsible>
+ 					<m:MaterialCollapsible>
+ 						<m:MaterialCollapsibleItem>
+ 							<m:MaterialCollapsibleHeader>
+ 								<m:MaterialLink text="Khairy" textColor="BLACK"/>
+ 							</m:MaterialCollapsibleHeader>
+ 							<m:MaterialCollapsibleBody>
+ 								<m:MaterialLabel text="Weh nak join gak!!"></m:MaterialLabel>
+ 							</m:MaterialCollapsibleBody>
+ 						</m:MaterialCollapsibleItem>
+ 					</m:MaterialCollapsible>					
+  				</m:MaterialCollapsibleBody>
+ 			</m:MaterialCollapsibleItem>
+ 		</m:MaterialCollapsible>
+	</m:MaterialModalContent>
+</m:MaterialModal>
+
+</ui:UiBinder> 
