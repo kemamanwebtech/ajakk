@@ -16,6 +16,8 @@ public class CreateEvent extends Composite {
     
     public CreateEvent() {
         initWidget(uiBinder.createAndBindUi(this));
+        modal.setDismissible(true);
+
     }
     
     public void show() {
