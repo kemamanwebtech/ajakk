@@ -15,6 +15,7 @@ import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.Widget;
 import gwt.material.design.client.ui.MaterialContainer;
+import gwt.material.design.client.ui.MaterialLink;
 import gwt.material.design.client.ui.MaterialFAB;
 import gwt.material.design.client.ui.MaterialRow;
 
@@ -27,6 +28,7 @@ public class Dashboard extends Composite {
     List<EventDTO>             eventList     = null;
     static EventDTO            selectedEvent = null;
     @UiField MaterialContainer cardContainer;
+    @UiField MaterialLink	   profile;
     @UiField MaterialFAB btnCreateActivity;
 
     public Dashboard() {
@@ -64,6 +66,16 @@ public class Dashboard extends Composite {
             }
         });
     }
+    
+    @UiHandler("profile")
+    void onLinkProfileClicked(ClickEvent e) {
+        // call here
+         UserProfile userProfile = new UserProfile();
+    	RootPanel.get().add(userProfile);
+        userProfile.show();
+    }
+    
+    
     
     @UiHandler("btnCreateActivity")
     public void onBtnCreate(ClickEvent e) {
