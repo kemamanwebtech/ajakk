@@ -1,6 +1,11 @@
-<project name="Ajakk" basedir="." default="default">
+<project name="Ajakk_new" basedir="." default="default">
+
 <property name="src.dir" value="src" />
 <property name="build.dir" value="war" />
+<property name="gwt-sdk" value="gwt-sdk" />
+<property name="compiler.dir" value="lib" />
+<property name="ajakk.version" value="Ajakk-1.0.0-Beta"/>
+
 <path id="compile.classpath">
     <fileset dir="${build.dir}/WEB-INF/lib">
         <include name="**/*.jar" />
@@ -16,14 +21,19 @@
         <classpath>
             <pathelement location="${src.dir}" />
             <path refid="compile.classpath" />
+            <pathelement location="${gwt-sdk}/gwt-dev.jar"/>
+            <pathelement location="${gwt-sdk}/validation-api-1.0.0.GA.jar"/>
+            <pathelement location="${gwt-sdk}/validation-api-1.0.0.GA-sources.jar"/>
+            <pathelement location="${gwt-sdk}/gwt-user.jar"/>
         </classpath>
-        <arg line="-logLevel INFO" />
+        <arg line="-logLevel ERROR"/>
+        <arg line="-compileReport"/>
         <jvmarg value="-Xmx1024M" />
         <arg value="com/ajakk/Ajakk_new" />
     </java>
 </target>
 
-<target name="buildwar">
+<target name="buildwar" depends="version">
     <war basedir="war" destfile="Ajakk.war" webxml="war/WEB-INF/web.xml">
         <exclude name="WEB-INF/**" />
         <webinf dir="war/WEB-INF/">
@@ -31,6 +41,13 @@
             <include name="**/classes/**" />
         </webinf>
     </war>
+</target>
+
+<target name="version">
+    <echo file="war/VERSION.txt">${ajakk.version} Revision:</echo>
+    <exec executable="svn" output="war/VERSION.txt" append="true">
+    <arg line="info --show-item last-changed-revision"/>
+    </exec>
 </target>
 
 <target name="deploy">
