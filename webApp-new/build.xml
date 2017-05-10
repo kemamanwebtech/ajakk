@@ -6,6 +6,15 @@
 <property name="compiler.dir" value="lib" />
 <property name="ajakk.version" value="Ajakk-1.0.0-Beta"/>
 
+<fail message="Environment variable &quot;AJAKK_HOME&quot; is not set">
+    <condition>
+      <or>
+        <equals arg1="${env.AJAKK_HOME}" arg2=""/>
+       <!--  <not><isset property="env.AJAKK_HOME"/></not> -->
+      </or>
+    </condition>
+</fail>
+
 <path id="compile.classpath">
     <fileset dir="${build.dir}/WEB-INF/lib">
         <include name="**/*.jar" />
@@ -17,41 +26,69 @@
 </target>
 
 <target name="gwtc" description="GWT compile to JavaScript">
+    <echo>Compiling GWT codes</echo>
     <java failonerror="true" fork="true" classname="com.google.gwt.dev.Compiler">
         <classpath>
             <pathelement location="${src.dir}" />
             <path refid="compile.classpath" />
-            <pathelement location="${gwt-sdk}/gwt-dev.jar"/>
-            <pathelement location="${gwt-sdk}/validation-api-1.0.0.GA.jar"/>
-            <pathelement location="${gwt-sdk}/validation-api-1.0.0.GA-sources.jar"/>
-            <pathelement location="${gwt-sdk}/gwt-user.jar"/>
+            <pathelement location="lib/gwt-dev.jar"/>
+            <pathelement location="lib/validation-api-1.0.0.GA.jar"/>
+            <pathelement location="lib/validation-api-1.0.0.GA-sources.jar"/>
+            <pathelement location="lib/gwt-user.jar"/>
+            <pathelement location="lib/mysql-connector-java-5.1.40-bin.jar"/>
+            <pathelement location="lib/gwt-material-2.0-rc4.jar"/>
+            <pathelement location="lib/gwt-material-addins-2.0-rc4.jar"/>
+            <pathelement location="lib/gwt-material-jquery-1.0-rc4.jar"/>
+            <pathelement location="lib/httpclient-4.5.2.jar"/>
+            <pathelement location="lib/httpcore-4.4.4.jar"/>
         </classpath>
         <arg line="-logLevel ERROR"/>
         <arg line="-compileReport"/>
         <jvmarg value="-Xmx1024M" />
         <arg value="com/ajakk/Ajakk_new" />
     </java>
+    <echo>Finished.</echo>
 </target>
 
-<target name="buildwar" depends="version">
-    <war basedir="war" destfile="Ajakk.war" webxml="war/WEB-INF/web.xml">
+<target name="buildwar" depends="clean, version">
+    <echo>Packaging compiled codes into Ajakk_new.war</echo>
+    <delete file="Ajakk_new.war" />
+    <war basedir="war" destfile="Ajakk_new.war" webxml="war/WEB-INF/web.xml">
         <exclude name="WEB-INF/**" />
         <webinf dir="war/WEB-INF/">
-            <include name="**/*.jar" />
+            <include name="lib/mysql-connector-java-5.1.40-bin.jar" />
+            <include name="lib/gwt-material-2.0-rc4.jar" />
+            <include name="lib/gwt-material-addins-2.0-rc4.jar" />
+            <include name="lib/gwt-material-jquery-1.0-rc4.jar" />
+            <include name="lib/validation-api-1.0.0.GA.jar" />
+            <include name="lib/validation-api-1.0.0.GA-sources.jar" />
+            <include name="httpclient-4.5.2.jar"/>
+            <include name="httpcore-4.4.4.jar"/>
             <include name="**/classes/**" />
         </webinf>
     </war>
+    <echo>Finished.</echo>
 </target>
 
 <target name="version">
+    <echo>Generating VERSION.txt</echo>
     <echo file="war/VERSION.txt">${ajakk.version} Revision:</echo>
     <exec executable="svn" output="war/VERSION.txt" append="true">
     <arg line="info --show-item last-changed-revision"/>
     </exec>
+    <echo>Finished.</echo>
 </target>
 
 <target name="deploy">
-    <copy file="Ajakk.war" todir="." />
+    <copy file="Ajakk_new.war" todir="." />
 </target>
+
+<target name="clean">
+    <echo>Removing old compiled class files</echo>
+    <delete dir="war/WEB-INF/classes"/>
+    <mkdir dir="war/WEB-INF/classes"/>
+    <echo>Finished.</echo>
+</target>
+
 
 </project>
