@@ -28,7 +28,7 @@ public interface Rpc extends RemoteService {
     String createEvent(
             String eventName, 
             String eventDesc, 
-            String eventType, 
+            String eventDate, 
             String eventLocation, 
             String userName);
 

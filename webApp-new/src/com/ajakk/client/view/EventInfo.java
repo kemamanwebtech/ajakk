@@ -13,10 +13,13 @@ import com.google.gwt.user.client.ui.HasText;
 import com.google.gwt.user.client.ui.Widget;
 
 import gwt.material.design.client.ui.MaterialModal;
+import gwt.material.design.client.ui.MaterialTextArea;
+import gwt.material.design.client.ui.html.Label;
 
 public class EventInfo extends Composite {
 	
     @UiField MaterialModal modal;
+    @UiField MaterialTextArea postedBy;
     
     public EventDTO event;
 
@@ -29,6 +32,7 @@ public class EventInfo extends Composite {
 	public EventInfo(EventDTO event) {
 		initWidget(uiBinder.createAndBindUi(this));
 		modal.setDismissible(true);
+		
 	}
 	
 	

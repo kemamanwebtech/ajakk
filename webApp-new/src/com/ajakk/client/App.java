@@ -11,6 +11,7 @@ public class App {
     
     Config config = null;
     static App app;
+    public static String username;
     
     // user data
     UserDTO user;

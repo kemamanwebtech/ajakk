@@ -28,27 +28,28 @@
 
  <m:MaterialModal ui:field="modal" grid="s12" height="auto" backgroundColor="TRANSPARENT" textColor="WHITE" addStyleNames=" {style.remove-shadow}">
   <m:MaterialModalContent height="auto" backgroundColor="TEAL_LIGHTEN_1" textColor="WHITE">
-   <m:MaterialTextArea ui:field="postedBy" readOnly="true" grid="s12" text="Najib" label="Posted By:" iconType="FACE"
+   <m:MaterialTextArea ui:field="postedBy" readOnly="true"  grid="s12" text="Najib" label="Posted By:" iconType="FACE"
     iconSize="LARGE" fontSize="1.15em" textColor="WHITE" />
    <m:MaterialRow addStyleNames=" {style.center-horizontal}" textColor="WHITE">
     <m:MaterialColumn grid="s2">
      <m:MaterialCardImage>
       <m:MaterialImage ui:field="imageDesc" url="images/clipboard.png" height="120px" width="120px" />
      </m:MaterialCardImage>
-     <m:MaterialTextArea textColor="WHITE" ui:field="people" addStyleNames="{style.MTA}" readOnly="true" label="Description"
+     <m:MaterialTextArea textColor="WHITE" ui:field="description" addStyleNames="{style.MTA}"   label="Description"
       text="Futsal"></m:MaterialTextArea>
     </m:MaterialColumn>
     <m:MaterialColumn grid="s2">
      <m:MaterialCardImage addStyleNames=" {style.center-horizontal}">
       <m:MaterialImage ui:field="imageTime" url="images/stopwatch.png" height="120px" width="120px" />
      </m:MaterialCardImage>
-     <m:MaterialTextArea textColor="WHITE" ui:field="time" addStyleNames="{style.MTA}" readOnly="true" label="Time" text="9 P.M"></m:MaterialTextArea>
+     <m:MaterialTextArea ui:field="time"  addStyleNames="{style.MTA}" label="Time"></m:MaterialTextArea>
+ <!--     <ma:timepicker.MaterialTimePicker ui:field="time" addStyleNames="{style.MTA}" placeholder="Time" />  -->     
     </m:MaterialColumn>
     <m:MaterialColumn grid="s2">
      <m:MaterialCardImage addStyleNames=" {style.center-horizontal}">
       <m:MaterialImage ui:field="imageLoc" url="images/map-location.png" height="120px" width="120px" />
      </m:MaterialCardImage>
-     <m:MaterialTextArea textColor="WHITE" ui:field="location" addStyleNames="{style.MTA}" readOnly="true" label="Location"
+     <m:MaterialTextArea textColor="WHITE" ui:field="location" addStyleNames="{style.MTA}"   label="Location"
       text="Sports Planet"></m:MaterialTextArea>
     </m:MaterialColumn>
     </m:MaterialRow>
@@ -57,22 +58,22 @@
      <m:MaterialCardImage addStyleNames=" {style.center-horizontal}">
       <m:MaterialImage ui:field="imageExtra" url="images/wallet.png" height="120px" width="120px" />
      </m:MaterialCardImage>
-     <m:MaterialTextArea textColor="WHITE" ui:field="extra" addStyleNames="{style.MTA}" readOnly="true" label="Location"
+     <m:MaterialTextArea textColor="WHITE" ui:field="extra" addStyleNames="{style.MTA}"   label="Location"
       text="Sports Planet"></m:MaterialTextArea>
     </m:MaterialColumn>
 
     <m:MaterialColumn grid="s2">
      <m:MaterialCardImage addStyleNames=" {style.center-horizontal}">
-      <m:MaterialImage ui:field="imageWhatsap" url="images/whatsapp.png" height="120px" width="120px" />
+      <m:MaterialImage ui:field="imageWhatsapp" url="images/whatsapp.png" height="120px" width="120px" />
      </m:MaterialCardImage>
-     <m:MaterialTextArea textColor="WHITE" ui:field="whatsapp" addStyleNames="{style.MTA}" readOnly="true"
+     <m:MaterialTextArea textColor="WHITE" ui:field="whatsapp" addStyleNames="{style.MTA}"  
       label="Link to Whatsapp group" text="Main jeje"></m:MaterialTextArea>
     </m:MaterialColumn>
    </m:MaterialRow>
    
    <m:MaterialRow width="100%" addStyleNames=" {style.center-horizontal}">
-     <m:MaterialButton  margin="5" backgroundColor="RED"  text="CANCEL" waves="DEFAULT" tooltip="Refresh activities list" tooltipPosition="LEFT" iconType="AUTORENEW"> </m:MaterialButton>
-     <m:MaterialButton  margin="5" iconPosition="RIGHT" backgroundColor="RED"  text="SAVE" waves="DEFAULT" tooltip="Clear filters" tooltipPosition="RIGHT" iconType="AUTORENEW"> </m:MaterialButton>
+     <m:MaterialButton ui:field="btnCancel" margin="5" backgroundColor="RED"  text="CANCEL" waves="DEFAULT" tooltip="Refresh activities list" tooltipPosition="LEFT" iconType="AUTORENEW"> </m:MaterialButton>
+     <m:MaterialButton ui:field="btnSave" margin="5" iconPosition="RIGHT" backgroundColor="RED"  text="SAVE" waves="DEFAULT" tooltip="Clear filters" tooltipPosition="RIGHT" iconType="AUTORENEW"> </m:MaterialButton>
     
     </m:MaterialRow> 
   

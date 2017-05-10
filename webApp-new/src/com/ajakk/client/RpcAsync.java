@@ -38,7 +38,7 @@ public interface RpcAsync {
     void createEvent(
             String eventName, 
             String eventDesc, 
-            String eventType, 
+            String eventDate, 
             String eventLocation, 
             String userName,
             AsyncCallback<String> asyncCallback);

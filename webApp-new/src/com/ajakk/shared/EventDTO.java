@@ -17,6 +17,7 @@ public class EventDTO implements Serializable {
 	String eventLoc;
 	String eventLocName;
 	String eventType; // type of event
+	String eventDate;
 	Date createdDate;
 	Date fromDate;
 	Date toDate;
@@ -35,13 +36,13 @@ public class EventDTO implements Serializable {
 	public EventDTO(
 			String eventName, 
 			String eventDesc,
-			String eventType, 
+			String eventDate,
 			String eventLocation, 
 			int userID) {
 		
 		this.eventName = eventName;
 		this.eventDes = eventDesc;
-		this.eventType = eventType;
+		this.eventDate = eventDate;
 		this.eventLoc = eventLocation;
 		this.ownerID = userID;	
 	}
@@ -180,7 +181,15 @@ public class EventDTO implements Serializable {
 		return inviteOnly;
 	}
 	
-	
+	public String getEventDate() {
+		return eventDate;
+	}
+
+	public void setEventDate(String eventDate) {
+		this.eventDate = eventDate;
+	}
+
+
 	
 	
 	

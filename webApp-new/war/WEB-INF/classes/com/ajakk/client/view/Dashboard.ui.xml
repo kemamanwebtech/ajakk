@@ -70,7 +70,7 @@
   <m:MaterialSideNav m:id="sidenav" width="250" overflow="AUTO" alwaysShowActivator="true" showOnAttach="false" type="FIXED"
    shadow="0" backgroundColor="WHITE" top="120">
    <m:MaterialLink text="Home" iconType="HOME" textColor="GREY_DARKEN_2" />
-   <m:MaterialLink text="Profile" iconType="ACCOUNT_CIRCLE" textColor="GREY_DARKEN_2" />
+   <m:MaterialLink ui:field="profile" text="Profile" iconType="ACCOUNT_CIRCLE" textColor="GREY_DARKEN_2" />
    <m:MaterialLink text="Settings" iconType="COLLECTIONS" textColor="GREY_DARKEN_2" />
    <m:MaterialLink text="Send Feedback" iconType="ANNOUNCEMENT" textColor="GREY_DARKEN_2" />
    <m:MaterialLink text="Help" iconType="HELP" textColor="GREY_DARKEN_2" />
@@ -135,9 +135,8 @@
   </m:MaterialContainer>
 
   <!-- FAB -->
-  <m:MaterialFAB>
-   <m:MaterialAnchorButton target="_blank"
-    href="https://github.com/GwtMaterialDesign/gwt-material-patterns/tree/master/src/main/java/com/github/gwtmaterialdesign/client/application/googleplus"
+  <m:MaterialFAB ui:field="btnCreateActivity">
+   <m:MaterialAnchorButton
     waves="DEFAULT" type="FLOATING" tooltip="Create activity" tooltipPosition="LEFT" iconType="ADD" backgroundColor="BLUE" size="LARGE" />
   </m:MaterialFAB>
  </m:MaterialPanel>
