@@ -25,7 +25,7 @@
 <target name="default" depends="gwtc, buildwar, deploy">
 </target>
 
-<target name="gwtc" description="GWT compile to JavaScript">
+<target name="gwtc" depends="clean" description="GWT compile to JavaScript">
     <echo>Compiling GWT codes</echo>
     <java failonerror="true" fork="true" classname="com.google.gwt.dev.Compiler">
         <classpath>
@@ -50,7 +50,7 @@
     <echo>Finished.</echo>
 </target>
 
-<target name="buildwar" depends="clean, version">
+<target name="buildwar" depends="version">
     <echo>Packaging compiled codes into Ajakk_new.war</echo>
     <delete file="Ajakk_new.war" />
     <war basedir="war" destfile="Ajakk_new.war" webxml="war/WEB-INF/web.xml">
