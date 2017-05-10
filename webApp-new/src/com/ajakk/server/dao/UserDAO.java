@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-
+import com.ajakk.client.App;
 import com.ajakk.shared.UserDTO;
 
 @SuppressWarnings("serial")
@@ -25,7 +25,7 @@ public class UserDAO extends UserDTO {
             PreparedStatement stmt = con.prepareStatement(sql);
             ResultSet rs = stmt.executeQuery();
 
-            System.out.println("INFO : In UserDAO.getAllUsers... " + stmt.toString());
+            System.out.println("INFO : In UserDAO.getAllUsers... " + App.getQuery(stmt));
 
             while (rs.next()) {
 
@@ -63,7 +63,7 @@ public class UserDAO extends UserDTO {
             stmt.setDate(4, user.getUpdated());
             stmt.setInt(5, user.getRoleID());
 
-            System.out.println(stmt.toString());
+            System.out.println("INFO : In UserDAO.registerUser... " + App.getQuery(stmt));
             stmt.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
