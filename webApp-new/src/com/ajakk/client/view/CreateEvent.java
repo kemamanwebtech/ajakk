@@ -2,6 +2,7 @@ package com.ajakk.client.view;
 
 
 import com.ajakk.client.App;
+import com.ajakk.client.Config;
 import com.ajakk.client.Rpc;
 import com.ajakk.client.RpcAsync;
 import com.google.gwt.core.client.GWT;
@@ -43,6 +44,7 @@ public class CreateEvent extends Composite {
     
     private final RpcAsync	rpc	= GWT.create(Rpc.class);
 
+    String email = "";
     
     @UiHandler("btnSave")
     void onCreateEventClick(ClickEvent e){
@@ -52,15 +54,18 @@ public class CreateEvent extends Composite {
     			time.getText(),
     			location.getText(),
     			extra.getText(),
-    			App.username,
+    			email,
     			new AsyncCallback<String>(){
     				@Override
     				public void onFailure(Throwable caught) {
+    				    App.showMessage(caught.getMessage());
+                        System.out.println(caught.getMessage());
     				}
 
     				@Override
     				public void onSuccess(String result) {
     					if (result.equals("success")) {
+    					    App.showMessage("Your activity is created!");
     					}		
     				}
     			}	
@@ -76,6 +81,11 @@ public class CreateEvent extends Composite {
     public CreateEvent() {
         initWidget(uiBinder.createAndBindUi(this));
         modal.setDismissible(true);
+        
+          email = App.getUser().getEmail();
+          if (email == "") {
+              App.showMessage("Email is empty?");
+          }
 
     }
     

@@ -73,7 +73,7 @@ public class Config {
     public void getConnectionConfig() {
         dbHost="localhost";
         dbName="ajakk";
-        dbUserName="root";
+        dbUserName="kwt";
         dbPasswd="Enter_123";
     }
 }

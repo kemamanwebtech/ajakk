@@ -140,10 +140,10 @@ public class UserDAO extends UserDTO {
 
     }
 
-    public String getUserIdByUsername(String username, Connection con) {
+    public String getUserIdByEmail(String username, Connection con) {
 
         String result = "";
-        String sql = " SELECT AJAKK_USER_ID FROM AJAKK_USER WHERE USER_NAME = ? ";
+        String sql = " SELECT AJAKK_USER_ID FROM AJAKK_USER WHERE EMAIL = ? ";
 
         try {
             PreparedStatement stmt = con.prepareStatement(sql);

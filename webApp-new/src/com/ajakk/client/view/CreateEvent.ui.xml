@@ -26,7 +26,7 @@
  }
  </ui:style>
 
- <m:MaterialModal ui:field="modal" grid="s12" height="auto" backgroundColor="TRANSPARENT" textColor="WHITE" addStyleNames=" {style.remove-shadow}">
+ <m:MaterialModal ui:field="modal" grid="s12" height="900px" backgroundColor="TRANSPARENT" textColor="WHITE" addStyleNames=" {style.remove-shadow}">
   <m:MaterialModalContent height="auto" backgroundColor="TEAL_LIGHTEN_1" textColor="WHITE">
    <m:MaterialTextArea ui:field="postedBy" readOnly="true"  grid="s12" text="Najib" label="Posted By:" iconType="FACE"
     iconSize="LARGE" fontSize="1.15em" textColor="WHITE" />

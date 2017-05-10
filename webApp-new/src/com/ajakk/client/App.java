@@ -15,7 +15,7 @@ public class App {
     public static String username;
     
     // user data
-    UserDTO user;
+    static UserDTO user;
     String currentLoc;
     boolean isAdminUser;
     
@@ -32,7 +32,7 @@ public class App {
         return config;
     }
 
-    public UserDTO getUser() {
+    public static UserDTO getUser() {
         if (user == null) {
             user = new UserDTO();
         }
