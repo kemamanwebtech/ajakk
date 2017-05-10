@@ -25,7 +25,7 @@ public class UserDAO extends UserDTO {
             PreparedStatement stmt = con.prepareStatement(sql);
             ResultSet rs = stmt.executeQuery();
 
-            System.out.println(stmt.toString());
+            System.out.println("INFO : In UserDAO.getAllUsers... " + stmt.toString());
 
             while (rs.next()) {
 
@@ -43,9 +43,9 @@ public class UserDAO extends UserDTO {
 
         } catch (SQLException e) {
             e.printStackTrace();
+            System.out.println("ERROR : In UserDAO.getAllUsers... " + e.getMessage());
         }
 
-        System.out.println("retuning userList..");
         return userList;
 
     }
@@ -67,6 +67,7 @@ public class UserDAO extends UserDTO {
             stmt.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
+            System.out.println("ERROR : In UserDAO.registerUser... " + e.getMessage());
         }
 
         try {
@@ -80,6 +81,7 @@ public class UserDAO extends UserDTO {
 
         } catch (SQLException e) {
             e.printStackTrace();
+            System.out.println("ERROR : In UserDAO.registerUser... " + e.getMessage());
         }
 
         insertPassword(id, password, con);
@@ -97,6 +99,7 @@ public class UserDAO extends UserDTO {
             System.out.println(stmt.toString());
         } catch (SQLException e) {
             e.printStackTrace();
+            System.out.println("ERROR : In UserDAO.insertPassword... " + e.getMessage());
         }
     }
 
@@ -114,6 +117,7 @@ public class UserDAO extends UserDTO {
 
         } catch (SQLException e) {
             e.printStackTrace();
+            System.out.println("ERROR : In UserDAO.updateUser()... " + e.getMessage());
         }
 
     }
@@ -130,6 +134,7 @@ public class UserDAO extends UserDTO {
 
         } catch (SQLException e) {
             e.printStackTrace();
+            System.out.println("ERROR : In UserDAO.deleteUser()... " + e.getMessage());
         }
 
     }
@@ -151,6 +156,7 @@ public class UserDAO extends UserDTO {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+            System.out.println("ERROR : In UserDAO.getUserIdByUsername... " + e.getMessage());
         }
         return result;
     }
@@ -176,6 +182,7 @@ public class UserDAO extends UserDTO {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+            System.out.println("ERROR : In UserDAO.getUserByEmail... " + e.getMessage());
         }
         return user;
     }
@@ -205,6 +212,8 @@ public class UserDAO extends UserDTO {
 
         } catch (SQLException e) {
             e.printStackTrace();
+            System.out.println("ERROR : In UserDAO.getAllInfo... " + e.getMessage());
+
         }
 
         System.out.println("retuning userList..");

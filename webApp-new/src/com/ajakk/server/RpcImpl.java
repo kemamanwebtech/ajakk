@@ -65,6 +65,7 @@ public class RpcImpl extends RemoteServiceServlet implements Rpc {
             return "success";
         } catch (Exception e) {
             e.printStackTrace();
+            System.out.println("ERROR : In RpcImpl.doSignUp.." + e.getMessage());
         }
         return "failed";
     }
