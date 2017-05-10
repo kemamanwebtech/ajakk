@@ -78,9 +78,11 @@ public class Register extends Composite {
     }
 
     public void showDashboard() {
+        
         Login login = new Login();
-        RootPanel.get().clear();
+        //RootPanel.get().clear();
         RootPanel.get().add(login);
+        RootPanel.get().remove(this);
     }
 
 }

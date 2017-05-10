@@ -9,7 +9,7 @@ import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.Widget;
-
+import gwt.material.design.client.constants.Color;
 import gwt.material.design.client.ui.MaterialButton;
 import gwt.material.design.client.ui.MaterialModal;
 import gwt.material.design.client.ui.MaterialTitle;
@@ -21,7 +21,6 @@ public class Message extends Composite {
     interface MessageUiBinder extends UiBinder<Widget, Message> {
     }
     
-    @UiField MaterialButton btnClose;
     @UiField MaterialTitle message;
     @UiField MaterialModal modal;
     
@@ -32,16 +31,8 @@ public class Message extends Composite {
         instance = this;
         
         message.setDescription(msg);
-
-        btnClose.addClickHandler(new ClickHandler() {
-
-            @Override
-            public void onClick(ClickEvent event) {
-                RootPanel.get().remove(Message.get());
-                
-            }
-            
-        });
+        modal.setBackgroundColor(Color.TRANSPARENT);
+        modal.setDismissible(true);
     }
     
     public static Message get() {
