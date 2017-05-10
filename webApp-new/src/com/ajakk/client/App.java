@@ -1,5 +1,6 @@
 package com.ajakk.client;
 
+import java.sql.PreparedStatement;
 import java.util.List;
 
 import com.ajakk.client.view.Message;
@@ -78,6 +79,13 @@ public class App {
     
     public static App getApp() {
         return app;
+    }
+    
+    public static String getQuery (PreparedStatement stmt){
+        String tempSQL = stmt.toString();
+        int strStmt = tempSQL.indexOf(":")+2;
+        tempSQL = tempSQL.substring(strStmt);
+        return tempSQL;
     }
 
 }
