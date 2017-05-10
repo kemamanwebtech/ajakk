@@ -8,7 +8,7 @@
  </ui:style>
  <m:MaterialModal ui:field="modal" type="DEFAULT" inDuration="500" outDuration="500" addStyleNames=" {style.remove-shadow}">
  <m:MaterialModalContent>
- <m:MaterialTitle ui:field="message" title="Hi there!" description="says something?!" />
+ <m:MaterialTitle ui:field="message" title="Hello there!" description="says something?!" />
  </m:MaterialModalContent>
  </m:MaterialModal>
 </ui:UiBinder> 
