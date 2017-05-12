@@ -1,86 +1,43 @@
+/**
+ *  Class that hold most static objects, including current user data
+ */
+
 package com.ajakk.client;
 
 import java.util.List;
-
 import com.ajakk.client.view.Message;
 import com.ajakk.shared.EventDTO;
 import com.ajakk.shared.UserDTO;
 import com.google.gwt.user.client.ui.RootPanel;
-import com.mysql.jdbc.PreparedStatement;
 
 public class App {
-    
-    Config config = null;
-    static App app;
-    public static String username;
-    
+
+    // static variables
+    public static Config config = null;
+    public static App instance = null;
+
     // user data
-    static UserDTO user;
-    String currentLoc;
-    boolean isAdminUser;
-    
-    
+    public static UserDTO loggedInUser = null;
+    public static String currentLoc = null;
+    public static boolean isAdminUser = false;
+    public static List<EventDTO> joinedEvent = null;
+
+    // others
     Message dialogBox;
-    
+
     public static void showMessage(String message) {
         Message newDialogBox = new Message(message);
         RootPanel.get().add(newDialogBox);
         newDialogBox.show();
-        
-    }
-    public Config getConfig() {
-        return config;
     }
 
-    public static UserDTO getUser() {
-        if (user == null) {
-            user = new UserDTO();
-        }
-        return user;
-    }
-
-    public static void setUser(UserDTO user) {
-        user = user;
-    }
-
-    public String getCurrentLoc() {
-        return currentLoc;
-    }
-
-    public void setCurrentLoc(String currentLoc) {
-        this.currentLoc = currentLoc;
-    }
-
-    public boolean isAdminUser() {
-        return isAdminUser;
-    }
-
-    public void setAdminUser(boolean isAdminUser) {
-        this.isAdminUser = isAdminUser;
-    }
-
-    public List<EventDTO> getJoinedEvent() {
-        return joinedEvent;
-    }
-
-    public void setJoinedEvent(List<EventDTO> joinedEvent) {
-        this.joinedEvent = joinedEvent;
-    }
-
-    List<EventDTO> joinedEvent;
-    
-    
+    // probably not needed later. leave it here as it is for now
     public App() {
-        app = this;
-        
+        instance = this;
         config = new Config();
-        
     }
-    
+
     public static App getApp() {
-        return app;
+        return instance;
     }
-    
-
-
 }

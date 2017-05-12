@@ -88,7 +88,7 @@ public class Login extends Composite {
                                 @Override
                                 public void onSuccess(UserDTO result) {
                                     if (result != null) {
-                                        App.setUser(result);
+                                        App.loggedInUser = result;
                                         Dashboard dashboard = new Dashboard();
                                         RootPanel.get().clear();
                                         RootPanel.get().add(dashboard);
