@@ -58,7 +58,7 @@ public class Dashboard extends Composite {
                     i++;
                     if (i > 3) {
                         MaterialRow newRow = new MaterialRow();
-                        cardContainer.add(currentRow);
+                        cardContainer.add(newRow);
                         currentRow = newRow;
                         i = 0;
                     }
