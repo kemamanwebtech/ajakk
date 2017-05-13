@@ -43,7 +43,7 @@ public class CreateEvent extends Composite {
 
     @UiHandler("btnSave")
     void onCreateEventClick(ClickEvent e) {
-        rpc.createEvent(description.getText(), time.getText(), location.getText(), extra.getText(), email, new AsyncCallback<String>() {
+        rpc.createEvent(description.getText(), time.getText(), location.getText(), extra.getText(), App.loggedInUser.getEmail(), new AsyncCallback<String>() {
             @Override
             public void onFailure(Throwable caught) {
                 App.showMessage(caught.getMessage());
