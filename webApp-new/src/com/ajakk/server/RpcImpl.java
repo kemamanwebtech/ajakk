@@ -112,4 +112,25 @@ public class RpcImpl extends RemoteServiceServlet implements Rpc {
 
         return user;
     }
+
+    @Override
+    public String joinEvent(EventDTO event, UserDTO loggedInUser) {
+        Connection con = daoFactory.getConnection();
+        EventDAO eventDAO = daoFactory.getEventDAO();
+        
+        
+        if (eventDAO.joinEvent(event, loggedInUser, con)) {
+            return "success";
+        } else {
+            return "Error : failed to join event.";
+        }
+    }
+
+    @Override
+    public List<UserDTO> viewParticipant(EventDTO event, UserDTO loggedInUser) {
+        Connection con = daoFactory.getConnection();
+        EventDAO eventDAO = daoFactory.getEventDAO();
+
+        return eventDAO.viewParticipant(event, loggedInUser, con);
+    }
 }

@@ -2,82 +2,81 @@
  xmlns:ma="urn:import:gwt.material.design.addins.client">
  <ui:style>
  .important {
-    font-weight: bold;
+ 	font-weight: bold;
  }
  
  .MTA {
-    margin-left: 13px;
-    dispaly: inline-block;
-    text-align: center;
-    width: 100%;
+ 	margin-left: 13px;
+ 	dispaly: inline-block;
+ 	text-align: center;
+ 	width: 100%;
  }
  
  .center-horizontal {
-    margin: auto;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 10px;
+ 	margin: auto;
+ 	width: 100%;
+ 	display: flex;
+ 	align-items: center;
+ 	justify-content: center;
+ 	margin-top: 10px;
  }
  
  .remove-shadow {
-    box-shadow: none !important;
+ 	box-shadow: none !important;
  }
  </ui:style>
 
- <m:MaterialModal ui:field="modal" grid="s12" height="900px" backgroundColor="TRANSPARENT" textColor="WHITE" addStyleNames=" {style.remove-shadow}">
+ <m:MaterialModal ui:field="modal" grid="s12" height="900px" backgroundColor="TRANSPARENT" textColor="WHITE"
+  addStyleNames=" {style.remove-shadow}">
   <m:MaterialModalContent height="auto" backgroundColor="TEAL_LIGHTEN_1" textColor="WHITE">
-   <m:MaterialTextArea ui:field="postedBy" readOnly="true"  grid="s12" text="Najib" label="Posted By:" iconType="FACE"
+   <m:MaterialTextArea ui:field="postedBy" readOnly="true" grid="s12" text="Najib" label="Posted By:" iconType="FACE"
     iconSize="LARGE" fontSize="1.15em" textColor="WHITE" />
    <m:MaterialRow addStyleNames=" {style.center-horizontal}" textColor="WHITE">
     <m:MaterialColumn grid="s2">
      <m:MaterialCardImage>
       <m:MaterialImage ui:field="imageDesc" url="images/clipboard.png" height="120px" width="120px" />
      </m:MaterialCardImage>
-     <m:MaterialTextArea textColor="WHITE" ui:field="description" addStyleNames="{style.MTA}"   label="Description"
-      text="Futsal"></m:MaterialTextArea>
+     <m:MaterialTextArea textColor="WHITE" ui:field="description" addStyleNames="{style.MTA}" label="Description" text="Futsal"></m:MaterialTextArea>
     </m:MaterialColumn>
     <m:MaterialColumn grid="s2">
      <m:MaterialCardImage addStyleNames=" {style.center-horizontal}">
       <m:MaterialImage ui:field="imageTime" url="images/stopwatch.png" height="120px" width="120px" />
      </m:MaterialCardImage>
-     <m:MaterialTextArea ui:field="time"  addStyleNames="{style.MTA}" label="Time"></m:MaterialTextArea>
- <!--     <ma:timepicker.MaterialTimePicker ui:field="time" addStyleNames="{style.MTA}" placeholder="Time" />  -->     
+     <m:MaterialTextArea ui:field="time" addStyleNames="{style.MTA}" label="Time"></m:MaterialTextArea>
+     <!-- <ma:timepicker.MaterialTimePicker ui:field="time" addStyleNames="{style.MTA}" placeholder="Time" /> -->
     </m:MaterialColumn>
     <m:MaterialColumn grid="s2">
      <m:MaterialCardImage addStyleNames=" {style.center-horizontal}">
       <m:MaterialImage ui:field="imageLoc" url="images/map-location.png" height="120px" width="120px" />
      </m:MaterialCardImage>
-     <m:MaterialTextArea textColor="WHITE" ui:field="location" addStyleNames="{style.MTA}"   label="Location"
-      text="Sports Planet"></m:MaterialTextArea>
+     <m:MaterialTextArea textColor="WHITE" ui:field="location" addStyleNames="{style.MTA}" label="Location" text="Sports Planet"></m:MaterialTextArea>
     </m:MaterialColumn>
-    </m:MaterialRow>
-    <m:MaterialRow addStyleNames=" {style.center-horizontal}" textColor="WHITE">
+   </m:MaterialRow>
+   <m:MaterialRow addStyleNames=" {style.center-horizontal}" textColor="WHITE">
     <m:MaterialColumn grid="s2">
      <m:MaterialCardImage addStyleNames=" {style.center-horizontal}">
       <m:MaterialImage ui:field="imageExtra" url="images/wallet.png" height="120px" width="120px" />
      </m:MaterialCardImage>
-     <m:MaterialTextArea textColor="WHITE" ui:field="extra" addStyleNames="{style.MTA}"   label="Location"
-      text="Sports Planet"></m:MaterialTextArea>
+     <m:MaterialTextArea textColor="WHITE" ui:field="extra" addStyleNames="{style.MTA}" label="Location" text="Sports Planet"></m:MaterialTextArea>
     </m:MaterialColumn>
 
     <m:MaterialColumn grid="s2">
      <m:MaterialCardImage addStyleNames=" {style.center-horizontal}">
       <m:MaterialImage ui:field="imageWhatsapp" url="images/whatsapp.png" height="120px" width="120px" />
      </m:MaterialCardImage>
-     <m:MaterialTextArea textColor="WHITE" ui:field="whatsapp" addStyleNames="{style.MTA}"  
-      label="Link to Whatsapp group" text="Main jeje"></m:MaterialTextArea>
+     <m:MaterialTextArea textColor="WHITE" ui:field="whatsapp" addStyleNames="{style.MTA}" label="Link to Whatsapp group"
+      text="Main jeje"></m:MaterialTextArea>
     </m:MaterialColumn>
    </m:MaterialRow>
-   
-   <m:MaterialRow width="100%" addStyleNames=" {style.center-horizontal}">
-     <m:MaterialButton ui:field="btnCancel" margin="5" backgroundColor="RED"  text="CANCEL" waves="DEFAULT" tooltip="Refresh activities list" tooltipPosition="LEFT" iconType="AUTORENEW"> </m:MaterialButton>
-     <m:MaterialButton ui:field="btnSave" margin="5" iconPosition="RIGHT" backgroundColor="RED"  text="SAVE" waves="DEFAULT" tooltip="Clear filters" tooltipPosition="RIGHT" iconType="AUTORENEW"> </m:MaterialButton>
-    
-    </m:MaterialRow> 
-  
 
+   <m:MaterialRow width="100%" addStyleNames=" {style.center-horizontal}">
+    <m:MaterialButton ui:field="btnCancel" margin="5" backgroundColor="RED" text="CANCEL" waves="DEFAULT" tooltip="Refresh activities list"
+     tooltipPosition="LEFT" iconType="AUTORENEW">
+    </m:MaterialButton>
+    <m:MaterialButton ui:field="btnSave" margin="5" iconPosition="RIGHT" backgroundColor="RED" text="SAVE" waves="DEFAULT"
+     tooltip="Clear filters" tooltipPosition="RIGHT" iconType="AUTORENEW">
+    </m:MaterialButton>
+   </m:MaterialRow>
   </m:MaterialModalContent>
  </m:MaterialModal>
 

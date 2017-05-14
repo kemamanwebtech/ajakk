@@ -7,8 +7,9 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-
+import com.ajakk.server.ServerSideUtil;
 import com.ajakk.shared.EventDTO;
+import com.ajakk.shared.UserDTO;
 
 public class EventDAO {
 
@@ -116,6 +117,94 @@ public class EventDAO {
     	
     }
     
+    public boolean checkParticipation(EventDTO event, UserDTO user, Connection con) {
+        PreparedStatement stmt = null;
+        boolean result = false;
+        try {            
+            stmt = con.prepareStatement("SELECT EVENT_ID FROM EVENT_PARTICIPANT "
+                + " WHERE EVENT_ID = ? "
+                + " AND AJAKK_USER_ID = ? ");
+            
+            stmt.setInt(1, event.getEventID());
+            stmt.setInt(2, user.getUserID());
+            
+            ResultSet rs = stmt.executeQuery();
+            System.out.println(ServerSideUtil.getQuery(stmt));
+            
+            if (rs.next()) {
+                result = true;
+            } else result = false;
+            
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.out.println(e.getMessage());
+        }
+        return result;
+    }
     
+    @SuppressWarnings("resource")
+    public boolean joinEvent(EventDTO event, UserDTO user, Connection con) {
+        boolean result = false;
+        PreparedStatement stmt = null;
+        try {            
+           if (checkParticipation(event, user, con)) {
+               stmt = con.prepareStatement("UPDATE EVENT_PARTICIPANT SET STATUS = 'Attending' "
+                   + " WHERE EVENT_ID = ? "
+                   + " AND AJAKK_USER_ID = ? ");
+               
+               stmt.setInt(1, event.getEventID());
+               stmt.setInt(2, user.getUserID());
+               stmt.executeUpdate();
+               return true;
+            }
+           
+            stmt = con.prepareStatement("INSERT INTO EVENT_PARTICIPANT "
+                + " (EVENT_ID, AJAKK_USER_ID, STATUS) "
+                + " VALUES (?, ?, ?)");
+                        
+            stmt.setInt(1, event.getEventID());
+            stmt.setInt(2, user.getUserID());
+            stmt.setString(3, "Attending");
+            System.out.println(ServerSideUtil.getQuery(stmt));
+            stmt.executeUpdate();
+            result = true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.out.println(e.getMessage());
+        }
+        return result;
+    }
+
+    public List<UserDTO> viewParticipant(EventDTO event, UserDTO loggedInUser, Connection con) {
+        List<UserDTO> userList = new ArrayList<UserDTO>();
+        
+        // be specific of what fields we want, avoid using *
+        String sql = " select a.AJAKK_USER_ID, a.USER_NAME, a.DES, a.EMAIL, a.PHONE_NO from AJAKK_USER a " + 
+                        " join EVENT_PARTICIPANT b " + 
+                        " on a.AJAKK_USER_ID = b.AJAKK_USER_ID " + 
+                        " where b.EVENT_ID = ? ";
+        try {
+            PreparedStatement stmt = con.prepareStatement(sql);
+            stmt.setInt(1, event.getEventID());
+            ResultSet rs = stmt.executeQuery();
+            
+            System.out.println(ServerSideUtil.getQuery(stmt));
+
+            while (rs.next()) {
+                UserDTO user = new UserDTO();
+                user = new UserDTO();
+                user.setUserID(rs.getInt(1));
+                user.setName(rs.getString(2));
+                user.setDes(rs.getString(3));
+                user.setEmail(rs.getString(4));
+                user.setPhoneNumber(rs.getString(5));
+                userList.add(user);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.out.println(e.getMessage());
+        } 
+        return userList;
+    }
 
 }

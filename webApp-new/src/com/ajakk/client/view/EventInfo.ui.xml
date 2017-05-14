@@ -67,14 +67,20 @@
       label="Link to Whatsapp group" text="Main jeje"></m:MaterialTextArea>
     </m:MaterialColumn>
    </m:MaterialRow>
-   
+
    <m:MaterialRow width="100%" addStyleNames=" {style.center-horizontal}">
-     <m:MaterialButton  margin="5" backgroundColor="RED"  text="JOIN!" waves="DEFAULT" tooltip="Refresh activities list" tooltipPosition="LEFT" iconType="AUTORENEW"> </m:MaterialButton>
-     <m:MaterialButton  margin="5" iconPosition="RIGHT" backgroundColor="RED"  text="SEE WHO ELSE JOINED" waves="DEFAULT" tooltip="Clear filters" tooltipPosition="RIGHT" iconType="AUTORENEW"> </m:MaterialButton>
-     <m:MaterialButton  margin="5" iconPosition="RIGHT" backgroundColor="RED"  text="DELETE" waves="DEFAULT" tooltip="Clear filters" tooltipPosition="RIGHT" iconType="AUTORENEW"> </m:MaterialButton>
-    
-    </m:MaterialRow> 
-  
+    <m:MaterialButton margin="5" backgroundColor="RED" text="JOIN!" waves="DEFAULT" tooltip="Join this activity!"
+     tooltipPosition="LEFT" iconType="AUTORENEW" ui:field="btnJoin">
+    </m:MaterialButton>
+    <m:MaterialButton margin="5" iconPosition="RIGHT" backgroundColor="RED" text="SEE WHO ELSE JOINED" waves="DEFAULT"
+     tooltip="Clear filters" tooltipPosition="RIGHT" iconType="AUTORENEW" ui:field="btnViewParticipant">
+    </m:MaterialButton>
+    <m:MaterialButton margin="5" iconPosition="RIGHT" backgroundColor="RED" text="DELETE" waves="DEFAULT" tooltip="Clear filters"
+     tooltipPosition="RIGHT" iconType="AUTORENEW" ui:field="btnDelete">
+    </m:MaterialButton>
+
+   </m:MaterialRow>
+
 
   </m:MaterialModalContent>
  </m:MaterialModal>

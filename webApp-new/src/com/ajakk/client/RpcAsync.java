@@ -1,7 +1,7 @@
 package com.ajakk.client;
 
 import java.util.List;
-
+import com.ajakk.shared.EventDTO;
 import com.ajakk.shared.LoginDTO;
 import com.ajakk.shared.UserDTO;
 import com.google.gwt.user.client.rpc.AsyncCallback;
@@ -44,5 +44,9 @@ public interface RpcAsync {
             AsyncCallback<String> asyncCallback);
     
     void getUser(String email, AsyncCallback<UserDTO> asyncCallback);
+
+    void joinEvent(EventDTO event, UserDTO loggedInUser, AsyncCallback<String> asyncCallback);
+
+    void viewParticipant(EventDTO event, UserDTO loggedInUser, AsyncCallback<List<UserDTO>> asyncCallback);
 
 }
