@@ -72,7 +72,7 @@
     <m:MaterialButton margin="5" backgroundColor="RED" text="JOIN!" waves="DEFAULT" tooltip="Join this activity!"
      tooltipPosition="LEFT" iconType="AUTORENEW" ui:field="btnJoin">
     </m:MaterialButton>
-    <m:MaterialButton margin="5" iconPosition="RIGHT" backgroundColor="RED" text="SEE WHO ELSE JOINED" waves="DEFAULT"
+    <m:MaterialButton margin="5" iconPosition="RIGHT" backgroundColor="RED" text="LIST OF PARTICIPANTS" waves="DEFAULT"
      tooltip="Clear filters" tooltipPosition="RIGHT" iconType="AUTORENEW" ui:field="btnViewParticipant">
     </m:MaterialButton>
     <m:MaterialButton margin="5" iconPosition="RIGHT" backgroundColor="RED" text="DELETE" waves="DEFAULT" tooltip="Clear filters"

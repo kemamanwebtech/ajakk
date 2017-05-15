@@ -1,5 +1,6 @@
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder" xmlns:g="urn:import:com.google.gwt.user.client.ui" xmlns:m="urn:import:gwt.material.design.client.ui"
- xmlns:ma="urn:import:gwt.material.design.addins.client">
+ xmlns:ma="urn:import:gwt.material.design.addins.client"
+ xmlns:m.html="urn:import:gwt.material.design.client.ui.html">
  <ui:style>
  .important {
  	font-weight: bold;
@@ -26,57 +27,62 @@
  }
  </ui:style>
 
- <m:MaterialModal ui:field="modal" grid="s12" height="900px" backgroundColor="TRANSPARENT" textColor="WHITE"
-  addStyleNames=" {style.remove-shadow}">
+ <m:MaterialModal ui:field="modal" grid="s12" height="auto" backgroundColor="TRANSPARENT" textColor="WHITE" addStyleNames=" {style.remove-shadow}">
   <m:MaterialModalContent height="auto" backgroundColor="TEAL_LIGHTEN_1" textColor="WHITE">
-   <m:MaterialTextArea ui:field="postedBy" readOnly="true" grid="s12" text="Najib" label="Posted By:" iconType="FACE"
-    iconSize="LARGE" fontSize="1.15em" textColor="WHITE" />
+   <m:MaterialTextArea ui:field="title" readOnly="true" grid="s12" text="CREATE NEW ACTIVITY" iconType="ADD" iconSize="LARGE"
+    fontSize="1.15em" textColor="WHITE" />
+
    <m:MaterialRow addStyleNames=" {style.center-horizontal}" textColor="WHITE">
+
     <m:MaterialColumn grid="s2">
      <m:MaterialCardImage>
-      <m:MaterialImage ui:field="imageDesc" url="images/clipboard.png" height="120px" width="120px" />
+      <m:MaterialImage ui:field="imgName" url="images/clipboard.png" height="120px" width="120px" />
      </m:MaterialCardImage>
-     <m:MaterialTextArea textColor="WHITE" ui:field="description" addStyleNames="{style.MTA}" label="Description" text="Futsal"></m:MaterialTextArea>
-    </m:MaterialColumn>
-    <m:MaterialColumn grid="s2">
-     <m:MaterialCardImage addStyleNames=" {style.center-horizontal}">
-      <m:MaterialImage ui:field="imageTime" url="images/stopwatch.png" height="120px" width="120px" />
-     </m:MaterialCardImage>
-     <m:MaterialTextArea ui:field="time" addStyleNames="{style.MTA}" label="Time"></m:MaterialTextArea>
-     <!-- <ma:timepicker.MaterialTimePicker ui:field="time" addStyleNames="{style.MTA}" placeholder="Time" /> -->
-    </m:MaterialColumn>
-    <m:MaterialColumn grid="s2">
-     <m:MaterialCardImage addStyleNames=" {style.center-horizontal}">
-      <m:MaterialImage ui:field="imageLoc" url="images/map-location.png" height="120px" width="120px" />
-     </m:MaterialCardImage>
-     <m:MaterialTextArea textColor="WHITE" ui:field="location" addStyleNames="{style.MTA}" label="Location" text="Sports Planet"></m:MaterialTextArea>
-    </m:MaterialColumn>
-   </m:MaterialRow>
-   <m:MaterialRow addStyleNames=" {style.center-horizontal}" textColor="WHITE">
-    <m:MaterialColumn grid="s2">
-     <m:MaterialCardImage addStyleNames=" {style.center-horizontal}">
-      <m:MaterialImage ui:field="imageExtra" url="images/wallet.png" height="120px" width="120px" />
-     </m:MaterialCardImage>
-     <m:MaterialTextArea textColor="WHITE" ui:field="extra" addStyleNames="{style.MTA}" label="Location" text="Sports Planet"></m:MaterialTextArea>
+     <m:MaterialTextBox textColor="WHITE" ui:field="txtName" addStyleNames="{style.MTA}" readOnly="true" label="Description"
+      text="Futsal"></m:MaterialTextBox>
     </m:MaterialColumn>
 
     <m:MaterialColumn grid="s2">
      <m:MaterialCardImage addStyleNames=" {style.center-horizontal}">
-      <m:MaterialImage ui:field="imageWhatsapp" url="images/whatsapp.png" height="120px" width="120px" />
+      <m:MaterialImage ui:field="imgType" url="images/wallet.png" height="120px" width="120px" />
      </m:MaterialCardImage>
-     <m:MaterialTextArea textColor="WHITE" ui:field="whatsapp" addStyleNames="{style.MTA}" label="Link to Whatsapp group"
-      text="Main jeje"></m:MaterialTextArea>
+ <m:MaterialListBox placeholder="Sports" ui:field="type">  <m.html:Option text="Futsal"/>
+ <m.html:Option text="Basketball"/>
+ <m.html:Option text="Hiking"/>
+ <m.html:Option text="Voluteer"/>
+ </m:MaterialListBox>
     </m:MaterialColumn>
+
+    <m:MaterialColumn grid="s2">
+     <m:MaterialCardImage addStyleNames=" {style.center-horizontal}">
+      <m:MaterialImage ui:field="imgDatetime" url="images/stopwatch.png" height="120px" width="120px" />
+     </m:MaterialCardImage>
+     <m:MaterialDatePicker ui:field="date" autoClose="true" placeholder="Date" />
+     <ma:timepicker.MaterialTimePicker ui:field="time" autoClose="true" placeholder="Time" />
+    </m:MaterialColumn>
+
+    <m:MaterialColumn grid="s2">
+     <m:MaterialCardImage addStyleNames=" {style.center-horizontal}">
+      <m:MaterialImage ui:field="imgLoc" url="images/map-location.png" height="120px" width="120px" />
+     </m:MaterialCardImage>
+     <m:MaterialTextBox textColor="WHITE" ui:field="txtLoc" addStyleNames="{style.MTA}" readOnly="true" label="Location"
+      text="Sports Planet"></m:MaterialTextBox>
+    </m:MaterialColumn>
+
+
+
    </m:MaterialRow>
 
    <m:MaterialRow width="100%" addStyleNames=" {style.center-horizontal}">
-    <m:MaterialButton ui:field="btnCancel" margin="5" backgroundColor="RED" text="CANCEL" waves="DEFAULT" tooltip="Refresh activities list"
-     tooltipPosition="LEFT" iconType="AUTORENEW">
+    <m:MaterialButton margin="5" backgroundColor="RED" text="CANCEL" waves="DEFAULT" tooltip="Join this activity!"
+     tooltipPosition="LEFT" iconType="AUTORENEW" ui:field="btnCancel">
     </m:MaterialButton>
-    <m:MaterialButton ui:field="btnSave" margin="5" iconPosition="RIGHT" backgroundColor="RED" text="SAVE" waves="DEFAULT"
-     tooltip="Clear filters" tooltipPosition="RIGHT" iconType="AUTORENEW">
+    <m:MaterialButton margin="5" iconPosition="RIGHT" backgroundColor="RED" text="SAVE ACTIVITY" waves="DEFAULT" tooltip="Clear filters"
+     tooltipPosition="RIGHT" iconType="AUTORENEW" ui:field="btnSave">
     </m:MaterialButton>
    </m:MaterialRow>
+
+
   </m:MaterialModalContent>
  </m:MaterialModal>
 

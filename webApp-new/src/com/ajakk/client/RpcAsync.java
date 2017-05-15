@@ -36,11 +36,11 @@ public interface RpcAsync {
             AsyncCallback<String> asyncCallback);
 
     void createEvent(
-            String eventName, 
-            String eventDesc, 
-            String eventDate, 
-            String eventLocation, 
-            String userName,
+            String name, 
+            String type, 
+            String datetime, 
+            String loc, 
+            UserDTO user,
             AsyncCallback<String> asyncCallback);
     
     void getUser(String email, AsyncCallback<UserDTO> asyncCallback);

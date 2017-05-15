@@ -71,10 +71,12 @@ public class RpcImpl extends RemoteServiceServlet implements Rpc {
     }
 
     @Override
-    public String createEvent(String eventName, String eventDesc,
-            String eventDate, String eventLocation, String email) {
+    public String createEvent(String name, String type,
+            String datetime, String loc, UserDTO user) {
         
-        System.out.println("INFO : In RpcImpl.createEvent().." + "Email : " + email );
+        String result = "";
+        System.out.println("INFO : In RpcImpl.createEvent().." + "User : " + user.getName() );
+        
         Connection con = null;
         UserDAO userDAO = null;
         EventDAO eventDAO = null;
@@ -82,25 +84,19 @@ public class RpcImpl extends RemoteServiceServlet implements Rpc {
         
         try {
             con = daoFactory.getConnection();
-
-            userDAO = daoFactory.getUserDAO();
-
-            int userID = Integer.parseInt(userDAO.getUserIdByEmail(email, con));
-            event = new EventDTO(eventName, eventDesc, eventDate,eventLocation, userID);
+            event = new EventDTO(name, type, datetime, loc, user.getUserID());
             eventDAO = daoFactory.getEventDAO();
             
+            if (eventDAO.createEvent(event, con)) {
+                result = "success";
+            } else {
+                result = "Error : failed to create event.";
+            }
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println("ERROR : In RpcImpl.createEvent().." + e.toString());
-            
         }
-        
-
-        if (eventDAO.createEvent(event, con)) {
-            return "success";
-        } else {
-            return "Error : failed to create event.";
-        }
+        return result;
     }
 
     @Override
@@ -117,8 +113,7 @@ public class RpcImpl extends RemoteServiceServlet implements Rpc {
     public String joinEvent(EventDTO event, UserDTO loggedInUser) {
         Connection con = daoFactory.getConnection();
         EventDAO eventDAO = daoFactory.getEventDAO();
-        
-        
+
         if (eventDAO.joinEvent(event, loggedInUser, con)) {
             return "success";
         } else {

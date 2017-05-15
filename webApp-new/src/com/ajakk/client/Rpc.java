@@ -26,11 +26,11 @@ public interface Rpc extends RemoteService {
             String phone);
     
     String createEvent(
-            String eventName, 
-            String eventDesc, 
-            String eventDate, 
-            String eventLocation, 
-            String userName);
+            String name, 
+            String type, 
+            String datetime, 
+            String local, 
+            UserDTO user);
 
     UserDTO getUser(String email);
 

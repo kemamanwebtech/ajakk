@@ -6,10 +6,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import com.ajakk.server.ServerSideUtil;
 import com.ajakk.shared.EventDTO;
 import com.ajakk.shared.UserDTO;
+import com.google.gwt.i18n.client.DateTimeFormat;
 
 public class EventDAO {
 
@@ -61,22 +63,23 @@ public class EventDAO {
         
     }
     
-    public boolean createEvent (EventDTO event, Connection con) {
-    	
-    	try {            
-    		PreparedStatement stmt = con.prepareStatement(
-    				"INSERT INTO EVENT "
-    				+ "(NAME, DES, TYPE, OWNER_ID, LOC) VALUES "
-    				+ "(? 	, ?   ,?     ,?		  ,?  )");
+    public boolean createEvent(EventDTO event, Connection con) {
+        try {
+            PreparedStatement stmt = con.prepareStatement("INSERT INTO EVENT " 
+                + "(NAME, TYPE, CONFIRMED_DATE, LOC, OWNER_ID) VALUES " 
+                + "(? 	  , ?   ,?            ,?  ,?  )");
+            
             stmt.setString(1, event.getEventName());
-            stmt.setString(2, event.getEventDes());
-            stmt.setString(3, event.getEventType());
-            stmt.setInt(4, event.getOwnerID());
-            stmt.setString(5, event.getEventLoc());
-            stmt.executeUpdate();	
+            stmt.setString(2, event.getEventType());
+            stmt.setString(3, event.getEventDate());
+            stmt.setString(4, event.getEventLoc());
+            stmt.setInt(5, event.getOwnerID());
+            stmt.executeUpdate();
+            System.out.println(ServerSideUtil.getQuery(stmt));
             return true;
-    	} catch (SQLException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
+            System.out.println(e.getMessage());
             return false;
         }
     }

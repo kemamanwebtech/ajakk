@@ -34,16 +34,16 @@ public class EventDTO implements Serializable {
 	}
 	
 	public EventDTO(
-			String eventName, 
-			String eventDesc,
-			String eventDate,
-			String eventLocation, 
+			String name, 
+			String type, 
+			String datetime,
+			String location,
 			int userID) {
 		
-		this.eventName = eventName;
-		this.eventDes = eventDesc;
-		this.eventDate = eventDate;
-		this.eventLoc = eventLocation;
+		this.eventName = name;
+		this.eventType = type;
+		this.eventDate = datetime;;
+		this.eventLoc = location;
 		this.ownerID = userID;	
 	}
 	
