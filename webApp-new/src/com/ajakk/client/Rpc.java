@@ -33,6 +33,8 @@ public interface Rpc extends RemoteService {
             UserDTO user);
 
     UserDTO getUser(String email);
+    
+    UserDTO getUserFromID(int id);
 
     String joinEvent(EventDTO event, UserDTO loggedInUser);
 

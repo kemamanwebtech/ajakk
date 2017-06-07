@@ -187,6 +187,32 @@ public class UserDAO extends UserDTO {
         }
         return user;
     }
+    
+    public UserDTO getUserByID(int id, Connection con) {
+        UserDTO user = null;
+        String sql = " SELECT AJAKK_USER_ID, USER_NAME, DES, EMAIL, PHONE_NO FROM AJAKK_USER WHERE AJAKK_USER_ID = ? ";
+
+        try {
+            PreparedStatement stmt = con.prepareStatement(sql);
+            stmt.setInt(1, id);
+            ResultSet rs = stmt.executeQuery();
+
+            System.out.println("In getUserByID(), " + ServerSideUtil.getQuery(stmt));
+
+            while (rs.next()) {
+                user = new UserDTO();
+                user.setUserID(rs.getInt(1));
+                user.setName(rs.getString(2));
+                user.setDes(rs.getString(3));
+                user.setEmail(rs.getString(4));
+                user.setPhoneNumber(rs.getString(5));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.out.println("ERROR : In UserDAO.getUserByID()... " + e.getMessage());
+        }
+        return user;
+    }
 
     public static List<UserDTO> getAllInfo(Connection con2) {
         String sql = " SELECT AJAKK_USER_ID, USER_NAME, DES, EMAIL, PHONE_NO, SPORT FROM AJAKK_USER ";

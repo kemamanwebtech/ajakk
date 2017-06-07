@@ -64,7 +64,7 @@
       <m:MaterialImage ui:field="imageWhatsap" url="images/whatsapp.png" height="120px" width="120px" />
      </m:MaterialCardImage>
      <m:MaterialTextArea textColor="WHITE" ui:field="whatsapp" addStyleNames="{style.MTA}" readOnly="true"
-      label="Link to Whatsapp group" text="Main jeje"></m:MaterialTextArea>
+      label="Link to Whatsapp group" text="Join Whatsapp group"></m:MaterialTextArea>
     </m:MaterialColumn>
    </m:MaterialRow>
 

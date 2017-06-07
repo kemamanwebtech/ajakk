@@ -12,11 +12,13 @@ import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.user.client.Event;
+import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.Widget;
 import gwt.material.design.client.ui.MaterialButton;
+import gwt.material.design.client.ui.MaterialImage;
 import gwt.material.design.client.ui.MaterialModal;
 import gwt.material.design.client.ui.MaterialTextArea;
 
@@ -24,10 +26,14 @@ public class EventInfo extends Composite {
     @UiField MaterialModal           modal;
     @UiField MaterialTextArea        postedBy;
     @UiField MaterialButton          btnJoin;
+    @UiField MaterialImage           imageWhatsap;
     
     public EventDTO                  event;
     private static EventInfoUiBinder uiBinder = GWT.create(EventInfoUiBinder.class);
     private final RpcAsync   rpc = GWT.create(Rpc.class);
+    private String linkToWhatsapp = "https://api.whatsapp.com/send?phone=";
+    private UserDTO ownerEvent =  null;
+    StringBuilder fullLinkToWhatsapp = null;
 
     interface EventInfoUiBinder extends UiBinder<Widget, EventInfo> {}
 
@@ -35,6 +41,24 @@ public class EventInfo extends Composite {
         initWidget(uiBinder.createAndBindUi(this));
         modal.setDismissible(true);
         this.event = event;
+        
+        // get Owner of this event
+        rpc.getUserFromID(event.getOwnerID(), new AsyncCallback<UserDTO>() {
+
+            @Override
+            public void onFailure(Throwable caught) {
+                App.showMessage(caught.getMessage());
+            }
+
+            @Override
+            public void onSuccess(UserDTO ownerEvent) {
+                fullLinkToWhatsapp = new StringBuilder(linkToWhatsapp);
+                fullLinkToWhatsapp.append(ownerEvent.getPhoneNumber());
+            }
+            
+        });
+        
+        
     }
 
     public void show() {
@@ -77,4 +101,8 @@ public class EventInfo extends Composite {
         });
     }
     
+    @UiHandler("imageWhatsap")
+    public void onImageWhatsapClicked(ClickEvent e){
+        Window.open(fullLinkToWhatsapp.toString(),"_blank","");
+    }
 }

@@ -45,6 +45,8 @@ public interface RpcAsync {
     
     void getUser(String email, AsyncCallback<UserDTO> asyncCallback);
 
+    void getUserFromID(int id, AsyncCallback<UserDTO> asyncCallback);
+
     void joinEvent(EventDTO event, UserDTO loggedInUser, AsyncCallback<String> asyncCallback);
 
     void viewParticipant(EventDTO event, UserDTO loggedInUser, AsyncCallback<List<UserDTO>> asyncCallback);

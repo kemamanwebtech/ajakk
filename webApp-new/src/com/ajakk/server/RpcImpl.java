@@ -12,6 +12,7 @@ import com.ajakk.server.dao.UserDAO;
 import com.ajakk.shared.EventDTO;
 import com.ajakk.shared.LoginDTO;
 import com.ajakk.shared.UserDTO;
+import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;
 
 
@@ -105,6 +106,16 @@ public class RpcImpl extends RemoteServiceServlet implements Rpc {
         UserDAO userDAO = daoFactory.getUserDAO();
         UserDTO user = new UserDTO();
         user = userDAO.getUserByEmail(email, con);
+
+        return user;
+    }
+    
+    @Override
+    public UserDTO getUserFromID(int id) {
+        Connection con = daoFactory.getConnection();
+        UserDAO userDAO = daoFactory.getUserDAO();
+        UserDTO user = new UserDTO();
+        user = userDAO.getUserByID(id, con);
 
         return user;
     }
