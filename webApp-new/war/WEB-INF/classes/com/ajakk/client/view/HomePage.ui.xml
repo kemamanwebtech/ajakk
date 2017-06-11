@@ -12,7 +12,15 @@
  	margin-bottom: 2em;
  	justify-content: center !important;
  	margin: auto !important;
+ 	font-family: AvenirNext-Medium; 
+ 	font-size: 48px; 
+ 	color: #4A4A4A; 
+ 	text-shadow: 0 2px 4px rgba(0,0,0,0.50);
  }
+ 
+ .brand {
+	font-family: Futura-Medium; font-size: 48px; color: #FFFFFF; text-shadow: 0 2px 4px rgba(0,0,0,0.50);
+}
  
  
  .row {
@@ -20,6 +28,8 @@
     width: 100%;
 	<!-- padding-left: 8%; -->
 	display: flex; align-items: center; justify-content: center;
+	font-family: AvenirNext-Medium; 
+	color: #4A4A4A;
 }
 
  
@@ -30,7 +40,7 @@
   <m:MaterialHeader layoutPosition="FIXED" width="100%" shadow="1" depth="996">
    <!-- NavBar -->
    <m:MaterialNavBar backgroundColor="RED_DARKEN_1" activates="sidenav">
-    <m:MaterialNavBrand text="Ajakk" addStyleNames="{style.setMargin}" />
+    <m:MaterialNavBrand text="Ajakk" addStyleNames="{style.brand}" />
     <m:MaterialNavSection float="RIGHT" addStyleNames="{style.setMargin}">
      <m:MaterialButton ui:field="btnLogin" text="LOGIN" addStyleNames="{style.set-margin}" waves="RED" backgroundColor="RED"
       textColor="WHITE" iconType="MOOD" iconPosition="LEFT">

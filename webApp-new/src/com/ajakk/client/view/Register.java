@@ -41,8 +41,8 @@ public class Register extends Composite {
         initWidget(uiBinder.createAndBindUi(this));
 
         modal.setDismissible(true);
-        modal.setPixelSize(500, 600);
-        modal.getWidget(0).setHeight("100%");
+        modal.setPixelSize(500, 1200);
+        modal.getWidget(0).setHeight("110%");
     }
     @UiHandler("btnReg")
     void onSignUpClicked(ClickEvent e) {

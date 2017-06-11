@@ -34,6 +34,10 @@
  	height: 2rem;
  }
  
+ .tac {
+	text-align: center;
+}
+ 
  .padding-filter {
     padding-top: 5px !important;
 }
@@ -89,8 +93,8 @@
         <m:MaterialImage url="images/map-location.png" height="150px" width="150px"/>
        </m:MaterialCardImage>
        <m:MaterialCardContent textColor="WHITE"  addStyleNames="{style.padding-filter}" >
-        <m:MaterialLabel fontSize="1.15em" text="Filter by location" />
-        <g:TextBox text="KL" >
+        <m:MaterialLabel addStyleNames=" {style.tac}" fontSize="1.15em" text="Filter by location" />
+        <g:TextBox  addStyleNames=" {style.tac}" text="KL" >
         </g:TextBox>
        </m:MaterialCardContent>
      </m:MaterialColumn>
@@ -100,8 +104,8 @@
         <m:MaterialImage url="images/calendar.png" height="150px" width="150px"/>
        </m:MaterialCardImage>
        <m:MaterialCardContent textColor="WHITE"  addStyleNames="{style.padding-filter}" >
-        <m:MaterialLabel fontSize="1.15em" text="Filter by date" />
-        <g:TextBox text="After 30/12/2016">
+        <m:MaterialLabel addStyleNames=" {style.tac}" fontSize="1.15em" text="Filter by date" />
+        <g:TextBox  addStyleNames=" {style.tac}" text="After 30/12/2016">
         </g:TextBox>
        </m:MaterialCardContent>
      </m:MaterialColumn>
@@ -111,8 +115,8 @@
         <m:MaterialImage url="images/stopwatch.png" height="150px" width="150px"/>
        </m:MaterialCardImage>
        <m:MaterialCardContent textColor="WHITE"  addStyleNames="{style.padding-filter}" >
-        <m:MaterialLabel fontSize="1.15em" text="Filter by time" />
-        <g:TextBox text="After 4PM">
+        <m:MaterialLabel  addStyleNames=" {style.tac}" fontSize="1.15em" text="Filter by time" />
+        <g:TextBox addStyleNames=" {style.tac}" text="After 4PM">
         </g:TextBox>
        </m:MaterialCardContent>
      </m:MaterialColumn>
