@@ -11,7 +11,6 @@ import com.ajakk.shared.UserDTO;
 import com.google.gwt.user.client.ui.RootPanel;
 
 public class App {
-
     // static variables
     public static Config config = null;
     public static App instance = null;

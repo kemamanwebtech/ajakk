@@ -27,11 +27,7 @@ public class FactoryDAO {
             Class.forName("com.mysql.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:mysql://" + config.getDbHost() + ":3306/" + config.getDbName(),
                     config.getDbUserName(), config.getDbPasswd());
-            
-            if (con == null) {
-                con = DriverManager.getConnection("jdbc:mysql://" + config.getDbHost() + ":3306/" + config.getDbName(),
-                        config.getDbUserName(), "Enter123");
-            }
+            con.setAutoCommit(true);
         } catch (Exception e) {
             System.out.println("ERROR : getConnection");
             e.printStackTrace();

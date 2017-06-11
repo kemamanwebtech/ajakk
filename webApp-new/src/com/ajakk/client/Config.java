@@ -8,7 +8,7 @@ public class Config {
         "An error occurred while attempting to contact the server. Please check your network connection and try again.";
     
     public static final String AUTH_ERROR = 
-            "The username and password combination that"
+            "The username and password combination that "
           + "you've entered doesn't match any account.";
     
     public static final String ACC_BLOCKED = 

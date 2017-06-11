@@ -37,6 +37,7 @@ public class LoginDAO {
             if (rs.next()) {
                 result.setUserID(rs.getInt("AJAKK_USER_ID"));
                 result.setUserStatus(rs.getString("STATUS"));
+                System.out.println("INFO : " + result.toString());
                 return result;
             }
         } catch (SQLException e) {
