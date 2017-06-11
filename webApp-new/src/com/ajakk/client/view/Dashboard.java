@@ -79,7 +79,7 @@ public class Dashboard extends Composite {
     
     @UiHandler("btnCreateActivity")
     public void onBtnCreate(ClickEvent e) {
-        CreateEvent2 newActivity = new CreateEvent2();
+        CreateEvent newActivity = new CreateEvent();
         RootPanel.get().add(newActivity);
         newActivity.show();
     }
