@@ -16,7 +16,7 @@ drop table if exists EVENT_PARTICIPANT;
 create table EVENT_PARTICIPANT (
   EVENT_ID          int         not null                comment 'Event ID',
   AJAKK_USER_ID     int         not null                comment 'User ID',
-  NAME              varchar(64) not null                comment 'Event name',
+  NAME              varchar(64)                         comment 'Event name',
   DES               varchar(256)                        comment 'Optional description for the event',
   STATUS            enum(
     'Maybe',

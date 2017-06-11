@@ -29,8 +29,8 @@ create table EVENT (
   CREATED           TIMESTAMP   not null default CURRENT_TIMESTAMP  comment 'Creation date of the event',
   UPDATED           datetime                            comment 'Last update to the event',
   CONFIRMED_DATE    datetime                            comment 'Date and time of the event',
-  VENUE_ID	    int		                                  comment 'location of the event',
-  LOC		    varchar(80)	,
+  VENUE_ID	    int		                                  comment 'location of the event (ID)',
+  LOC               varchar(256)                        comment 'location of the event (User Input)',
   constraint PK_EVENT primary key (EVENT_ID)
 )
 comment = 'Basic data of a AJAKK event';
