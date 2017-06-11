@@ -8,6 +8,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import com.ajakk.server.ServerSideUtil;
 import com.ajakk.shared.LoginDTO;
 
 public class LoginDAO {
@@ -32,12 +33,12 @@ public class LoginDAO {
             pstmt.setString(2, passwd);
 
             ResultSet rs = pstmt.executeQuery();
-            System.out.println("In checkLogin : " + pstmt.toString());
+            System.out.println("In checkLogin : " + ServerSideUtil.getQuery(pstmt));
 
             if (rs.next()) {
+                System.out.println("INFO : " + result.toString());
                 result.setUserID(rs.getInt("AJAKK_USER_ID"));
                 result.setUserStatus(rs.getString("STATUS"));
-                System.out.println("INFO : " + result.toString());
                 return result;
             }
         } catch (SQLException e) {

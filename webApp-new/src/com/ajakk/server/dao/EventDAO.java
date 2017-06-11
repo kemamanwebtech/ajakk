@@ -47,7 +47,7 @@ public class EventDAO {
                 event.setEventDes(rs.getString(3));
                 event.setEventType(rs.getString(4));
                 event.setOwnerID(rs.getInt(5));
-                event.setFromDate(rs.getDate(6));
+                event.setEventDate(rs.getString(6));
                 event.setEventLoc(rs.getString(7));
                 eventList.add(event);
             }
@@ -144,8 +144,7 @@ public class EventDAO {
         }
         return result;
     }
-    
-    @SuppressWarnings("resource")
+
     public boolean joinEvent(EventDTO event, UserDTO user, Connection con) {
         boolean result = false;
         PreparedStatement stmt = null;

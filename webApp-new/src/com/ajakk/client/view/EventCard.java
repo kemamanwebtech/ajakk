@@ -30,10 +30,10 @@ public class EventCard extends Composite {
         setEvent(event);
 
         lblLocation.setText(event.getEventLocName());
-        lblDate.setText(event.getEventDate());
-
-        Date date = DateTimeFormat.getFormat("yyyy-MM-dd HH:mm:ss").parse(event.getEventDate());
-        DateTimeFormat format = DateTimeFormat.getFormat("EEE");
+        Date date = DateTimeFormat.getFormat("yyyy-MM-dd HH:mm:ss.SSS").parse(event.getEventDate());
+        DateTimeFormat format = DateTimeFormat.getFormat("MMM d");
+        lblDate.setText(format.format(date));
+        format = DateTimeFormat.getFormat("EEEE");
         lblDay.setText(format.format(date));
     }
     
