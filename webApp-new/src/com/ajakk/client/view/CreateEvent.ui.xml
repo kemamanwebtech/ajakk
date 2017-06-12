@@ -1,16 +1,29 @@
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder" xmlns:g="urn:import:com.google.gwt.user.client.ui" xmlns:m="urn:import:gwt.material.design.client.ui"
- xmlns:ma="urn:import:gwt.material.design.addins.client"
- xmlns:m.html="urn:import:gwt.material.design.client.ui.html">
+ xmlns:ma="urn:import:gwt.material.design.addins.client" xmlns:m.html="urn:import:gwt.material.design.client.ui.html">
  <ui:style>
  .important {
  	font-weight: bold;
  }
  
  .MTA {
- 	margin-left: 13px;
- 	dispaly: inline-block;
- 	text-align: center;
+ 	margin: auto;
+ 	font-size: 12px !important;
+ 	color: #333 !important;
+ 	display: block !important;
+ 	line-height: 22px !important;
  	width: 100%;
+ }
+ 
+ input[type="text"] {
+ 	background: white;
+ 	border: 1px solid #e9e9e9;
+ 	border-radius: 3px;
+ 	color: black;
+ 	font-size: 14px !important;
+ 	font-weight: 400;
+ 	line-height: 1.42857143;
+ 	text-align: center;
+ 	height: 36px;
  }
  
  .center-horizontal {
@@ -19,66 +32,86 @@
  	display: flex;
  	align-items: center;
  	justify-content: center;
- 	margin-top: 10px;
+ 	margin-top: 3px;
+ }
+ 
+ .content-horizontal {
+ 	margin: auto;
+ 	width: 100%;
+ 	align-items: center;
+ 	justify-content: center;
+ 	margin-top: 3px;
  }
  
  .remove-shadow {
  	box-shadow: none !important;
  }
+ 
+ .picker {
+ 	margin: 0 0 0 0 !important;
+ }
  </ui:style>
 
  <m:MaterialModal ui:field="modal" grid="s12" height="auto" backgroundColor="TRANSPARENT" textColor="WHITE" addStyleNames=" {style.remove-shadow}">
   <m:MaterialModalContent height="auto" backgroundColor="TEAL_LIGHTEN_1" textColor="WHITE">
-   <m:MaterialTextArea ui:field="title" readOnly="true" grid="s12" text="CREATE NEW ACTIVITY" iconType="ADD" iconSize="LARGE"
-    fontSize="1.15em" textColor="WHITE" />
+   <m:MaterialLabel ui:field="title" grid="s12" text="Create a new activity" fontSize="1.5em" textColor="WHITE" />
 
-   <m:MaterialRow addStyleNames=" {style.center-horizontal}" textColor="WHITE">
+   <m:MaterialRow addStyleNames=" {style.center-horizontal}">
 
-    <m:MaterialColumn grid="s2">
-     <m:MaterialCardImage>
-      <m:MaterialImage ui:field="imgName" url="images/clipboard.png" height="120px" width="120px" />
-     </m:MaterialCardImage>
-     <m:MaterialTextBox textColor="WHITE" ui:field="txtName" addStyleNames="{style.MTA}" readOnly="true" label="Description"
-      text="Futsal"></m:MaterialTextBox>
-    </m:MaterialColumn>
 
-    <m:MaterialColumn grid="s2">
+    <m:MaterialColumn grid="s4" addStyleNames=" {style.content-horizontal}">
      <m:MaterialCardImage addStyleNames=" {style.center-horizontal}">
-      <m:MaterialImage ui:field="imgType" url="images/wallet.png" height="120px" width="120px" />
+      <m:MaterialImage ui:field="imgName" url="images/clipboard.png" height="90px" width="90px" />
      </m:MaterialCardImage>
- <m:MaterialListBox placeholder="Sports" ui:field="type">  <m.html:Option text="Futsal"/>
- <m.html:Option text="Basketball"/>
- <m.html:Option text="Hiking"/>
- <m.html:Option text="Voluteer"/>
- </m:MaterialListBox>
+     <m:MaterialTextBox ui:field="txtName" addStyleNames="{style.MTA}" paddingTop="10" placeholder="Name"></m:MaterialTextBox>
     </m:MaterialColumn>
 
-    <m:MaterialColumn grid="s2">
+
+    <m:MaterialColumn grid="s4" addStyleNames=" {style.content-horizontal}">
      <m:MaterialCardImage addStyleNames=" {style.center-horizontal}">
-      <m:MaterialImage ui:field="imgDatetime" url="images/stopwatch.png" height="120px" width="120px" />
+      <m:MaterialImage ui:field="imgType" url="images/wallet.png" height="90px" width="90px" />
      </m:MaterialCardImage>
-     <m:MaterialDatePicker ui:field="date" autoClose="true" placeholder="Date" />
-     <ma:timepicker.MaterialTimePicker ui:field="time" autoClose="true" placeholder="Time" />
+     <m:MaterialButton width="100%" ui:field="typeButton" text="Futsal" activates="dp-2" marginTop="9" waves="RED"
+      backgroundColor="WHITE" textColor="BLACK" />
+     <m:MaterialDropDown activator="dp-2" ui:field="type">
+      <m:MaterialLink text="Futsal" />
+      <m:MaterialLink text="Basketball" />
+      <m:MaterialLink text="Volunteer" />
+     </m:MaterialDropDown>
     </m:MaterialColumn>
 
-    <m:MaterialColumn grid="s2">
+    <m:MaterialColumn grid="s4" addStyleNames=" {style.content-horizontal}">
      <m:MaterialCardImage addStyleNames=" {style.center-horizontal}">
-      <m:MaterialImage ui:field="imgLoc" url="images/map-location.png" height="120px" width="120px" />
+      <m:MaterialImage ui:field="imgDatetime" url="images/stopwatch.png" height="90px" width="90px" />
      </m:MaterialCardImage>
-     <m:MaterialTextBox textColor="WHITE" ui:field="txtLoc" addStyleNames="{style.MTA}" readOnly="true" label="Location"
-      text="Sports Planet"></m:MaterialTextBox>
+     <m:MaterialDatePicker ui:field="date" autoClose="true" addStyleNames=" {style.picker}" marginTop="9" paddingTop="10" />
+     <ma:timepicker.MaterialTimePicker ui:field="time" autoClose="true" addStyleNames=" {style.picker}" />
     </m:MaterialColumn>
 
+    <m:MaterialColumn grid="s4" addStyleNames=" {style.content-horizontal}">
+     <m:MaterialCardImage addStyleNames=" {style.center-horizontal}">
+      <m:MaterialImage ui:field="imgLoc" url="images/map-location.png" height="90px" width="90px" />
+     </m:MaterialCardImage>
+
+     <m:MaterialButton width="100%" ui:field="locBtn" text="KL" marginTop="9" activates="dp-3" waves="RED" backgroundColor="WHITE"
+      textColor="BLACK" />
+     <m:MaterialDropDown activator="dp-3" constrainWidth="false" ui:field="loc">
+      <m:MaterialLink text="KL" />
+      <m:MaterialLink text="Subang" />
+      <m:MaterialLink text="Puchong" />
+      <m:MaterialLink text="Cyberjaya" />
+     </m:MaterialDropDown>
+    </m:MaterialColumn>
 
 
    </m:MaterialRow>
 
    <m:MaterialRow width="100%" addStyleNames=" {style.center-horizontal}">
     <m:MaterialButton margin="5" backgroundColor="RED" text="CANCEL" waves="DEFAULT" tooltip="Join this activity!"
-     tooltipPosition="LEFT" iconType="AUTORENEW" ui:field="btnCancel">
+     tooltipPosition="LEFT" iconType="CLOSE" ui:field="btnCancel">
     </m:MaterialButton>
     <m:MaterialButton margin="5" iconPosition="RIGHT" backgroundColor="RED" text="SAVE ACTIVITY" waves="DEFAULT" tooltip="Clear filters"
-     tooltipPosition="RIGHT" iconType="AUTORENEW" ui:field="btnSave">
+     tooltipPosition="RIGHT" iconType="SAVE" ui:field="btnSave">
     </m:MaterialButton>
    </m:MaterialRow>
 

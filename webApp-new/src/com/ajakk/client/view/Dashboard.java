@@ -14,6 +14,7 @@ import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.Widget;
+import gwt.material.design.client.ui.MaterialButton;
 import gwt.material.design.client.ui.MaterialContainer;
 import gwt.material.design.client.ui.MaterialLink;
 import gwt.material.design.client.ui.MaterialFAB;
@@ -30,6 +31,8 @@ public class Dashboard extends Composite {
     @UiField MaterialContainer cardContainer;
     @UiField MaterialLink	   profile;
     @UiField MaterialFAB btnCreateActivity;
+    @UiField MaterialButton btnReload;
+    @UiField MaterialButton btnClearFilters;
 
     public Dashboard() {
         initWidget(uiBinder.createAndBindUi(this));
@@ -74,13 +77,19 @@ public class Dashboard extends Composite {
     	RootPanel.get().add(userProfile);
         userProfile.show();
     }
-    
-    
-    
+
     @UiHandler("btnCreateActivity")
     public void onBtnCreate(ClickEvent e) {
         CreateEvent newActivity = new CreateEvent();
         RootPanel.get().add(newActivity);
         newActivity.show();
     }
+    
+    @UiHandler("btnReload")
+    public void onBtnReload(ClickEvent e) {
+        cardContainer.clear();
+        getAllEvents();
+    }
+    
+    
 }
