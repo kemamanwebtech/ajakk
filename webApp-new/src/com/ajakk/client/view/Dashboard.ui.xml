@@ -74,21 +74,19 @@
  </ui:style>
  <m:MaterialPanel>
   <!-- Splash screen -->
-  <m:MaterialSplashScreen ui:field="splash" backgroundColor="WHITE" depth="1000" textAlign="CENTER">
-   <m:MaterialImage width="120px"
-    url="http://assets.materialup.com/uploads/b8f2348a-dfa8-4c0a-b696-112e1c293b95/googleplus-logos-02.png" />
-   <m:MaterialLabel text="Pattern #1" fontSize="2em" fontWeight="LIGHTER" />
-   <m:MaterialLabel text="GPlus Pattern for Social Network" />
-  </m:MaterialSplashScreen>
+  <m:MaterialSplashScreen ui:field="splash" depth="1000" backgroundColor="RED_DARKEN_1" textColor="WHITE" textAlign="CENTER">
+  <m:MaterialTitle title="Ajakk" description="Do activity, together." fontSize="1.9em" />
+</m:MaterialSplashScreen>
+
   <!-- Header -->
   <m:MaterialHeader layoutPosition="FIXED" width="100%" shadow="1" depth="996">
    <!-- NavBar -->
    <m:MaterialNavBar backgroundColor="RED_DARKEN_1" activates="sidenav">
     <m:MaterialNavBrand text="Ajakk" />
     <m:MaterialNavSection float="RIGHT">
-     <m:MaterialLink iconType="APPS" />
-     <m:MaterialLink iconType="NOTIFICATIONS" />
-     <m:MaterialImage circle="true" width="40px" height="40px" marginTop="12" marginRight="12" url="" backgroundColor="WHITE" />
+     <m:MaterialLink ui:field="myEventTopNavBar" iconType="APPS" />
+     <m:MaterialLink ui:field="notifTopNavBar" iconType="NOTIFICATIONS" />
+     <m:MaterialLink ui:field="profileTopNavBar" iconType="ACCOUNT_CIRCLE" />
     </m:MaterialNavSection>
    </m:MaterialNavBar>
    <!-- Tab -->
@@ -130,7 +128,7 @@
      <m:MaterialCardImage addStyleNames=" {style.center-horizontal}">
       <m:MaterialImage url="images/map-location.png" height="90px" width="90px" />
      </m:MaterialCardImage>
-     <m:MaterialLabel addStyleNames="{style.tac}" fontSize="1.15em" text="Filter by activity" textColor="WHITE" />
+     <m:MaterialLabel addStyleNames="{style.tac}" fontSize="1.15em" text="Filter by location" textColor="WHITE" />
      <m:MaterialButton width="100%" ui:field="locButton" activates="dp-3" marginTop="9" waves="RED"
       backgroundColor="WHITE" textColor="BLACK" text="Cyberjaya"/>
      <m:MaterialDropDown activator="dp-3" ui:field="loc">

@@ -12,6 +12,7 @@ import com.google.gwt.event.logical.shared.SelectionHandler;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiHandler;
+import com.google.gwt.user.client.Timer;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.RootPanel;
@@ -22,6 +23,7 @@ import gwt.material.design.client.ui.MaterialDropDown;
 import gwt.material.design.client.ui.MaterialLink;
 import gwt.material.design.client.ui.MaterialFAB;
 import gwt.material.design.client.ui.MaterialRow;
+import gwt.material.design.client.ui.MaterialSplashScreen;
 
 public class Dashboard extends Composite {
     private static DashboardUiBinder uiBinder = GWT.create(DashboardUiBinder.class);
@@ -32,20 +34,32 @@ public class Dashboard extends Composite {
     List<EventDTO>             eventList     = null;
     static EventDTO            selectedEvent = null;
     @UiField MaterialContainer cardContainer;
-    @UiField MaterialLink	   profile;
-    @UiField MaterialFAB btnCreateActivity;
-    @UiField MaterialButton btnReload;
-    @UiField MaterialButton btnClearFilters;
-    @UiField MaterialDropDown    type;
-    @UiField MaterialButton typeButton;
-    @UiField MaterialDropDown    loc;
-    @UiField MaterialButton locButton;
+    @UiField MaterialLink      profile;
+    @UiField MaterialFAB       btnCreateActivity;
+    @UiField MaterialButton    btnReload;
+    @UiField MaterialButton    btnClearFilters;
+    @UiField MaterialDropDown  type;
+    @UiField MaterialButton    typeButton;
+    @UiField MaterialDropDown  loc;
+    @UiField MaterialButton    locButton;
+    @UiField MaterialSplashScreen splash;
+
+    
 
     public Dashboard() {
         initWidget(uiBinder.createAndBindUi(this));
+        
+        splash.show();
+        Timer t = new Timer() {
+        @Override
+        public void run() {
+            splash.hide();
+            }
+        };
+        t.schedule(3000);
+        
         eventList = new ArrayList<EventDTO>();
         getAllEvents();
-        
         type.addSelectionHandler(new SelectionHandler<Widget>() {
             @Override
             public void onSelection(SelectionEvent<Widget> event) {
@@ -53,7 +67,6 @@ public class Dashboard extends Composite {
                 typeButton.setText(a.getElement().getInnerText());
             }
         });
-        
         loc.addSelectionHandler(new SelectionHandler<Widget>() {
             @Override
             public void onSelection(SelectionEvent<Widget> event) {
@@ -90,12 +103,12 @@ public class Dashboard extends Composite {
             }
         });
     }
-    
+
     @UiHandler("profile")
     void onLinkProfileClicked(ClickEvent e) {
         // call here
-         UserProfile userProfile = new UserProfile();
-    	RootPanel.get().add(userProfile);
+        UserProfile userProfile = new UserProfile();
+        RootPanel.get().add(userProfile);
         userProfile.show();
     }
 
@@ -105,12 +118,10 @@ public class Dashboard extends Composite {
         RootPanel.get().add(newActivity);
         newActivity.show();
     }
-    
+
     @UiHandler("btnReload")
     public void onBtnReload(ClickEvent e) {
         cardContainer.clear();
         getAllEvents();
     }
-    
-    
 }
