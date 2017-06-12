@@ -13,71 +13,92 @@
  }
  
  .center-horizontal {
- 	margin: auto;
- 	width: 100%;
- 	display: flex;
- 	align-items: center;
- 	justify-content: center;
- 	margin-top: 10px;
+    margin: auto;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 3px;
  }
  
  .remove-shadow {
  	box-shadow: none !important;
  }
+ 
+ .vert-align {
+	vertical-align: middle !important;
+	display: inline-flex !important;
+}
+
+.content-horizontal {
+    margin: auto;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    margin-top: 3px;
+    text-align: center;
+ }
+ 
+ .label {
+    font-size: 1.5em !important;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    height: 36px;
+    margin-top: 3px;
+}
  </ui:style>
 
  <m:MaterialModal ui:field="modal" grid="s12" height="auto" backgroundColor="TRANSPARENT" textColor="WHITE" addStyleNames=" {style.remove-shadow}">
   <m:MaterialModalContent height="auto" backgroundColor="TEAL_LIGHTEN_1" textColor="WHITE">
-   <m:MaterialTextArea ui:field="postedBy" readOnly="true" grid="s12" text="Najib" label="Posted By:" iconType="FACE"
-    iconSize="LARGE" fontSize="1.15em" textColor="WHITE" />
-   <m:MaterialRow addStyleNames=" {style.center-horizontal}" textColor="WHITE">
-    <m:MaterialColumn grid="s2">
+  
+  <m:MaterialRow addStyleNames="{style.vert-align}" >
+   <m:MaterialIcon iconType="FACE" iconSize="MEDIUM" textColor="WHITE" float="LEFT" height="100%"/>
+   <m:MaterialLabel ui:field="postedBy" grid="s8" fontSize="1.5em" textColor="WHITE"/>
+    </m:MaterialRow>
+    
+   <m:MaterialRow addStyleNames="{style.center-horizontal}" textColor="WHITE">
+   
+    <m:MaterialColumn grid="s4" addStyleNames=" {style.content-horizontal}">
      <m:MaterialCardImage>
       <m:MaterialImage ui:field="imageDesc" url="images/clipboard.png" height="120px" width="120px" />
      </m:MaterialCardImage>
-     <m:MaterialTextArea textColor="WHITE" ui:field="people" addStyleNames="{style.MTA}" readOnly="true" label="Description"
-      text="Futsal"></m:MaterialTextArea>
+      <m:MaterialLabel ui:field="name" text="Activity name"  textColor="WHITE" addStyleNames="{style.label}" />
     </m:MaterialColumn>
-    <m:MaterialColumn grid="s2">
+    
+    <m:MaterialColumn grid="s4" addStyleNames="{style.content-horizontal}">
      <m:MaterialCardImage addStyleNames=" {style.center-horizontal}">
       <m:MaterialImage ui:field="imageTime" url="images/stopwatch.png" height="120px" width="120px" />
      </m:MaterialCardImage>
-     <m:MaterialTextArea textColor="WHITE" ui:field="time" addStyleNames="{style.MTA}" readOnly="true" label="Time" text="9 P.M"></m:MaterialTextArea>
+     <m:MaterialLabel ui:field="dateTime" text="Date and Time" fontSize="1.5em" textColor="WHITE" addStyleNames="{style.label}" />
     </m:MaterialColumn>
-    <m:MaterialColumn grid="s2">
+    
+    <m:MaterialColumn grid="s4" addStyleNames=" {style.content-horizontal}">
      <m:MaterialCardImage addStyleNames=" {style.center-horizontal}">
       <m:MaterialImage ui:field="imageLoc" url="images/map-location.png" height="120px" width="120px" />
      </m:MaterialCardImage>
-     <m:MaterialTextArea textColor="WHITE" ui:field="location" addStyleNames="{style.MTA}" readOnly="true" label="Location"
-      text="Sports Planet"></m:MaterialTextArea>
-    </m:MaterialColumn>
-    <m:MaterialColumn grid="s2">
-     <m:MaterialCardImage addStyleNames=" {style.center-horizontal}">
-      <m:MaterialImage ui:field="imageExtra" url="images/wallet.png" height="120px" width="120px" />
-     </m:MaterialCardImage>
-     <m:MaterialTextArea textColor="WHITE" ui:field="extra" addStyleNames="{style.MTA}" readOnly="true" label="Location"
-      text="Sports Planet"></m:MaterialTextArea>
+     <m:MaterialLabel ui:field="location" text="Location" fontSize="1.5em" textColor="WHITE" addStyleNames="{style.label}" />
     </m:MaterialColumn>
 
-    <m:MaterialColumn grid="s2">
+    <m:MaterialColumn grid="s4" addStyleNames=" {style.content-horizontal}">
      <m:MaterialCardImage addStyleNames=" {style.center-horizontal}">
       <m:MaterialImage ui:field="imageWhatsap" url="images/whatsapp.png" height="120px" width="120px" />
      </m:MaterialCardImage>
-     <m:MaterialTextArea textColor="WHITE" ui:field="whatsapp" addStyleNames="{style.MTA}" readOnly="true"
-      label="Link to Whatsapp group" text="Join Whatsapp group"></m:MaterialTextArea>
+    
+    <m:MaterialLabel ui:field="whatsapp" text="Chat with organizer" fontSize="1.5em" textColor="WHITE"  addStyleNames="{style.label}"/>
     </m:MaterialColumn>
    </m:MaterialRow>
 
    <m:MaterialRow width="100%" addStyleNames=" {style.center-horizontal}">
     <m:MaterialButton margin="5" backgroundColor="RED" text="JOIN!" waves="DEFAULT" tooltip="Join this activity!"
-     tooltipPosition="LEFT" iconType="AUTORENEW" ui:field="btnJoin">
+     tooltipPosition="LEFT" iconType="DONE" ui:field="btnJoin">
     </m:MaterialButton>
     <m:MaterialButton margin="5" iconPosition="RIGHT" backgroundColor="RED" text="LIST OF PARTICIPANTS" waves="DEFAULT"
-     tooltip="Clear filters" tooltipPosition="RIGHT" iconType="AUTORENEW" ui:field="btnViewParticipant">
+     tooltip="Clear filters" tooltipPosition="RIGHT" iconType="LIST" ui:field="btnViewParticipant">
     </m:MaterialButton>
-    <m:MaterialButton margin="5" iconPosition="RIGHT" backgroundColor="RED" text="DELETE" waves="DEFAULT" tooltip="Clear filters"
-     tooltipPosition="RIGHT" iconType="AUTORENEW" ui:field="btnDelete">
-    </m:MaterialButton>
+<!--     <m:MaterialButton margin="5" iconPosition="RIGHT" backgroundColor="RED" text="DELETE" waves="DEFAULT" tooltip="Clear filters"
+     tooltipPosition="RIGHT" iconType="CANCEL" ui:field="btnDelete">
+    </m:MaterialButton> -->
 
    </m:MaterialRow>
 
