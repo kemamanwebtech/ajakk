@@ -86,7 +86,6 @@ public class CreateEvent extends Composite {
         }
         
         type.addSelectionHandler(new SelectionHandler<Widget>() {
-
             @Override
             public void onSelection(SelectionEvent<Widget> event) {
                 MaterialLink a = (MaterialLink) event.getSelectedItem();
@@ -96,13 +95,11 @@ public class CreateEvent extends Composite {
         });
         
         loc.addSelectionHandler(new SelectionHandler<Widget>() {
-
             @Override
             public void onSelection(SelectionEvent<Widget> event) {
                 MaterialLink a = (MaterialLink) event.getSelectedItem();
                 locBtn.setText(a.getText());
             }
-            
         });
     }
 
