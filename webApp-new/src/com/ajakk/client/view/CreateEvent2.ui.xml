@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui" xmlns:m="urn:import:gwt.material.design.client.ui"
+	xmlns:ma="urn:import:gwt.material.design.addins.client" xmlns:m.html="urn:import:gwt.material.design.client.ui.html">
+	<ui:style>
+	.modal {
+		box-shadow: none !important;
+		background: rgb(44, 45, 45);
+		
+	}
+	
+	.title {
+		color: white !important;
+	}
+	
+	.tac {
+		text-align: center;
+	}
+	
+	.imagecenterized {
+		position: relative;
+		left: 35%;
+		top: 50%;
+		padding-bottom: 8px;
+	}
+	
+	.textboxcenterized {
+		position: relative;
+		left: 28%;
+		top: 50%;
+	}
+	</ui:style>
+
+	<m:MaterialModal ui:field="modal" height="900px" width="90%"
+		textColor="WHITE" addStyleNames=" {style.modal}">
+		<m:MaterialModalContent addStyleNames=" {style.modal}">
+			<m:MaterialRow>
+				<m:MaterialColumn grid="s4">
+					<m:MaterialCardImage addStyleNames=" {style.imagecenterized}">
+						<m:MaterialImage url="images/clipboard.png"
+							height="120px" width="120px" />
+					</m:MaterialCardImage>
+					<m:MaterialLabel addStyleNames=" {style.tac}"
+						fontSize="1.15em" text="Activity" />
+					<m:MaterialTextBox addStyleNames=" {style.textboxcenterized}"
+						width="50%" textColor="WHITE" readOnly="false" />
+				</m:MaterialColumn>
+				<m:MaterialColumn grid="s4">
+					<m:MaterialCardImage addStyleNames=" {style.imagecenterized}">
+						<m:MaterialImage url="images/wallet.png" height="120px"
+							width="120px" />
+					</m:MaterialCardImage>
+					<m:MaterialLabel addStyleNames=" {style.tac}"
+						fontSize="1.15em" text="Duration" />
+					<m:MaterialTextBox addStyleNames=" {style.textboxcenterized}"
+						width="50%" textColor="WHITE" readOnly="false" />
+				</m:MaterialColumn>
+				<m:MaterialColumn grid="s4">
+					<m:MaterialCardImage addStyleNames=" {style.imagecenterized}">
+						<m:MaterialImage url="images/stopwatch.png"
+							height="120px" width="120px" />
+					</m:MaterialCardImage>
+					<m:MaterialLabel addStyleNames=" {style.tac}"
+						fontSize="1.15em" text="Duration" />
+					<m:MaterialTextBox addStyleNames=" {style.textboxcenterized}"
+						width="50%" textColor="WHITE" readOnly="false" />
+				</m:MaterialColumn>
+
+			</m:MaterialRow>
+
+			<m:MaterialRow>
+				<m:MaterialColumn grid="s4">
+					<m:MaterialCardImage addStyleNames=" {style.imagecenterized}">
+						<m:MaterialImage url="images/map-location.png"
+							height="120px" width="120px" />
+					</m:MaterialCardImage>
+					<m:MaterialLabel addStyleNames=" {style.tac}"
+						fontSize="1.15em" text="Location" />
+					<m:MaterialTextBox addStyleNames=" {style.textboxcenterized}"
+						width="50%" textColor="WHITE" readOnly="false" />
+				</m:MaterialColumn>
+				<m:MaterialColumn grid="s4">
+					<m:MaterialCardImage addStyleNames=" {style.imagecenterized}">
+						<m:MaterialImage url="images/clipboard.png"
+							height="120px" width="120px" />
+					</m:MaterialCardImage>
+					<m:MaterialLabel addStyleNames=" {style.tac}"
+						fontSize="1.15em" text="Something something" />
+					<m:MaterialTextBox addStyleNames=" {style.textboxcenterized}"
+						width="50%" textColor="WHITE" readOnly="false" />
+				</m:MaterialColumn>
+				<m:MaterialColumn grid="s4">
+					<m:MaterialCardImage addStyleNames=" {style.imagecenterized}">
+						<m:MaterialImage url="images/whatsapp.png"
+							height="120px" width="120px" />
+					</m:MaterialCardImage>
+					<m:MaterialLabel addStyleNames=" {style.tac}"
+						fontSize="1.15em" text="Contact" />
+					<m:MaterialTextBox addStyleNames=" {style.textboxcenterized}"
+						width="50%" textColor="WHITE" readOnly="false" />
+				</m:MaterialColumn>
+
+			</m:MaterialRow>
+
+		</m:MaterialModalContent>
+
+	</m:MaterialModal>
+
+</ui:UiBinder> 
