@@ -61,28 +61,28 @@
    
     <m:MaterialColumn grid="s4" addStyleNames=" {style.content-horizontal}">
      <m:MaterialCardImage>
-      <m:MaterialImage ui:field="imageDesc" url="images/clipboard.png" height="120px" width="120px" />
+      <m:MaterialImage ui:field="imageDesc" url="images/clipboard.png" height="90px" width="90px" />
      </m:MaterialCardImage>
       <m:MaterialLabel ui:field="name" text="Activity name"  textColor="WHITE" addStyleNames="{style.label}" />
     </m:MaterialColumn>
     
     <m:MaterialColumn grid="s4" addStyleNames="{style.content-horizontal}">
      <m:MaterialCardImage addStyleNames=" {style.center-horizontal}">
-      <m:MaterialImage ui:field="imageTime" url="images/stopwatch.png" height="120px" width="120px" />
+      <m:MaterialImage ui:field="imageTime" url="images/stopwatch.png" height="90px" width="90px" />
      </m:MaterialCardImage>
      <m:MaterialLabel ui:field="dateTime" text="Date and Time" fontSize="1.5em" textColor="WHITE" addStyleNames="{style.label}" />
     </m:MaterialColumn>
     
     <m:MaterialColumn grid="s4" addStyleNames=" {style.content-horizontal}">
      <m:MaterialCardImage addStyleNames=" {style.center-horizontal}">
-      <m:MaterialImage ui:field="imageLoc" url="images/map-location.png" height="120px" width="120px" />
+      <m:MaterialImage ui:field="imageLoc" url="images/map-location.png" height="90px" width="90px" />
      </m:MaterialCardImage>
      <m:MaterialLabel ui:field="location" text="Location" fontSize="1.5em" textColor="WHITE" addStyleNames="{style.label}" />
     </m:MaterialColumn>
 
     <m:MaterialColumn grid="s4" addStyleNames=" {style.content-horizontal}">
      <m:MaterialCardImage addStyleNames=" {style.center-horizontal}">
-      <m:MaterialImage ui:field="imageWhatsap" url="images/whatsapp.png" height="120px" width="120px" />
+      <m:MaterialImage ui:field="imageWhatsap" url="images/whatsapp.png" height="90px" width="90px" />
      </m:MaterialCardImage>
     
     <m:MaterialLabel ui:field="whatsapp" text="Chat with organizer" fontSize="1.5em" textColor="WHITE"  addStyleNames="{style.label}"/>
