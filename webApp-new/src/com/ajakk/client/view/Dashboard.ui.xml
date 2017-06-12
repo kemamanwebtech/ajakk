@@ -9,7 +9,7 @@
  }
  
  .side-nav li.active {
- 	background: #fff !important;
+ 	background: #e53935 !important;
  }
  
  body {
@@ -45,8 +45,32 @@
  .padding-txtbox {
     margin-left: 15px !important;
     margin-right: 15px !important;
-
 }
+
+ .content-horizontal {
+    margin: auto;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    margin-top: 3px;
+ }
+ 
+ .picker {
+    margin: 0 0 0 0 !important;
+ }
+ 
+  input[type="text"] {
+    background: white;
+    border: 1px solid #e9e9e9;
+    border-radius: 3px;
+    color: black;
+    font-size: 14px !important;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    height: 34px !important;
+ }
+ 
  </ui:style>
  <m:MaterialPanel>
   <!-- Splash screen -->
@@ -71,13 +95,13 @@
   </m:MaterialHeader>
 
   <!-- SideNav -->
-  <m:MaterialSideNav m:id="sidenav" width="250" overflow="AUTO" alwaysShowActivator="true" showOnAttach="false" type="FIXED"
-   shadow="0" backgroundColor="WHITE" top="120">
-   <m:MaterialLink text="Home" iconType="HOME" textColor="GREY_DARKEN_2" />
-   <m:MaterialLink ui:field="profile" text="Profile" iconType="ACCOUNT_CIRCLE" textColor="GREY_DARKEN_2" />
-   <m:MaterialLink text="Settings" iconType="COLLECTIONS" textColor="GREY_DARKEN_2" />
-   <m:MaterialLink text="Send Feedback" iconType="ANNOUNCEMENT" textColor="GREY_DARKEN_2" />
-   <m:MaterialLink text="Help" iconType="HELP" textColor="GREY_DARKEN_2" />
+  <m:MaterialSideNav m:id="sidenav" width="200" overflow="AUTO" alwaysShowActivator="true" showOnAttach="false" type="FIXED"
+   shadow="0" backgroundColor="RED_DARKEN_1" top="60" closeOnClick="true">
+   <m:MaterialLink text="Home" iconType="HOME" textColor="WHITE" />
+   <m:MaterialLink ui:field="profile" text="Profile" iconType="ACCOUNT_CIRCLE" textColor="WHITE" />
+   <m:MaterialLink text="Settings" iconType="COLLECTIONS" textColor="WHITE" />
+   <m:MaterialLink text="Send Feedback" iconType="ANNOUNCEMENT" textColor="WHITE" />
+   <m:MaterialLink text="Help" iconType="HELP" textColor="WHITE" />
   </m:MaterialSideNav>
 
   <!-- Container -->
@@ -88,38 +112,46 @@
     <m:MaterialLabel addStyleNames=" {style.center-horizontal}" text="Search for activities" fontSize="1.5em" textColor="GREY" />
     <m:MaterialRow width="70%" addStyleNames="{style.center-horizontal}" backgroundColor="TEAL_LIGHTEN_1">
      
-     <m:MaterialColumn grid="l3 m3 s12">
-       <m:MaterialCardImage addStyleNames=" {style.center-horizontal}">
-        <m:MaterialImage url="images/map-location.png" height="150px" width="150px"/>
-       </m:MaterialCardImage>
-       <m:MaterialCardContent textColor="WHITE"  addStyleNames="{style.padding-filter}" >
-        <m:MaterialLabel addStyleNames=" {style.tac}" fontSize="1.15em" text="Filter by location" />
-        <g:TextBox  addStyleNames=" {style.tac}" text="KL" >
-        </g:TextBox>
-       </m:MaterialCardContent>
-     </m:MaterialColumn>
+     <m:MaterialColumn grid="s4" addStyleNames=" {style.content-horizontal}">
+     <m:MaterialCardImage addStyleNames=" {style.center-horizontal}">
+      <m:MaterialImage ui:field="imgType" url="images/wallet.png" height="90px" width="90px" />
+     </m:MaterialCardImage>
+     <m:MaterialLabel addStyleNames="{style.tac}" fontSize="1.15em" text="Filter by activity" textColor="WHITE" />
+     <m:MaterialButton width="100%" ui:field="typeButton" activates="dp-2" marginTop="9" waves="RED"
+      backgroundColor="WHITE" textColor="BLACK" text="Futsal"/>
+     <m:MaterialDropDown activator="dp-2" ui:field="type">
+      <m:MaterialLink text="Futsal" />
+      <m:MaterialLink text="Basketball" />
+      <m:MaterialLink text="Volunteer" />
+     </m:MaterialDropDown>
+    </m:MaterialColumn>
+    
+     <m:MaterialColumn grid="s4" addStyleNames=" {style.content-horizontal}">
+     <m:MaterialCardImage addStyleNames=" {style.center-horizontal}">
+      <m:MaterialImage url="images/map-location.png" height="90px" width="90px" />
+     </m:MaterialCardImage>
+     <m:MaterialLabel addStyleNames="{style.tac}" fontSize="1.15em" text="Filter by activity" textColor="WHITE" />
+     <m:MaterialButton width="100%" ui:field="locButton" activates="dp-3" marginTop="9" waves="RED"
+      backgroundColor="WHITE" textColor="BLACK" text="Cyberjaya"/>
+     <m:MaterialDropDown activator="dp-3" ui:field="loc">
+      <m:MaterialLink text="KL" />
+      <m:MaterialLink text="Subang" />
+      <m:MaterialLink text="Puchong" />
+      <m:MaterialLink text="Cyberjaya" />
+     </m:MaterialDropDown>
+    </m:MaterialColumn>
 
-     <m:MaterialColumn grid="l3 m3 s12">
+     <m:MaterialColumn grid="s4" addStyleNames=" {style.content-horizontal}">
        <m:MaterialCardImage addStyleNames=" {style.center-horizontal}">
-        <m:MaterialImage url="images/calendar.png" height="150px" width="150px"/>
+        <m:MaterialImage url="images/calendar.png" height="90px" width="90px"/>
        </m:MaterialCardImage>
        <m:MaterialCardContent textColor="WHITE"  addStyleNames="{style.padding-filter}" >
-        <m:MaterialLabel addStyleNames=" {style.tac}" fontSize="1.15em" text="Filter by date" />
-        <g:TextBox  addStyleNames=" {style.tac}" text="After 30/12/2016">
-        </g:TextBox>
+        <m:MaterialLabel addStyleNames=" {style.tac}" fontSize="1.15em" text="After" />
+        <m:MaterialDatePicker ui:field="date" autoClose="true" addStyleNames=" {style.picker}" 
+        marginTop="8" paddingTop="5" />
        </m:MaterialCardContent>
      </m:MaterialColumn>
-
-     <m:MaterialColumn grid="l3 m3 s12">
-       <m:MaterialCardImage addStyleNames=" {style.center-horizontal}" >
-        <m:MaterialImage url="images/stopwatch.png" height="150px" width="150px"/>
-       </m:MaterialCardImage>
-       <m:MaterialCardContent textColor="WHITE"  addStyleNames="{style.padding-filter}" >
-        <m:MaterialLabel  addStyleNames=" {style.tac}" fontSize="1.15em" text="Filter by time" />
-        <g:TextBox addStyleNames=" {style.tac}" text="After 4PM">
-        </g:TextBox>
-       </m:MaterialCardContent>
-     </m:MaterialColumn>
+     
     </m:MaterialRow>
 
     <m:MaterialRow width="100%" addStyleNames=" {style.center-horizontal}">
