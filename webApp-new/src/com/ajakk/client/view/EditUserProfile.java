@@ -11,29 +11,32 @@ import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.HasText;
 import com.google.gwt.user.client.ui.Widget;
 
-import gwt.material.design.client.ui.MaterialLink;
 import gwt.material.design.client.ui.MaterialModal;
 
-public class UserProfile extends Composite {
+public class EditUserProfile extends Composite {
 	
     @UiField MaterialModal modal;
-//    @UiField MaterialLink editBtn;
 
 
-	private static UserProfileUiBinder uiBinder = GWT.create(UserProfileUiBinder.class);
+	private static EditUserProfileUiBinder uiBinder = GWT.create(EditUserProfileUiBinder.class);
 
-	interface UserProfileUiBinder extends UiBinder<Widget, UserProfile> {
+	interface EditUserProfileUiBinder extends UiBinder<Widget, EditUserProfile> {
 	}
 
-	public UserProfile() {
+	public EditUserProfile() {
 		initWidget(uiBinder.createAndBindUi(this));
 	}
-	
+
+	public EditUserProfile(String firstName) {
+		initWidget(uiBinder.createAndBindUi(this));
+	}
+
 	public void show() {
 		modal.setWidth("400px");
-		modal.setHeight("280px");
+		modal.setHeight("260px");
 		modal.setDismissible(true);
         modal.open();
     }
+
 
 }

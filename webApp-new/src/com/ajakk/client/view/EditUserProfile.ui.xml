@@ -13,39 +13,42 @@
 	}
 	
 	.detailRows1 {
-		padding-top: 60px;
+		height: 80%;
 }
 
+.detailRows2 {
+		height: 80%;
+}
 
 .firstcolumn {
 	border-right: solid;
-}
-
-.modalcont {
-	border: none !important;
 }
 	
 
  </ui:style>
 
 <m:MaterialModal type="FIXED_FOOTER" ui:field="modal" addStyleNames="{style.modal}" backgroundColor="TRANSPARENT">
-	<m:MaterialModalContent addStyleNames="{style.modalcont}">
+	<m:MaterialModalContent>
 		<m:MaterialRow>
 			<m:MaterialColumn grid="s4" addStyleNames="{style.firstcolumn}" >
 				<m:MaterialImage url="images/profile.png" type="CIRCLE" />
 				<m:MaterialLabel fontSize="1em" text="Rafsyam" />
-				<m:MaterialLabel fontSize="0.5em" text="Joined since 2018"></m:MaterialLabel>
 			</m:MaterialColumn>
 			<m:MaterialColumn grid="s8">
 				<m:MaterialRow addStyleNames="{style.detailRows1}">
 					<m:MaterialLabel fontSize="1em" text="Basketballer"></m:MaterialLabel>
 					<m:MaterialLabel fontSize="1em" text="Cyberjaya"></m:MaterialLabel>
 				</m:MaterialRow>
+				<m:MaterialRow addStyleNames="{style.detailRows2}">
+					
+					<m:MaterialLabel fontSize="0.5em" text="Joined since 2018"></m:MaterialLabel>
+				</m:MaterialRow>
+				
 			</m:MaterialColumn>
 		</m:MaterialRow>
 	 </m:MaterialModalContent>
 	 <m:MaterialModalFooter>
-	 	<m:MaterialButton ui:field="editBtn" backgroundColor="BLUE" text="Edit Profile" waves="LIGHT" textColor="WHITE" iconType="EDIT" iconPosition="LEFT"/>
+	 	<m:MaterialLink iconSize="SMALL" iconType="EDIT" iconPosition="RIGHT" />
 	 </m:MaterialModalFooter>
 </m:MaterialModal>
  
