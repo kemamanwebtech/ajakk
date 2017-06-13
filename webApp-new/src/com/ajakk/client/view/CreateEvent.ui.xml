@@ -71,9 +71,9 @@
      <m:MaterialCardImage addStyleNames=" {style.center-horizontal}">
       <m:MaterialImage ui:field="imgType" url="images/wallet.png" height="90px" width="90px" />
      </m:MaterialCardImage>
-     <m:MaterialButton width="100%" ui:field="typeButton" text="Futsal" activates="dp-2" marginTop="9" waves="RED"
+     <m:MaterialButton width="100%" ui:field="typeButton" text="Futsal" activates="dp-5" marginTop="9" waves="RED"
       backgroundColor="WHITE" textColor="BLACK" />
-     <m:MaterialDropDown activator="dp-2" ui:field="type">
+     <m:MaterialDropDown activator="dp-5" ui:field="type">
       <m:MaterialLink text="Futsal" />
       <m:MaterialLink text="Basketball" />
       <m:MaterialLink text="Volunteer" />
@@ -93,9 +93,9 @@
       <m:MaterialImage ui:field="imgLoc" url="images/map-location.png" height="90px" width="90px" />
      </m:MaterialCardImage>
 
-     <m:MaterialButton width="100%" ui:field="locBtn" text="KL" marginTop="9" activates="dp-3" waves="RED" backgroundColor="WHITE"
+     <m:MaterialButton width="100%" ui:field="locBtn" text="KL" marginTop="9" activates="dp-4" waves="RED" backgroundColor="WHITE"
       textColor="BLACK" />
-     <m:MaterialDropDown activator="dp-3" constrainWidth="false" ui:field="loc">
+     <m:MaterialDropDown activator="dp-4" constrainWidth="false" ui:field="loc">
       <m:MaterialLink text="KL" />
       <m:MaterialLink text="Subang" />
       <m:MaterialLink text="Puchong" />
