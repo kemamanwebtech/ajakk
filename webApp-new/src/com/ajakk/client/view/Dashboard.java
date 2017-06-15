@@ -43,6 +43,7 @@ public class Dashboard extends Composite {
     List<EventDTO>             eventList     = null;
     static EventDTO            selectedEvent = null;
     Date selectedDate = null;
+    static Dashboard instance = null;
     
     @UiField MaterialContainer cardContainer;
     @UiField MaterialLink      profile;
@@ -105,6 +106,7 @@ public class Dashboard extends Composite {
                 
             }
         });
+        instance = this;
     }
 
     public void getAllEvents() {
@@ -165,6 +167,14 @@ public class Dashboard extends Composite {
 
     @UiHandler("btnReload")
     public void onBtnReload(ClickEvent e) {
+        refreshActivity();
+    }
+    
+    public static Dashboard getInstance() {
+        return instance;
+    }
+    
+    public void refreshActivity() {
         cardContainer.clear();
         getAllEvents();
     }

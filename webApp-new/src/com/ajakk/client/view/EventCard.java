@@ -28,6 +28,7 @@ public class EventCard extends Composite {
     @UiField MaterialLabel lblEventDesc;
     @UiField MaterialRow cardBg;
     @UiField MaterialImage imageCard;
+    @UiField MaterialLabel lblEventName;
 
     public EventCard(EventDTO event) {
         initWidget(uiBinder.createAndBindUi(this));
@@ -40,6 +41,7 @@ public class EventCard extends Composite {
         String dayStr = format.format(date);
         
         lblEventDesc.setText("in " + event.getEventLoc() + " on " + dayStr + ", " + dateStr);
+        lblEventName.setText(event.getEventName());
         randomColor();
         
         changeBg();

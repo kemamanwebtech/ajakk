@@ -48,10 +48,6 @@ public class CreateEvent extends Composite {
     @UiField MaterialButton     btnSave;
     private final RpcAsync      rpc   = GWT.create(Rpc.class);
     String                      email = "";
- 
-    
-    
-   
     
     @UiHandler("btnSave")
     void onCreateEventClick(ClickEvent e) {
@@ -69,6 +65,7 @@ public class CreateEvent extends Composite {
                 if (result.equals("success")) {
                     App.showMessage("Your activity is created!");
                     RootPanel.get().remove(instance);
+                    Dashboard.getInstance().refreshActivity();
                 } else {
                     App.showMessage(result);
                 }

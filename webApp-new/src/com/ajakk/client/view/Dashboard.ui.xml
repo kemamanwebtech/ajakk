@@ -148,7 +148,7 @@
       </m:MaterialCardImage>
       <m:MaterialLabel addStyleNames="{style.tac}" fontSize="1.15em" text="Filter by activity" textColor="WHITE" />
       <m:MaterialButton width="100%" ui:field="typeButton" activates="dp-2" marginTop="9" waves="RED" backgroundColor="WHITE"
-       textColor="BLACK" text="Futsal" />
+       textColor="BLACK" text="ALL" />
       <m:MaterialDropDown activator="dp-2" ui:field="type">
        <m:MaterialLink text="Futsal" />
        <m:MaterialLink text="Basketball" />
@@ -162,7 +162,7 @@
       </m:MaterialCardImage>
       <m:MaterialLabel addStyleNames="{style.tac}" fontSize="1.15em" text="Filter by location" textColor="WHITE" />
       <m:MaterialButton width="100%" ui:field="locButton" activates="dp-3" marginTop="9" waves="RED" backgroundColor="WHITE"
-       textColor="BLACK" text="Cyberjaya" />
+       textColor="BLACK" text="ALL" />
       <m:MaterialDropDown activator="dp-3" ui:field="loc">
        <m:MaterialLink text="KL" />
        <m:MaterialLink text="Subang" />
