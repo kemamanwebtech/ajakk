@@ -2,13 +2,18 @@ package com.ajakk.client.view;
 
 import com.google.gwt.i18n.client.DateTimeFormat;
 import java.util.Date;
+import com.ajakk.client.App;
+import com.ajakk.client.Rpc;
+import com.ajakk.client.RpcAsync;
 import com.ajakk.shared.EventDTO;
+import com.ajakk.shared.UserDTO;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.user.client.Random;
+import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.Widget;
@@ -20,8 +25,8 @@ import gwt.material.design.client.ui.MaterialRow;
 
 public class EventCard extends Composite {
     private static EventCardUiBinder uiBinder = GWT.create(EventCardUiBinder.class);
-
     interface EventCardUiBinder extends UiBinder<Widget, EventCard> {}
+    private final RpcAsync   rpc = GWT.create(Rpc.class);
     
     public EventDTO event;
     @UiField MaterialButton btnActivityInfo;
@@ -29,6 +34,7 @@ public class EventCard extends Composite {
     @UiField MaterialRow cardBg;
     @UiField MaterialImage imageCard;
     @UiField MaterialLabel lblEventName;
+    String ownerName = "";
 
     public EventCard(EventDTO event) {
         initWidget(uiBinder.createAndBindUi(this));
@@ -40,11 +46,23 @@ public class EventCard extends Composite {
         format = DateTimeFormat.getFormat("EEE");
         String dayStr = format.format(date);
         
-        lblEventDesc.setText("in " + event.getEventLoc() + " on " + dayStr + ", " + dateStr);
-        lblEventName.setText(event.getEventName());
-        randomColor();
-        
-        changeBg();
+     // get Owner of this event
+        rpc.getUserFromID(event.getOwnerID(), new AsyncCallback<UserDTO>() {
+            @Override
+            public void onFailure(Throwable caught) {
+                App.showMessage(caught.getMessage());
+            }
+
+            @Override
+            public void onSuccess(UserDTO ownerEvent) {
+                ownerName = ownerEvent.getName();
+                lblEventName.setText(ownerName + " ajakk " + event.getEventType() + " in " + event.getEventLoc());
+                lblEventDesc.setText(" on " + dayStr + ", " + dateStr);
+                randomColor();
+                changeBg();
+            }
+            
+        });
     }
 
     private void changeBg() {
