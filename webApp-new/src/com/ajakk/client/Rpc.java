@@ -17,7 +17,10 @@ public interface Rpc extends RemoteService {
             String email, 
             String passwd) throws IllegalArgumentException;
 
-    List<EventDTO> getAllEvents();
+    List<EventDTO> getAllEvents(
+            String typeFilter,
+            String locFilter,
+            String dateFilter);
     
     String doSignup(
             String name, 

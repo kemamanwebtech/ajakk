@@ -43,13 +43,13 @@ public class RpcImpl extends RemoteServiceServlet implements Rpc {
     }
 
     @Override
-    public List<EventDTO> getAllEvents() {
+    public List<EventDTO> getAllEvents(String typeFilter, String locFilter, String dateFilter) {
         List<EventDTO> eventList = new ArrayList<EventDTO>();
         Connection con = daoFactory.getConnection();
 
         EventDAO eventDAO = daoFactory.getEventDAO();
 
-        eventList = eventDAO.getAllEvents(con);
+        eventList = eventDAO.getAllEvents(typeFilter, locFilter, dateFilter, con);
         return eventList;
     }
 

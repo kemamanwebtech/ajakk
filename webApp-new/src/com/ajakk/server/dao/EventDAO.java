@@ -8,6 +8,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import com.ajakk.server.NamedParameterStatement;
 import com.ajakk.server.ServerSideUtil;
 import com.ajakk.shared.EventDTO;
 import com.ajakk.shared.UserDTO;
@@ -25,20 +26,62 @@ public class EventDAO {
      * 
      * No filter, hence no params needed. Connection will be provided by
      * FactoryDAO
+     * @param dateFilter 
+     * @param locFilter 
+     * @param typeFilter 
      */
-    public List<EventDTO> getAllEvents(Connection con) {
+    public List<EventDTO> getAllEvents(String typeFilter, String locFilter, String dateFilter, Connection con) {
         
         eventList = new ArrayList<EventDTO>();
+        Boolean typeF = false;
+        Boolean locF = false;
+        Boolean dateF = false;
         
         // be specific of what fields we want, avoid using *
         String sql = " SELECT EVENT_ID, NAME, DES, TYPE, OWNER_ID, CONFIRMED_DATE, LOC FROM EVENT ";
         
+        if (!typeFilter.isEmpty() || !(typeFilter.equals(""))
+            || !locFilter.isEmpty() || !(locFilter.equals("")) 
+            || !dateFilter.isEmpty() || !(dateFilter.equals(""))) {
+            String where = " WHERE ";
+            sql += where;
+            Boolean i = false;
+            
+            if (!typeFilter.isEmpty() || !(typeFilter.equals(""))){
+                sql += " TYPE=:TYPE ";
+                i = true;
+                typeF = true;
+            }
+            
+            if (!locFilter.isEmpty() || !(locFilter.equals(""))){
+                if (i) {
+                    sql += " and LOC=:LOC ";
+                } else {
+                    sql += " LOC=:LOC ";
+                    i = true;
+                }
+                locF = true;
+            }
+            
+            if (!dateFilter.isEmpty() || !(dateFilter.equals(""))){
+                if (i) {
+                    sql += " and CONFIRMED_DATE>:CONFIRMED_DATE ";
+                } else {
+                    sql += " CONFIRMED_DATE>:CONFIRMED_DATE ";
+                }
+                dateF = true;
+            }
+        }
         
         try {
-            PreparedStatement stmt = con.prepareStatement(sql);
+            NamedParameterStatement stmt = new NamedParameterStatement(con, sql);
+            if (typeF) stmt.setString("TYPE", typeFilter);
+            if (locF) stmt.setString("LOC", locFilter);
+            if (dateF) stmt.setString("CONFIRMED_DATE", dateFilter + "%");
+            
             ResultSet rs = stmt.executeQuery();
             
-            System.out.println(stmt.toString());
+            System.out.println(stmt.getStatement());
 
             while (rs.next()) {
                 EventDTO event  = new EventDTO();

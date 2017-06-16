@@ -17,7 +17,7 @@ public interface RpcAsync {
             AsyncCallback<LoginDTO> callback) throws IllegalArgumentException;
 
     @SuppressWarnings("rawtypes")
-    void getAllEvents(AsyncCallback asyncCallback);
+    void getAllEvents(String typeFilter, String locFilter, String dateFilter, AsyncCallback asyncCallback);
     
     /**
      * Register a user

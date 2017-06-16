@@ -1,4 +1,5 @@
 package com.ajakk.client.view;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -24,19 +25,19 @@ import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.Widget;
-import com.google.gwt.user.datepicker.client.DatePicker;
+import gwt.material.design.client.constants.ProgressType;
 import gwt.material.design.client.ui.MaterialButton;
 import gwt.material.design.client.ui.MaterialContainer;
 import gwt.material.design.client.ui.MaterialDatePicker;
 import gwt.material.design.client.ui.MaterialDropDown;
 import gwt.material.design.client.ui.MaterialLink;
+import gwt.material.design.client.ui.MaterialNavBar;
 import gwt.material.design.client.ui.MaterialFAB;
 import gwt.material.design.client.ui.MaterialRow;
 import gwt.material.design.client.ui.MaterialSplashScreen;
 
 public class Dashboard extends Composite {
     private static DashboardUiBinder uiBinder = GWT.create(DashboardUiBinder.class);
-
     interface DashboardUiBinder extends UiBinder<Widget, Dashboard> {}
 
     private final RpcAsync     rpc           = GWT.create(Rpc.class);
@@ -44,7 +45,7 @@ public class Dashboard extends Composite {
     static EventDTO            selectedEvent = null;
     Date selectedDate = null;
     static Dashboard instance = null;
-    
+
     @UiField MaterialContainer cardContainer;
     @UiField MaterialLink      profile;
     @UiField MaterialFAB       btnCreateActivity;
@@ -57,12 +58,15 @@ public class Dashboard extends Composite {
     @UiField MaterialDropDown  loc;
     @UiField MaterialButton    locButton;
     @UiField MaterialSplashScreen splash;
+    @UiField MaterialNavBar navBar;
 
-    
+    String typeFilter = "";
+    String locFilter = "";
+    String dateFilter = "";
 
     public Dashboard() {
         initWidget(uiBinder.createAndBindUi(this));
-        
+
         splash.show();
         Timer t = new Timer() {
         @Override
@@ -71,7 +75,7 @@ public class Dashboard extends Composite {
             }
         };
         t.schedule(1000);
-        
+
         eventList = new ArrayList<EventDTO>();
         getAllEvents();
         type.addSelectionHandler(new SelectionHandler<Widget>() {
@@ -79,6 +83,9 @@ public class Dashboard extends Composite {
             public void onSelection(SelectionEvent<Widget> event) {
                 MaterialLink a = (MaterialLink) event.getSelectedItem();
                 typeButton.setText(a.getElement().getInnerText());
+                if (!(a.getText().equalsIgnoreCase("ALL"))) {
+                    typeFilter = a.getElement().getInnerText();
+                } else typeFilter = "";
             }
         });
         loc.addSelectionHandler(new SelectionHandler<Widget>() {
@@ -86,6 +93,9 @@ public class Dashboard extends Composite {
             public void onSelection(SelectionEvent<Widget> event) {
                 MaterialLink a = (MaterialLink) event.getSelectedItem();
                 locButton.setText(a.getText());
+                if (!(a.getText().equalsIgnoreCase("ALL"))) {
+                    locFilter = a.getText();
+                } else locFilter = "";
             }
         });
         selectedDate = new Date();
@@ -95,22 +105,28 @@ public class Dashboard extends Composite {
                 selectedDate = event.getValue();
                 String dated = DateTimeFormat.getFormat("MMM d, yyyy").format(selectedDate);
                 dateButton.setText(dated);
+                dateFilter = DateTimeFormat.getFormat("yyyy-MM-dd").format(selectedDate);
+                
+                if (dateButton.getText().equalsIgnoreCase("ANY")){
+                    dateFilter = "";
+                    datePicker.clearValues();
+                }
             }
         });
-        
+
         datePicker.addCloseHandler(new CloseHandler<MaterialDatePicker>() {
             @Override
             public void onClose(CloseEvent<MaterialDatePicker> event) {
                 datePicker.getElement().getStyle().setProperty("display", "none");
                 dateButton.getElement().getStyle().setDisplay(Display.INITIAL);
-                
             }
         });
         instance = this;
     }
 
     public void getAllEvents() {
-        rpc.getAllEvents(new AsyncCallback<List<EventDTO>>() {
+        navBar.showProgress(ProgressType.INDETERMINATE);
+        rpc.getAllEvents(typeFilter, locFilter, dateFilter, new AsyncCallback<List<EventDTO>>() {
             @Override
             public void onFailure(Throwable caught) {
                 App.showMessage(caught.toString());
@@ -135,18 +151,16 @@ public class Dashboard extends Composite {
                 }
             }
         });
+        navBar.hideProgress();
     }
-    
-    
+
     @UiHandler("dateButton")
     void onDateButtonClicked(ClickEvent e) {
-        //widget.getElement().getStyle().setProperty("align", "right");
         datePicker.getElement().getStyle().setDisplay(Display.FLEX);
         datePicker.getChildren().get(0).getElement().getStyle().setProperty("display", "none");
         datePicker.getChildren().get(1).getElement().getStyle().setProperty("display", "none");
         datePicker.getChildren().get(2).getElement().getStyle().setProperty("display", "none");
         dateButton.getElement().getStyle().setDisplay(Display.NONE);
-        //datePicker.removeStyleName("hidden");
         datePicker.open();
     }
 
@@ -169,13 +183,25 @@ public class Dashboard extends Composite {
     public void onBtnReload(ClickEvent e) {
         refreshActivity();
     }
-    
+
     public static Dashboard getInstance() {
         return instance;
     }
-    
+
     public void refreshActivity() {
         cardContainer.clear();
         getAllEvents();
+    }
+
+    @UiHandler("btnClearFilters")
+    public void clearFilter(ClickEvent e) {
+        typeFilter = "";
+        locFilter = "";
+        dateFilter = "";
+        typeButton.setText("ALL");
+        locButton.setText("ALL");
+        dateButton.setText("ANY");
+        datePicker.clearValues();
+        refreshActivity();
     }
 }
