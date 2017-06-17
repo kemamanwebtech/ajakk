@@ -33,6 +33,7 @@ public interface RpcAsync {
             String email, 
             String password, 
             String phone,
+            String location,
             AsyncCallback<String> asyncCallback);
 
     void createEvent(

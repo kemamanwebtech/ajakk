@@ -36,6 +36,7 @@ public class Register extends Composite {
     @UiField MaterialTextBox txtEmail;
     @UiField MaterialTextBox txtPassword;
     @UiField MaterialTextBox txtPhone;
+    @UiField MaterialTextBox txtLocation;
 
     public Register() {
         initWidget(uiBinder.createAndBindUi(this));
@@ -49,6 +50,7 @@ public class Register extends Composite {
 
         rpc.doSignup(txtName.getText(), txtEmail.getText(),
                 txtPassword.getText(), txtPhone.getText(),
+                txtLocation.getText(),
                 new AsyncCallback<String>() {
 
                     @Override

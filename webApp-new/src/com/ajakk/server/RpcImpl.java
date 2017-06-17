@@ -55,9 +55,9 @@ public class RpcImpl extends RemoteServiceServlet implements Rpc {
 
     @Override
     public String doSignup(String name, String email, String password,
-            String phone) {
+            String phone, String location) {
 
-        UserDTO user = new UserDTO(name, email, phone);
+        UserDTO user = new UserDTO(name, email, phone, location);
         Connection con = daoFactory.getConnection();
         UserDAO userDAO = daoFactory.getUserDAO();
 

@@ -13,43 +13,44 @@
 	}
 	
 	.detailRows1 {
-		height: 80%;
+		padding-top: 60px;
 }
 
-.detailRows2 {
-		height: 80%;
-}
 
 .firstcolumn {
 	border-right: solid;
+}
+
+.modalcont {
+	border: none !important;
+}
+
+.editBtn {
 }
 	
 
  </ui:style>
 
 <m:MaterialModal type="FIXED_FOOTER" ui:field="modal" addStyleNames="{style.modal}" backgroundColor="TRANSPARENT">
-	<m:MaterialModalContent>
+	<m:MaterialModalContent addStyleNames="{style.modalcont}">
 		<m:MaterialRow>
 			<m:MaterialColumn grid="s4" addStyleNames="{style.firstcolumn}" >
-				<m:MaterialImage url="images/profile.png" type="CIRCLE" />
-				<m:MaterialLabel fontSize="1em" text="Rafsyam" />
+				<m:MaterialImage ui:field="userProfilePic" url="images/profile.png" type="CIRCLE" />
+				<m:MaterialLabel ui:field="userName" fontSize="1em" />
+				<m:MaterialLabel ui:field="dateJoined" fontSize="0.5em"></m:MaterialLabel>
 			</m:MaterialColumn>
 			<m:MaterialColumn grid="s8">
 				<m:MaterialRow addStyleNames="{style.detailRows1}">
-					<m:MaterialLabel fontSize="1em" text="Basketballer"></m:MaterialLabel>
-					<m:MaterialLabel fontSize="1em" text="Cyberjaya"></m:MaterialLabel>
+					<m:MaterialTextBox ui:field="userActivity" fontSize="1em"></m:MaterialTextBox>
+					<m:MaterialTextBox ui:field="userLocation" fontSize="1em" text="Cyberjaya"></m:MaterialTextBox>
+					<m:MaterialTextBox ui:field="userDescription" fontSize="0.7em"></m:MaterialTextBox>
 				</m:MaterialRow>
-				<m:MaterialRow addStyleNames="{style.detailRows2}">
-					
-					<m:MaterialLabel fontSize="0.5em" text="Joined since 2018"></m:MaterialLabel>
-				</m:MaterialRow>
-				
 			</m:MaterialColumn>
+				<m:MaterialRow>
+					<m:MaterialButton addStyleNames="{style.editBtn}" ui:field="editBtn" backgroundColor="BLUE" text="Edit Profile" waves="LIGHT" textColor="WHITE" iconType="EDIT" iconPosition="LEFT"/>
+				</m:MaterialRow>
 		</m:MaterialRow>
 	 </m:MaterialModalContent>
-	 <m:MaterialModalFooter>
-	 	<m:MaterialLink iconSize="SMALL" iconType="EDIT" iconPosition="RIGHT" />
-	 </m:MaterialModalFooter>
 </m:MaterialModal>
  
 </ui:UiBinder> 

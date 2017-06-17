@@ -22,11 +22,7 @@ public interface Rpc extends RemoteService {
             String locFilter,
             String dateFilter);
     
-    String doSignup(
-            String name, 
-            String email, 
-            String password, 
-            String phone);
+    String doSignup(String name, String email, String password, String phone, String location);
     
     String createEvent(
             String name, 

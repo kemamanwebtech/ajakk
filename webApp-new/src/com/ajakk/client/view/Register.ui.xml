@@ -37,6 +37,7 @@
    <m:MaterialTextBox ui:field="txtEmail" label="Email" iconType="ACCOUNT_CIRCLE" />
    <m:MaterialTextBox ui:field="txtPassword" label="Password" iconType="SECURITY" />
    <m:MaterialTextBox ui:field="txtPhone" label="Phone" iconType="SMARTPHONE" />
+   <m:MaterialTextBox ui:field="txtLocation" label="Phone" iconType="SMARTPHONE" />
    <m:MaterialButton ui:field="btnReg" text="REGISTER" waves="RED" backgroundColor="BLUE" textColor="WHITE" iconType="CREATE"
     iconPosition="LEFT" display="BLOCK" addStyleNames="{style.btn}">
    </m:MaterialButton>

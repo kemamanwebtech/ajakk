@@ -22,7 +22,7 @@
  	display: flex;
  	align-items: center;
  	justify-content: center;
-    margin-top: 10px;	
+ 	margin-top: 10px;
  }
  
  input[type="text"] {
@@ -35,48 +35,80 @@
  }
  
  .tac {
-	text-align: center;
-}
+ 	text-align: center;
+ }
  
  .padding-filter {
-    padding-top: 5px !important;
-}
-
+ 	padding-top: 5px !important;
+ }
+ 
  .padding-txtbox {
-    margin-left: 15px !important;
-    margin-right: 15px !important;
-}
-
+ 	margin-left: 15px !important;
+ 	margin-right: 15px !important;
+ }
+ 
  .content-horizontal {
-    margin: auto;
-    width: 100%;
-    align-items: center;
-    justify-content: center;
-    margin-top: 3px;
+ 	margin: auto;
+ 	width: 100%;
+ 	align-items: center;
+ 	justify-content: center;
+ 	margin-top: 3px;
+ 	margin-bottom: 10px;
  }
  
  .picker {
-    margin: 0 0 0 0 !important;
+ 	margin: 0 0 0 0 !important;
+ 	display : none;
  }
  
-  input[type="text"] {
-    background: white;
-    border: 1px solid #e9e9e9;
-    border-radius: 3px;
-    color: black;
-    font-size: 14px !important;
-    font-weight: 400;
-    line-height: 1.42857143;
-    text-align: center;
-    height: 34px !important;
+
+ 
+ input[type="text"] {
+ 	background: white;
+ 	border: 1px solid #e9e9e9 !important;
+ 	border-radius: 3px !important;
+ 	color: black !important;
+ 	font-size: 14px !important;
+ 	font-weight: 400 !important;
+ 	line-height: 1.42857143 !important;
+ 	text-align: center !important;
+ 	height: 34px !important;
  }
  
+ .dateLabel {
+ 	background: white;
+ 	border: 1px solid #e9e9e9 !important;
+ 	border-radius: 3px !important;
+ 	color: black !important;
+ 	font-size: 14px !important;
+ 	font-weight: 400 !important;
+ 	line-height: 1.42857143 !important;
+ 	text-align: center !important;
+ 	height: 34px !important;
+ 	margin: auto !important;
+ 	width: 100% !important;
+ 	align-items: center !important;
+ 	justify-content: center !important;
+ }
+ 
+ .input-field label {
+ 	font-size: 14px !important;
+ 	transition: .2s ease-out;
+ 	font-weight: 400 !important;
+ 	line-height: 1.42857143 !important;
+ 	text-align: center !important;
+ 	height: 34px !important;
+ 	margin: auto !important;
+ 	width: 100% !important;
+ 	align-items: center !important;
+ 	justify-content: center !important;
+ }
  </ui:style>
  <m:MaterialPanel>
   <!-- Splash screen -->
   <m:MaterialSplashScreen ui:field="splash" depth="1000" backgroundColor="RED_DARKEN_1" textColor="WHITE" textAlign="CENTER">
-  <m:MaterialTitle title="Ajakk" description="Do activity, together." fontSize="1.9em" />
-</m:MaterialSplashScreen>
+   <m:MaterialTitle title="Ajakk" description="Do activity, together." fontSize="1.9em" />
+  </m:MaterialSplashScreen>
 
   <!-- Header -->
   <m:MaterialHeader layoutPosition="FIXED" width="100%" shadow="1" depth="996">
@@ -105,75 +137,79 @@
   <!-- Container -->
   <m:MaterialContainer paddingLeft="180" paddingRight="180" paddingTop="100">
 
-   <m:MaterialContainer width="100%" >
+   <m:MaterialContainer width="100%">
 
     <m:MaterialLabel addStyleNames=" {style.center-horizontal}" text="Search for activities" fontSize="1.5em" textColor="GREY" />
     <m:MaterialRow width="70%" addStyleNames="{style.center-horizontal}" backgroundColor="TEAL_LIGHTEN_1">
-     
-     <m:MaterialColumn grid="s4" addStyleNames=" {style.content-horizontal}">
-     <m:MaterialCardImage addStyleNames=" {style.center-horizontal}">
-      <m:MaterialImage ui:field="imgType" url="images/wallet.png" height="90px" width="90px" />
-     </m:MaterialCardImage>
-     <m:MaterialLabel addStyleNames="{style.tac}" fontSize="1.15em" text="Filter by activity" textColor="WHITE" />
-     <m:MaterialButton width="100%" ui:field="typeButton" activates="dp-2" marginTop="9" waves="RED"
-      backgroundColor="WHITE" textColor="BLACK" text="Futsal"/>
-     <m:MaterialDropDown activator="dp-2" ui:field="type">
-      <m:MaterialLink text="Futsal" />
-      <m:MaterialLink text="Basketball" />
-      <m:MaterialLink text="Volunteer" />
-     </m:MaterialDropDown>
-    </m:MaterialColumn>
-    
-     <m:MaterialColumn grid="s4" addStyleNames=" {style.content-horizontal}">
-     <m:MaterialCardImage addStyleNames=" {style.center-horizontal}">
-      <m:MaterialImage url="images/map-location.png" height="90px" width="90px" />
-     </m:MaterialCardImage>
-     <m:MaterialLabel addStyleNames="{style.tac}" fontSize="1.15em" text="Filter by location" textColor="WHITE" />
-     <m:MaterialButton width="100%" ui:field="locButton" activates="dp-3" marginTop="9" waves="RED"
-      backgroundColor="WHITE" textColor="BLACK" text="Cyberjaya"/>
-     <m:MaterialDropDown activator="dp-3" ui:field="loc">
-      <m:MaterialLink text="KL" />
-      <m:MaterialLink text="Subang" />
-      <m:MaterialLink text="Puchong" />
-      <m:MaterialLink text="Cyberjaya" />
-     </m:MaterialDropDown>
-    </m:MaterialColumn>
 
      <m:MaterialColumn grid="s4" addStyleNames=" {style.content-horizontal}">
-       <m:MaterialCardImage addStyleNames=" {style.center-horizontal}">
-        <m:MaterialImage url="images/calendar.png" height="90px" width="90px"/>
-       </m:MaterialCardImage>
-       <m:MaterialCardContent textColor="WHITE"  addStyleNames="{style.padding-filter}" >
-        <m:MaterialLabel addStyleNames=" {style.tac}" fontSize="1.15em" text="After" />
-        <m:MaterialDatePicker ui:field="date" autoClose="true" addStyleNames=" {style.picker}" 
-        marginTop="8" paddingTop="5" />
-       </m:MaterialCardContent>
+      <m:MaterialCardImage addStyleNames="{style.center-horizontal}">
+       <m:MaterialImage ui:field="imgType" url="images/wallet.png" height="90px" width="90px" />
+      </m:MaterialCardImage>
+      <m:MaterialLabel addStyleNames="{style.tac}" fontSize="1.15em" text="Filter by activity" textColor="WHITE" />
+      <m:MaterialButton width="100%" ui:field="typeButton" activates="dp-2" marginTop="9" waves="RED" backgroundColor="WHITE"
+       textColor="BLACK" text="ALL" />
+      <m:MaterialDropDown activator="dp-2" ui:field="type">
+       <m:MaterialLink text="Futsal" />
+       <m:MaterialLink text="Basketball" />
+       <m:MaterialLink text="Volunteer" />
+      </m:MaterialDropDown>
      </m:MaterialColumn>
-     
+
+     <m:MaterialColumn grid="s4" addStyleNames=" {style.content-horizontal}">
+      <m:MaterialCardImage addStyleNames=" {style.center-horizontal}">
+       <m:MaterialImage url="images/map-location.png" height="90px" width="90px" />
+      </m:MaterialCardImage>
+      <m:MaterialLabel addStyleNames="{style.tac}" fontSize="1.15em" text="Filter by location" textColor="WHITE" />
+      <m:MaterialButton width="100%" ui:field="locButton" activates="dp-3" marginTop="9" waves="RED" backgroundColor="WHITE"
+       textColor="BLACK" text="ALL" />
+      <m:MaterialDropDown activator="dp-3" ui:field="loc">
+       <m:MaterialLink text="KL" />
+       <m:MaterialLink text="Subang" />
+       <m:MaterialLink text="Puchong" />
+       <m:MaterialLink text="Cyberjaya" />
+      </m:MaterialDropDown>
+     </m:MaterialColumn>
+
+     <m:MaterialColumn grid="s4" addStyleNames=" {style.content-horizontal}">
+      <m:MaterialCardImage addStyleNames=" {style.center-horizontal}">
+       <m:MaterialImage url="images/calendar.png" height="90px" width="90px" />
+      </m:MaterialCardImage>
+      <m:MaterialCardContent textColor="WHITE" addStyleNames="{style.padding-filter}">
+       <m:MaterialLabel addStyleNames=" {style.tac}" fontSize="1.15em" text="After" />
+       <m:MaterialButton width="100%" ui:field="dateButton" activates="dp-2" marginTop="9" waves="RED" backgroundColor="WHITE"
+        textColor="BLACK" text="SELECT DATE" />
+       <m:MaterialDatePicker ui:field="datePicker" autoClose="true" addStyleNames="{style.picker} {style.dateLabel}"
+        marginTop="8" paddingTop="5" placeholder="SELECT DATE" />
+      </m:MaterialCardContent>
+     </m:MaterialColumn>
+
     </m:MaterialRow>
 
     <m:MaterialRow width="100%" addStyleNames=" {style.center-horizontal}">
-     <m:MaterialButton  margin="5" backgroundColor="RED"  text="RELOAD ACTIVITIES" ui:field="btnReload"
-     waves="DEFAULT" tooltip="Refresh activities list" tooltipPosition="LEFT" iconType="AUTORENEW"> </m:MaterialButton>
-     <m:MaterialButton  margin="5" iconPosition="RIGHT" backgroundColor="RED"  text="CLEAR FILTER" ui:field="btnClearFilters"
-     waves="DEFAULT" tooltip="Clear filters" tooltipPosition="RIGHT" iconType="CANCEL"> </m:MaterialButton>
-    
-    </m:MaterialRow> 
+     <m:MaterialButton margin="5" backgroundColor="RED" text="RELOAD ACTIVITIES" ui:field="btnReload" waves="DEFAULT"
+      tooltip="Refresh activities list" tooltipPosition="LEFT" iconType="AUTORENEW">
+     </m:MaterialButton>
+     <m:MaterialButton margin="5" iconPosition="RIGHT" backgroundColor="RED" text="CLEAR FILTER" ui:field="btnClearFilters"
+      waves="DEFAULT" tooltip="Clear filters" tooltipPosition="RIGHT" iconType="CANCEL">
+     </m:MaterialButton>
+
+    </m:MaterialRow>
    </m:MaterialContainer>
 
    <!-- Activities Card -->
    <m:MaterialLabel addStyleNames=" {style.center-horizontal}" text="Upcoming activities" fontSize="1.5em" textColor="GREY" />
    <ma:masonry.MaterialMasonry>
-   <m:MaterialContainer ui:field="cardContainer">
-   
-   </m:MaterialContainer>
+    <m:MaterialContainer ui:field="cardContainer">
+
+    </m:MaterialContainer>
    </ma:masonry.MaterialMasonry>
   </m:MaterialContainer>
 
   <!-- FAB -->
   <m:MaterialFAB ui:field="btnCreateActivity">
-   <m:MaterialAnchorButton
-    waves="DEFAULT" type="FLOATING" tooltip="Create activity" tooltipPosition="LEFT" iconType="ADD" backgroundColor="BLUE" size="LARGE" />
+   <m:MaterialAnchorButton waves="DEFAULT" type="FLOATING" tooltip="Create activity" tooltipPosition="LEFT" iconType="ADD"
+    backgroundColor="BLUE" size="LARGE" />
   </m:MaterialFAB>
  </m:MaterialPanel>
 </ui:UiBinder>

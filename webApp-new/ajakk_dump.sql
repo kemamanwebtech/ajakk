@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.6.36, for linux-glibc2.5 (x86_64)
+-- MySQL dump 10.13  Distrib 5.5.55, for debian-linux-gnu (x86_64)
 --
 -- Host: localhost    Database: ajakk
 -- ------------------------------------------------------
--- Server version	5.6.36
+-- Server version	5.5.55-0+deb8u1
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -14,16 +14,6 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-
---
--- Current Database: `ajakk`
---
-
-/*!40000 DROP DATABASE IF EXISTS `ajakk`*/;
-
-CREATE DATABASE /*!32312 IF NOT EXISTS*/ `ajakk` /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci */;
-
-USE `ajakk`;
 
 --
 -- Table structure for table `AJAKK_PASS`
@@ -50,7 +40,7 @@ CREATE TABLE `AJAKK_PASS` (
 
 LOCK TABLES `AJAKK_PASS` WRITE;
 /*!40000 ALTER TABLE `AJAKK_PASS` DISABLE KEYS */;
-INSERT INTO `AJAKK_PASS` VALUES (1,'password',NULL,0,'2017-06-11 12:51:41',NULL,0),(2,'password',NULL,0,'2017-06-11 12:51:41',NULL,0),(3,'password',NULL,0,'2017-06-11 12:51:41',NULL,0),(4,'password',NULL,0,'2017-06-11 12:51:41',NULL,0),(5,'password',NULL,0,'2017-06-11 12:51:41',NULL,0),(9,'password',NULL,0,'2017-06-11 13:51:59',NULL,0);
+INSERT INTO `AJAKK_PASS` VALUES (1,'password',NULL,0,'2017-06-11 12:51:41',NULL,0),(2,'password',NULL,0,'2017-06-11 12:51:41',NULL,0),(3,'password',NULL,0,'2017-06-11 12:51:41',NULL,0),(4,'password',NULL,0,'2017-06-11 12:51:41',NULL,0),(5,'password',NULL,0,'2017-06-11 12:51:41',NULL,0),(9,'password',NULL,0,'2017-06-11 13:51:59',NULL,0),(10,'pass',NULL,0,'2017-06-16 12:50:52',NULL,0);
 /*!40000 ALTER TABLE `AJAKK_PASS` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -73,8 +63,9 @@ CREATE TABLE `AJAKK_USER` (
   `UPDATED` datetime DEFAULT NULL COMMENT 'Last update to the user',
   `SUSPENDED` datetime DEFAULT NULL COMMENT 'Date and time until which the user is suspended (due to invalid data entry in UMB)',
   `DES` varchar(256) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'Optional description for the user',
+  `LOCATION` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`AJAKK_USER_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='Basic data of a AJAKK user';
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='Basic data of a AJAKK user';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -83,7 +74,7 @@ CREATE TABLE `AJAKK_USER` (
 
 LOCK TABLES `AJAKK_USER` WRITE;
 /*!40000 ALTER TABLE `AJAKK_USER` DISABLE KEYS */;
-INSERT INTO `AJAKK_USER` VALUES (1,'active','admin@ajak.com','1300-88-2525','BASKETBALL','Active',0,'2017-06-11 12:51:59','2017-06-11 20:51:59',NULL,NULL),(2,'blocked','admin@ajak.com','1300-88-2525','FOOTBALL','Blocked',0,'2017-06-11 12:51:59','2017-06-11 20:51:59',NULL,NULL),(3,'locked','admin@ajak.com','1300-88-2525','FUTSAL','Locked',0,'2017-06-11 12:51:59','2017-06-11 20:51:59',NULL,NULL),(4,'deleted','admin@ajak.com','1300-88-2525','BASKETBALL','Deleted',0,'2017-06-11 12:51:59','2017-06-11 20:51:59',NULL,NULL),(5,'nonactive','admin@ajak.com','1300-88-2525','BASKETBALL','NotActive',0,'2017-06-11 12:51:59','2017-06-11 20:51:59',NULL,NULL),(9,'Raf','mrafsyam@gmail.com','0183102718',NULL,'Active',0,'2017-06-11 13:02:12',NULL,NULL,NULL);
+INSERT INTO `AJAKK_USER` VALUES (1,'active','admin@ajak.com','1300-88-2525','BASKETBALL','Active',0,'2017-06-11 12:51:59','2017-06-11 20:51:59',NULL,NULL,NULL),(2,'blocked','admin@ajak.com','1300-88-2525','FOOTBALL','Blocked',0,'2017-06-11 12:51:59','2017-06-11 20:51:59',NULL,NULL,NULL),(3,'locked','admin@ajak.com','1300-88-2525','FUTSAL','Locked',0,'2017-06-11 12:51:59','2017-06-11 20:51:59',NULL,NULL,NULL),(4,'deleted','admin@ajak.com','1300-88-2525','BASKETBALL','Deleted',0,'2017-06-11 12:51:59','2017-06-11 20:51:59',NULL,NULL,NULL),(5,'nonactive','admin@ajak.com','1300-88-2525','BASKETBALL','NotActive',0,'2017-06-11 12:51:59','2017-06-11 20:51:59',NULL,NULL,NULL),(9,'Raf','mrafsyam@gmail.com','0183102718','BASKETBALL','Active',0,'2017-06-11 13:02:12',NULL,NULL,'Im A nooB','CYBERJAYA'),(10,'seri','test@test.com','999',NULL,'Active',0,'2017-06-16 12:50:52',NULL,NULL,NULL,'Kota');
 /*!40000 ALTER TABLE `AJAKK_USER` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -146,7 +137,7 @@ CREATE TABLE `EVENT_PARTICIPANT` (
 
 LOCK TABLES `EVENT_PARTICIPANT` WRITE;
 /*!40000 ALTER TABLE `EVENT_PARTICIPANT` DISABLE KEYS */;
-INSERT INTO `EVENT_PARTICIPANT` VALUES (3,9,NULL,NULL,'Attending','2017-06-12 05:22:46',NULL),(9,9,NULL,NULL,'Attending','2017-06-13 22:10:05',NULL),(11,9,NULL,NULL,'Attending','2017-06-12 05:30:55',NULL),(12,9,NULL,NULL,'Attending','2017-06-13 22:10:26',NULL),(14,9,NULL,NULL,'Attending','2017-06-13 22:10:33',NULL);
+INSERT INTO `EVENT_PARTICIPANT` VALUES (3,9,NULL,NULL,'Attending','2017-06-12 05:22:46',NULL),(9,9,NULL,NULL,'Attending','2017-06-13 22:10:05',NULL),(10,9,NULL,NULL,'Attending','2017-06-14 18:39:28',NULL),(10,10,NULL,NULL,'Attending','2017-06-16 12:51:14',NULL),(11,9,NULL,NULL,'Attending','2017-06-12 05:30:55',NULL),(12,9,NULL,NULL,'Attending','2017-06-13 22:10:26',NULL),(14,9,NULL,NULL,'Attending','2017-06-13 22:10:33',NULL);
 /*!40000 ALTER TABLE `EVENT_PARTICIPANT` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -243,4 +234,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-06-15  2:29:26
+-- Dump completed on 2017-06-17 17:38:21

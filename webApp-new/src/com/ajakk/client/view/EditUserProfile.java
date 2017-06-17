@@ -11,11 +11,19 @@ import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.HasText;
 import com.google.gwt.user.client.ui.Widget;
 
+import gwt.material.design.client.ui.MaterialButton;
+import gwt.material.design.client.ui.MaterialLabel;
 import gwt.material.design.client.ui.MaterialModal;
+import gwt.material.design.client.ui.MaterialTextBox;
 
 public class EditUserProfile extends Composite {
 	
     @UiField MaterialModal modal;
+    @UiField MaterialButton	editBtn;
+    @UiField MaterialLabel	userName;
+    @UiField MaterialLabel	dateJoined;
+    @UiField MaterialTextBox	userLocation;
+    @UiField MaterialTextBox	userActivity;
 
 
 	private static EditUserProfileUiBinder uiBinder = GWT.create(EditUserProfileUiBinder.class);
@@ -25,10 +33,7 @@ public class EditUserProfile extends Composite {
 
 	public EditUserProfile() {
 		initWidget(uiBinder.createAndBindUi(this));
-	}
-
-	public EditUserProfile(String firstName) {
-		initWidget(uiBinder.createAndBindUi(this));
+		modal.setDismissible(true);
 	}
 
 	public void show() {

@@ -20,7 +20,7 @@ public class UserDAO extends UserDTO {
 
     public List<UserDTO> getAllUsers(Connection con) {
 
-        String sql = " SELECT AJAKK_USER_ID, USER_NAME, DES, EMAIL, PHONE_NO, SPORT FROM AJAKK_USER ";
+        String sql = " SELECT AJAKK_USER_ID, USER_NAME, DES, EMAIL, PHONE_NO, SPORT, LOCATION FROM AJAKK_USER ";
 
         try {
             PreparedStatement stmt = con.prepareStatement(sql);
@@ -38,6 +38,7 @@ public class UserDAO extends UserDTO {
                 user.setEmail(rs.getString(4));
                 user.setPhoneNumber(rs.getString(5));
                 user.setSport(rs.getString(6));
+                user.setLocation(rs.getString(7));
 
                 userList.add(user);
             }
@@ -54,8 +55,8 @@ public class UserDAO extends UserDTO {
     public void registerUser(UserDTO user, String password, Connection con) {
         String id = "";
         try {
-            String sql = " INSERT INTO AJAKK_USER (USER_NAME, EMAIL, PHONE_NO, STATUS, UPDATED, ROLE_ID) "
-                    + " VALUES (		       ? ,        ? ,    ? ,       'Active',      ?,       ?)";
+            String sql = " INSERT INTO AJAKK_USER (USER_NAME, EMAIL, PHONE_NO, STATUS, UPDATED, ROLE_ID, LOCATION) "
+                    + " VALUES (		       ? ,        ? ,    ? ,       'Active',      ?,       ?,	?)";
 
             PreparedStatement stmt = con.prepareStatement(sql);
             stmt.setString(1, user.getName());
@@ -63,6 +64,7 @@ public class UserDAO extends UserDTO {
             stmt.setString(3, user.getPhoneNumber());
             stmt.setDate(4, user.getUpdated());
             stmt.setInt(5, user.getRoleID());
+            stmt.setString(6, user.getLocation());
 
             System.out.println("INFO : In UserDAO.registerUser... " + ServerSideUtil.getQuery(stmt));
             stmt.executeUpdate();
@@ -190,7 +192,7 @@ public class UserDAO extends UserDTO {
     
     public UserDTO getUserByID(int id, Connection con) {
         UserDTO user = null;
-        String sql = " SELECT AJAKK_USER_ID, USER_NAME, DES, EMAIL, PHONE_NO FROM AJAKK_USER WHERE AJAKK_USER_ID = ? ";
+        String sql = " SELECT AJAKK_USER_ID, USER_NAME, DES, EMAIL, PHONE_NO, LOCATION FROM AJAKK_USER WHERE AJAKK_USER_ID = ? ";
 
         try {
             PreparedStatement stmt = con.prepareStatement(sql);
@@ -206,6 +208,7 @@ public class UserDAO extends UserDTO {
                 user.setDes(rs.getString(3));
                 user.setEmail(rs.getString(4));
                 user.setPhoneNumber(rs.getString(5));
+                user.setLocation(rs.getString(6));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -215,7 +218,7 @@ public class UserDAO extends UserDTO {
     }
 
     public static List<UserDTO> getAllInfo(Connection con2) {
-        String sql = " SELECT AJAKK_USER_ID, USER_NAME, DES, EMAIL, PHONE_NO, SPORT FROM AJAKK_USER ";
+        String sql = " SELECT AJAKK_USER_ID, USER_NAME, DES, EMAIL, PHONE_NO, SPORT, LOCATION FROM AJAKK_USER ";
 
         try {
             PreparedStatement stmt = con.prepareStatement(sql);
@@ -233,6 +236,7 @@ public class UserDAO extends UserDTO {
                 user.setEmail(rs.getString(4));
                 user.setPhoneNumber(rs.getString(5));
                 user.setSport(rs.getString(6));
+                user.setLocation(rs.getString(7));
 
                 userList.add(user);
             }

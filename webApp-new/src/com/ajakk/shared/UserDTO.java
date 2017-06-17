@@ -17,7 +17,17 @@ public class UserDTO implements Serializable {
 	String des; 		// Optional description for the user
 	String photo; 		// Profile picture of this user
 	String sport;
-	
+	String location;
+
+
+	public String getLocation() {
+		return location;
+	}
+
+	public void setLocation(String location) {
+		this.location = location;
+	}
+
 	public String getSport() {
 		return sport;
 	}
@@ -33,10 +43,11 @@ public class UserDTO implements Serializable {
 	}
 	
 	// parameterized constructor used for user registration
-	public UserDTO(String name, String email, String phone) {
+	public UserDTO(String name, String email, String phone, String location) {
 		this.name = name;
 		this.email = email;
 		this.phone = phone;
+		this.location = location;
 	}
 	
 	public int getUserID() {
