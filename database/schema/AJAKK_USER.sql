@@ -20,6 +20,7 @@ create table AJAKK_USER (
   EMAIl             varchar(256)                        comment 'User email',
   PHONE_NO          VARCHAR(20)                         comment 'User phone number',
   SPORT		    VARCHAR(50),
+  LOCATION      VARCHAR(50)                         comment 'user home location',
   STATUS            enum(
     'NotActive',  
     'Active',
@@ -42,7 +43,7 @@ comment = 'Basic data of a AJAKK user';
 INSERT INTO AJAKK_USER 
 (USER_NAME, Email, PHONE_NO, STATUS, UPDATED, ROLE_ID, SPORT)
 VALUES
-("active", "admin@ajak.com", "1300-88-2525", "Active", NOW(), 0, "BASKETBALL"),
+("active", "mrafsyam@gmail.com", "1300-88-2525", "Active", NOW(), 0, "BASKETBALL"),
 ("blocked","admin@ajak.com", "1300-88-2525",  "Blocked", NOW(), 0, "FOOTBALL"),
 ("locked", "admin@ajak.com", "1300-88-2525",  "Locked", NOW(), 0, "FUTSAL"),
 ("deleted", "admin@ajak.com", "1300-88-2525",  "Deleted", NOW(), 0, "BASKETBALL"),
