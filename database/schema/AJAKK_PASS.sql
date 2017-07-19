@@ -20,8 +20,7 @@ create table AJAKK_PASS (
   LOGIN_FAILS       int         not null default 0      comment 'Number of failed login tries',
   CREATED           TIMESTAMP    not null default CURRENT_TIMESTAMP  comment 'Creation date of the credentials',
   PASS_CHANGED      datetime                            comment 'Last change to the password',
-  LOCKED            tinyint(1)  not null default 0      comment 'Flag if the credentials are locked',
-  constraint   PK_AJAKK_PASS primary key (AJAKK_USER_ID)
+  LOCKED            tinyint(1)  not null default 0      comment 'Flag if the credentials are locked'
 )
 comment = 'Credentials of Ajakk users.';
 
