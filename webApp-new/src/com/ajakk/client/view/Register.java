@@ -40,11 +40,11 @@ public class Register extends Composite {
 
     public Register() {
         initWidget(uiBinder.createAndBindUi(this));
-
         modal.setDismissible(true);
-        modal.setPixelSize(500, 1200);
-        modal.getWidget(0).setHeight("110%");
+        modal.setPixelSize(600, 630);
+        modal.getWidget(0).setHeight("100%");
     }
+
     @UiHandler("btnReg")
     void onSignUpClicked(ClickEvent e) {
 
@@ -80,7 +80,6 @@ public class Register extends Composite {
     }
 
     public void showDashboard() {
-        
         Login login = new Login();
         //RootPanel.get().clear();
         RootPanel.get().add(login);

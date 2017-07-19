@@ -67,6 +67,15 @@ public class HomePage extends Composite {
             }
 
         });
+        
+        hiking.addClickHandler(new ClickHandler() {
+            @Override
+            public void onClick(ClickEvent event) {
+                DashboardNotRegUser dashboard = new DashboardNotRegUser();
+                RootPanel.get().clear();
+                RootPanel.get().add(dashboard);
+            }
+        });
     }
 
 }
