@@ -37,12 +37,12 @@
    <m:MaterialButton ui:field="btnLogin" text="LOGIN" waves="RED" backgroundColor="BLUE" textColor="WHITE" iconType="CREATE"
     iconPosition="LEFT" display="BLOCK" addStyleNames="{style.btn}">
    </m:MaterialButton>
-   <m:MaterialButton ui:field="btnLoginGmail" text="LOGIN WITH GOOGLE" waves="RED" backgroundColor="RED" textColor="WHITE" iconType="POLYMER"
+ <!--   <m:MaterialButton ui:field="btnLoginGmail" text="LOGIN WITH GOOGLE" waves="RED" backgroundColor="RED" textColor="WHITE" iconType="POLYMER"
     iconPosition="LEFT" display="BLOCK" addStyleNames="{style.lggbtn}" >
    </m:MaterialButton>
    <m:MaterialButton ui:field="btnLoginFb" text="LOGIN WITH FACEBOOK" waves="RED" backgroundColor="INDIGO_DARKEN_4" textColor="WHITE" iconType="POLYMER"
     iconPosition="LEFT" display="BLOCK" addStyleNames="{style.lgfbtn}">
-   </m:MaterialButton>
+   </m:MaterialButton> -->
   </m:MaterialModalContent>
  </m:MaterialModal>
 </ui:UiBinder> 

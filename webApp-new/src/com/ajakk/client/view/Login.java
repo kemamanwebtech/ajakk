@@ -27,15 +27,15 @@ public class Login extends Composite {
     private final RpcAsync   rpc = GWT.create(Rpc.class);
     @UiField MaterialModal   modal;
     @UiField MaterialButton  btnLogin;
-    @UiField MaterialButton  btnLoginGmail;
-    @UiField MaterialButton  btnLoginFb;
+/*    @UiField MaterialButton  btnLoginGmail;
+    @UiField MaterialButton  btnLoginFb;*/
     @UiField MaterialTextBox txtEmail;
     @UiField MaterialTextBox txtPassword;
 
     public Login() {
         initWidget(uiBinder.createAndBindUi(this));
         modal.setDismissible(true);
-        modal.setPixelSize(500, 400);
+        modal.setPixelSize(500, 270);
         modal.getWidget(0).setHeight("100%");
         
         txtEmail.setText("mrafsyam@gmail.com");

@@ -30,8 +30,8 @@ public class Register extends Composite {
 
     @UiField MaterialModal modal;
     @UiField MaterialButton btnReg;
-    @UiField MaterialButton btnRegGmail;
-    @UiField MaterialButton btnRegFb;
+/*    @UiField MaterialButton btnRegGmail;
+    @UiField MaterialButton btnRegFb;*/
     @UiField MaterialTextBox txtName;
     @UiField MaterialTextBox txtEmail;
     @UiField MaterialTextBox txtPassword;
@@ -41,7 +41,7 @@ public class Register extends Composite {
     public Register() {
         initWidget(uiBinder.createAndBindUi(this));
         modal.setDismissible(true);
-        modal.setPixelSize(600, 630);
+        modal.setPixelSize(400, 630);
         modal.getWidget(0).setHeight("100%");
     }
 

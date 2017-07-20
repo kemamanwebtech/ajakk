@@ -41,12 +41,12 @@
    <m:MaterialButton ui:field="btnReg" text="REGISTER" waves="RED" backgroundColor="BLUE" textColor="WHITE" iconType="CREATE"
     iconPosition="LEFT" display="BLOCK" addStyleNames="{style.btn}">
    </m:MaterialButton>
-   <m:MaterialButton ui:field="btnRegGmail" text="SIGN UP VIA GOOGLE+" waves="RED" backgroundColor="RED" textColor="WHITE"
+<!--    <m:MaterialButton ui:field="btnRegGmail" text="SIGN UP VIA GOOGLE+" waves="RED" backgroundColor="RED" textColor="WHITE"
     iconType="POLYMER" iconPosition="LEFT" display="BLOCK" addStyleNames="{style.btn}">
    </m:MaterialButton>
    <m:MaterialButton ui:field="btnRegFb" text="SIGN UP VIA FACEBOOK" waves="RED" backgroundColor="INDIGO_DARKEN_4"
     textColor="WHITE" iconType="POLYMER" iconPosition="LEFT" display="BLOCK" addStyleNames="{style.btn}">
-   </m:MaterialButton>
+   </m:MaterialButton> -->
   </m:MaterialModalContent>
  </m:MaterialModal>
 </ui:UiBinder> 
