@@ -25,7 +25,7 @@
 <target name="default" depends="gwtc, buildwar, deploy">
 </target>
 
-<target name="gwtc" depends="clean" description="GWT compile to JavaScript">
+<target name="gwtc" description="GWT compile to JavaScript">
     <echo>Compiling GWT codes</echo>
     <java failonerror="true" fork="true" classname="com.google.gwt.dev.Compiler">
         <classpath>
@@ -54,7 +54,7 @@
     <echo>Packaging compiled codes into Ajakk_new.war</echo>
     <delete file="Ajakk_new.war" />
     <war basedir="war" destfile="Ajakk_new.war" webxml="war/WEB-INF/web.xml">
-        <exclude name="WEB-INF/**" />
+<!--         <exclude name="WEB-INF/**" /> -->
         <webinf dir="war/WEB-INF/">
             <include name="lib/mysql-connector-java-5.1.40-bin.jar" />
             <include name="lib/gwt-material-2.0-rc4.jar" />

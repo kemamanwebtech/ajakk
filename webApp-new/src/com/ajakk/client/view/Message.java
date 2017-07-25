@@ -11,6 +11,8 @@ import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.Widget;
 import gwt.material.design.client.constants.Color;
 import gwt.material.design.client.ui.MaterialButton;
+import gwt.material.design.client.ui.MaterialImage;
+import gwt.material.design.client.ui.MaterialLabel;
 import gwt.material.design.client.ui.MaterialModal;
 import gwt.material.design.client.ui.MaterialTitle;
 
@@ -21,18 +23,29 @@ public class Message extends Composite {
     interface MessageUiBinder extends UiBinder<Widget, Message> {
     }
     
-    @UiField MaterialTitle message;
+    @UiField MaterialLabel topText;
+    @UiField MaterialLabel btmText;
     @UiField MaterialModal modal;
+    @UiField MaterialImage image;
     
     static Message instance;
 
-    public Message(String msg) {
+    public Message(String topMsg, String btmMsg, String imageUrl) {
         initWidget(uiBinder.createAndBindUi(this));
         instance = this;
         
-        message.setDescription(msg);
+        topText.setText(topMsg);
+        btmText.setText(btmMsg);
+        
+        if (!imageUrl.equals("")) {
+            image.setUrl(imageUrl);
+        } else {
+            image.setVisible(false);
+        }
         modal.setBackgroundColor(Color.TRANSPARENT);
         modal.setDismissible(true);
+        modal.setPixelSize(500, 500);
+        modal.getWidget(0).setHeight("100%");
     }
     
     public static Message get() {

@@ -50,7 +50,7 @@ public class EventCard extends Composite {
         rpc.getUserFromID(event.getOwnerID(), new AsyncCallback<UserDTO>() {
             @Override
             public void onFailure(Throwable caught) {
-                App.showMessage(caught.getMessage());
+                App.showMessage("Error", caught.getMessage(), "");
             }
 
             @Override

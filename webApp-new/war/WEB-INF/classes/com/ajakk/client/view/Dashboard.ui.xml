@@ -113,11 +113,11 @@
   <!-- Header -->
   <m:MaterialHeader layoutPosition="FIXED" width="100%" shadow="1" depth="996">
    <!-- NavBar -->
-   <m:MaterialNavBar backgroundColor="RED_DARKEN_1" activates="sidenav">
+   <m:MaterialNavBar backgroundColor="RED_DARKEN_1" activates="sidenav" ui:field="navBar">
     <m:MaterialNavBrand text="Ajakk" />
     <m:MaterialNavSection float="RIGHT">
-     <m:MaterialLink ui:field="myEventTopNavBar" iconType="APPS" />
-     <m:MaterialLink ui:field="notifTopNavBar" iconType="NOTIFICATIONS" />
+<!--      <m:MaterialLink ui:field="myEventTopNavBar" iconType="APPS" />
+     <m:MaterialLink ui:field="notifTopNavBar" iconType="NOTIFICATIONS" /> -->
      <m:MaterialLink ui:field="profileTopNavBar" iconType="ACCOUNT_CIRCLE" />
     </m:MaterialNavSection>
    </m:MaterialNavBar>
@@ -127,11 +127,11 @@
   <!-- SideNav -->
   <m:MaterialSideNav m:id="sidenav" width="200" overflow="AUTO" alwaysShowActivator="true" showOnAttach="false" type="FIXED"
    shadow="0" backgroundColor="RED_DARKEN_1" top="60" closeOnClick="true">
-   <m:MaterialLink text="Home" iconType="HOME" textColor="WHITE" />
+<!--    <m:MaterialLink text="Home" iconType="HOME" textColor="WHITE" /> -->
    <m:MaterialLink ui:field="profile" text="Profile" iconType="ACCOUNT_CIRCLE" textColor="WHITE" />
-   <m:MaterialLink text="Settings" iconType="COLLECTIONS" textColor="WHITE" />
+<!--    <m:MaterialLink text="Settings" iconType="COLLECTIONS" textColor="WHITE" /> -->
    <m:MaterialLink text="Send Feedback" iconType="ANNOUNCEMENT" textColor="WHITE" />
-   <m:MaterialLink text="Help" iconType="HELP" textColor="WHITE" />
+<!--    <m:MaterialLink text="Help" iconType="HELP" textColor="WHITE" /> -->
   </m:MaterialSideNav>
 
   <!-- Container -->
@@ -150,6 +150,7 @@
       <m:MaterialButton width="100%" ui:field="typeButton" activates="dp-2" marginTop="9" waves="RED" backgroundColor="WHITE"
        textColor="BLACK" text="ALL" />
       <m:MaterialDropDown activator="dp-2" ui:field="type">
+      <m:MaterialLink text="All" />
        <m:MaterialLink text="Futsal" />
        <m:MaterialLink text="Basketball" />
        <m:MaterialLink text="Volunteer" />
@@ -164,6 +165,7 @@
       <m:MaterialButton width="100%" ui:field="locButton" activates="dp-3" marginTop="9" waves="RED" backgroundColor="WHITE"
        textColor="BLACK" text="ALL" />
       <m:MaterialDropDown activator="dp-3" ui:field="loc">
+      <m:MaterialLink text="All" />
        <m:MaterialLink text="KL" />
        <m:MaterialLink text="Subang" />
        <m:MaterialLink text="Puchong" />
@@ -176,11 +178,11 @@
        <m:MaterialImage url="images/calendar.png" height="90px" width="90px" />
       </m:MaterialCardImage>
       <m:MaterialCardContent textColor="WHITE" addStyleNames="{style.padding-filter}">
-       <m:MaterialLabel addStyleNames=" {style.tac}" fontSize="1.15em" text="After" />
+       <m:MaterialLabel addStyleNames=" {style.tac}" fontSize="1.15em" text="Date After" />
        <m:MaterialButton width="100%" ui:field="dateButton" activates="dp-2" marginTop="9" waves="RED" backgroundColor="WHITE"
-        textColor="BLACK" text="SELECT DATE" />
+        textColor="BLACK" text="ANY" />
        <m:MaterialDatePicker ui:field="datePicker" autoClose="true" addStyleNames="{style.picker} {style.dateLabel}"
-        marginTop="8" paddingTop="5" placeholder="SELECT DATE" />
+        marginTop="8" paddingTop="5" placeholder="ANY" />
       </m:MaterialCardContent>
      </m:MaterialColumn>
 

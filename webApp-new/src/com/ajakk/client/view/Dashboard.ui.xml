@@ -116,8 +116,8 @@
    <m:MaterialNavBar backgroundColor="RED_DARKEN_1" activates="sidenav" ui:field="navBar">
     <m:MaterialNavBrand text="Ajakk" />
     <m:MaterialNavSection float="RIGHT">
-     <m:MaterialLink ui:field="myEventTopNavBar" iconType="APPS" />
-     <m:MaterialLink ui:field="notifTopNavBar" iconType="NOTIFICATIONS" />
+<!--      <m:MaterialLink ui:field="myEventTopNavBar" iconType="APPS" />
+     <m:MaterialLink ui:field="notifTopNavBar" iconType="NOTIFICATIONS" /> -->
      <m:MaterialLink ui:field="profileTopNavBar" iconType="ACCOUNT_CIRCLE" />
     </m:MaterialNavSection>
    </m:MaterialNavBar>
@@ -127,11 +127,11 @@
   <!-- SideNav -->
   <m:MaterialSideNav m:id="sidenav" width="200" overflow="AUTO" alwaysShowActivator="true" showOnAttach="false" type="FIXED"
    shadow="0" backgroundColor="RED_DARKEN_1" top="60" closeOnClick="true">
-   <m:MaterialLink text="Home" iconType="HOME" textColor="WHITE" />
+<!--    <m:MaterialLink text="Home" iconType="HOME" textColor="WHITE" /> -->
    <m:MaterialLink ui:field="profile" text="Profile" iconType="ACCOUNT_CIRCLE" textColor="WHITE" />
-   <m:MaterialLink text="Settings" iconType="COLLECTIONS" textColor="WHITE" />
+<!--    <m:MaterialLink text="Settings" iconType="COLLECTIONS" textColor="WHITE" /> -->
    <m:MaterialLink text="Send Feedback" iconType="ANNOUNCEMENT" textColor="WHITE" />
-   <m:MaterialLink text="Help" iconType="HELP" textColor="WHITE" />
+<!--    <m:MaterialLink text="Help" iconType="HELP" textColor="WHITE" /> -->
   </m:MaterialSideNav>
 
   <!-- Container -->

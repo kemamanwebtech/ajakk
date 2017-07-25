@@ -41,7 +41,7 @@ public class Register extends Composite {
     public Register() {
         initWidget(uiBinder.createAndBindUi(this));
         modal.setDismissible(true);
-        modal.setPixelSize(400, 630);
+        modal.setPixelSize(400, 500);
         modal.getWidget(0).setHeight("100%");
     }
 
@@ -55,18 +55,17 @@ public class Register extends Composite {
 
                     @Override
                     public void onFailure(Throwable caught) {
-                        App.showMessage(caught.getMessage().toString());
+                        App.showMessage("Error", caught.getMessage().toString(), "");
                     }
 
                     @Override
                     public void onSuccess(String result) {
                         if (result.equals("success")) {
-                            App.showMessage(
-                                    "Successfully registered your ajakk acount.");
+                            App.showMessage("Thank you", "You have successfully sign up with us.", "images/thanks.png");
                             showDashboard();
                         } else {
-                            App.showMessage(
-                                    "Failed to contact server. Check your connectivity.");
+                            App.showMessage("",
+                                    "Failed to contact server. Check your connectivity.", "");
                         }
 
                     }
