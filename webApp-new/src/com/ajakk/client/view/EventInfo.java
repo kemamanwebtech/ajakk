@@ -53,7 +53,7 @@ public class EventInfo extends Composite {
         rpc.getUserFromID(event.getOwnerID(), new AsyncCallback<UserDTO>() {
             @Override
             public void onFailure(Throwable caught) {
-                App.showMessage("Error", caught.getMessage(), "");
+                App.showMessage("Error", caught.getMessage(), "", 500, 500);
             }
 
             @Override
@@ -80,12 +80,12 @@ public class EventInfo extends Composite {
         rpc.joinEvent(event, App.loggedInUser, new AsyncCallback<String>() {
             @Override
             public void onFailure(Throwable caught) {
-                App.showMessage("Error", caught.getMessage(),"");
+                App.showMessage("Error", caught.getMessage(),"", 500, 500);
             }
 
             @Override
             public void onSuccess(String result) {
-                App.showMessage("", "Successfully added you to the list of participants.", "");
+                App.showMessage("", "Successfully added you to the list of participants.", "", 500, 500);
             }
         });
     }
@@ -95,7 +95,7 @@ public class EventInfo extends Composite {
         rpc.viewParticipant(event, App.loggedInUser, new AsyncCallback<List<UserDTO>>() {
             @Override
             public void onFailure(Throwable caught) {
-                App.showMessage("Error", caught.getMessage(), "");
+                App.showMessage("Error", caught.getMessage(), "", 500, 500);
             }
 
             @Override

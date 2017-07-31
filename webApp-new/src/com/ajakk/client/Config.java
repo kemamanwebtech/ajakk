@@ -9,7 +9,7 @@ public class Config {
     
     public static final String AUTH_ERROR = 
             "The username and password combination that "
-          + "you've entered doesn't match any account.";
+          + "you've entered don't match any account.";
     
     public static final String ACC_BLOCKED = 
             "Your account has been blocked. Please contact"

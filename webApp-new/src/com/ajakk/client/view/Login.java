@@ -54,7 +54,7 @@ public class Login extends Composite {
                 rpc.doLogin(txtEmail.getText(), txtPassword.getText(), new AsyncCallback<LoginDTO>() {
                     @Override
                     public void onFailure(Throwable caught) {
-                        App.showMessage("Error", Config.SERVER_ERROR, "");
+                        App.showMessage("Error", Config.SERVER_ERROR, "", 500, 500);
                         System.out.println(caught.toString());
                     }
 
@@ -62,19 +62,19 @@ public class Login extends Composite {
                     public void onSuccess(LoginDTO result) {
                         switch (result.getUserStatus()) {
                         case "NotActive" :
-                            App.showMessage("Error", Config.ACC_NOTACTIVE, "");
+                            App.showMessage("Error", Config.ACC_NOTACTIVE, "", 500, 500);
                             break;
                         case "Blocked" :
-                            App.showMessage("Error", Config.ACC_BLOCKED, "");
+                            App.showMessage("Error", Config.ACC_BLOCKED, "", 500, 500);
                             break;
                         case "Locked" :
-                            App.showMessage("Error", Config.ACC_LOCKED, "");
+                            App.showMessage("Error", Config.ACC_LOCKED, "", 500, 500);
                             break;
                         case "Deleted" :
-                            App.showMessage("Error", Config.ACC_DELETED, "");
+                            App.showMessage("Error", Config.ACC_DELETED, "", 500, 500);
                             break;
                         case "Invalid" :
-                            App.showMessage("Error", Config.AUTH_ERROR, "");
+                            App.showMessage("Uh oh!", Config.AUTH_ERROR, "", 450, 250);
                             break;
                         case "Active" :
                             
@@ -82,7 +82,7 @@ public class Login extends Composite {
                             rpc.getUser(txtEmail.getText(), new AsyncCallback<UserDTO>() {
                                 @Override
                                 public void onFailure(Throwable caught) {
-                                    App.showMessage("Error", caught.getMessage().toString(), "");
+                                    App.showMessage("Error", caught.getMessage().toString(), "", 500, 500);
                                 }
 
                                 @Override
@@ -92,7 +92,7 @@ public class Login extends Composite {
                                         Dashboard dashboard = new Dashboard();
                                         RootPanel.get().clear();
                                         RootPanel.get().add(dashboard);
-                                    } else App.showMessage("Error", "Failed to get user.", "");
+                                    } else App.showMessage("Error", "Failed to get user.", "", 500, 500);
                                 }
                             });
                             break;

@@ -3,54 +3,56 @@
 <!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder" xmlns:g="urn:import:com.google.gwt.user.client.ui" xmlns:m="urn:import:gwt.material.design.client.ui"
  xmlns:ma="urn:import:gwt.material.design.addins.client">
-  <ui:style>
-	.modal {
-		display: inline-block;
-		text-align: center;
-		font-size: 150%;
-		box-shadow: none;
-		height: 180px;
-	}
-	
-	.detailRows1 {
-		padding-top: 60px;
-}
-
-
-.firstcolumn {
-	border-right: solid;
-}
-
-.modalcont {
-	border: none !important;
-}
-
-.editBtn {
-}
-	
-
+ <ui:style>
+ .modal {
+ 	text-align: left;
+ 	box-shadow: none;
+ }
+ 
+ .modalcont {
+ 	border: none !important;
+ }
+ 
+ .editBtn {
+ 	
+ }
  </ui:style>
 
-<m:MaterialModal type="FIXED_FOOTER" ui:field="modal" addStyleNames="{style.modal}" backgroundColor="TRANSPARENT">
-	<m:MaterialModalContent addStyleNames="{style.modalcont}">
-		<m:MaterialRow>
-			<m:MaterialColumn grid="s4" addStyleNames="{style.firstcolumn}" >
-				<m:MaterialImage ui:field="userProfilePic" url="images/profile.png" type="CIRCLE" />
-				<m:MaterialLabel ui:field="userName" fontSize="1em" />
-				<m:MaterialLabel ui:field="dateJoined" fontSize="0.5em"></m:MaterialLabel>
-			</m:MaterialColumn>
-			<m:MaterialColumn grid="s8">
-				<m:MaterialRow addStyleNames="{style.detailRows1}">
-					<m:MaterialTextBox ui:field="userActivity" fontSize="1em"></m:MaterialTextBox>
-					<m:MaterialTextBox ui:field="userLocation" fontSize="1em" text="Cyberjaya"></m:MaterialTextBox>
-					<m:MaterialTextBox ui:field="userDescription" fontSize="0.7em"></m:MaterialTextBox>
-				</m:MaterialRow>
-			</m:MaterialColumn>
-				<m:MaterialRow>
-					<m:MaterialButton addStyleNames="{style.editBtn}" ui:field="editBtn" backgroundColor="BLUE" text="Edit Profile" waves="LIGHT" textColor="WHITE" iconType="EDIT" iconPosition="LEFT"/>
-				</m:MaterialRow>
-		</m:MaterialRow>
-	 </m:MaterialModalContent>
-</m:MaterialModal>
- 
+ <m:MaterialModal type="FIXED_FOOTER" ui:field="modal" addStyleNames="{style.modal}" backgroundColor="TRANSPARENT">
+  <m:MaterialModalContent addStyleNames="{style.modalcont}">
+   <m:MaterialRow>
+    <m:MaterialLabel text="Profile Picture" fontSize="0.7em" />
+    <m:MaterialImage ui:field="userProfilePic" url="images/profile.jpg" type="CIRCLE" />
+   </m:MaterialRow>
+   <m:MaterialRow>
+    <m:MaterialLabel text="Name" fontSize="0.7em" />
+    <m:MaterialTextBox ui:field="name" fontSize="0.7em" text="Enter name"></m:MaterialTextBox>
+   </m:MaterialRow>
+   <m:MaterialRow>
+    <m:MaterialLabel text="Location" fontSize="0.7em" />
+    <m:MaterialTextBox ui:field="location" fontSize="0.7em" text="Enter location"></m:MaterialTextBox>
+   </m:MaterialRow>
+   <m:MaterialRow>
+    <m:MaterialLabel text="Email" fontSize="0.7em" />
+    <m:MaterialTextBox ui:field="email" fontSize="0.7em" text="Enter email"></m:MaterialTextBox>
+   </m:MaterialRow>
+   <m:MaterialRow>
+    <m:MaterialLabel text="Phone No." fontSize="0.7em" />
+    <m:MaterialTextBox ui:field="phoneNo" fontSize="0.7em" text="Enter phone no"></m:MaterialTextBox>
+   </m:MaterialRow>
+   <m:MaterialRow>
+    <m:MaterialLabel text="Activities" fontSize="0.7em" />
+    <m:MaterialTextBox ui:field="activities" fontSize="0.7em" text="Select activities"></m:MaterialTextBox>
+   </m:MaterialRow>
+   <m:MaterialRow>
+    <m:MaterialLabel text="About me" fontSize="0.7em" />
+    <m:MaterialTextBox ui:field="aboutMe" fontSize="0.7em" text="Edit about me"></m:MaterialTextBox>
+   </m:MaterialRow>
+   <m:MaterialRow>
+    <m:MaterialButton addStyleNames="{style.editBtn}" ui:field="saveBtn" backgroundColor="BLUE" text="Save Profile" waves="LIGHT"
+     textColor="WHITE" iconType="SAVE" iconPosition="LEFT" />
+   </m:MaterialRow>
+  </m:MaterialModalContent>
+ </m:MaterialModal>
+
 </ui:UiBinder> 

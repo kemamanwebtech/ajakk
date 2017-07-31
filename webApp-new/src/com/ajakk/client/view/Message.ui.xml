@@ -21,13 +21,18 @@
     height: 36px;
     margin-top: 3px;
 }
+
+.center-position {
+    text-align: center;
+}
  </ui:style>
- <m:MaterialModal ui:field="modal" type="DEFAULT" inDuration="500" outDuration="500" addStyleNames=" {style.remove-shadow}" 
+ <m:MaterialModal ui:field="modal" type="DEFAULT" inDuration="500" outDuration="500" addStyleNames="{style.center-position} {style.remove-shadow}" 
     grid="s12" height="auto" backgroundColor="TRANSPARENT" textColor="WHITE">
  <m:MaterialModalContent height="auto" backgroundColor="TEAL_LIGHTEN_1" textColor="WHITE">
- <m:MaterialLabel ui:field="topText" fontSize="1.5em" textColor="WHITE" addStyleNames="{style.label}" />
-<m:MaterialCardImage addStyleNames=" {style.hori-align}" width="100%">
-<m:MaterialImage ui:field="image" height="90px" width="90px"  addStyleNames=" {style.hori-align}" />
+
+ <m:MaterialLabel ui:field="topText" fontSize="2.5em" textColor="WHITE" addStyleNames="{style.label}" />
+  <m:MaterialCardImage width="100%" addStyleNames="{style.center-position}">
+<m:MaterialImage ui:field="image" height="90px" width="90px" />
  </m:MaterialCardImage>
   <m:MaterialLabel ui:field="btmText" fontSize="1.5em" textColor="WHITE" addStyleNames="{style.label}" />
  </m:MaterialModalContent>

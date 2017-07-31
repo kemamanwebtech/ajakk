@@ -24,8 +24,8 @@ public class App {
     // others
     Message dialogBox;
 
-    public static void showMessage(String topMsg, String btmMsg, String imageUrl) {
-        Message newDialogBox = new Message(topMsg, btmMsg, imageUrl);
+    public static void showMessage(String topMsg, String btmMsg, String imageUrl, int width, int height) {
+        Message newDialogBox = new Message(topMsg, btmMsg, imageUrl, width, height);
         RootPanel.get().add(newDialogBox);
         newDialogBox.show();
     }

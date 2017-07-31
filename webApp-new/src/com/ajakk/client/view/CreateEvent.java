@@ -57,17 +57,17 @@ public class CreateEvent extends Composite {
         rpc.createEvent(txtName.getText(), typeButton.getText(), datetime, locBtn.getText(), App.loggedInUser, new AsyncCallback<String>() {
             @Override
             public void onFailure(Throwable caught) {
-                App.showMessage("Error", caught.getMessage(),"");
+                App.showMessage("Error", caught.getMessage(),"", 500, 500);
             }
 
             @Override
             public void onSuccess(String result) {
                 if (result.equals("success")) {
-                    App.showMessage("", "Your activity is created!", "");
+                    App.showMessage("", "Your activity is created!", "", 500, 500);
                     RootPanel.get().remove(instance);
                     Dashboard.getInstance().refreshActivity();
                 } else {
-                    App.showMessage("", result, "");
+                    App.showMessage("", result, "", 500, 500);
                 }
             }
         });
@@ -79,7 +79,7 @@ public class CreateEvent extends Composite {
         modal.setDismissible(true);
         email = App.loggedInUser.getEmail();
         if (email == "") {
-            App.showMessage("", "Email is empty?", "");
+            App.showMessage("", "Email is empty?", "", 500, 500);
         }
         
         type.addSelectionHandler(new SelectionHandler<Widget>() {

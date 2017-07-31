@@ -43,11 +43,18 @@ public class Register extends Composite {
         modal.setDismissible(true);
         modal.setPixelSize(400, 500);
         modal.getWidget(0).setHeight("100%");
+        
+        // TODO remove these
+        txtName.setText("m1");
+        txtEmail.setText("m1@gmail.com");
+        txtPassword.setText("password");
+        txtPhone.setText("011");
+        txtLocation.setText("cyb");
+
     }
 
     @UiHandler("btnReg")
     void onSignUpClicked(ClickEvent e) {
-
         rpc.doSignup(txtName.getText(), txtEmail.getText(),
                 txtPassword.getText(), txtPhone.getText(),
                 txtLocation.getText(),
@@ -55,17 +62,17 @@ public class Register extends Composite {
 
                     @Override
                     public void onFailure(Throwable caught) {
-                        App.showMessage("Error", caught.getMessage().toString(), "");
+                        App.showMessage("Error", caught.getMessage().toString(), "", 500, 500);
                     }
 
                     @Override
                     public void onSuccess(String result) {
                         if (result.equals("success")) {
-                            App.showMessage("Thank you", "You have successfully sign up with us.", "images/thanks.png");
+                            App.showMessage("Great!", "You have successfully signed up with us.", "images/thanks.png", 450, 250);
                             showDashboard();
                         } else {
                             App.showMessage("",
-                                    "Failed to contact server. Check your connectivity.", "");
+                                    "Failed to contact server. Check your connectivity.", "", 500, 500);
                         }
 
                     }

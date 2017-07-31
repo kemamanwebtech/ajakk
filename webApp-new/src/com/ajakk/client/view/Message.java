@@ -1,20 +1,23 @@
+    
+    /*
+     * A generic message with text and image to notify the user
+     */
+
 package com.ajakk.client.view;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
-import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiHandler;
+import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.Composite;
-import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.Widget;
 import gwt.material.design.client.constants.Color;
 import gwt.material.design.client.ui.MaterialButton;
 import gwt.material.design.client.ui.MaterialImage;
 import gwt.material.design.client.ui.MaterialLabel;
 import gwt.material.design.client.ui.MaterialModal;
-import gwt.material.design.client.ui.MaterialTitle;
 
 public class Message extends Composite {
 
@@ -22,7 +25,7 @@ public class Message extends Composite {
 
     interface MessageUiBinder extends UiBinder<Widget, Message> {
     }
-    
+
     @UiField MaterialLabel topText;
     @UiField MaterialLabel btmText;
     @UiField MaterialModal modal;
@@ -30,10 +33,9 @@ public class Message extends Composite {
     
     static Message instance;
 
-    public Message(String topMsg, String btmMsg, String imageUrl) {
+    public Message(String topMsg, String btmMsg, String imageUrl, int width, int height) {
         initWidget(uiBinder.createAndBindUi(this));
         instance = this;
-        
         topText.setText(topMsg);
         btmText.setText(btmMsg);
         
@@ -44,7 +46,7 @@ public class Message extends Composite {
         }
         modal.setBackgroundColor(Color.TRANSPARENT);
         modal.setDismissible(true);
-        modal.setPixelSize(500, 500);
+        modal.setPixelSize(width, height);
         modal.getWidget(0).setHeight("100%");
     }
     
@@ -55,7 +57,5 @@ public class Message extends Composite {
     public void show() {
         modal.open();
     }
-    
-    
 
 }

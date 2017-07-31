@@ -7,18 +7,26 @@
 	.modal {
 		display: inline-block;
 		text-align: center;
-		font-size: 150%;
 		box-shadow: none;
-		height: 180px;
+		padding: 1px !important;
 	}
 	
 	.detailRows1 {
-		padding-top: 60px;
 }
 
 
 .firstcolumn {
 	border-right: solid;
+	border-color: #2196f3;
+	border-width: 8px;
+	padding-right: 30px !important;
+	
+}
+
+.secondcolumn {
+    text-align: left !important;
+    padding-left: 30px !important;
+    
 }
 
 .modalcont {
@@ -26,32 +34,39 @@
 }
 
 .editBtn {
+	float: right !important;
 }
-	
+
+.profileImage {
+    width: 120px !important;
+    height: 120px !important;
+}
+
+.desc {
+	text-align: center;
+}
 
  </ui:style>
 
-<m:MaterialModal type="FIXED_FOOTER" ui:field="modal" addStyleNames="{style.modal}" backgroundColor="TRANSPARENT">
+<m:MaterialModal ui:field="modal" addStyleNames="{style.modal}" backgroundColor="TRANSPARENT">
 	<m:MaterialModalContent addStyleNames="{style.modalcont}">
-		<m:MaterialRow>
+        <m:MaterialRow addStyleNames="{style.detailRows1}">
 			<m:MaterialColumn grid="s4" addStyleNames="{style.firstcolumn}" >
-				<m:MaterialImage ui:field="userProfilePic" url="images/profile.png" type="CIRCLE" />
-				<m:MaterialLabel ui:field="userName" fontSize="1em" />
-				<m:MaterialLabel ui:field="userLocation" fontSize="1em"></m:MaterialLabel>
-				<m:MaterialLabel ui:field="dateJoined" fontSize="0.5em"></m:MaterialLabel>
+				<m:MaterialImage ui:field="userProfilePic" url="images/profile.jpg" type="CIRCLE" addStyleNames="{style.profileImage}" />
+				<m:MaterialLabel ui:field="userName" fontSize="1.4em" text="My Name" />
+				<m:MaterialLabel ui:field="userLocation" fontSize="1em" text="My Location"></m:MaterialLabel>
+				<m:MaterialLabel ui:field="dateJoined" fontSize="0.9em" text="Joined since 2017"></m:MaterialLabel>
 			</m:MaterialColumn>
-			<m:MaterialColumn grid="s8">
-				<m:MaterialRow addStyleNames="{style.detailRows1}">
-					<m:MaterialLabel ui:field="userEmail" ></m:MaterialLabel>
-					<m:MaterialLabel ui:field="userPhone" ></m:MaterialLabel>
-					<m:MaterialLabel ui:field="userActivity" fontSize="1em"></m:MaterialLabel>
-					<m:MaterialLabel ui:field="userDescription" fontSize="0.7em"></m:MaterialLabel>
-				</m:MaterialRow>
+			<m:MaterialColumn grid="s8" addStyleNames="{style.secondcolumn}">
+					<m:MaterialLabel ui:field="userEmail" text="mrafsyam@gmail.com" fontSize="1em"></m:MaterialLabel>
+					<m:MaterialLabel ui:field="userPhone" text="0183102777" fontSize="1em"></m:MaterialLabel>
+					<m:MaterialLabel ui:field="userActivity" fontSize="1em" text="Basketball, Hiking"></m:MaterialLabel>
+                    <m:MaterialLabel fontSize="1em" text="About me : "></m:MaterialLabel>
+					<m:MaterialLabel ui:field="userDescription" fontSize="0.9em" addStyleNames="{style.desc}" text="I eat codes for breakfast"></m:MaterialLabel>
 			</m:MaterialColumn>
-				<m:MaterialRow>
-					<m:MaterialButton addStyleNames="{style.editBtn}" ui:field="editBtn" backgroundColor="BLUE" text="Edit Profile" waves="LIGHT" textColor="WHITE" iconType="EDIT" iconPosition="LEFT"/>
-				</m:MaterialRow>
-		</m:MaterialRow>
+                         <m:MaterialButton type="FLOATING" waves="LIGHT" size="MEDIUM" backgroundColor="BLUE" addStyleNames="{style.editBtn}" ui:field="editBtn" iconType="EDIT" /> 
+   
+		</m:MaterialRow>	
 	 </m:MaterialModalContent>
 </m:MaterialModal>
  

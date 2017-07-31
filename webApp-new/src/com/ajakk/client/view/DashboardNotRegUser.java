@@ -117,7 +117,7 @@ public class DashboardNotRegUser extends Composite {
         rpc.getAllEvents(typeFilter, locFilter, dateFilter, new AsyncCallback<List<EventDTO>>() {
             @Override
             public void onFailure(Throwable caught) {
-                App.showMessage("Error", caught.toString(), "");
+                App.showMessage("Error", caught.toString(), "", 500, 500);
             }
 
             @Override
