@@ -5,16 +5,19 @@
  xmlns:ma="urn:import:gwt.material.design.addins.client">
  <ui:style>
  .modal {
- 	text-align: left;
- 	box-shadow: none;
+ 	
  }
  
  .modalcont {
- 	border: none !important;
+ 	
  }
  
  .editBtn {
  	
+ }
+
+ .noborder {
+  border: none ;
  }
  </ui:style>
 
@@ -25,29 +28,13 @@
     <m:MaterialImage ui:field="userProfilePic" url="images/profile.jpg" type="CIRCLE" />
    </m:MaterialRow>
    <m:MaterialRow>
-    <m:MaterialLabel text="Name" fontSize="0.7em" />
-    <m:MaterialTextBox ui:field="name" fontSize="0.7em" text="Enter name"></m:MaterialTextBox>
-   </m:MaterialRow>
-   <m:MaterialRow>
-    <m:MaterialLabel text="Location" fontSize="0.7em" />
-    <m:MaterialTextBox ui:field="location" fontSize="0.7em" text="Enter location"></m:MaterialTextBox>
-   </m:MaterialRow>
-   <m:MaterialRow>
-    <m:MaterialLabel text="Email" fontSize="0.7em" />
-    <m:MaterialTextBox ui:field="email" fontSize="0.7em" text="Enter email"></m:MaterialTextBox>
-   </m:MaterialRow>
-   <m:MaterialRow>
-    <m:MaterialLabel text="Phone No." fontSize="0.7em" />
-    <m:MaterialTextBox ui:field="phoneNo" fontSize="0.7em" text="Enter phone no"></m:MaterialTextBox>
-   </m:MaterialRow>
-   <m:MaterialRow>
-    <m:MaterialLabel text="Activities" fontSize="0.7em" />
-    <m:MaterialTextBox ui:field="activities" fontSize="0.7em" text="Select activities"></m:MaterialTextBox>
-   </m:MaterialRow>
-   <m:MaterialRow>
-    <m:MaterialLabel text="About me" fontSize="0.7em" />
-    <m:MaterialTextBox ui:field="aboutMe" fontSize="0.7em" text="Edit about me"></m:MaterialTextBox>
-   </m:MaterialRow>
+  <m:MaterialTextBox ui:field="name" label="Enter Name" addStyleNames="{style.noborder}" grid="s6"/>
+  <m:MaterialTextBox ui:field="location" label="Enter Location" addStyleNames="{style.noborder}" grid="s6"/>
+  <m:MaterialTextBox ui:field="email" label="Enter Email" addStyleNames="{style.noborder}" grid="s6"/>
+  <m:MaterialTextBox ui:field="phoneNo" label="Enter Phone No." addStyleNames="{style.noborder}" grid="s6"/>
+  <m:MaterialTextBox ui:field="activities" label="Select Activities" addStyleNames="{style.noborder}" grid="s6"/>
+  <m:MaterialTextArea ui:field="aboutMe" label="Tell us something about yourself" addStyleNames="{style.noborder}"  grid="s6"/>
+</m:MaterialRow>
    <m:MaterialRow>
     <m:MaterialButton addStyleNames="{style.editBtn}" ui:field="saveBtn" backgroundColor="BLUE" text="Save Profile" waves="LIGHT"
      textColor="WHITE" iconType="SAVE" iconPosition="LEFT" />

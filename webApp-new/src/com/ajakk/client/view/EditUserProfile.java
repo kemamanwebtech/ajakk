@@ -8,6 +8,7 @@ import com.google.gwt.user.client.ui.Widget;
 import gwt.material.design.client.ui.MaterialButton;
 import gwt.material.design.client.ui.MaterialLabel;
 import gwt.material.design.client.ui.MaterialModal;
+import gwt.material.design.client.ui.MaterialTextArea;
 import gwt.material.design.client.ui.MaterialTextBox;
 
 public class EditUserProfile extends Composite {
@@ -19,7 +20,7 @@ public class EditUserProfile extends Composite {
     @UiField MaterialTextBox    email;
     @UiField MaterialTextBox    phoneNo;
     @UiField MaterialTextBox	activities;
-    @UiField MaterialTextBox    aboutMe;
+    @UiField MaterialTextArea    aboutMe;
 
 
 
@@ -31,17 +32,17 @@ public class EditUserProfile extends Composite {
 	public EditUserProfile() {
 		initWidget(uiBinder.createAndBindUi(this));
 		modal.setDismissible(true);
-		name.setSize("50px", "25px");
-		location.setSize("50px", "25px");
-		email.setSize("50px", "25px");
-		phoneNo.setSize("50px", "25px");
-		activities.setSize("50px", "25px");
-		aboutMe.setSize("50px", "25px");
+//		name.setSize("50px", "25px");
+//		location.setSize("50px", "25px");
+//		email.setSize("50px", "25px");
+//		phoneNo.setSize("50px", "25px");
+//		activities.setSize("50px", "25px");
+//		aboutMe.setSize("50px", "25px");
 	}
 
 	public void show() {
-		modal.setWidth("400px");
-		modal.setHeight("500px");
+//		modal.setWidth("400px");
+//		modal.setHeight("500px");
 		modal.setDismissible(true);
         modal.open();
     }
