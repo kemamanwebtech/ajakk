@@ -97,6 +97,7 @@ CREATE TABLE `EVENT` (
   `CONFIRMED_DATE` datetime DEFAULT NULL COMMENT 'Date and time of the event',
   `VENUE_ID` int(11) DEFAULT NULL COMMENT 'location of the event (ID)',
   `LOC` varchar(256) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'location of the event (User Input)',
+  `LOOKING_FOR` int(11) NOT NULL COMMENT 'No of participants needed',
   PRIMARY KEY (`EVENT_ID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='Basic data of a AJAKK event';
 /*!40101 SET character_set_client = @saved_cs_client */;
