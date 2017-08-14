@@ -41,6 +41,7 @@ public interface RpcAsync {
             String type, 
             String datetime, 
             String loc, 
+            String look_for,
             UserDTO user,
             AsyncCallback<String> asyncCallback);
     

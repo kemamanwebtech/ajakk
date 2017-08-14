@@ -28,7 +28,8 @@ public interface Rpc extends RemoteService {
             String name, 
             String type, 
             String datetime, 
-            String local, 
+            String local,
+            String lookFor,
             UserDTO user);
 
     UserDTO getUser(String email);

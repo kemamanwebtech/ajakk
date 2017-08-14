@@ -54,7 +54,7 @@
   
   <m:MaterialRow addStyleNames="{style.vert-align}" >
    <m:MaterialIcon iconType="FACE" iconSize="MEDIUM" textColor="WHITE" float="LEFT" height="100%"/>
-   <m:MaterialLabel ui:field="postedBy" grid="s8" fontSize="1.5em" textColor="WHITE"/>
+   <m:MaterialLabel ui:field="postedBy" fontSize="1.5em" textColor="WHITE"/>
     </m:MaterialRow>
     
    <m:MaterialRow addStyleNames="{style.center-horizontal}" textColor="WHITE">
@@ -85,17 +85,21 @@
       <m:MaterialImage ui:field="imageWhatsap" url="images/whatsapp.png" height="90px" width="90px" />
      </m:MaterialCardImage>
     
-    <m:MaterialLabel ui:field="whatsapp" text="Chat with organizer" fontSize="1.5em" textColor="WHITE"  addStyleNames="{style.label}"/>
+    <m:MaterialLabel ui:field="whatsapp" text="Chat with the organizer" fontSize="1.5em" textColor="WHITE"  addStyleNames="{style.label}"/>
     </m:MaterialColumn>
    </m:MaterialRow>
 
    <m:MaterialRow width="100%" addStyleNames=" {style.center-horizontal}">
-    <m:MaterialButton margin="5" backgroundColor="RED" text="JOIN!" waves="DEFAULT" tooltip="Join this activity!"
-     tooltipPosition="LEFT" iconType="DONE" ui:field="btnJoin">
+       <m:MaterialButton margin="5" backgroundColor="RED" text="Contact Me" waves="DEFAULT" tooltip="Chat with the organizer!"
+     tooltipPosition="LEFT" iconType="DONE" ui:field="btnContactMe">
     </m:MaterialButton>
-    <m:MaterialButton margin="5" iconPosition="RIGHT" backgroundColor="RED" text="LIST OF PARTICIPANTS" waves="DEFAULT"
-     tooltip="Clear filters" tooltipPosition="RIGHT" iconType="LIST" ui:field="btnViewParticipant">
-    </m:MaterialButton>
+    
+<!--     <m:MaterialButton margin="5" backgroundColor="RED" text="JOIN!" waves="DEFAULT" tooltip="Join this activity!" -->
+<!--      tooltipPosition="LEFT" iconType="DONE" ui:field="btnJoin"> -->
+<!--     </m:MaterialButton> -->
+<!--     <m:MaterialButton margin="5" iconPosition="RIGHT" backgroundColor="RED" text="LIST OF PARTICIPANTS" waves="DEFAULT" -->
+<!--      tooltip="Clear filters" tooltipPosition="RIGHT" iconType="LIST" ui:field="btnViewParticipant"> -->
+<!--     </m:MaterialButton> -->
 <!--     <m:MaterialButton margin="5" iconPosition="RIGHT" backgroundColor="RED" text="DELETE" waves="DEFAULT" tooltip="Clear filters"
      tooltipPosition="RIGHT" iconType="CANCEL" ui:field="btnDelete">
     </m:MaterialButton> -->

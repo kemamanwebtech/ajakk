@@ -73,7 +73,8 @@ public class RpcImpl extends RemoteServiceServlet implements Rpc {
 
     @Override
     public String createEvent(String name, String type,
-            String datetime, String loc, UserDTO user) {
+            String datetime, String loc, 
+            String lookFor, UserDTO user) {
         
         String result = "";
         System.out.println("INFO : In RpcImpl.createEvent().." + "User : " + user.getName() );
@@ -85,7 +86,7 @@ public class RpcImpl extends RemoteServiceServlet implements Rpc {
         
         try {
             con = daoFactory.getConnection();
-            event = new EventDTO(name, type, datetime, loc, user.getUserID());
+            event = new EventDTO(name, type, datetime, loc, Integer.parseInt(lookFor), user.getUserID());
             eventDAO = daoFactory.getEventDAO();
             
             if (eventDAO.createEvent(event, con)) {

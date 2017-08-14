@@ -28,8 +28,9 @@ import gwt.material.design.client.ui.MaterialTextArea;
 public class EventInfo extends Composite {
     @UiField MaterialModal           modal;
     @UiField MaterialLabel           postedBy;
-    @UiField MaterialButton          btnJoin;
+//    @UiField MaterialButton          btnJoin;
     @UiField MaterialImage           imageWhatsap;
+    @UiField MaterialButton          btnContactMe;
     
     @UiField MaterialLabel           name;
     @UiField MaterialLabel           dateTime;
@@ -60,7 +61,7 @@ public class EventInfo extends Composite {
             public void onSuccess(UserDTO ownerEvent) {
                 fullLinkToWhatsapp = new StringBuilder(linkToWhatsapp);
                 fullLinkToWhatsapp.append(ownerEvent.getPhoneNumber());
-                postedBy.setText("Organized by : " + ownerEvent.getName());
+                postedBy.setText("Ajakk by : " + ownerEvent.getName());
             }
             
         });
@@ -75,44 +76,50 @@ public class EventInfo extends Composite {
         modal.open();
     }
     
-    @UiHandler("btnJoin")
-    public void onBtnJoinClicked(ClickEvent e){
-        rpc.joinEvent(event, App.loggedInUser, new AsyncCallback<String>() {
-            @Override
-            public void onFailure(Throwable caught) {
-                App.showMessage("Error", caught.getMessage(),"", 500, 500);
-            }
-
-            @Override
-            public void onSuccess(String result) {
-                App.showMessage("", "Successfully added you to the list of participants.", "", 500, 500);
-            }
-        });
-    }
+//    @UiHandler("btnJoin")
+//    public void onBtnJoinClicked(ClickEvent e){
+//        rpc.joinEvent(event, App.loggedInUser, new AsyncCallback<String>() {
+//            @Override
+//            public void onFailure(Throwable caught) {
+//                App.showMessage("Error", caught.getMessage(),"", 500, 500);
+//            }
+//
+//            @Override
+//            public void onSuccess(String result) {
+//                App.showMessage("", "Successfully added you to the list of participants.", "", 500, 500);
+//            }
+//        });
+//    }
     
-    @UiHandler("btnViewParticipant")
-    public void onViewParticipantClicked(ClickEvent e){
-        rpc.viewParticipant(event, App.loggedInUser, new AsyncCallback<List<UserDTO>>() {
-            @Override
-            public void onFailure(Throwable caught) {
-                App.showMessage("Error", caught.getMessage(), "", 500, 500);
-            }
-
-            @Override
-            public void onSuccess(List<UserDTO> result) {
-                String list = "";
-                for (UserDTO user : result) {
-                    list = list + user.getName() + "\n";
-                }
-                ListParticipant listUsers = new ListParticipant(list);
-                RootPanel.get().add(listUsers);
-                listUsers.show();
-            }
-        });
-    }
+//    @UiHandler("btnViewParticipant")
+//    public void onViewParticipantClicked(ClickEvent e){
+//        rpc.viewParticipant(event, App.loggedInUser, new AsyncCallback<List<UserDTO>>() {
+//            @Override
+//            public void onFailure(Throwable caught) {
+//                App.showMessage("Error", caught.getMessage(), "", 500, 500);
+//            }
+//
+//            @Override
+//            public void onSuccess(List<UserDTO> result) {
+//                String list = "";
+//                for (UserDTO user : result) {
+//                    list = list + user.getName() + "\n";
+//                }
+//                ListParticipant listUsers = new ListParticipant(list);
+//                RootPanel.get().add(listUsers);
+//                listUsers.show();
+//            }
+//        });
+//    }
     
     @UiHandler("imageWhatsap")
     public void onImageWhatsapClicked(ClickEvent e){
+        Window.open(fullLinkToWhatsapp.toString(),"_blank","");
+    }
+    
+    
+    @UiHandler("btnContactMe")
+    public void onContactMeClicked(ClickEvent e){
         Window.open(fullLinkToWhatsapp.toString(),"_blank","");
     }
 }

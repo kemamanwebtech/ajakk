@@ -35,10 +35,11 @@ public class CreateEvent extends Composite {
     @UiField MaterialModal      modal;
     @UiField MaterialImage      imgName;
     @UiField MaterialTextBox    txtName;
+    @UiField MaterialTextBox    txtLookFor;
     @UiField MaterialImage      imgType;
     @UiField MaterialDropDown    type;
     @UiField MaterialButton typeButton;
-    @UiField MaterialImage      imgDatetime;
+    //@UiField MaterialImage      imgDatetime;
     @UiField MaterialDatePicker date;
     @UiField MaterialTimePicker time;
     @UiField MaterialImage      imgLoc;
@@ -54,7 +55,8 @@ public class CreateEvent extends Composite {
         String dated = DateTimeFormat.getFormat("yyyy-MM-dd").format(date.getDate());
         String timed = DateTimeFormat.getFormat("HH:mm").format(time.getValue());
         String datetime = dated + " " + timed;
-        rpc.createEvent(txtName.getText(), typeButton.getText(), datetime, locBtn.getText(), App.loggedInUser, new AsyncCallback<String>() {
+        rpc.createEvent(txtName.getText(), typeButton.getText(), datetime, 
+                        locBtn.getText(), txtLookFor.getText(), App.loggedInUser, new AsyncCallback<String>() {
             @Override
             public void onFailure(Throwable caught) {
                 App.showMessage("Error", caught.getMessage(),"", 500, 500);

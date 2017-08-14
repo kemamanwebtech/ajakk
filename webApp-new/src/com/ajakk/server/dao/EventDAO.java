@@ -38,7 +38,7 @@ public class EventDAO {
         Boolean dateF = false;
         
         // be specific of what fields we want, avoid using *
-        String sql = " SELECT EVENT_ID, NAME, DES, TYPE, OWNER_ID, CONFIRMED_DATE, LOC FROM EVENT ";
+        String sql = " SELECT EVENT_ID, NAME, DES, TYPE, OWNER_ID, CONFIRMED_DATE, LOOKING_FOR, LOC FROM EVENT ";
         
         if (!typeFilter.isEmpty() || !(typeFilter.equals(""))
             || !locFilter.isEmpty() || !(locFilter.equals("")) 
@@ -91,7 +91,8 @@ public class EventDAO {
                 event.setEventType(rs.getString(4));
                 event.setOwnerID(rs.getInt(5));
                 event.setEventDate(rs.getString(6));
-                event.setEventLoc(rs.getString(7));
+                event.setLookFor(rs.getInt(7));
+                event.setEventLoc(rs.getString(8));
                 eventList.add(event);
             }
 
@@ -109,14 +110,15 @@ public class EventDAO {
     public boolean createEvent(EventDTO event, Connection con) {
         try {
             PreparedStatement stmt = con.prepareStatement("INSERT INTO EVENT " 
-                + "(NAME, TYPE, CONFIRMED_DATE, LOC, OWNER_ID) VALUES " 
-                + "(? 	  , ?   ,?            ,?  ,?  )");
+                + "(NAME, TYPE, CONFIRMED_DATE, LOC, LOOKING_FOR, OWNER_ID) VALUES " 
+                + "(? 	  , ?   ,?            ,?     ,?           ,?  )");
             
             stmt.setString(1, event.getEventName());
             stmt.setString(2, event.getEventType());
             stmt.setString(3, event.getEventDate());
             stmt.setString(4, event.getEventLoc());
-            stmt.setInt(5, event.getOwnerID());
+            stmt.setInt(5, event.getLookFor());
+            stmt.setInt(6, event.getOwnerID());
             stmt.executeUpdate();
             System.out.println(ServerSideUtil.getQuery(stmt));
             return true;

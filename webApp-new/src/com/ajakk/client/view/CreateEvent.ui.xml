@@ -63,37 +63,16 @@
      <m:MaterialCardImage addStyleNames=" {style.center-horizontal}">
       <m:MaterialImage ui:field="imgName" url="images/clipboard.png" height="90px" width="90px" />
      </m:MaterialCardImage>
-     <m:MaterialTextBox ui:field="txtName" addStyleNames="{style.MTA}" paddingTop="10" placeholder="Name"></m:MaterialTextBox>
+     <m:MaterialTextBox ui:field="txtName" addStyleNames="{style.MTA}" paddingTop="10" placeholder="Name of this activity"></m:MaterialTextBox>
     </m:MaterialColumn>
 
-
-    <m:MaterialColumn grid="s4" addStyleNames=" {style.content-horizontal}">
-     <m:MaterialCardImage addStyleNames=" {style.center-horizontal}">
-      <m:MaterialImage ui:field="imgType" url="images/wallet.png" height="90px" width="90px" />
-     </m:MaterialCardImage>
-     <m:MaterialButton width="100%" ui:field="typeButton" text="Futsal" activates="dp-5" marginTop="9" waves="RED"
-      backgroundColor="WHITE" textColor="BLACK" />
-     <m:MaterialDropDown activator="dp-5" ui:field="type">
-      <m:MaterialLink text="Futsal" />
-      <m:MaterialLink text="Basketball" />
-      <m:MaterialLink text="Volunteer" />
-     </m:MaterialDropDown>
-    </m:MaterialColumn>
-
-    <m:MaterialColumn grid="s4" addStyleNames=" {style.content-horizontal}">
-     <m:MaterialCardImage addStyleNames=" {style.center-horizontal}">
-      <m:MaterialImage ui:field="imgDatetime" url="images/stopwatch.png" height="90px" width="90px" />
-     </m:MaterialCardImage>
-     <m:MaterialDatePicker ui:field="date" autoClose="true" addStyleNames=" {style.picker}" marginTop="9" paddingTop="10" />
-     <ma:timepicker.MaterialTimePicker ui:field="time" autoClose="true" addStyleNames=" {style.picker}" />
-    </m:MaterialColumn>
 
     <m:MaterialColumn grid="s4" addStyleNames=" {style.content-horizontal}">
      <m:MaterialCardImage addStyleNames=" {style.center-horizontal}">
       <m:MaterialImage ui:field="imgLoc" url="images/map-location.png" height="90px" width="90px" />
      </m:MaterialCardImage>
 
-     <m:MaterialButton width="100%" ui:field="locBtn" text="KL" marginTop="9" activates="dp-4" waves="RED" backgroundColor="WHITE"
+     <m:MaterialButton width="100%" ui:field="locBtn" text="Location?" marginTop="9" activates="dp-4" waves="RED" backgroundColor="WHITE"
       textColor="BLACK" />
      <m:MaterialDropDown activator="dp-4" constrainWidth="false" ui:field="loc">
       <m:MaterialLink text="KL" />
@@ -102,6 +81,48 @@
       <m:MaterialLink text="Cyberjaya" />
      </m:MaterialDropDown>
     </m:MaterialColumn>
+
+    <m:MaterialColumn grid="s4" addStyleNames=" {style.content-horizontal}">
+     <m:MaterialCardImage addStyleNames=" {style.center-horizontal}">
+      <m:MaterialImage ui:field="imgType" url="images/activity_type.png" height="90px" width="90px" />
+     </m:MaterialCardImage>
+     <m:MaterialButton width="100%" ui:field="typeButton" text="Activity type?" activates="dp-5" marginTop="9" waves="RED"
+      backgroundColor="WHITE" textColor="BLACK" />
+     <m:MaterialDropDown activator="dp-5" ui:field="type">
+      <m:MaterialLink text="Futsal" />
+      <m:MaterialLink text="Basketball" />
+      <m:MaterialLink text="Volunteer" />
+     </m:MaterialDropDown>
+    </m:MaterialColumn>
+
+   
+    
+    </m:MaterialRow>
+<m:MaterialRow addStyleNames=" {style.center-horizontal}">
+
+ <m:MaterialColumn grid="s4" addStyleNames=" {style.content-horizontal}">
+     <m:MaterialCardImage addStyleNames=" {style.center-horizontal}">
+      <m:MaterialImage ui:field="imgDate" url="images/calendar.png" height="90px" width="90px" />
+     </m:MaterialCardImage>
+     <m:MaterialDatePicker ui:field="date" autoClose="true" addStyleNames=" {style.picker}" marginTop="9" paddingTop="10" />
+    </m:MaterialColumn>
+    
+    <m:MaterialColumn grid="s4" addStyleNames=" {style.content-horizontal}">
+     <m:MaterialCardImage addStyleNames=" {style.center-horizontal}">
+      <m:MaterialImage ui:field="imgTime" url="images/stopwatch.png" height="90px" width="90px" />
+     </m:MaterialCardImage>
+     <ma:timepicker.MaterialTimePicker ui:field="time" autoClose="true" addStyleNames=" {style.picker}" marginTop="9" paddingTop="10"  />
+    </m:MaterialColumn>
+    
+    
+        <m:MaterialColumn grid="s4" addStyleNames=" {style.content-horizontal}">
+     <m:MaterialCardImage addStyleNames=" {style.center-horizontal}">
+      <m:MaterialImage ui:field="imgLookFor" url="images/look_for.png" height="90px" width="90px" />
+     </m:MaterialCardImage>
+     <m:MaterialTextBox ui:field="txtLookFor" addStyleNames="{style.MTA}" paddingTop="10" placeholder="You're looking for how many?"></m:MaterialTextBox>
+    </m:MaterialColumn>
+
+
 
 
    </m:MaterialRow>
