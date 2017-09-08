@@ -1,9 +1,12 @@
 package com.ajakk.client.view;
+import java.util.Date;
+
 import com.ajakk.client.Rpc;
 import com.ajakk.client.RpcAsync;
 import com.ajakk.shared.UserDTO;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.i18n.client.DateTimeFormat;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiHandler;
@@ -41,18 +44,38 @@ public class UserProfile extends Composite {
         instance = this;
     }
 
-    public UserProfile(UserDTO user) {
+    public void setUser(UserDTO user) {
         modal.setDismissible(true);
         this.user = user;
         userName.setText(user.getName());
-        userDescription.setText(user.getDes());
-        userActivity.setText(user.getSport());
+        
+        if (user.getDes().equals("") || user.getDes() == null) {
+            userDescription.setText("Say something funny here");
+        } else {
+            userDescription.setText(user.getDes());
+        }
+        
+        if (user.getSport().equals("") || user.getSport() == null) {
+            userActivity.setText("List your favourite activities here");
+        } else {
+            userActivity.setText(user.getSport());
+        }
+        
+        
+        
         userLocation.setText(user.getLocation());
         userPhone.setText(user.getPhoneNumber());
         userEmail.setText(user.getEmail());
-        userProfilePic.setPadding(30);
-        userProfilePic.setMargin(50);
-        userProfilePic.setBackgroundColor(Color.BLUE);
+        
+        // get date the user joined
+        DateTimeFormat format = DateTimeFormat.getFormat("MMM yyyy");
+        dateJoined.setText("Joined since " + format.format(user.getCreated()));
+        
+        
+        
+//        userProfilePic.setPadding(30);
+//        userProfilePic.setMargin(50);
+//        userProfilePic.setBackgroundColor(Color.BLUE);
     }
 
     @UiHandler("editBtn")
@@ -64,8 +87,9 @@ public class UserProfile extends Composite {
         EditUserProfile.show();
     }
 
-    public void show() {
-        modal.setWidth("500px");
+    public void show(UserDTO user) {
+        setUser(user);
+        modal.setWidth("505px");
         modal.setHeight("450px");
         modal.open();
     }

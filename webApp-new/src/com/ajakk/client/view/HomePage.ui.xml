@@ -12,27 +12,29 @@
  	margin-bottom: 2em;
  	justify-content: center !important;
  	margin: auto !important;
- 	font-family: AvenirNext-Medium; 
- 	font-size: 48px; 
- 	color: #4A4A4A; 
- 	text-shadow: 0 2px 4px rgba(0,0,0,0.50);
+ 	font-family: AvenirNext-Medium;
+ 	font-size: 48px;
+ 	color: #4A4A4A;
+ 	text-shadow: 0 2px 4px rgba(0, 0, 0, 0.50);
  }
  
  .brand {
-	font-family: Futura-Medium; font-size: 48px; color: #FFFFFF; text-shadow: 0 2px 4px rgba(0,0,0,0.50);
-}
- 
+ 	font-family: Futura-Medium;
+ 	font-size: 48px;
+ 	color: #FFFFFF;
+ 	text-shadow: 0 2px 4px rgba(0, 0, 0, 0.50);
+ }
  
  .row {
-    margin: auto;
-    width: 100%;
-	<!-- padding-left: 8%; -->
-	display: flex; align-items: center; justify-content: center;
-	font-family: AvenirNext-Medium; 
-	color: #4A4A4A;
-}
-
- 
+ 	margin: auto;
+ 	width: 100%; <!--
+ 	padding-left: 8%; -->
+ 	display: flex;
+ 	align-items: center;
+ 	justify-content: center;
+ 	font-family: AvenirNext-Medium;
+ 	color: #4A4A4A;
+ }
  </ui:style>
  <m:MaterialPanel>
 
@@ -43,7 +45,7 @@
     <m:MaterialNavBrand text="Ajakk" addStyleNames="{style.brand}" />
     <m:MaterialNavSection float="RIGHT" addStyleNames="{style.setMargin}">
      <m:MaterialButton ui:field="btnLogin" text="LOGIN" addStyleNames="{style.set-margin}" waves="RED" backgroundColor="RED"
-      textColor="WHITE" iconType="MOOD" iconPosition="LEFT">
+      textColor="WHITE" iconType="LOCK_OUTLINE" iconPosition="LEFT">
      </m:MaterialButton>
      <m:MaterialButton ui:field="btnRegister" text="REGISTER" addStyleNames="{style.set-margin}" waves="RED"
       backgroundColor="RED" textColor="WHITE" iconType="CREATE" iconPosition="LEFT">
@@ -68,7 +70,7 @@
      </m:MaterialCardContent>
     </m:MaterialColumn>
 
-    <m:MaterialColumn  ui:field="volunteer">
+    <m:MaterialColumn ui:field="volunteer">
 
      <m:MaterialImage url="images/volunteer.png" type="CIRCLE" height="20em" width="20em" />
 
@@ -86,7 +88,7 @@
      </m:MaterialCardContent>
     </m:MaterialColumn>
 
-    <m:MaterialColumn  ui:field="basketball">
+    <m:MaterialColumn ui:field="basketball">
      <m:MaterialImage url="images/basketball.png" type="CIRCLE" height="20em" width="20em" />
      <m:MaterialCardContent textColor="INDIGO_LIGHTEN_4" height="80px">
       <m:MaterialLabel fontSize="2em" text="Basketball" />

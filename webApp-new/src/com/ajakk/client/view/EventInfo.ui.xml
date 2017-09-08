@@ -68,16 +68,36 @@
     
     <m:MaterialColumn grid="s4" addStyleNames="{style.content-horizontal}">
      <m:MaterialCardImage addStyleNames=" {style.center-horizontal}">
-      <m:MaterialImage ui:field="imageTime" url="images/stopwatch.png" height="90px" width="90px" />
+      <m:MaterialImage ui:field="imageDate" url="images/calendar.png" height="90px" width="90px" />
      </m:MaterialCardImage>
-     <m:MaterialLabel ui:field="dateTime" text="Date and Time" fontSize="1.5em" textColor="WHITE" addStyleNames="{style.label}" />
+     <m:MaterialLabel ui:field="labelDate" text="When?" fontSize="1.5em" textColor="WHITE" addStyleNames="{style.label}" />
     </m:MaterialColumn>
     
+    <m:MaterialColumn grid="s4" addStyleNames="{style.content-horizontal}">
+     <m:MaterialCardImage addStyleNames=" {style.center-horizontal}">
+      <m:MaterialImage ui:field="imageTime" url="images/stopwatch.png" height="90px" width="90px" />
+     </m:MaterialCardImage>
+     <m:MaterialLabel ui:field="labelTime" text="What time?" fontSize="1.5em" textColor="WHITE" addStyleNames="{style.label}" />
+    </m:MaterialColumn>
+    
+       </m:MaterialRow>
+    
+    
+     <m:MaterialRow addStyleNames="{style.center-horizontal}" textColor="WHITE">
+     
+     
     <m:MaterialColumn grid="s4" addStyleNames=" {style.content-horizontal}">
      <m:MaterialCardImage addStyleNames=" {style.center-horizontal}">
       <m:MaterialImage ui:field="imageLoc" url="images/map-location.png" height="90px" width="90px" />
      </m:MaterialCardImage>
      <m:MaterialLabel ui:field="location" text="Location" fontSize="1.5em" textColor="WHITE" addStyleNames="{style.label}" />
+    </m:MaterialColumn>
+    
+     <m:MaterialColumn grid="s4" addStyleNames="{style.content-horizontal}">
+     <m:MaterialCardImage addStyleNames=" {style.center-horizontal}">
+      <m:MaterialImage ui:field="imageLookFor" url="images/look_for.png" height="90px" width="90px" />
+     </m:MaterialCardImage>
+     <m:MaterialLabel ui:field="labelLookFor" text="Looking for how many?" fontSize="1.5em" textColor="WHITE" addStyleNames="{style.label}" />
     </m:MaterialColumn>
 
     <m:MaterialColumn grid="s4" addStyleNames=" {style.content-horizontal}">
@@ -87,6 +107,12 @@
     
     <m:MaterialLabel ui:field="whatsapp" text="Chat with the organizer" fontSize="1.5em" textColor="WHITE"  addStyleNames="{style.label}"/>
     </m:MaterialColumn>
+    
+     
+    
+    
+    
+    
    </m:MaterialRow>
 
    <m:MaterialRow width="100%" addStyleNames=" {style.center-horizontal}">

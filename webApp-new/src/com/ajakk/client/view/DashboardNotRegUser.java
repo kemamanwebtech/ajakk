@@ -154,13 +154,6 @@ public class DashboardNotRegUser extends Composite {
         datePicker.open();
     }
 
-    @UiHandler("profile")
-    void onLinkProfileClicked(ClickEvent e) {
-        // call here
-        UserProfile userProfile = new UserProfile();
-        RootPanel.get().add(userProfile);
-        userProfile.show();
-    }
 
     @UiHandler("btnCreateActivity")
     public void onBtnCreate(ClickEvent e) {

@@ -144,7 +144,7 @@
 
      <m:MaterialColumn grid="s4" addStyleNames=" {style.content-horizontal}">
       <m:MaterialCardImage addStyleNames="{style.center-horizontal}">
-       <m:MaterialImage ui:field="imgType" url="images/wallet.png" height="90px" width="90px" />
+       <m:MaterialImage ui:field="imgType" url="images/activity_type.png" height="90px" width="90px" />
       </m:MaterialCardImage>
       <m:MaterialLabel addStyleNames="{style.tac}" fontSize="1.15em" text="Filter by activity" textColor="WHITE" />
       <m:MaterialButton width="100%" ui:field="typeButton" activates="dp-2" marginTop="9" waves="RED" backgroundColor="WHITE"
@@ -189,7 +189,7 @@
     </m:MaterialRow>
 
     <m:MaterialRow width="100%" addStyleNames=" {style.center-horizontal}">
-     <m:MaterialButton margin="5" backgroundColor="RED" text="RELOAD ACTIVITIES" ui:field="btnReload" waves="DEFAULT"
+     <m:MaterialButton margin="5" backgroundColor="RED" text="SEARCH" ui:field="btnReload" waves="DEFAULT"
       tooltip="Refresh activities list" tooltipPosition="LEFT" iconType="AUTORENEW">
      </m:MaterialButton>
      <m:MaterialButton margin="5" iconPosition="RIGHT" backgroundColor="RED" text="CLEAR FILTER" ui:field="btnClearFilters"

@@ -33,7 +33,9 @@ public class EventInfo extends Composite {
     @UiField MaterialButton          btnContactMe;
     
     @UiField MaterialLabel           name;
-    @UiField MaterialLabel           dateTime;
+    @UiField MaterialLabel           labelDate;
+    @UiField MaterialLabel           labelTime;
+    @UiField MaterialLabel           labelLookFor;
     @UiField MaterialLabel           location;
     
     public EventDTO                  event;
@@ -69,7 +71,13 @@ public class EventInfo extends Composite {
         location.setText(event.getEventLoc());
         Date date = DateTimeFormat.getFormat("yyyy-MM-dd HH:mm:ss.SSS").parse(event.getEventDate());
         DateTimeFormat format = DateTimeFormat.getFormat("EEEE, MMM d");
-        dateTime.setText(format.format(date));
+        labelDate.setText(format.format(date));
+        
+        format = DateTimeFormat.getFormat("h:mm a");
+        labelTime.setText(format.format(date));
+        
+        labelLookFor.setText(Integer.toString(event.getLookFor()) + " people");
+        
     }
 
     public void show() {

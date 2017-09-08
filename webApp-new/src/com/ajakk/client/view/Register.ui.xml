@@ -7,28 +7,33 @@
  	width: 100%;
  	height: 52px;
  	margin-bottom: 3px;
- 		font-family: Ionicons; font-size: 20px; color: #000000; text-shadow: 0 2px 4px rgba(0,0,0,0.50);
- 	
+ 	font-family: Ionicons;
+ 	font-size: 20px;
+ 	color: #000000;
+ 	text-shadow: 0 2px 4px rgba(0, 0, 0, 0.50);
  }
  
  .lggbtn {
-	font-family: Ionicons; font-size: 20px; color: #000000; text-shadow: 0 2px 4px rgba(0,0,0,0.50);
-		margin: auto;
+ 	font-family: Ionicons;
+ 	font-size: 20px;
+ 	color: #000000;
+ 	text-shadow: 0 2px 4px rgba(0, 0, 0, 0.50);
+ 	margin: auto;
  	width: 100%;
  	height: 52px;
  	margin-bottom: 3px;
-}
-
-.lgfbtn {
-		margin: auto;
+ }
+ 
+ .lgfbtn {
+ 	margin: auto;
  	width: 100%;
  	height: 52px;
  	margin-bottom: 3px;
- 	font-family: simple-line-icons; font-size: 20px; color: #FFFFFF; text-shadow: 0 2px 4px rgba(0,0,0,0.50);
-}
-
-
-
+ 	font-family: simple-line-icons;
+ 	font-size: 20px;
+ 	color: #FFFFFF;
+ 	text-shadow: 0 2px 4px rgba(0, 0, 0, 0.50);
+ }
  </ui:style>
  <m:MaterialModal ui:field="modal" type="DEFAULT" inDuration="200" outDuration="200">
   <m:MaterialModalContent>
@@ -41,12 +46,10 @@
    <m:MaterialButton ui:field="btnReg" text="REGISTER" waves="RED" backgroundColor="BLUE" textColor="WHITE" iconType="CREATE"
     iconPosition="LEFT" display="BLOCK" addStyleNames="{style.btn}">
    </m:MaterialButton>
-<!--    <m:MaterialButton ui:field="btnRegGmail" text="SIGN UP VIA GOOGLE+" waves="RED" backgroundColor="RED" textColor="WHITE"
-    iconType="POLYMER" iconPosition="LEFT" display="BLOCK" addStyleNames="{style.btn}">
-   </m:MaterialButton>
-   <m:MaterialButton ui:field="btnRegFb" text="SIGN UP VIA FACEBOOK" waves="RED" backgroundColor="INDIGO_DARKEN_4"
-    textColor="WHITE" iconType="POLYMER" iconPosition="LEFT" display="BLOCK" addStyleNames="{style.btn}">
-   </m:MaterialButton> -->
+   <!-- <m:MaterialButton ui:field="btnRegGmail" text="SIGN UP VIA GOOGLE+" waves="RED" backgroundColor="RED" textColor="WHITE" iconType="POLYMER" 
+    iconPosition="LEFT" display="BLOCK" addStyleNames="{style.btn}"> </m:MaterialButton> <m:MaterialButton ui:field="btnRegFb" text="SIGN UP VIA 
+    FACEBOOK" waves="RED" backgroundColor="INDIGO_DARKEN_4" textColor="WHITE" iconType="POLYMER" iconPosition="LEFT" display="BLOCK" addStyleNames="{style.btn}"> 
+    </m:MaterialButton> -->
   </m:MaterialModalContent>
  </m:MaterialModal>
 </ui:UiBinder> 

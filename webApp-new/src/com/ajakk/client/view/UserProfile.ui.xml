@@ -52,7 +52,7 @@
 	<m:MaterialModalContent addStyleNames="{style.modalcont}">
         <m:MaterialRow addStyleNames="{style.detailRows1}">
 			<m:MaterialColumn grid="s4" addStyleNames="{style.firstcolumn}" >
-				<m:MaterialImage ui:field="userProfilePic" url="images/profile.jpg" type="CIRCLE" addStyleNames="{style.profileImage}" />
+				<m:MaterialImage ui:field="userProfilePic" url="images/profile.png" type="CIRCLE" addStyleNames="{style.profileImage}" />
 				<m:MaterialLabel ui:field="userName" fontSize="1.4em" text="My Name" />
 				<m:MaterialLabel ui:field="userLocation" fontSize="1em" text="My Location"></m:MaterialLabel>
 				<m:MaterialLabel ui:field="dateJoined" fontSize="0.9em" text="Joined since 2017"></m:MaterialLabel>

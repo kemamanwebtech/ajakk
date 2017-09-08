@@ -1,3 +1,3 @@
 # Module ajakk_new
 # RPC service class, partial path of RPC policy file
-com.ajakk.client.Rpc, 9477A77FC8F974EF29FB6AC1B15D7159.gwt.rpc
+com.ajakk.client.Rpc, 47EC2A014CDEF8639ABDD8C9E6FE69E4.gwt.rpc

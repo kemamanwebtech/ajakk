@@ -169,7 +169,7 @@ public class Dashboard extends Composite {
         // call here
         UserProfile userProfile = new UserProfile();
         RootPanel.get().add(userProfile);
-        userProfile.show();
+        userProfile.show(App.loggedInUser);
     }
 
     @UiHandler("btnCreateActivity")
