@@ -27,7 +27,6 @@ public class EventCard extends Composite {
     private static EventCardUiBinder uiBinder = GWT.create(EventCardUiBinder.class);
     interface EventCardUiBinder extends UiBinder<Widget, EventCard> {}
     private final RpcAsync   rpc = GWT.create(Rpc.class);
-    
     public EventDTO event;
     @UiField MaterialButton btnActivityInfo;
     @UiField MaterialLabel lblEventDesc;
@@ -36,18 +35,11 @@ public class EventCard extends Composite {
     @UiField MaterialLabel lblEventName;
     String ownerName = "";
 
-    public EventCard(EventDTO event) {
+    public EventCard(EventDTO inEvent) {
         initWidget(uiBinder.createAndBindUi(this));
-        setEvent(event);
+        setEvent(inEvent);
 
-        Date date = DateTimeFormat.getFormat("yyyy-MM-dd HH:mm:ss.SSS").parse(event.getEventDate());
-        DateTimeFormat format = DateTimeFormat.getFormat("MMM d");
-        String dateStr = format.format(date);
-        format = DateTimeFormat.getFormat("EEE");
-        String dayStr = format.format(date);
-        
-     // get Owner of this event
-        rpc.getUserFromID(event.getOwnerID(), new AsyncCallback<UserDTO>() {
+        rpc.getUserFromID(inEvent.getOwnerID(), new AsyncCallback<UserDTO>() {
             @Override
             public void onFailure(Throwable caught) {
                 App.showMessage("Error", caught.getMessage(), "", 500, 500);
@@ -56,6 +48,11 @@ public class EventCard extends Composite {
             @Override
             public void onSuccess(UserDTO ownerEvent) {
                 ownerName = ownerEvent.getName();
+                Date date = DateTimeFormat.getFormat("yyyy-MM-dd HH:mm:ss.SSS").parse(event.getEventDate());
+                DateTimeFormat format = DateTimeFormat.getFormat("MMM d");
+                String dateStr = format.format(date);
+                format = DateTimeFormat.getFormat("EEE");
+                String dayStr = format.format(date);
                 lblEventName.setText(ownerName + " ajakk " + event.getEventType() + " in " + event.getEventLoc());
                 lblEventDesc.setText(" on " + dayStr + ", " + dateStr);
                 randomColor();
