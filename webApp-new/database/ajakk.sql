@@ -4,24 +4,9 @@
 -- ------------------------------------------------------
 -- Server version	5.6.36
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
-/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
-/*!40103 SET TIME_ZONE='+00:00' */;
-/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-
---
--- Table structure for table `AJAKK_PASS`
---
 
 DROP TABLE IF EXISTS `AJAKK_PASS`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+
 CREATE TABLE `AJAKK_PASS` (
   `AJAKK_USER_ID` int(11) NOT NULL COMMENT 'Identifies the user of the login, Unique ID, primary key',
   `ACCESS_PASS` varchar(41) COLLATE utf8_unicode_ci NOT NULL COMMENT 'Encrypted password',
@@ -31,29 +16,18 @@ CREATE TABLE `AJAKK_PASS` (
   `PASS_CHANGED` datetime DEFAULT NULL COMMENT 'Last change to the password',
   `LOCKED` tinyint(1) NOT NULL DEFAULT '0' COMMENT 'Flag if the credentials are locked'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='Credentials of Ajakk users.';
-/*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `AJAKK_PASS`
---
+-- INSERT INTO `AJAKK_PASS` VALUES (23,'password',NULL,0,'2017-07-22 05:43:10',NULL,0);
 
-LOCK TABLES `AJAKK_PASS` WRITE;
-/*!40000 ALTER TABLE `AJAKK_PASS` DISABLE KEYS */;
-INSERT INTO `AJAKK_PASS` VALUES (23,'password',NULL,0,'2017-07-22 05:43:10',NULL,0);
-/*!40000 ALTER TABLE `AJAKK_PASS` ENABLE KEYS */;
-UNLOCK TABLES;
 
---
--- Table structure for table `AJAKK_USER`
---
 
-DROP TABLE IF EXISTS `AJAKK_USER`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+DROP TABLE AJAKK_USER;
+COMMIT;
+
 CREATE TABLE `AJAKK_USER` (
   `AJAKK_USER_ID` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Unique ID, primary key',
   `USER_NAME` varchar(64) COLLATE utf8_unicode_ci NOT NULL COMMENT 'Username for login & display, not the actual user name',
-  `EMAIl` varchar(256) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'User email',
+  `EMAIL` varchar(256) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'User email',
   `PHONE_NO` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'User phone number',
   `SPORT` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   `LOCATION` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'user home location',
@@ -64,18 +38,14 @@ CREATE TABLE `AJAKK_USER` (
   `SUSPENDED` datetime DEFAULT NULL COMMENT 'Date and time until which the user is suspended (due to invalid data entry in UMB)',
   `DES` varchar(256) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'Optional description for the user',
   PRIMARY KEY (`AJAKK_USER_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='Basic data of a AJAKK user';
-/*!40101 SET character_set_client = @saved_cs_client */;
+) COMMENT='Basic data of a AJAKK user';
+COMMIT;
 
---
--- Dumping data for table `AJAKK_USER`
---
+-- SELECT * FROM AJAKK_USER;
 
-LOCK TABLES `AJAKK_USER` WRITE;
-/*!40000 ALTER TABLE `AJAKK_USER` DISABLE KEYS */;
-INSERT INTO `AJAKK_USER` VALUES (1,'raf','m@gmail.com','019',NULL,'Kemaman','Active',0,'2017-07-19 15:57:55',NULL,NULL,NULL),(2,'Raf','mrafsyam@gmail.com','019',NULL,'Trg','Active',0,'2017-07-19 16:02:19',NULL,NULL,NULL),(3,'Halo','m@gmail.com','019',NULL,'Trg','Active',0,'2017-07-19 16:03:04',NULL,NULL,NULL),(4,'Raf','m1@gmail.com','11',NULL,'Trg','Active',0,'2017-07-20 01:46:36',NULL,NULL,NULL),(5,'m2','m2@gmail.com','019',NULL,'Cyber','Active',0,'2017-07-20 12:07:01',NULL,NULL,NULL),(6,'m3','m3@gmail.com','019',NULL,'Trg','Active',0,'2017-07-20 12:07:54',NULL,NULL,NULL),(7,'m4','m4@gmail.com','019',NULL,'Kemaman','Active',0,'2017-07-20 12:09:12',NULL,NULL,NULL),(8,'m5','m5@gmail.com','019',NULL,'kemaman','Active',0,'2017-07-20 12:12:01',NULL,NULL,NULL),(9,'m6','m6@gmail.com','019',NULL,'trg','Active',0,'2017-07-20 12:43:15',NULL,NULL,NULL),(10,'m7','m7@gmail.com','11',NULL,'trg','Active',0,'2017-07-20 12:46:57',NULL,NULL,NULL),(11,'m7','m7@gmail.com','11',NULL,'Trg','Active',0,'2017-07-20 12:49:21',NULL,NULL,NULL),(12,'m9','m9@gmail.com','011',NULL,'Trg','Active',0,'2017-07-20 12:58:59',NULL,NULL,NULL),(13,'Wan','m11@gmail.com','019',NULL,'Cyb','Active',0,'2017-07-22 04:37:16',NULL,NULL,NULL),(14,'Wan','m12@gmail.com','019',NULL,'Cyb','Active',0,'2017-07-22 04:41:55',NULL,NULL,NULL),(15,'Nadhir','m13@gmail.com','019',NULL,'Kemaman','Active',0,'2017-07-22 04:45:16',NULL,NULL,NULL),(16,'Nadhir','m13@gmail.com','019',NULL,'Cyb','Active',0,'2017-07-22 04:46:28',NULL,NULL,NULL),(17,'Awan','m14@gmail.com','019',NULL,'Kemaman','Active',0,'2017-07-22 04:47:40',NULL,NULL,NULL),(18,'Kea','m15@gmail.com','019',NULL,'asdasdasd','Active',0,'2017-07-22 04:49:17',NULL,NULL,NULL),(19,'asdsad','m16@gmail.com','111',NULL,'sdasda','Active',0,'2017-07-22 04:51:43',NULL,NULL,NULL),(20,'dasd','m17@gmail.com','2323',NULL,'asdas','Active',0,'2017-07-22 04:52:57',NULL,NULL,NULL),(21,'dasd','m18@gmail.com','019',NULL,'kemaman','Active',0,'2017-07-22 04:54:23',NULL,NULL,NULL),(22,'asdas','m19@gmail.com','019',NULL,'kemaman','Active',0,'2017-07-22 04:56:02',NULL,NULL,NULL),(23,'DASD','mrafsyam@gmail.com','09090',NULL,'assdada','Active',0,'2017-07-22 05:43:10',NULL,NULL,NULL);
-/*!40000 ALTER TABLE `AJAKK_USER` ENABLE KEYS */;
-UNLOCK TABLES;
+-- INSERT INTO ajakk.AJAKK_USER (AJAKK_USER_ID,USER_NAME,EMAIl,PHONE_NO,SPORT,LOCATION,STATUS,ROLE_ID,CREATED,UPDATED,SUSPENDED,DES) VALUES 
+-- (1,'name','mrafsyam@gmail.com','0182308888','Makan, makan, makan','Cyberjaya','Active',0,'2017-07-30 23:38:04.000',NULL,NULL,'Suka makan. Very suka makan')
+-- ;
 
 --
 -- Table structure for table `EVENT`
@@ -182,24 +152,10 @@ CREATE TABLE `RELATIONSHIP` (
   `UPDATED` datetime DEFAULT NULL COMMENT 'Last update to the event',
   PRIMARY KEY (`AJAKK_USER_ID_1`,`AJAKK_USER_ID_2`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='Relationship between user';
-/*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `RELATIONSHIP`
---
-
-LOCK TABLES `RELATIONSHIP` WRITE;
-/*!40000 ALTER TABLE `RELATIONSHIP` DISABLE KEYS */;
-/*!40000 ALTER TABLE `RELATIONSHIP` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `VENUE`
---
 
 DROP TABLE IF EXISTS `VENUE`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+
 CREATE TABLE `VENUE` (
   `VENUE_ID` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Unique ID of the venue',
   `OWNER_NAME` varchar(100) NOT NULL COMMENT 'Name of the owner of the venue',
@@ -214,24 +170,3 @@ CREATE TABLE `VENUE` (
   `VENUE_NAME` varchar(50) NOT NULL,
   PRIMARY KEY (`VENUE_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `VENUE`
---
-
-LOCK TABLES `VENUE` WRITE;
-/*!40000 ALTER TABLE `VENUE` DISABLE KEYS */;
-/*!40000 ALTER TABLE `VENUE` ENABLE KEYS */;
-UNLOCK TABLES;
-/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
-
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
-
--- Dump completed on 2017-07-26  1:39:37
