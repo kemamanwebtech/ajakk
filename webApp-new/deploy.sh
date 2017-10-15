@@ -7,5 +7,5 @@ ant default
 #rm $AJAKK_HOME/war/WEB-INF/lib/gwt-dev.jar
 #rm $AJAKK_HOME/war/WEB-INF/lib/gwt-servlet.jar
 echo "Deploying Ajakk_new.war to KWT server..."
-scp Ajakk_new.war raf@144.217.93.255:/opt/tomcat8/webapps/
+scp Ajakk_new.war raf@145.239.86.102:/opt/apache-tomcat-8.5.20/webapps
 echo "Ajakk_new.war was successfully deployed."
