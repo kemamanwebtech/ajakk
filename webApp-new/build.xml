@@ -22,7 +22,7 @@
     </fileset>
 </path>
 
-<target name="default" depends="gwtc, buildwar, deploy">
+<target name="default" depends="gwtc, war, deploy">
 </target>
 
 <target name="gwtc" description="GWT compile to JavaScript">
@@ -50,11 +50,10 @@
     <echo>Finished.</echo>
 </target>
 
-<target name="buildwar" depends="version">
+<target name="war" depends="version">
     <echo>Packaging compiled codes into Ajakk_new.war</echo>
     <delete file="Ajakk_new.war" />
     <war basedir="war" destfile="Ajakk_new.war" webxml="war/WEB-INF/web.xml">
-<!--         <exclude name="WEB-INF/**" /> -->
         <webinf dir="war/WEB-INF/">
             <include name="lib/mysql-connector-java-5.1.40-bin.jar" />
             <include name="lib/gwt-material-2.0-rc4.jar" />
@@ -64,7 +63,7 @@
             <include name="lib/validation-api-1.0.0.GA-sources.jar" />
             <include name="httpclient-4.5.2.jar"/>
             <include name="httpcore-4.4.4.jar"/>
-            <include name="**/classes/**" />
+            <include name="classes/**" />
         </webinf>
     </war>
     <echo>Finished.</echo>
@@ -80,15 +79,12 @@
 </target>
 
 <target name="deploy">
-    <copy file="Ajakk_new.war" todir="." />
+    <copy file="Ajakk_new.war" todir="/opt/apache-tomcat-8.0.39/webapps" />
 </target>
 
 <target name="clean">
-    <echo>Removing old compiled class files</echo>
+    <echo>Deleting classes files"</echo>
     <delete dir="war/WEB-INF/classes"/>
-    <mkdir dir="war/WEB-INF/classes"/>
-    <echo>Finished.</echo>
 </target>
-
 
 </project>
