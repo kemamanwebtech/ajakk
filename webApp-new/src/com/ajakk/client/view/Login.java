@@ -1,4 +1,6 @@
+
 package com.ajakk.client.view;
+
 import com.ajakk.client.App;
 import com.ajakk.client.Config;
 import com.ajakk.client.Rpc;
@@ -22,22 +24,31 @@ import gwt.material.design.client.ui.MaterialTextBox;
 public class Login extends Composite {
     private static LoginUiBinder uiBinder = GWT.create(LoginUiBinder.class);
 
-    interface LoginUiBinder extends UiBinder<Widget, Login> {}
+    interface LoginUiBinder extends UiBinder<Widget, Login> {
+    }
 
-    private final RpcAsync   rpc = GWT.create(Rpc.class);
-    @UiField MaterialModal   modal;
-    @UiField MaterialButton  btnLogin;
-/*    @UiField MaterialButton  btnLoginGmail;
-    @UiField MaterialButton  btnLoginFb;*/
-    @UiField MaterialTextBox txtEmail;
-    @UiField MaterialTextBox txtPassword;
+    private final RpcAsync rpc = GWT.create(Rpc.class);
+    @UiField
+    MaterialModal          modal;
+    @UiField
+    MaterialButton         btnLogin;
+    /*
+     * @UiField MaterialButton btnLoginGmail;
+     * 
+     * @UiField MaterialButton btnLoginFb;
+     */
+    @UiField
+    MaterialTextBox txtEmail;
+    @UiField
+    MaterialTextBox txtPassword;
 
-    public Login() {
+    public Login()
+    {
         initWidget(uiBinder.createAndBindUi(this));
         modal.setDismissible(true);
         modal.setPixelSize(500, 270);
         modal.getWidget(0).setHeight("100%");
-        
+
         txtEmail.setText("mrafsyam@gmail.com");
         txtPassword.setText("password");
         btnLogin.addClickHandler(new ClickHandler() {
@@ -61,41 +72,42 @@ public class Login extends Composite {
                     @Override
                     public void onSuccess(LoginDTO result) {
                         switch (result.getUserStatus()) {
-                        case "NotActive" :
-                            App.showMessage("Error", Config.ACC_NOTACTIVE, "", 500, 500);
-                            break;
-                        case "Blocked" :
-                            App.showMessage("Error", Config.ACC_BLOCKED, "", 500, 500);
-                            break;
-                        case "Locked" :
-                            App.showMessage("Error", Config.ACC_LOCKED, "", 500, 500);
-                            break;
-                        case "Deleted" :
-                            App.showMessage("Error", Config.ACC_DELETED, "", 500, 500);
-                            break;
-                        case "Invalid" :
-                            App.showMessage("Uh oh!", Config.AUTH_ERROR, "", 450, 250);
-                            break;
-                        case "Active" :
-                            
-                            
-                            rpc.getUser(txtEmail.getText(), new AsyncCallback<UserDTO>() {
-                                @Override
-                                public void onFailure(Throwable caught) {
-                                    App.showMessage("Error", caught.getMessage().toString(), "", 500, 500);
-                                }
+                            case "NotActive":
+                                App.showMessage("Error", Config.ACC_NOTACTIVE, "", 500, 500);
+                                break;
+                            case "Blocked":
+                                App.showMessage("Error", Config.ACC_BLOCKED, "", 500, 500);
+                                break;
+                            case "Locked":
+                                App.showMessage("Error", Config.ACC_LOCKED, "", 500, 500);
+                                break;
+                            case "Deleted":
+                                App.showMessage("Error", Config.ACC_DELETED, "", 500, 500);
+                                break;
+                            case "Invalid":
+                                App.showMessage("Uh oh!", Config.AUTH_ERROR, "", 450, 250);
+                                break;
+                            case "Active":
 
-                                @Override
-                                public void onSuccess(UserDTO result) {
-                                    if (result != null) {
-                                        App.loggedInUser = result;
-                                        Dashboard dashboard = new Dashboard();
-                                        RootPanel.get().clear();
-                                        RootPanel.get().add(dashboard);
-                                    } else App.showMessage("Error", "Failed to get user.", "", 500, 500);
-                                }
-                            });
-                            break;
+                                rpc.getUser(txtEmail.getText(), new AsyncCallback<UserDTO>() {
+                                    @Override
+                                    public void onFailure(Throwable caught) {
+                                        App.showMessage("Error", caught.getMessage().toString(), "", 500, 500);
+                                    }
+
+                                    @Override
+                                    public void onSuccess(UserDTO result) {
+                                        if (result != null) {
+                                            App.loggedInUser = result;
+                                            Dashboard dashboard = new Dashboard();
+                                            RootPanel.get().clear();
+                                            RootPanel.get().add(dashboard);
+                                        }
+                                        else
+                                            App.showMessage("Error", "Failed to get user.", "", 500, 500);
+                                    }
+                                });
+                                break;
                         }
                     }
                 });

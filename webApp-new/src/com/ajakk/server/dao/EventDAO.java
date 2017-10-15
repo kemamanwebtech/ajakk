@@ -120,7 +120,7 @@ public class EventDAO {
             stmt.setInt(5, event.getLookFor());
             stmt.setInt(6, event.getOwnerID());
             stmt.executeUpdate();
-            System.out.println(ServerSideUtil.getQuery(stmt));
+            ServerSideUtil.printQuery(this, stmt);
             return true;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -177,7 +177,7 @@ public class EventDAO {
             stmt.setInt(2, user.getUserID());
             
             ResultSet rs = stmt.executeQuery();
-            System.out.println(ServerSideUtil.getQuery(stmt));
+            ServerSideUtil.printQuery(this, stmt);
             
             if (rs.next()) {
                 result = true;
@@ -212,7 +212,7 @@ public class EventDAO {
             stmt.setInt(1, event.getEventID());
             stmt.setInt(2, user.getUserID());
             stmt.setString(3, "Attending");
-            System.out.println(ServerSideUtil.getQuery(stmt));
+            ServerSideUtil.printQuery(this, stmt);
             stmt.executeUpdate();
             result = true;
         } catch (SQLException e) {
@@ -235,7 +235,7 @@ public class EventDAO {
             stmt.setInt(1, event.getEventID());
             ResultSet rs = stmt.executeQuery();
             
-            System.out.println(ServerSideUtil.getQuery(stmt));
+            ServerSideUtil.printQuery(this, stmt);
 
             while (rs.next()) {
                 UserDTO user = new UserDTO();

@@ -33,7 +33,7 @@ public class LoginDAO {
             pstmt.setString(2, passwd);
 
             ResultSet rs = pstmt.executeQuery();
-            System.out.println("In checkLogin : " + ServerSideUtil.getQuery(pstmt));
+            ServerSideUtil.printQuery(this, pstmt);
 
             if (rs.next()) {
                 System.out.println("INFO : " + result.toString());

@@ -1,5 +1,8 @@
+/*
+ * UI class to view user profile
+ */
+
 package com.ajakk.client.view;
-import java.util.Date;
 
 import com.ajakk.client.Rpc;
 import com.ajakk.client.RpcAsync;
@@ -18,25 +21,28 @@ import gwt.material.design.client.ui.MaterialButton;
 import gwt.material.design.client.ui.MaterialImage;
 import gwt.material.design.client.ui.MaterialLabel;
 import gwt.material.design.client.ui.MaterialModal;
+import gwt.material.design.client.ui.MaterialModalContent;
 
 public class UserProfile extends Composite {
-    public UserDTO                     user;
-    @UiField MaterialModal             modal;
-    @UiField MaterialButton            editBtn;
-    @UiField MaterialLabel             userName;
-    @UiField MaterialLabel             dateJoined;
-    @UiField MaterialLabel             userLocation;
-    @UiField MaterialLabel             userActivity;
-    @UiField MaterialLabel             userDescription;
-    @UiField MaterialLabel             userPhone;
-    @UiField MaterialLabel             userEmail;
-    @UiField MaterialImage             userProfilePic;
-    
+    public UserDTO                user;
+    @UiField MaterialModal        modal;
+    @UiField MaterialModalContent modalContent;
+    @UiField MaterialButton       editBtn;
+    @UiField MaterialLabel        userName;
+    @UiField MaterialLabel        dateJoined;
+    @UiField MaterialLabel        userLocation;
+    @UiField MaterialLabel        userActivity;
+    @UiField MaterialLabel        userDescription;
+    @UiField MaterialLabel        userPhone;
+    @UiField MaterialLabel        userEmail;
+    @UiField MaterialImage        userProfilePic;
+
     private static UserProfileUiBinder uiBinder = GWT.create(UserProfileUiBinder.class);
     private final RpcAsync             rpc      = GWT.create(Rpc.class);
-    UserProfile instance = null;
+    UserProfile                        instance = null;
 
-    interface UserProfileUiBinder extends UiBinder<Widget, UserProfile> {}
+    interface UserProfileUiBinder extends UiBinder<Widget, UserProfile> {
+    }
 
     public UserProfile() {
         initWidget(uiBinder.createAndBindUi(this));
@@ -45,42 +51,32 @@ public class UserProfile extends Composite {
     }
 
     public void setUser(UserDTO user) {
-        modal.setDismissible(true);
         this.user = user;
         userName.setText(user.getName());
-        
+
         if (user.getDes().equals("") || user.getDes() == null) {
             userDescription.setText("Say something funny here");
         } else {
             userDescription.setText(user.getDes());
         }
-        
+
         if (user.getSport().equals("") || user.getSport() == null) {
             userActivity.setText("List your favourite activities here");
         } else {
             userActivity.setText(user.getSport());
         }
-        
-        
-        
+
         userLocation.setText(user.getLocation());
         userPhone.setText(user.getPhoneNumber());
         userEmail.setText(user.getEmail());
-        
+
         // get date the user joined
         DateTimeFormat format = DateTimeFormat.getFormat("MMM yyyy");
         dateJoined.setText("Joined since " + format.format(user.getCreated()));
-        
-        
-        
-//        userProfilePic.setPadding(30);
-//        userProfilePic.setMargin(50);
-//        userProfilePic.setBackgroundColor(Color.BLUE);
     }
 
     @UiHandler("editBtn")
     void onEditProfileClicked(ClickEvent e) {
-        // call here
         EditUserProfile EditUserProfile = new EditUserProfile();
         RootPanel.get().add(EditUserProfile);
         instance.modal.close();
@@ -89,8 +85,9 @@ public class UserProfile extends Composite {
 
     public void show(UserDTO user) {
         setUser(user);
-        modal.setWidth("505px");
-        modal.setHeight("450px");
+        modal.setDismissible(true);
+        modal.setPixelSize(600, 270);
+        modal.getWidget(0).setHeight("100%");
         modal.open();
     }
 }

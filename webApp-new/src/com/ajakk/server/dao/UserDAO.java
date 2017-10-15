@@ -26,7 +26,7 @@ public class UserDAO extends UserDTO {
             PreparedStatement stmt = con.prepareStatement(sql);
             ResultSet rs = stmt.executeQuery();
 
-            System.out.println("INFO : In UserDAO.getAllUsers... " + ServerSideUtil.getQuery(stmt));
+            ServerSideUtil.printQuery(this, stmt);
 
             while (rs.next()) {
 
@@ -66,7 +66,7 @@ public class UserDAO extends UserDTO {
             stmt.setInt(5, user.getRoleID());
             stmt.setString(6, user.getLocation());
 
-            System.out.println("INFO : In UserDAO.registerUser... " + ServerSideUtil.getQuery(stmt));
+            ServerSideUtil.printQuery(this, stmt);
             stmt.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -125,19 +125,15 @@ public class UserDAO extends UserDTO {
     }
 
     public void deleteUser(UserDTO user) {
-
         try {
-
             PreparedStatement stmt = con.prepareStatement("DELETE FROM AJAKK WHERE USER_ID=?");
-
             stmt.setInt(1, user.getUserID());
             stmt.executeUpdate();
-
-        } catch (SQLException e) {
+        }
+        catch (SQLException e) {
             e.printStackTrace();
             System.out.println("ERROR : In UserDAO.deleteUser()... " + e.getMessage());
         }
-
     }
 
     public String getUserIdByEmail(String username, Connection con) {
@@ -202,7 +198,7 @@ public class UserDAO extends UserDTO {
             stmt.setInt(1, id);
             ResultSet rs = stmt.executeQuery();
 
-            System.out.println("In getUserByID(), " + ServerSideUtil.getQuery(stmt));
+            ServerSideUtil.printQuery(this, stmt);
 
             while (rs.next()) {
                 user = new UserDTO();
@@ -255,5 +251,33 @@ public class UserDAO extends UserDTO {
 
         System.out.println("returning userList..");
         return userList;
+    }
+
+    public int saveUserProfile(UserDTO user, Connection con) {
+        PreparedStatement stmt = null;
+        String query = " UPDATE AJAKK_USER SET USER_NAME=?, "
+                + " LOCATION=?, "
+                + " EMAIL=?, "
+                + " PHONE_NO=?,"
+                + " SPORT=?, "
+                + " DES=? "
+                + " WHERE AJAKK_USER_ID=? ";
+        try {
+            stmt = con.prepareStatement(query);
+            stmt.setString(1, user.getName());
+            stmt.setString(2, user.getLocation());
+            stmt.setString(3, user.getEmail());
+            stmt.setString(4, user.getPhoneNumber());
+            stmt.setString(5, user.getSport());
+            stmt.setString(6, user.getDes());
+            stmt.setInt(7, user.getUserID());
+            ServerSideUtil.printQuery(this, stmt);
+            stmt.executeUpdate();
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+            return -1;
+        }
+        return 1;
     }
 }

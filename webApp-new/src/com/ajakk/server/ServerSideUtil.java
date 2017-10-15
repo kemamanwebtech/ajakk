@@ -1,15 +1,18 @@
+/*
+ * Server side utility class for easy debugging
+ */
+
 package com.ajakk.server;
 
-import java.sql.PreparedStatement;
+import java.sql.Statement;
 
 public class ServerSideUtil {
-    
-    public static String getQuery (PreparedStatement stmt){
+
+    public static void printQuery(Object context, Statement stmt) {
         String tempSQL = stmt.toString();
-        int strStmt = tempSQL.indexOf(":")+2;
+        int strStmt = tempSQL.indexOf(":") + 2;
         tempSQL = tempSQL.substring(strStmt);
-        return tempSQL;
+        System.out.println(context.getClass().getSimpleName() + " : " + tempSQL);
     }
-    
-    
+
 }

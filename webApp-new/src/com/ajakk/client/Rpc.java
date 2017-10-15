@@ -39,4 +39,6 @@ public interface Rpc extends RemoteService {
     String joinEvent(EventDTO event, UserDTO loggedInUser);
 
     List<UserDTO> viewParticipant(EventDTO event, UserDTO loggedInUser);
+    
+    Integer saveUserProfile(UserDTO user);
 }

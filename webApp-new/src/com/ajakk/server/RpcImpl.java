@@ -1,9 +1,9 @@
+
 package com.ajakk.server;
 
 import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.List;
-
 import com.ajakk.client.Rpc;
 import com.ajakk.server.dao.EventDAO;
 import com.ajakk.server.dao.FactoryDAO;
@@ -15,7 +15,6 @@ import com.ajakk.shared.UserDTO;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;
 
-
 /**
  * The server-side implementation of the RPC service.
  */
@@ -25,12 +24,10 @@ public class RpcImpl extends RemoteServiceServlet implements Rpc {
     FactoryDAO daoFactory = new FactoryDAO();
 
     @Override
-    public LoginDTO doLogin(String email, String passwd)
-            throws IllegalArgumentException {
+    public LoginDTO doLogin(String email, String passwd) throws IllegalArgumentException {
 
         LoginDAO loginDAO = daoFactory.getLoginDAO();
-        return loginDAO.checkLogin(daoFactory.getConnection(), email,
-                passwd);
+        return loginDAO.checkLogin(daoFactory.getConnection(), email, passwd);
     }
 
     @SuppressWarnings("unused")
@@ -38,8 +35,7 @@ public class RpcImpl extends RemoteServiceServlet implements Rpc {
         if (html == null) {
             return null;
         }
-        return html.replaceAll("&", "&amp;").replaceAll("<", "&lt;")
-                .replaceAll(">", "&gt;");
+        return html.replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;");
     }
 
     @Override
@@ -54,8 +50,7 @@ public class RpcImpl extends RemoteServiceServlet implements Rpc {
     }
 
     @Override
-    public String doSignup(String name, String email, String password,
-            String phone, String location) {
+    public String doSignup(String name, String email, String password, String phone, String location) {
 
         UserDTO user = new UserDTO(name, email, phone, location);
         Connection con = daoFactory.getConnection();
@@ -64,7 +59,8 @@ public class RpcImpl extends RemoteServiceServlet implements Rpc {
         try {
             userDAO.registerUser(user, password, con);
             return "success";
-        } catch (Exception e) {
+        }
+        catch (Exception e) {
             e.printStackTrace();
             System.out.println("ERROR : In RpcImpl.doSignUp.." + e.getMessage());
         }
@@ -72,29 +68,29 @@ public class RpcImpl extends RemoteServiceServlet implements Rpc {
     }
 
     @Override
-    public String createEvent(String name, String type,
-            String datetime, String loc, 
-            String lookFor, UserDTO user) {
-        
+    public String createEvent(String name, String type, String datetime, String loc, String lookFor, UserDTO user) {
+
         String result = "";
-        System.out.println("INFO : In RpcImpl.createEvent().." + "User : " + user.getName() );
-        
+        System.out.println("INFO : In RpcImpl.createEvent().." + "User : " + user.getName());
+
         Connection con = null;
         UserDAO userDAO = null;
         EventDAO eventDAO = null;
         EventDTO event = null;
-        
+
         try {
             con = daoFactory.getConnection();
             event = new EventDTO(name, type, datetime, loc, Integer.parseInt(lookFor), user.getUserID());
             eventDAO = daoFactory.getEventDAO();
-            
+
             if (eventDAO.createEvent(event, con)) {
                 result = "success";
-            } else {
+            }
+            else {
                 result = "Error : failed to create event.";
             }
-        } catch (Exception e) {
+        }
+        catch (Exception e) {
             e.printStackTrace();
             System.out.println("ERROR : In RpcImpl.createEvent().." + e.toString());
         }
@@ -110,7 +106,7 @@ public class RpcImpl extends RemoteServiceServlet implements Rpc {
 
         return user;
     }
-    
+
     @Override
     public UserDTO getUserFromID(int id) {
         Connection con = daoFactory.getConnection();
@@ -128,7 +124,8 @@ public class RpcImpl extends RemoteServiceServlet implements Rpc {
 
         if (eventDAO.joinEvent(event, loggedInUser, con)) {
             return "success";
-        } else {
+        }
+        else {
             return "Error : failed to join event.";
         }
     }
@@ -139,5 +136,13 @@ public class RpcImpl extends RemoteServiceServlet implements Rpc {
         EventDAO eventDAO = daoFactory.getEventDAO();
 
         return eventDAO.viewParticipant(event, loggedInUser, con);
+    }
+
+    @Override
+    public Integer saveUserProfile(UserDTO user) {
+        Connection con = daoFactory.getConnection();
+        UserDAO userDAO = daoFactory.getUserDAO();
+        Integer result = userDAO.saveUserProfile(user, con);
+        return result;
     }
 }

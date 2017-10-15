@@ -1,44 +1,86 @@
-
-
 <!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder" xmlns:g="urn:import:com.google.gwt.user.client.ui" xmlns:m="urn:import:gwt.material.design.client.ui"
  xmlns:ma="urn:import:gwt.material.design.addins.client">
  <ui:style>
- .modal {
- 	
+ .textBox {
+ 	margin: auto;
+ 	font-size: 8px !important;
+ 	display: block !important;
+ 	line-height: 22px !important;
+ 	padding-bottom: 12px !important;
+ 	margin-right: 10px !important;
+ }
+ 
+ .textBox input {
+ 	padding-left: 10px !important;
+ 	text-align: left !important;
+ 	background: white;
+ 	border: 1px solid #e9e9e9;
+ 	border-radius: 3px;
+ 	color: black;
+ 	font-size: 1.5rem;
+ 	height: 2rem;
+ }
+ 
+ .textBox label {
+ 	margin: auto;
+ 	width: 100%;
+ 	font-size: 12px !important;
+ 	display: block !important;
+ 	line-height: 22px !important;
+ 	text-align: left !important;
+ 	margin-left: 10px !important;
+ 	margin-right: 10px !important;
  }
  
  .modalcont {
- 	
+ 	text-align: center;
+ 	box-shadow: none;
+ 	padding: 1px !important;
  }
  
- .editBtn {
- 	
- }
-
  .noborder {
-  border: none ;
+ 	border: none;
+ }
+ 
+ .profileImage {
+ 	width: 120px !important;
+ 	height: 160px !important;
+ 	margin: auto;
+ }
+ 
+ .padding-left-right {
+ 	padding-left: 20px;
+ 	padding-right: 20px;
+ }
+ 
+ .btn {
+    margin: 0px 5px 0px 5px;
  }
  </ui:style>
 
- <m:MaterialModal type="FIXED_FOOTER" ui:field="modal" addStyleNames="{style.modal}" backgroundColor="TRANSPARENT">
+ <m:MaterialModal ui:field="modal" type="DEFAULT" inDuration="200" outDuration="200">
   <m:MaterialModalContent addStyleNames="{style.modalcont}">
-   <m:MaterialRow>
-    <m:MaterialLabel text="Profile Picture" fontSize="0.7em" />
-    <m:MaterialImage ui:field="userProfilePic" url="images/profile.jpg" type="CIRCLE" />
-   </m:MaterialRow>
-   <m:MaterialRow>
-  <m:MaterialTextBox ui:field="name" label="Enter Name" addStyleNames="{style.noborder}" grid="s6"/>
-  <m:MaterialTextBox ui:field="location" label="Enter Location" addStyleNames="{style.noborder}" grid="s6"/>
-  <m:MaterialTextBox ui:field="email" label="Enter Email" addStyleNames="{style.noborder}" grid="s6"/>
-  <m:MaterialTextBox ui:field="phoneNo" label="Enter Phone No." addStyleNames="{style.noborder}" grid="s6"/>
-  <m:MaterialTextBox ui:field="activities" label="Select Activities" addStyleNames="{style.noborder}" grid="s6"/>
-  <m:MaterialTextArea ui:field="aboutMe" label="Tell us something about yourself" addStyleNames="{style.noborder}"  grid="s6"/>
-</m:MaterialRow>
-   <m:MaterialRow>
-    <m:MaterialButton addStyleNames="{style.editBtn}" ui:field="saveBtn" backgroundColor="BLUE" text="Save Profile" waves="LIGHT"
-     textColor="WHITE" iconType="SAVE" iconPosition="LEFT" />
-   </m:MaterialRow>
+   <m:MaterialColumn grid="s4" addStyleNames="{style.padding-left-right}">
+    <ma:fileuploader.MaterialFileUploader ui:field="cardUploader" acceptedFiles="image/*" url="/fileupload"
+     preview="true" maxFileSize="20" shadow="0" clickable="cardUpload" paddingTop="20" addStyleNames="{style.profileImage}">
+     <m:MaterialImage m:id="cardUpload" ui:field="userProfilePic" addStyleNames="{style.profileImage}" url="images/profile.png"
+      type="CIRCLE" />
+    </ma:fileuploader.MaterialFileUploader>
+    <m:MaterialLabel textAlign="CENTER" paddingTop="20" paddingBottom="20">About Me</m:MaterialLabel>
+    <m:MaterialTextBox ui:field="name" label="Name" addStyleNames="{style.textBox}" />
+    <m:MaterialTextBox ui:field="location" label="Location" addStyleNames="{style.textBox}" />
+    <m:MaterialTextBox ui:field="email" label="Email" addStyleNames="{style.textBox}" />
+    <m:MaterialTextBox ui:field="phoneNo" label="Phone No." addStyleNames="{style.textBox}" />
+    <m:MaterialTextBox ui:field="activities" label="Activities" addStyleNames="{style.textBox}" />
+    <m:MaterialTextBox ui:field="aboutMe" label="About Me" addStyleNames="{style.textBox}" />
+    <m:MaterialRow>
+     <m:MaterialButton ui:field="cancelBtn" backgroundColor="BLUE" text="Cancel" waves="LIGHT" textColor="WHITE" iconType="CANCEL"
+      iconPosition="LEFT" addStyleNames="{style.btn}" />
+     <m:MaterialButton ui:field="saveBtn" backgroundColor="BLUE" text="Save" waves="LIGHT" textColor="WHITE" iconType="SAVE"
+      iconPosition="LEFT" addStyleNames="{style.btn}" />
+    </m:MaterialRow>
+   </m:MaterialColumn>
   </m:MaterialModalContent>
  </m:MaterialModal>
 
